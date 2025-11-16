@@ -1,23 +1,28 @@
 extends Node2D
 
-@onready var zAnim = $z_above_head_anim
 @onready var cutsceneCam = $CutsceneCam
 @onready var blackScreen = $CutsceneCam/BlackScreen
 @onready var interactIndicator = $InteractIndicator
-@onready var bedSprite = $bed.get_node("Sprite2D")
+@onready var bed: StaticBody2D = $bed
+@onready var bedSprite = bed.get_node("Sprite2D")
 @onready var player = $Player
+@onready var z_sprite = preload("res://scenes/z_sprite.tscn")
 
 var wokeUp = false
 var tweensFinished = false
 
 var tween := create_tween()
 
+var spawned_z: Sprite2D
+var z_head_tween: Tween
+
 func _ready() -> void:
 	blackScreen.visible = true
 	fade_in_tween()
+	z_tween()
 	player.canMove = false
 
-func _physics_process(_delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _input(event: InputEvent) -> void:
@@ -25,7 +30,9 @@ func _input(event: InputEvent) -> void:
 		if !wokeUp:
 			wokeUp = true
 			cam_shift()
-			zAnim.stop()
+			z_head_tween.kill()
+			if spawned_z:
+				spawned_z.free()
 			bedSprite.frame = 0
 			player.visible = true
 func reset_tween():
@@ -38,7 +45,7 @@ func cam_shift():
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(cutsceneCam, "global_position", player.position, 0.3).set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(interactIndicator, "modulate:a", 0, 1)
+	tween.tween_property(interactIndicator, "modulate:a", 0, 0.5)
 	tween.tween_callback(
 	func switch_to_player_cam():
 		cutsceneCam.free()
@@ -52,9 +59,40 @@ func fade_in_tween():
 	bs_tween.set_ease(Tween.EASE_IN_OUT)
 	bs_tween.tween_property(blackScreen, "modulate:a", 0, 5)
 	tween.set_ease(Tween.EASE_IN)
-	tween.tween_property(interactIndicator, "modulate:a", 1, 2.5).set_delay(2)
+	tween.tween_property(interactIndicator, "modulate:a", 1, 1.5).set_delay(2)
 	tween.tween_callback(
 	func tweens_finished():
 		tweensFinished = true
 		interactIndicator.isUpdating = true
 	)
+func z_tween():
+	spawned_z = z_sprite.instantiate()
+	add_child(spawned_z)
+	var pos_x = bed.position.x + 8
+	var pos_y = bed.position.y + 3
+	
+	var tween_time = randf_range(3, 4)
+	var tween_rotaton = randf_range(-5, 25)
+	
+	spawned_z.position = Vector2(pos_x, pos_y)
+	spawned_z.modulate.a = 0
+	spawned_z.scale = Vector2(0.5, 0.5)
+	spawned_z.rotation_degrees = -12
+	
+	z_head_tween = create_tween()
+	z_head_tween.set_parallel()
+	z_head_tween.tween_property(spawned_z, "modulate:a", 1, 1)
+	z_head_tween.tween_property(spawned_z, "rotation_degrees", tween_rotaton, tween_time)
+	z_head_tween.tween_property(spawned_z, "scale", Vector2(1, 1), tween_time)
+	z_head_tween.tween_property(spawned_z, "position", Vector2(pos_x + 5, pos_y - 5), tween_time)
+	z_head_tween.tween_property(spawned_z, "modulate:a", 0, 1).set_delay(tween_time - 1)
+	z_head_tween.tween_property(spawned_z, "rotation_degrees", -12, 0).set_delay(tween_time)
+	z_head_tween.tween_property(spawned_z, "scale", Vector2(0.5, 0.5), 0).set_delay(tween_time)
+	z_head_tween.tween_property(spawned_z, "position", Vector2(pos_x, pos_y), 0).set_delay(tween_time)
+	z_head_tween.tween_callback(
+	func reset_z():
+		if !wokeUp:
+			z_head_tween.kill()
+			spawned_z.free()
+			z_tween()
+	).set_delay(tween_time)

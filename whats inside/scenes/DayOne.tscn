@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bobes0ubgxfgr"]
+[gd_scene load_steps=10 format=4 uid="uid://bobes0ubgxfgr"]
 
 [ext_resource type="Script" uid="uid://dd23dtvbn3bqa" path="res://scripts/DayOne.gd" id="1_m4v5y"]
 [ext_resource type="PackedScene" uid="uid://lyewe0q5cjnt" path="res://scenes/bed.tscn" id="2_6merw"]
@@ -6,8 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://c2dwnfutixjke" path="res://assets/black.png" id="4_q4rkf"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://player.tscn" id="5_142bu"]
 [ext_resource type="PackedScene" uid="uid://dx8tl06100qlm" path="res://interact_indicator.tscn" id="6_epvxm"]
-[ext_resource type="Texture2D" uid="uid://c1vqa3xvkk6d1" path="res://assets/z_sprite_1.png" id="7_0dxpw"]
-[ext_resource type="Texture2D" uid="uid://cdx605lb8teew" path="res://assets/z_sprite_2.png" id="8_0snk2"]
 [ext_resource type="Texture2D" uid="uid://durvrk5ksrj78" path="res://assets/tilesets/House_tiles.png" id="9_6merw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6merw"]
@@ -68,216 +66,26 @@ texture = ExtResource("9_6merw")
 4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:3/0 = 0
 5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:3/0 = 0
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_hqu6g"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6merw")
-
-[sub_resource type="Animation" id="Animation_tipki"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("z_1:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(53, 20)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("z_1:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.2617994]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("z_1:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5625, 0.5625)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("z_1:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("z_2:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(54.000004, 22.000002)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("z_2:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.2617994]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("z_2:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5625, 0.5625)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("z_2:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_85g3d"]
-resource_name = "z_above_head"
-length = 6.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("z_1:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(53, 20), Vector2(58, 17)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("z_1:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.2617994, 0.12217305]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("z_1:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.5625, 0.5625), Vector2(1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("z_1:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.3, 2.01, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("z_2:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(2.94298, 5.733333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(54.000004, 22.000002), Vector2(57.999996, 17.999998)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("z_2:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(2.94298, 5.733333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.2617994, -0.034906585]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("z_2:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(2.94298, 5.733333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.5625, 0.5625), Vector2(1, 1)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("z_2:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(2.94298, 4.331178, 5.10996, 5.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_choun"]
-_data = {
-&"RESET": SubResource("Animation_tipki"),
-&"z_above_head": SubResource("Animation_85g3d")
-}
 
 [node name="dayOne" type="Node2D"]
 y_sort_enabled = true
@@ -285,47 +93,28 @@ script = ExtResource("1_m4v5y")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -1
-tile_map_data = PackedByteArray("AAABAAEAAAAAAAIAAAABAAIAAAAAAAIAAAACAAIAAAAAAAIAAAADAAIAAAAAAAIAAAADAAEAAAAAAAIAAAACAAEAAAAAAAIAAAADAAAAAAAAAAIAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAAEAAEAAAAAAAIAAAAEAAIAAAAAAAIAAAAFAAIAAAAAAAIAAAAFAAEAAAAAAAIAAAAEAAAAAAAAAAEAAAAFAAAAAAABAAEAAAADAP//AAABAAEAAAACAP//AAABAAEAAAABAP//AAABAAEAAAAAAAIAAAADAAAAAAAAAAEAAAADAAAAAAAAAAAAAAADAAAAAAAAAP//AAADAAAAAAAGAAIAAAAEAAAAAAAGAAEAAAACAAIAAAAGAAAAAAAEAAAAAAAFAP//AAAGAAAAAAAEAP//AAAEAAEAAAADAP7/AAAGAAAAAAACAP7/AAAGAAAAAAABAP7/AAAGAAAAAAAFAAMAAAAFAAAAAAAEAAMAAAAFAAAAAAADAAMAAAAFAAAAAAACAAMAAAAFAAAAAAABAAMAAAAFAAAAAAAGAAMAAAAGAAIAAAAEAP7/AAAGAAEAAAAGAP//AAAGAAEAAAAAAP7/AAAFAAEAAAAAAAMAAAAFAAIAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAIAAAAAAAEAAAAAAAIAAAAAAAIAAAAAAAIAAAAAAAMAAAAAAAIAAAABAAMAAAAAAAIAAAACAAMAAAAAAAIAAAADAAMAAAAAAAIAAAADAAIAAAAAAAIAAAADAAEAAAAAAAIAAAADAAAAAAAAAAIAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAABAAEAAAAAAAIAAAABAAIAAAAAAAIAAAACAAIAAAAAAAIAAAACAAEAAAAAAAIAAAAEAAMAAAAAAAIAAAAEAAIAAAAAAAIAAAAEAAEAAAAAAAIAAAAEAAAAAAAAAAIAAAAFAAAAAAAAAAIAAAAFAAEAAAAAAAIAAAAFAAIAAAAAAAIAAAAFAAMAAAAAAAIAAAAFAAQAAAAAAAIAAAAFAAUAAAAAAAIAAAAFAAYAAAAAAAIAAAAFAAcAAAAAAAIAAAAGAAcAAAAAAAIAAAAHAAcAAAAAAAIAAAAIAAcAAAAAAAIAAAAJAAcAAAAAAAIAAAAJAAYAAAAAAAIAAAAJAAUAAAAAAAIAAAAJAAQAAAAAAAIAAAAJAAMAAAAAAAIAAAAJAAIAAAAAAAIAAAAJAAEAAAAAAAIAAAAJAAAAAAAAAAIAAAAIAAAAAAAAAAIAAAAHAAAAAAAAAAIAAAAGAAAAAAAAAAIAAAAGAAEAAAAAAAIAAAAGAAIAAAAAAAIAAAAGAAMAAAAAAAIAAAAGAAQAAAAAAAIAAAAGAAUAAAAAAAIAAAAHAAUAAAAAAAIAAAAHAAYAAAAAAAIAAAAIAAYAAAAAAAIAAAAIAAUAAAAAAAIAAAAIAAQAAAAAAAIAAAAIAAMAAAAAAAIAAAAIAAIAAAAAAAIAAAAIAAEAAAAAAAIAAAAHAAEAAAAAAAIAAAAHAAIAAAAAAAIAAAAGAAYAAAAAAAIAAAAHAAQAAAAAAAIAAAAHAAMAAAAAAAIAAAAAAP//AAABAAEAAAABAP//AAABAAEAAAACAP//AAABAAEAAAADAP//AAABAAEAAAAEAP//AAABAAEAAAAFAP//AAABAAEAAAAGAP//AAABAAEAAAAHAP//AAABAAEAAAAIAP//AAABAAEAAAAJAP//AAABAAEAAAAKAP//AAAEAAAAAAAKAAAAAAAEAAAAAAAKAAEAAAAEAAAAAAAKAAIAAAAEAAAAAAAKAAMAAAAEAAAAAAAKAAQAAAAEAAAAAAAKAAUAAAAEAAAAAAAKAAYAAAAEAAAAAAAKAAcAAAAEAAAAAAD//wMAAAADAAAAAAD//wIAAAADAAAAAAD//wEAAAADAAAAAAD//wAAAAADAAAAAAD/////AAADAAAAAAAEAAQAAAADAAIAAAAEAAUAAAADAAAAAAAEAAYAAAADAAAAAAAEAAcAAAADAAAAAAAAAP7/AAAGAAAAAAABAP7/AAAGAAAAAAACAP7/AAAGAAAAAAADAP7/AAAGAAAAAAAEAP7/AAAGAAAAAAAFAP7/AAAGAAAAAAAGAP7/AAAGAAAAAAAHAP7/AAAGAAAAAAAIAP7/AAAGAAAAAAAJAP7/AAAGAAAAAAAFAAgAAAAFAAAAAAAGAAgAAAAFAAAAAAAHAAgAAAAFAAAAAAAIAAgAAAAFAAAAAAAJAAgAAAAFAAAAAAADAAQAAAAFAAAAAAACAAQAAAAFAAAAAAABAAQAAAAFAAAAAAAAAAQAAAAFAAAAAAD//wQAAAAFAAIAAAD///7/AAAFAAEAAAAKAP7/AAAGAAEAAAAKAAgAAAAGAAIAAAAEAAgAAAAFAAIAAAA=")
 tile_set = SubResource("TileSet_hqu6g")
 
 [node name="bed" parent="." instance=ExtResource("2_6merw")]
-position = Vector2(44, 18)
-
-[node name="z_above_head_anim" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_choun")
-}
-autoplay = "z_above_head"
+position = Vector2(10, 1.5)
 
 [node name="CutsceneCam" type="Camera2D" parent="."]
-position = Vector2(44, 28)
+position = Vector2(10, 11.5)
 zoom = Vector2(3.5, 3.5)
 script = ExtResource("3_hqu6g")
 
 [node name="BlackScreen" type="Sprite2D" parent="CutsceneCam"]
 visible = false
+z_index = 2
 position = Vector2(1.9073486e-06, 0)
 scale = Vector2(20.999998, 12.625)
 texture = ExtResource("4_q4rkf")
 
 [node name="Player" parent="." instance=ExtResource("5_142bu")]
 visible = false
-position = Vector2(62, 28)
+position = Vector2(28, 11.5)
 
 [node name="InteractIndicator" parent="." instance=ExtResource("6_epvxm")]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(44, 4)
-
-[node name="z_1" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(53, 20)
-rotation = -0.2617994
-scale = Vector2(0.5625, 0.5625)
-texture = ExtResource("7_0dxpw")
-
-[node name="z_2" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(54.000004, 22.000002)
-rotation = 0.2617994
-scale = Vector2(0.5625, 0.5625)
-texture = ExtResource("8_0snk2")
+position = Vector2(10, -12.5)

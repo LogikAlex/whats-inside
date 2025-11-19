@@ -71,13 +71,13 @@ func z_tween():
 	var pos_x = bed.position.x + 8
 	var pos_y = bed.position.y + 3
 	
-	var tween_time = randf_range(3, 4)
-	var tween_rotaton = randf_range(-5, 25)
+	var tween_time = randf_range(2, 4)
+	var tween_rotaton = randf_range(-25, 35)
 	
 	spawned_z.position = Vector2(pos_x, pos_y)
 	spawned_z.modulate.a = 0
 	spawned_z.scale = Vector2(0.5, 0.5)
-	spawned_z.rotation_degrees = -12
+	spawned_z.rotation_degrees = 0
 	
 	z_head_tween = create_tween()
 	z_head_tween.set_parallel()

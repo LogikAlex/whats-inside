@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://i08cixlwo7qb"]
+
+[ext_resource type="Texture2D" uid="uid://k11cc4j8715c" path="res://assets/bedside_whatever_this_shit_even_is.png" id="1_1f8sn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f8sn"]
+size = Vector2(12, 6)
+
+[node name="bedsideCabinet" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1f8sn")
+vframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_1f8sn")

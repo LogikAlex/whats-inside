@@ -1,3 +1,4 @@
 class_name Interact
 
-var nigga: int = 67
+var isUpdating: bool
+var nigga: int

@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4tdeti4covuv"]
+
+[ext_resource type="Script" uid="uid://t58d3tb2ws5j" path="res://scenes/dialogue_system.gd" id="1_fu8b5"]
+[ext_resource type="FontFile" uid="uid://bcqdyewq6d6lm" path="res://assets/fonts/dogica.ttf" id="1_rc1id"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ota6"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0, 0, 0, 0.23921569)
+shadow_size = 15
+shadow_offset = Vector2(0, 3)
+
+[node name="DialogueSystem" type="Node2D"]
+z_index = 4096
+script = ExtResource("1_fu8b5")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -144.0
+offset_top = -28.0
+offset_right = 144.0
+offset_bottom = 28.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ota6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = -144.0
+offset_top = -28.0
+offset_right = 144.0
+offset_bottom = 28.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("1_rc1id")
+bbcode_enabled = true
+scroll_active = false
+visible_characters_behavior = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+max_polyphony = 1000

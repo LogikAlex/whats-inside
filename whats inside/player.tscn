@@ -427,6 +427,7 @@ position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_n7ghd")
 
 [node name="Sprite2D" type="Sprite2D" parent="InteractHitbox"]
+visible = false
 position = Vector2(5.9604645e-08, 5.4999995)
 scale = Vector2(0.03314917, 0.069306925)
 texture = ExtResource("11_nvl01")

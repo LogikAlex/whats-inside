@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var DialogueLabel: RichTextLabel = $HBoxContainer/VBoxContainer/RichTextLabel
+@onready var DialogueLabel: RichTextLabel = $Panel/TextLabel
 
 var dialogue: Array[DE]
 var current_dialogue_item: int = 0
@@ -10,14 +10,13 @@ var player_node: CharacterBody2D
 
 func _ready() -> void:
 	visible = false
-	
-	for i in get_tree().get_nodes_in_group("Player"):
+	for i in get_tree().get_nodes_in_group("player"):
 		player_node = i
 
 func _process(_delta: float) -> void:
 	if current_dialogue_item == dialogue.size():
 		if !player_node:
-			for i in get_tree().get_nodes_in_group("Player"):
+			for i in get_tree().get_nodes_in_group("player"):
 				player_node = i
 			return
 		player_node.can_move = true
@@ -61,10 +60,10 @@ func _function_resource(i: DialogueFunction) -> void:
 	
 	current_dialogue_item += 1
 	next_item = true
-	
+
 func _text_resource(i: DialogueText) -> void:
-	$AudioStreamPlayer2D.stream = i.text_sound
-	$AudioStreamPlayer2D.volume_db = i.text_volume_db
+	$AudioStreamPlayer.stream = i.text_sound
+	$AudioStreamPlayer.volume_db = i.text_volume_db
 	var camera: Camera2D = get_viewport().get_camera_2d()
 	if camera and i.camera_position != Vector2(999.9, 999.9):
 		var camera_tween: Tween = create_tween().set_trans(Tween.TRANS_SINE)
@@ -77,27 +76,37 @@ func _text_resource(i: DialogueText) -> void:
 	var character_timer: float = 0.0
 	
 	while DialogueLabel.visible_characters < total_characters:
-		if Input.is_action_just_pressed("skip_text"):
+		if Input.is_action_just_released("skip_text") and character_timer > 0:
 			DialogueLabel.visible_characters = total_characters
 			break
 		
 		character_timer += get_process_delta_time()
-		if character_timer >= (1.0 / i.text_speed) or text_without_square_brackets[DialogueLabel.visible_characters] == " ":
-			var character: String = text_without_square_brackets[DialogueLabel.visible_characters]
-			DialogueLabel.visible_characters += 1
-			if character != " ":
-				$AudioStreamPlayer2D.pitch_scale = randf_range(i.text_volume_pitch_min, i.text_volume_pitch_max)
-				$AudioStreamPlayer2D.play()
-			character_timer = 0.0
+		print(character_timer)
+		if text_without_square_brackets[DialogueLabel.visible_characters - 1] == "," or text_without_square_brackets[DialogueLabel.visible_characters - 1] == ".":
+			if character_timer >= (3.0 / i.text_speed):
+				var character: String = text_without_square_brackets[DialogueLabel.visible_characters]
+				DialogueLabel.visible_characters += 1
+				if character != " ":
+					$AudioStreamPlayer.pitch_scale = randf_range(i.text_volume_pitch_min, i.text_volume_pitch_max)
+					$AudioStreamPlayer.play()
+				character_timer = 0.0
+		else:
+			if character_timer >= (1.0 / i.text_speed) or text_without_square_brackets[DialogueLabel.visible_characters - 1] == " ":
+				var character: String = text_without_square_brackets[DialogueLabel.visible_characters]
+				DialogueLabel.visible_characters += 1
+				if character != " ":
+					$AudioStreamPlayer.pitch_scale = randf_range(i.text_volume_pitch_min, i.text_volume_pitch_max)
+					$AudioStreamPlayer.play()
+				character_timer = 0.0
 		
 		await get_tree().process_frame
-		
-		while true:
-			await get_tree().process_frame
-			if DialogueLabel.visible_characters == total_characters:
-				if Input.is_action_just_pressed("skip_text"):
-					current_dialogue_item += 1
-					next_item = true
+	
+	while true:
+		await get_tree().process_frame
+		if DialogueLabel.visible_characters == total_characters:
+			if Input.is_action_just_released("skip_text"):
+				current_dialogue_item += 1
+				next_item = true
 
 func _text_without_square_brackets(text: String) -> String:
 	var result: String = ""

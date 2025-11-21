@@ -20,7 +20,7 @@ func _ready() -> void:
 	blackScreen.visible = true
 	fade_in_tween()
 	z_tween()
-	player.canMove = false
+	player.can_move = false
 
 func _process(_delta: float) -> void:
 	pass
@@ -49,7 +49,7 @@ func cam_shift():
 	tween.tween_callback(
 	func switch_to_player_cam():
 		cutsceneCam.free()
-		player.canMove = true
+		player.can_move = true
 	).set_delay(0.3)
 func fade_in_tween():
 	reset_tween()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bobes0ubgxfgr"]
+[gd_scene load_steps=18 format=4 uid="uid://bobes0ubgxfgr"]
 
 [ext_resource type="Script" uid="uid://dd23dtvbn3bqa" path="res://scripts/DayOne.gd" id="1_m4v5y"]
 [ext_resource type="PackedScene" uid="uid://lyewe0q5cjnt" path="res://scenes/bed.tscn" id="2_6merw"]
@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://dx8tl06100qlm" path="res://interact_indicator.tscn" id="6_epvxm"]
 [ext_resource type="PackedScene" uid="uid://i08cixlwo7qb" path="res://scenes/bedsideCabinet.tscn" id="8_m4v5y"]
 [ext_resource type="Texture2D" uid="uid://durvrk5ksrj78" path="res://assets/tilesets/House_tiles.png" id="9_6merw"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="9_q4rkf"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://DialogueExportResource.gd" id="10_142bu"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://DialogueTextResource.gd" id="11_epvxm"]
+[ext_resource type="AudioStream" uid="uid://lk3h1gf4us57" path="res://talk.wav" id="12_142bu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6merw"]
 resource_name = "House"
@@ -88,6 +92,27 @@ texture = ExtResource("9_6merw")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6merw")
 
+[sub_resource type="Resource" id="Resource_0dxpw"]
+script = ExtResource("11_epvxm")
+text = "there's eight black pixels on the bedside cabinet. they seem... [color=yellow]important?[/color]"
+text_speed = 14.0
+text_sound = ExtResource("12_142bu")
+text_volume_db = 1
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_142bu"]
+script = ExtResource("11_epvxm")
+text = "[color=red]I WILL RAPE YOU.[/color]"
+text_speed = 2.0
+text_sound = ExtResource("12_142bu")
+text_volume_db = 1
+text_volume_pitch_min = 0.2
+text_volume_pitch_max = 0.35
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0snk2"]
+size = Vector2(10, 10)
+
 [node name="dayOne" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_m4v5y")
@@ -122,3 +147,10 @@ position = Vector2(9, -12.5)
 
 [node name="bedsideCabinet" parent="." instance=ExtResource("8_m4v5y")]
 position = Vector2(25, 4)
+
+[node name="DialogueArea" parent="." instance=ExtResource("9_q4rkf")]
+position = Vector2(25, 4)
+dialogue = Array[ExtResource("10_142bu")]([SubResource("Resource_0dxpw"), SubResource("Resource_142bu")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
+shape = SubResource("RectangleShape2D_0snk2")

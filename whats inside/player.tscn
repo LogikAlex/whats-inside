@@ -397,7 +397,7 @@ size = Vector2(6, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7ghd"]
 size = Vector2(6, 7)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_b26j0")
 speed = 60.0
 
@@ -413,14 +413,12 @@ shape = SubResource("RectangleShape2D_76oay")
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0
 position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
 
 [node name="InteractIndicator" parent="." instance=ExtResource("10_n7ghd")]
 visible = false
 position = Vector2(0, -20)
 
-[node name="InteractHitbox" type="Area2D" parent="."]
+[node name="InteractHitbox" type="Area2D" parent="." groups=["interact_hitbox_player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractHitbox"]
 position = Vector2(0, 5.5)

@@ -8,23 +8,20 @@ var direction: Vector2
 var current_dir
 var state: playerState
 
-var canMove: bool = true
+var can_move: bool = true
 
 enum directions {DOWN, UP, RIGHT, LEFT}
-enum playerState {IDLE, WALKING, INTERACTING}
+enum playerState {IDLE, WALKING}
 
 func _physics_process(_delta: float) -> void:
-	if state == playerState.INTERACTING:
-		canMove = false
-	
-	if canMove:
+	if can_move:
 		direction = (Input.get_vector("move_left", "move_right", "move_up", "move_down")).normalized()
 		velocity = direction * speed
+		play_anim()
+		interact_orientation()
 	else:
 		play_idle_anim()
 	
-	play_anim()
-	interact_orientation()
 	move_and_slide()
 
 func play_anim():

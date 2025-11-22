@@ -1,22 +1,16 @@
-[gd_scene load_steps=19 format=4 uid="uid://bobes0ubgxfgr"]
+[gd_scene load_steps=14 format=4 uid="uid://qsk7l2uhs1s8"]
 
-[ext_resource type="Script" uid="uid://dd23dtvbn3bqa" path="res://scripts/DayOne.gd" id="1_m4v5y"]
-[ext_resource type="PackedScene" uid="uid://lyewe0q5cjnt" path="res://scenes/bed.tscn" id="2_6merw"]
-[ext_resource type="Script" uid="uid://crwja1rt8tud2" path="res://scripts/cutscene_cam.gd" id="3_hqu6g"]
-[ext_resource type="Texture2D" uid="uid://c2dwnfutixjke" path="res://assets/black.png" id="4_q4rkf"]
-[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="5_142bu"]
-[ext_resource type="PackedScene" uid="uid://dx8tl06100qlm" path="res://scenes/interact_indicator.tscn" id="6_epvxm"]
-[ext_resource type="Texture2D" uid="uid://bsnlq5gaas0au" path="res://assets/interact_indicator_v2.png" id="8_epvxm"]
-[ext_resource type="PackedScene" uid="uid://i08cixlwo7qb" path="res://scenes/bedsideCabinet.tscn" id="8_m4v5y"]
-[ext_resource type="Texture2D" uid="uid://durvrk5ksrj78" path="res://assets/tilesets/House_tiles.png" id="9_6merw"]
-[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="9_q4rkf"]
-[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="10_142bu"]
-[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="11_epvxm"]
-[ext_resource type="AudioStream" uid="uid://lk3h1gf4us57" path="res://talk.wav" id="12_142bu"]
+[ext_resource type="Texture2D" uid="uid://durvrk5ksrj78" path="res://assets/tilesets/House_tiles.png" id="1_tf888"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_mmnir"]
+[ext_resource type="PackedScene" uid="uid://i08cixlwo7qb" path="res://scenes/bedsideCabinet.tscn" id="3_2rfya"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="3_gnaub"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="4_2rfya"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="5_4i6wr"]
+[ext_resource type="AudioStream" uid="uid://lk3h1gf4us57" path="res://talk.wav" id="6_3jvqj"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_142bu"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2d6yk"]
 resource_name = "House"
-texture = ExtResource("9_6merw")
+texture = ExtResource("1_tf888")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -89,70 +83,60 @@ texture = ExtResource("9_6merw")
 7:0/0 = 0
 7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSet" id="TileSet_hqu6g"]
+[sub_resource type="TileSet" id="TileSet_oxs3m"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_142bu")
+sources/0 = SubResource("TileSetAtlasSource_2d6yk")
 
 [sub_resource type="Resource" id="Resource_0dxpw"]
-script = ExtResource("11_epvxm")
-text = "nigga"
+script = ExtResource("5_4i6wr")
+text = "there's eight black pixels on the bedside cabinet. they seem... [color=yellow]important?[/color]"
 text_speed = 14.0
-text_sound = ExtResource("12_142bu")
+text_sound = ExtResource("6_3jvqj")
 text_volume_db = 1
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_142bu"]
-script = ExtResource("11_epvxm")
+script = ExtResource("5_4i6wr")
 text = "[color=red]I WILL RAPE YOU.[/color]"
 text_speed = 2.0
-text_sound = ExtResource("12_142bu")
+text_sound = ExtResource("6_3jvqj")
 text_volume_db = 4
 text_volume_pitch_min = 0.1
 text_volume_pitch_max = 0.2
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0snk2"]
-size = Vector2(8, 4)
+[sub_resource type="Resource" id="Resource_pd67s"]
+script = ExtResource("5_4i6wr")
+text = "NIGGA NIGGA
+NIGGA
+NIGGA NIGGANIGGA
+NIGGA NIGGA NIGGA NIGGA NIGGA"
+text_speed = 19.0
+text_sound = ExtResource("6_3jvqj")
+text_volume_db = 1
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
-[node name="dayOne" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_broaa"]
+size = Vector2(8, 3)
+
+[node name="TestTextbox" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_m4v5y")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -1
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAIAAAAAAAEAAAAAAAIAAAAAAAIAAAAAAAIAAAAAAAMAAAAAAAIAAAABAAMAAAAAAAIAAAACAAMAAAAAAAIAAAADAAMAAAAAAAIAAAADAAIAAAAAAAIAAAADAAEAAAAAAAIAAAADAAAAAAAAAAIAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAABAAEAAAAAAAIAAAABAAIAAAAAAAIAAAACAAIAAAAAAAIAAAACAAEAAAAAAAIAAAAEAAIAAAAAAAIAAAAEAAEAAAAAAAIAAAAEAAAAAAAAAAIAAAAAAP//AAABAAEAAAABAP//AAABAAEAAAACAP//AAABAAEAAAADAP//AAABAAEAAAAEAP//AAABAAEAAAD//wMAAAADAAAAAAD//wIAAAADAAAAAAD//wEAAAADAAAAAAD//wAAAAADAAAAAAD/////AAADAAAAAAAAAP7/AAAGAAAAAAABAP7/AAAGAAAAAAACAP7/AAAGAAAAAAADAP7/AAAGAAAAAAAEAP7/AAAGAAAAAAADAAQAAAAFAAAAAAACAAQAAAAFAAAAAAABAAQAAAAFAAAAAAAAAAQAAAAFAAAAAAD//wQAAAAFAAIAAAD///7/AAAFAAEAAAAEAAQAAAAFAAAAAAAEAAMAAAAAAAIAAAAFAAMAAAAEAAAAAAAFAAIAAAAEAAAAAAAFAAEAAAAEAAAAAAAFAAAAAAAEAAAAAAAFAP//AAAEAAAAAAAFAP7/AAAGAAEAAAAFAAQAAAAGAAIAAAA=")
-tile_set = SubResource("TileSet_hqu6g")
+tile_set = SubResource("TileSet_oxs3m")
 
-[node name="bed" parent="." instance=ExtResource("2_6merw")]
-position = Vector2(9, 1)
+[node name="Player" parent="." instance=ExtResource("2_mmnir")]
+position = Vector2(39, 26)
 
-[node name="CutsceneCam" type="Camera2D" parent="."]
-position = Vector2(9, 11)
-zoom = Vector2(3.5, 3.5)
-script = ExtResource("3_hqu6g")
+[node name="bedsideCabinet" parent="." instance=ExtResource("3_2rfya")]
+position = Vector2(23, 28)
 
-[node name="BlackScreen" type="Sprite2D" parent="CutsceneCam"]
-visible = false
-z_index = 2
-position = Vector2(1.9073486e-06, 0)
-scale = Vector2(20.999998, 12.625)
-texture = ExtResource("4_q4rkf")
+[node name="b_cabinet_dialogue" parent="." instance=ExtResource("3_gnaub")]
+position = Vector2(23, 28)
+dialogue = Array[ExtResource("4_2rfya")]([SubResource("Resource_0dxpw"), SubResource("Resource_142bu"), SubResource("Resource_pd67s")])
 
-[node name="Player" parent="." instance=ExtResource("5_142bu")]
-visible = false
-position = Vector2(27, 11.5)
-
-[node name="InteractIndicator" parent="." instance=ExtResource("6_epvxm")]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(9, -11)
-texture = ExtResource("8_epvxm")
-
-[node name="bedsideCabinet" parent="." instance=ExtResource("8_m4v5y")]
-position = Vector2(25, 4)
-
-[node name="DialogueArea" parent="." instance=ExtResource("9_q4rkf")]
-position = Vector2(25, 4)
-dialogue = Array[ExtResource("10_142bu")]([SubResource("Resource_0dxpw"), SubResource("Resource_142bu")])
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
-shape = SubResource("RectangleShape2D_0snk2")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="b_cabinet_dialogue"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_broaa")

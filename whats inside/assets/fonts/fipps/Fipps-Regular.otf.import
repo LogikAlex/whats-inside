@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bcqdyewq6d6lm"
-path="res://.godot/imported/dogica.ttf-efb44260da865886658b6c3bfd25f9bd.fontdata"
+uid="uid://bg73pqob72vkb"
+path="res://.godot/imported/Fipps-Regular.otf-ddb2a84dd35961f562c53f4369c09c48.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/dogica.ttf"
-dest_files=["res://.godot/imported/dogica.ttf-efb44260da865886658b6c3bfd25f9bd.fontdata"]
+source_file="res://assets/fonts/fipps/Fipps-Regular.otf"
+dest_files=["res://.godot/imported/Fipps-Regular.otf-ddb2a84dd35961f562c53f4369c09c48.fontdata"]
 
 [params]
 

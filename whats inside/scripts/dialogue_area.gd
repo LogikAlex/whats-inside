@@ -28,8 +28,8 @@ func _process(_delta: float) -> void:
 		return
 	
 	if !chose_position:
-		dialogue_pos.x = player_node.global_position.x
-		dialogue_pos.y = player_node.global_position.y + 50
+		dialogue_pos.x = player_node.position.x
+		dialogue_pos.y = player_node.position.y
 		print(dialogue_pos)
 		chose_position = true
 	
@@ -40,17 +40,18 @@ func _process(_delta: float) -> void:
 		
 		if Input.is_action_just_released("interact"):
 			_activate_dialogue()
+			has_activated_already = true
 			player_body_in = false
 
 func _activate_dialogue() -> void:
 	player_node.can_move = false
+	player_node.interact_indicator_disappear()
 	
 	var new_dialogue = DialogueSystemPreload.instantiate()
 	if override_dialogue_position:
 		desired_dialogue_pos = override_position
 	else:
 		desired_dialogue_pos = dialogue_pos
-	new_dialogue.global_position = desired_dialogue_pos
 	new_dialogue.dialogue = dialogue
 	get_parent().add_child(new_dialogue)
 
@@ -58,6 +59,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if only_activate_once and has_activated_already:
 		return
 	if area.is_in_group("interact_hitbox_player"):
+		player_node.interact_indicator_appear()
 		player_body_in = true
 		if activate_instant:
 			_activate_dialogue()
@@ -65,6 +67,7 @@ func _on_area_entered(area: Area2D) -> void:
 
 func _on_area_exited(area: Area2D) -> void:
 	if area.is_in_group("interact_hitbox_player"):
+		player_node.interact_indicator_disappear()
 		player_body_in = false
 
 #func _on_body_entered(body: Node2D) -> void:

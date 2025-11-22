@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cpjra2w67c5ec"
-path="res://.godot/imported/dogicapixelbold.ttf-b2baf8baffa43521aaa0b158f512d4d5.fontdata"
+uid="uid://bqv0rvyl5amyc"
+path="res://.godot/imported/dogicapixel.ttf-72f12e2c356c0d0f509d28e150c5c21d.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/dogicapixelbold.ttf"
-dest_files=["res://.godot/imported/dogicapixelbold.ttf-b2baf8baffa43521aaa0b158f512d4d5.fontdata"]
+source_file="res://assets/fonts/dogica/dogicapixel.ttf"
+dest_files=["res://.godot/imported/dogicapixel.ttf-72f12e2c356c0d0f509d28e150c5c21d.fontdata"]
 
 [params]
 

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://veerrlgx0s0k"
-path="res://.godot/imported/dogicabold.ttf-957bb99b296ad6a8ad6683e7c38d9f4f.fontdata"
+uid="uid://b15da12n3u18d"
+path="res://.godot/imported/C&C Red Alert [INET].ttf-10f7f42d834a821e81e1f3ce3a68212e.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/dogicabold.ttf"
-dest_files=["res://.godot/imported/dogicabold.ttf-957bb99b296ad6a8ad6683e7c38d9f4f.fontdata"]
+source_file="res://assets/fonts/c_c_red_alert_inet/C&C Red Alert [INET].ttf"
+dest_files=["res://.godot/imported/C&C Red Alert [INET].ttf-10f7f42d834a821e81e1f3ce3a68212e.fontdata"]
 
 [params]
 

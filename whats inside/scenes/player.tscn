@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://c8wffxipu48vg"]
+[gd_scene load_steps=64 format=3 uid="uid://c8wffxipu48vg"]
 
 [ext_resource type="Script" uid="uid://bnfiisxvu8wt5" path="res://scripts/player.gd" id="1_b26j0"]
 [ext_resource type="Texture2D" uid="uid://c4s1foax8pwx4" path="res://assets/Spritesheets/player_idle_front.png" id="1_hqtel"]
@@ -9,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dt5bx3cwblvlu" path="res://assets/Spritesheets/player_walk_left.png" id="5_n7ghd"]
 [ext_resource type="Texture2D" uid="uid://ciuu5gb3xv4dw" path="res://assets/Spritesheets/player_walk_right.png" id="7_nvl01"]
 [ext_resource type="Texture2D" uid="uid://c8l3i44h463w" path="res://assets/Spritesheets/player_walk_up.png" id="9_ivps1"]
-[ext_resource type="PackedScene" uid="uid://dx8tl06100qlm" path="res://interact_indicator.tscn" id="10_n7ghd"]
+[ext_resource type="PackedScene" uid="uid://dx8tl06100qlm" path="res://scenes/interact_indicator.tscn" id="10_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://bsnlq5gaas0au" path="res://assets/interact_indicator_v2.png" id="11_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://dnjmk0p42uyno" path="res://fico.png" id="11_nvl01"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
@@ -410,13 +411,19 @@ animation = &"front_idle"
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_76oay")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=["player_cam"]]
 process_callback = 0
 position_smoothing_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
 
 [node name="InteractIndicator" parent="." instance=ExtResource("10_n7ghd")]
-visible = false
-position = Vector2(0, -20)
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -18)
+texture = ExtResource("11_3v2ag")
+isUpdating = true
 
 [node name="InteractHitbox" type="Area2D" parent="." groups=["interact_hitbox_player"]]
 

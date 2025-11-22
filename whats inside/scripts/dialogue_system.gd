@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 @onready var DialogueLabel: RichTextLabel = $Panel/TextLabel
 
@@ -81,7 +81,6 @@ func _text_resource(i: DialogueText) -> void:
 			break
 		
 		character_timer += get_process_delta_time()
-		print(character_timer)
 		if text_without_square_brackets[DialogueLabel.visible_characters - 1] == "," or text_without_square_brackets[DialogueLabel.visible_characters - 1] == ".":
 			if character_timer >= (3.0 / i.text_speed):
 				var character: String = text_without_square_brackets[DialogueLabel.visible_characters]

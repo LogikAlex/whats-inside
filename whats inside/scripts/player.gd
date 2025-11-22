@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed: float = 50.0
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interactHitbox: Area2D = $InteractHitbox
+@onready var interactIndicator: Sprite2D = $InteractIndicator
 
 var direction: Vector2
 var current_dir
@@ -19,10 +20,9 @@ func _physics_process(_delta: float) -> void:
 		velocity = direction * speed
 		play_anim()
 		interact_orientation()
+		move_and_slide()
 	else:
 		play_idle_anim()
-	
-	move_and_slide()
 
 func play_anim():
 	if direction:
@@ -74,3 +74,11 @@ func play_idle_anim():
 		sprite.play("right_idle")
 	elif current_dir == directions.LEFT:
 		sprite.play("left_idle")
+
+func interact_indicator_appear():
+	var tween: Tween = create_tween()
+	tween.tween_property(interactIndicator, "modulate:a", 1, 0.2)
+
+func interact_indicator_disappear():
+	var tween: Tween = create_tween()
+	tween.tween_property(interactIndicator, "modulate:a", 0, 0.2)

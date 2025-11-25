@@ -94,4 +94,4 @@ skip_text={
 textures/canvas_textures/default_texture_filter=0
 gl_compatibility/nvidia_disable_threaded_optimization=false
 renderer/rendering_method="mobile"
-environment/defaults/default_clear_color=Color(0.072842635, 0.072842635, 0.072842635, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

@@ -6,7 +6,7 @@ extends Node2D
 @onready var bed: StaticBody2D = $bed
 @onready var bedSprite = bed.get_node("Sprite2D")
 @onready var player = $Player
-@onready var z_sprite = preload("res://scenes/z_sprite.tscn")
+@onready var z_sprite = preload("res://scenes/Objects/z_sprite.tscn")
 
 var wokeUp = false
 var tweensFinished = false

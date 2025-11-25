@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=4 uid="uid://trq8e4jgloen"]
+[gd_scene load_steps=32 format=4 uid="uid://trq8e4jgloen"]
 
 [ext_resource type="Texture2D" uid="uid://durvrk5ksrj78" path="res://assets/tilesets/House_tiles.png" id="1_5jym8"]
+[ext_resource type="Script" uid="uid://dd23dtvbn3bqa" path="res://scripts/DayOneBedroomSequence.gd" id="1_y7i15"]
 [ext_resource type="PackedScene" uid="uid://lyewe0q5cjnt" path="res://scenes/Objects/bed.tscn" id="2_y7i15"]
 [ext_resource type="PackedScene" uid="uid://c014t28xfb40m" path="res://scenes/Objects/radiator.tscn" id="3_fcra2"]
 [ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="4_ba3ax"]
@@ -186,7 +187,12 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dihqp"]
 size = Vector2(10, 11)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7i15"]
+size = Vector2(4, 20)
+
 [node name="DayOneBedroom" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_y7i15")
 
 [node name="Tiles" type="TileMapLayer" parent="."]
 z_index = -1
@@ -264,3 +270,9 @@ dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_0snk2"), SubRes
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bed_dialog"]
 shape = SubResource("RectangleShape2D_dihqp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(130, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_y7i15")

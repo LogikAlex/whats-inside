@@ -59,10 +59,12 @@ func _on_area_entered(area: Area2D) -> void:
 	if only_activate_once and has_activated_already:
 		return
 	if area.is_in_group("interact_hitbox_player"):
-		player_node.interact_indicator_appear()
 		player_body_in = true
 		if activate_instant:
 			_activate_dialogue()
+			has_activated_already = true
+		else:
+			player_node.interact_indicator_appear()
 
 
 func _on_area_exited(area: Area2D) -> void:

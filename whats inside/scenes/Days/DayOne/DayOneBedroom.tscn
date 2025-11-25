@@ -1,0 +1,266 @@
+[gd_scene load_steps=30 format=4 uid="uid://trq8e4jgloen"]
+
+[ext_resource type="Texture2D" uid="uid://durvrk5ksrj78" path="res://assets/tilesets/House_tiles.png" id="1_5jym8"]
+[ext_resource type="PackedScene" uid="uid://lyewe0q5cjnt" path="res://scenes/Objects/bed.tscn" id="2_y7i15"]
+[ext_resource type="PackedScene" uid="uid://c014t28xfb40m" path="res://scenes/Objects/radiator.tscn" id="3_fcra2"]
+[ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="4_ba3ax"]
+[ext_resource type="PackedScene" uid="uid://i08cixlwo7qb" path="res://scenes/Objects/bedsideCabinet.tscn" id="5_7k8r6"]
+[ext_resource type="Script" uid="uid://crwja1rt8tud2" path="res://scripts/cutscene_cam.gd" id="6_xm0cx"]
+[ext_resource type="Texture2D" uid="uid://c2dwnfutixjke" path="res://assets/black.png" id="7_68srq"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="8_kv6j8"]
+[ext_resource type="PackedScene" uid="uid://dx8tl06100qlm" path="res://scenes/interact_indicator.tscn" id="9_n8kq3"]
+[ext_resource type="Texture2D" uid="uid://bsnlq5gaas0au" path="res://assets/interact_indicator_v2.png" id="10_6m637"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="11_ma0t7"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="12_dtrlo"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="13_sqv23"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/ian_voice.wav" id="14_5tb5o"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ts7jg"]
+resource_name = "House"
+texture = ExtResource("1_5jym8")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.036961, 8, 8, 8, 8, 5.9496574, 4.070818, 5.9888)
+1:2/0/physics_layer_0/polygon_1/points = PackedVector2Array(4.031676, -5.9887996, 4.091255, -8, 8, -8, 8, -6.027942)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.011596, -6.0747027, -8, -6.017394, -8, -8, -3.9925327, -8)
+2:2/0/physics_layer_0/polygon_1/points = PackedVector2Array(-3.9784427, 6.0623884, -8, 6.0623884, -8, 8, -3.9789467, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -5.988799, 8, -5.988799, 3.9925332, -8, 4.031676)
+1:3/0/physics_layer_0/polygon_1/points = PackedVector2Array(6.016944, 8, 8, 8, 8, 4.043646, 6.016944, 4.0112963)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.9542885, -6.0173945, -3.954288, -6.032867, -8, -8, -8)
+2:3/0/physics_layer_0/polygon_1/points = PackedVector2Array(6.0623884, -3.9784427, 8, -3.9784427, 8, -8, 6.1097517, -8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:3/0 = 0
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_d415y"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_ts7jg")
+
+[sub_resource type="Resource" id="Resource_0dxpw"]
+script = ExtResource("13_sqv23")
+text = "*It's my bedside table"
+text_speed = 14.0
+text_sound = ExtResource("14_5tb5o")
+text_volume_db = 1
+text_volume_pitch_min = 0.8
+text_volume_pitch_max = 0.85
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_epvxm"]
+script = ExtResource("13_sqv23")
+text = "*The perfect spot for my favorite eight black pixels!"
+text_speed = 14.0
+text_sound = ExtResource("14_5tb5o")
+text_volume_db = 1
+text_volume_pitch_min = 0.8
+text_volume_pitch_max = 0.85
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2hfq"]
+size = Vector2(6, 7)
+
+[sub_resource type="Resource" id="Resource_fkvcy"]
+script = ExtResource("13_sqv23")
+text = "*This is a radiator... it keeps me warm"
+text_speed = 14.0
+text_sound = ExtResource("14_5tb5o")
+text_volume_db = 1
+text_volume_pitch_min = 0.8
+text_volume_pitch_max = 0.85
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oarp8"]
+size = Vector2(23, 13)
+
+[sub_resource type="Resource" id="Resource_d8oio"]
+script = ExtResource("13_sqv23")
+text = "*This is a wall. or is it? yes it is.. i got you though! "
+text_speed = 14.0
+text_sound = ExtResource("14_5tb5o")
+text_volume_pitch_min = 0.8
+text_volume_pitch_max = 0.85
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_j1p8y"]
+script = ExtResource("13_sqv23")
+text = "*It's actually covered with beautiful pictures!"
+text_speed = 14.0
+text_sound = ExtResource("14_5tb5o")
+text_volume_pitch_min = 0.8
+text_volume_pitch_max = 0.85
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imgox"]
+size = Vector2(98, 12)
+
+[sub_resource type="Resource" id="Resource_dfitv"]
+script = ExtResource("13_sqv23")
+text = "*a taped up cardboard box"
+text_speed = 13.0
+text_sound = ExtResource("14_5tb5o")
+text_volume_pitch_min = 0.8
+text_volume_pitch_max = 0.77
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxsty"]
+size = Vector2(9, 9)
+
+[sub_resource type="Resource" id="Resource_0snk2"]
+script = ExtResource("13_sqv23")
+text = "*This is my bed!"
+text_speed = 14.0
+text_sound = ExtResource("14_5tb5o")
+text_volume_db = 1
+text_volume_pitch_min = 0.8
+text_volume_pitch_max = 0.85
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_hu1th"]
+script = ExtResource("13_sqv23")
+text = "*And this is my morning voice"
+text_speed = 12.0
+text_sound = ExtResource("14_5tb5o")
+text_volume_db = 1
+text_volume_pitch_min = 0.45
+text_volume_pitch_max = 0.5
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dihqp"]
+size = Vector2(10, 11)
+
+[node name="DayOneBedroom" type="Node2D"]
+
+[node name="Tiles" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAIAAAAAAAEAAAAAAAIAAAADAAIAAAAAAAIAAAADAAEAAAAAAAIAAAADAAAAAAAAAAIAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAABAAEAAAAAAAIAAAABAAIAAAAAAAIAAAACAAIAAAAAAAIAAAACAAEAAAAAAAIAAAAEAAIAAAAAAAIAAAAEAAEAAAAAAAIAAAAEAAAAAAAAAAIAAAAAAP//AAABAAEAAAABAP//AAABAAEAAAACAP//AAABAAEAAAADAP//AAABAAEAAAAEAP//AAABAAEAAAD//wEAAAADAAAAAAD//wAAAAADAAAAAAD/////AAADAAAAAAAAAP7/AAAGAAAAAAABAP7/AAAGAAAAAAACAP7/AAAGAAAAAAADAP7/AAAGAAAAAAAEAP7/AAAGAAAAAAD///7/AAAFAAEAAAAFAAIAAAAAAAIAAAAFAAEAAAAAAAIAAAAFAAAAAAAAAAIAAAAFAP//AAABAAEAAAAFAP7/AAAGAAAAAAAGAAAAAAAAAAIAAAAGAAEAAAAAAAIAAAAGAAIAAAAAAAIAAAAHAAEAAAAAAAIAAAAHAAAAAAAAAAIAAAAHAAIAAAAAAAIAAAAGAP//AAABAAEAAAAHAP//AAABAAEAAAAGAP7/AAAGAAAAAAAHAP7/AAAGAAAAAAAIAP//AAAEAAAAAAAIAAAAAAAEAAAAAAAIAAEAAAACAAIAAAAIAAIAAAAEAAAAAAAIAP7/AAAGAAEAAAAAAAIAAAAAAAIAAAD//wIAAAADAAAAAAAAAAMAAAAFAAAAAAABAAMAAAAFAAAAAAACAAMAAAAFAAAAAAD//wMAAAAFAAIAAAADAAMAAAAFAAAAAAAEAAMAAAAFAAAAAAAFAAMAAAAFAAAAAAAGAAMAAAAFAAAAAAAHAAMAAAAFAAAAAAAIAAMAAAAGAAIAAAA=")
+tile_set = SubResource("TileSet_d415y")
+metadata/_edit_lock_ = true
+
+[node name="bed" parent="." instance=ExtResource("2_y7i15")]
+position = Vector2(9, 1)
+
+[node name="Radiator" parent="." instance=ExtResource("3_fcra2")]
+position = Vector2(51, -3)
+
+[node name="TheBox" parent="." instance=ExtResource("4_ba3ax")]
+position = Vector2(10, 39)
+
+[node name="bedsideCabinet" parent="." instance=ExtResource("5_7k8r6")]
+position = Vector2(26, 4)
+
+[node name="CutsceneCam" type="Camera2D" parent="."]
+position = Vector2(9, 11)
+zoom = Vector2(3.5, 3.5)
+script = ExtResource("6_xm0cx")
+
+[node name="BlackScreen" type="Sprite2D" parent="CutsceneCam"]
+visible = false
+z_index = 2
+position = Vector2(1.9073486e-06, 0)
+scale = Vector2(20.999998, 12.625)
+texture = ExtResource("7_68srq")
+
+[node name="Player" parent="." instance=ExtResource("8_kv6j8")]
+visible = false
+position = Vector2(27, 11.5)
+
+[node name="InteractIndicator" parent="." instance=ExtResource("9_n8kq3")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(9, -11)
+texture = ExtResource("10_6m637")
+
+[node name="b_cabinet_dialog" parent="." instance=ExtResource("11_ma0t7")]
+position = Vector2(26, 4)
+dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_0dxpw"), SubResource("Resource_epvxm")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="b_cabinet_dialog"]
+shape = SubResource("RectangleShape2D_q2hfq")
+
+[node name="radiator_dialog" parent="." instance=ExtResource("11_ma0t7")]
+position = Vector2(42, -3)
+dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_fkvcy")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="radiator_dialog"]
+position = Vector2(7.5, 0.5)
+shape = SubResource("RectangleShape2D_oarp8")
+
+[node name="wall_dialog" parent="." instance=ExtResource("11_ma0t7")]
+position = Vector2(42, 53)
+dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_d8oio"), SubResource("Resource_j1p8y")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_dialog"]
+position = Vector2(37, 1)
+shape = SubResource("RectangleShape2D_imgox")
+
+[node name="the_box_dialog" parent="." instance=ExtResource("11_ma0t7")]
+position = Vector2(10, 39)
+dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_dfitv")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="the_box_dialog"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_mxsty")
+
+[node name="bed_dialog" parent="." instance=ExtResource("11_ma0t7")]
+position = Vector2(9, 10)
+dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_0snk2"), SubResource("Resource_hu1th")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bed_dialog"]
+shape = SubResource("RectangleShape2D_dihqp")

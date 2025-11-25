@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://durvrk5ksrj78" path="res://assets/tilesets/House_tiles.png" id="1_tf888"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_mmnir"]
-[ext_resource type="PackedScene" uid="uid://i08cixlwo7qb" path="res://scenes/bedsideCabinet.tscn" id="3_2rfya"]
+[ext_resource type="PackedScene" uid="uid://i08cixlwo7qb" path="res://scenes/Objects/bedsideCabinet.tscn" id="3_2rfya"]
 [ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="3_gnaub"]
 [ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="4_2rfya"]
 [ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="5_4i6wr"]
-[ext_resource type="AudioStream" uid="uid://lk3h1gf4us57" path="res://talk.wav" id="6_3jvqj"]
+[ext_resource type="AudioStream" uid="uid://lk3h1gf4us57" path="res://assets/talk.wav" id="6_3jvqj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2d6yk"]
 resource_name = "House"
@@ -97,7 +97,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_142bu"]
 script = ExtResource("5_4i6wr")
-text = "[color=red]I WILL RAPE YOU.[/color]"
+text = "I WILL [color=red]RAPE[/color]YOU."
 text_speed = 2.0
 text_sound = ExtResource("6_3jvqj")
 text_volume_db = 4

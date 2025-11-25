@@ -31,12 +31,12 @@ offset_bottom = 164.0
 pivot_offset = Vector2(127, 27)
 theme_override_styles/panel = SubResource("StyleBoxFlat_0ota6")
 
-[node name="TextLabel" type="RichTextLabel" parent="Panel"]
+[node name="NameLabel" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 230.0
-offset_bottom = 51.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 47.0
+offset_bottom = 12.0
 size_flags_vertical = 3
 theme = SubResource("Theme_a8p2u")
 theme_override_constants/line_separation = 3
@@ -44,10 +44,23 @@ theme_override_constants/paragraph_separation = 3
 theme_override_fonts/normal_font = ExtResource("2_a8p2u")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
-text = "OVO JE TEMPLATE.
-ovo je template.
-ja sam peder...
-i [color=red]jebacu[/color] te"
+text = "Ethan"
+scroll_active = false
+visible_characters_behavior = 1
+
+[node name="TextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 14.0
+offset_right = 233.0
+offset_bottom = 52.0
+size_flags_vertical = 3
+theme = SubResource("Theme_a8p2u")
+theme_override_constants/line_separation = 3
+theme_override_constants/paragraph_separation = 3
+theme_override_fonts/normal_font = ExtResource("2_a8p2u")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
 scroll_active = false
 visible_characters_behavior = 1
 

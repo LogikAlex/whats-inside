@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c014t28xfb40m"]
+
+[ext_resource type="Texture2D" uid="uid://re0l2n7fk747" path="res://assets/radijator.png" id="1_ngvrw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngvrw"]
+size = Vector2(25, 13)
+
+[node name="Radiator" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ngvrw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_ngvrw")

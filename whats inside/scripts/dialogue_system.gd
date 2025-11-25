@@ -1,6 +1,9 @@
 extends CanvasLayer
 
+@onready var EnterIndicator: Sprite2D = $Panel/EnterIndicator
+@onready var DialogueNameLabel: RichTextLabel = $Panel/NameLabel
 @onready var DialogueLabel: RichTextLabel = $Panel/TextLabel
+@onready var DialoguePanel: Panel = $Panel
 
 var dialogue: Array[DE]
 var current_dialogue_item: int = 0
@@ -35,7 +38,29 @@ func _process(_delta: float) -> void:
 			_function_resource(i)
 		elif i is DialogueText:
 			visible = true
-			_text_resource(i)
+			if (current_dialogue_item == 0):
+				DialoguePanel.size.x = 0
+				DialoguePanel.position.x = 160
+				DialoguePanel.modulate.a = 0
+				EnterIndicator.modulate.a = 0
+				DialogueNameLabel.modulate.a = 0
+				var tween = create_tween()
+				tween.set_parallel()
+				tween.tween_property(DialoguePanel, "modulate:a", 1, 0.25).set_trans(tween.TRANS_QUAD)
+				tween.tween_property(DialoguePanel, "size", Vector2(254, 54), 0.25).set_trans(tween.TRANS_QUAD)
+				tween.tween_property(DialoguePanel, "position", Vector2(33, 110), 0.25).set_trans(tween.TRANS_QUAD)
+				tween.tween_callback(
+				func _garava():
+					print("ga- ga- garava")
+					var garava_tween = create_tween()
+					garava_tween.set_parallel()
+					garava_tween.set_ease(Tween.EASE_IN)
+					garava_tween.tween_property(EnterIndicator, "modulate:a", 1, 0.15)
+					garava_tween.tween_property(DialogueNameLabel, "modulate:a", 1, 0.15)
+					_text_resource(i)
+				).set_delay(0.25)
+			else:
+				_text_resource(i)
 		else:
 			printerr("You accidentaly added a DE resource!")
 			current_dialogue_item += 1
@@ -81,8 +106,9 @@ func _text_resource(i: DialogueText) -> void:
 			break
 		
 		character_timer += get_process_delta_time()
-		if text_without_square_brackets[DialogueLabel.visible_characters - 1] == "," or text_without_square_brackets[DialogueLabel.visible_characters - 1] == ".":
-			if character_timer >= (3.0 / i.text_speed):
+		if text_without_square_brackets[DialogueLabel.visible_characters - 1] == "," or text_without_square_brackets[DialogueLabel.visible_characters - 1] == "." or\
+		text_without_square_brackets[DialogueLabel.visible_characters - 1] == "!" or text_without_square_brackets[DialogueLabel.visible_characters - 1] == "?":
+			if character_timer >= (4.0 / i.text_speed):
 				var character: String = text_without_square_brackets[DialogueLabel.visible_characters]
 				DialogueLabel.visible_characters += 1
 				if character != " ":
@@ -90,7 +116,7 @@ func _text_resource(i: DialogueText) -> void:
 					$AudioStreamPlayer.play()
 				character_timer = 0.0
 		else:
-			if character_timer >= (1.0 / i.text_speed) or text_without_square_brackets[DialogueLabel.visible_characters - 1] == " ":
+			if character_timer >= (1.0 / i.text_speed) or text_without_square_brackets[DialogueLabel.visible_characters] == " ":
 				var character: String = text_without_square_brackets[DialogueLabel.visible_characters]
 				DialogueLabel.visible_characters += 1
 				if character != " ":

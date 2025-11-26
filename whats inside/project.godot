@@ -15,6 +15,10 @@ run/main_scene="uid://bobes0ubgxfgr"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DayOne="*res://scenes/Days/day_one.gd"
+
 [dialogic]
 
 directories/dch_directory={

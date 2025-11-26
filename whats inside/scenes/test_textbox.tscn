@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://qsk7l2uhs1s8"]
+[gd_scene load_steps=16 format=4 uid="uid://qsk7l2uhs1s8"]
 
 [ext_resource type="Texture2D" uid="uid://durvrk5ksrj78" path="res://assets/tilesets/House_tiles.png" id="1_tf888"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_mmnir"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="4_2rfya"]
 [ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="5_4i6wr"]
 [ext_resource type="AudioStream" uid="uid://lk3h1gf4us57" path="res://assets/talk.wav" id="6_3jvqj"]
+[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="8_4i6wr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2d6yk"]
 resource_name = "House"
@@ -119,6 +120,8 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_broaa"]
 size = Vector2(8, 3)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jvqj"]
+
 [node name="TestTextbox" type="Node2D"]
 y_sort_enabled = true
 
@@ -140,3 +143,10 @@ dialogue = Array[ExtResource("4_2rfya")]([SubResource("Resource_0dxpw"), SubReso
 [node name="CollisionShape2D" type="CollisionShape2D" parent="b_cabinet_dialogue"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_broaa")
+
+[node name="ChangeRoom" parent="." instance=ExtResource("8_4i6wr")]
+position = Vector2(84, 28)
+wanted_room_path = "res://scenes/Days/DayOne/DayOneBedroom.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeRoom"]
+shape = SubResource("RectangleShape2D_3jvqj")

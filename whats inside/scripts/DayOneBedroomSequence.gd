@@ -8,7 +8,7 @@ extends Node2D
 @onready var player = $Player
 @onready var z_sprite = preload("res://scenes/Objects/z_sprite.tscn")
 
-var wokeUp = false
+var wokeUp = DayOne.wokeUp
 var tweensFinished = false
 
 var tween := create_tween()
@@ -17,10 +17,19 @@ var spawned_z: Sprite2D
 var z_head_tween: Tween
 
 func _ready() -> void:
-	blackScreen.visible = true
-	fade_in_tween()
-	z_tween()
-	player.can_move = false
+	if !wokeUp:
+		blackScreen.visible = true
+		fade_in_tween()
+		z_tween()
+		player.can_move = false
+		bedSprite.frame = 1
+		player.visible = false
+	else:
+		blackScreen.visible = false
+		cutsceneCam.free()
+		player.can_move = true
+		bedSprite.frame = 0
+		player.visible = true
 
 func _process(_delta: float) -> void:
 	pass
@@ -28,7 +37,7 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and tweensFinished:
 		if !wokeUp:
-			wokeUp = true
+			DayOne.wokeUp = true
 			cam_shift()
 			z_head_tween.kill()
 			if spawned_z:

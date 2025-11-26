@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://c8wffxipu48vg"]
+[gd_scene load_steps=65 format=3 uid="uid://c8wffxipu48vg"]
 
 [ext_resource type="Script" uid="uid://bnfiisxvu8wt5" path="res://scripts/player.gd" id="1_b26j0"]
 [ext_resource type="Texture2D" uid="uid://c4s1foax8pwx4" path="res://assets/Spritesheets/player_idle_front.png" id="1_hqtel"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dt5bx3cwblvlu" path="res://assets/Spritesheets/player_walk_left.png" id="5_n7ghd"]
 [ext_resource type="Texture2D" uid="uid://ciuu5gb3xv4dw" path="res://assets/Spritesheets/player_walk_right.png" id="7_nvl01"]
 [ext_resource type="Texture2D" uid="uid://c8l3i44h463w" path="res://assets/Spritesheets/player_walk_up.png" id="9_ivps1"]
+[ext_resource type="Texture2D" uid="uid://c2dwnfutixjke" path="res://assets/black.png" id="10_jej6c"]
 [ext_resource type="PackedScene" uid="uid://dx8tl06100qlm" path="res://scenes/interact_indicator.tscn" id="10_n7ghd"]
 [ext_resource type="Texture2D" uid="uid://bsnlq5gaas0au" path="res://assets/interact_indicator_v2.png" id="11_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://dnjmk0p42uyno" path="res://fico.png" id="11_nvl01"]
@@ -416,6 +417,12 @@ process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="BlackScreen" type="Sprite2D" parent="Camera2D"]
+modulate = Color(1, 1, 1, 0)
+z_index = 4096
+scale = Vector2(20.5, 11.874999)
+texture = ExtResource("10_jej6c")
 
 [node name="InteractIndicator" parent="." instance=ExtResource("10_n7ghd")]
 modulate = Color(1, 1, 1, 0)

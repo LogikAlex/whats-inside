@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bobes0ubgxfgr"]
+[gd_scene load_steps=3 format=3 uid="uid://bobes0ubgxfgr"]
 
+[ext_resource type="Script" uid="uid://b5r66paewcjkt" path="res://scenes/Days/day_one.gd" id="1_52ltx"]
 [ext_resource type="PackedScene" uid="uid://trq8e4jgloen" path="res://scenes/Days/DayOne/DayOneBedroom.tscn" id="2_ci8iy"]
 
 [node name="dayOne" type="Node2D"]
+script = ExtResource("1_52ltx")
 
 [node name="DayOneBedroom" parent="." instance=ExtResource("2_ci8iy")]

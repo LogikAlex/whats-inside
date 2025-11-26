@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpuj6ktdfqhdu"]
+
+[ext_resource type="Script" uid="uid://buvevskjm4uag" path="res://scripts/change_room.gd" id="1_fhfyh"]
+
+[node name="ChangeRoom" type="Area2D"]
+script = ExtResource("1_fhfyh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

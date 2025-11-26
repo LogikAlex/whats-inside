@@ -14,6 +14,11 @@ var can_move: bool = true
 enum directions {DOWN, UP, RIGHT, LEFT}
 enum playerState {IDLE, WALKING}
 
+func _ready() -> void:
+	$Camera2D/BlackScreen.modulate.a = 1
+	var blackTween = create_tween()
+	blackTween.tween_property($Camera2D/BlackScreen, "modulate:a", 0, 0.5).set_delay(0.15)
+
 func _physics_process(_delta: float) -> void:
 	if can_move:
 		direction = (Input.get_vector("move_left", "move_right", "move_up", "move_down")).normalized()

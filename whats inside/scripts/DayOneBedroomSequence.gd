@@ -1,14 +1,13 @@
 extends Node2D
 
-@onready var cutsceneCam = $CutsceneCam
-@onready var blackScreen = $CutsceneCam/BlackScreen
-@onready var interactIndicator = $InteractIndicator
-@onready var bed: StaticBody2D = $bed
+@onready var cutsceneCam = $"../DayOneBedroom/CutsceneCam"
+@onready var blackScreen = $"../DayOneBedroom/CutsceneCam/BlackScreen"
+@onready var interactIndicator = $"../DayOneBedroom/InteractIndicator"
+@onready var bed: StaticBody2D = $"../DayOneBedroom/bed"
 @onready var bedSprite = bed.get_node("Sprite2D")
-@onready var player = $Player
+@onready var player = $"../DayOneBedroom/Player"
 @onready var z_sprite = preload("res://scenes/Objects/z_sprite.tscn")
 
-var wokeUp = DayOne.wokeUp
 var tweensFinished = false
 
 var tween := create_tween()
@@ -17,7 +16,8 @@ var spawned_z: Sprite2D
 var z_head_tween: Tween
 
 func _ready() -> void:
-	if !wokeUp:
+	#globals.wokeUp = true
+	if !globals.wokeUp:
 		blackScreen.visible = true
 		fade_in_tween()
 		z_tween()
@@ -36,8 +36,8 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and tweensFinished:
-		if !wokeUp:
-			DayOne.wokeUp = true
+		if !globals.wokeUp:
+			globals.wokeUp = true
 			cam_shift()
 			z_head_tween.kill()
 			if spawned_z:
@@ -60,6 +60,10 @@ func cam_shift():
 		cutsceneCam.free()
 		player.can_move = true
 	).set_delay(0.3)
+	tween.tween_callback(
+	func free_this():
+		free()
+	).set_delay(0.51)
 func fade_in_tween():
 	reset_tween()
 	tween.set_ease(Tween.EASE_OUT_IN)
@@ -100,7 +104,7 @@ func z_tween():
 	z_head_tween.tween_property(spawned_z, "position", Vector2(pos_x, pos_y), 0).set_delay(tween_time)
 	z_head_tween.tween_callback(
 	func reset_z():
-		if !wokeUp:
+		if !globals.wokeUp:
 			z_head_tween.kill()
 			spawned_z.free()
 			z_tween()

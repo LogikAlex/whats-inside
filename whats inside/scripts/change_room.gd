@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var wanted_room_path: String
+@export var wanted_player_pos: Vector2
 
 var player_node: CharacterBody2D = null
 
@@ -15,6 +16,9 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _room_transition():
 	var trans_tween = create_tween()
+	player_node.can_move = false
+	globals.wantedPlayerPos = wanted_player_pos
+	print(wanted_player_pos)
 	var blackScreen = player_node.get_node("Camera2D/BlackScreen")
 	trans_tween.tween_property(blackScreen, "modulate:a", 1, 0.5)
 	trans_tween.tween_callback(

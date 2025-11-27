@@ -1,7 +1,6 @@
-[gd_scene load_steps=31 format=4 uid="uid://trq8e4jgloen"]
+[gd_scene load_steps=30 format=4 uid="uid://trq8e4jgloen"]
 
 [ext_resource type="Texture2D" uid="uid://durvrk5ksrj78" path="res://assets/tilesets/House_tiles.png" id="1_5jym8"]
-[ext_resource type="Script" uid="uid://dd23dtvbn3bqa" path="res://scripts/DayOneBedroomSequence.gd" id="1_y7i15"]
 [ext_resource type="PackedScene" uid="uid://lyewe0q5cjnt" path="res://scenes/Objects/bed.tscn" id="2_y7i15"]
 [ext_resource type="PackedScene" uid="uid://c014t28xfb40m" path="res://scenes/Objects/radiator.tscn" id="3_fcra2"]
 [ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="4_ba3ax"]
@@ -175,7 +174,6 @@ size = Vector2(5, 16)
 
 [node name="DayOneBedroom" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_y7i15")
 
 [node name="Tiles" type="TileMapLayer" parent="."]
 z_index = -1
@@ -208,7 +206,7 @@ scale = Vector2(20.999998, 12.625)
 texture = ExtResource("7_68srq")
 
 [node name="Player" parent="." instance=ExtResource("8_kv6j8")]
-position = Vector2(88, 25)
+position = Vector2(27, 14)
 
 [node name="InteractIndicator" parent="." instance=ExtResource("9_n8kq3")]
 modulate = Color(1, 1, 1, 0)
@@ -251,10 +249,11 @@ position = Vector2(106, 24)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_y7i15")
 
-[node name="ChangeRoom" parent="." instance=ExtResource("16_fcra2")]
+[node name="ToHallway" parent="." instance=ExtResource("16_fcra2")]
 position = Vector2(106, 24)
-wanted_room_path = "res://scenes/test_textbox.tscn"
+wanted_room_path = "res://scenes/Days/DayOne/DayOneHallway.tscn"
+wanted_player_pos = Vector2(12, 21)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeRoom"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToHallway"]
 position = Vector2(-4.5, 0)
 shape = SubResource("RectangleShape2D_ba3ax")

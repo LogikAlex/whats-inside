@@ -131,7 +131,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAIAAAAAAAEAAAAAAAIAAAAAAAIAAAAAAAI
 tile_set = SubResource("TileSet_oxs3m")
 
 [node name="Player" parent="." instance=ExtResource("2_mmnir")]
-position = Vector2(39, 26)
+position = Vector2(63, 30)
 
 [node name="bedsideCabinet" parent="." instance=ExtResource("3_2rfya")]
 position = Vector2(23, 28)
@@ -145,8 +145,9 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_broaa")
 
 [node name="ChangeRoom" parent="." instance=ExtResource("8_4i6wr")]
-position = Vector2(84, 28)
-wanted_room_path = "res://scenes/Days/DayOne/DayOneBedroom.tscn"
+position = Vector2(85, 28)
+wanted_room_path = "res://scenes/Days/DayOne/DayOneHallway.tscn"
+wanted_player_pos = Vector2(118, 21)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeRoom"]
 shape = SubResource("RectangleShape2D_3jvqj")

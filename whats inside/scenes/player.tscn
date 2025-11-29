@@ -421,7 +421,7 @@ drag_vertical_enabled = true
 [node name="BlackScreen" type="Sprite2D" parent="Camera2D"]
 modulate = Color(1, 1, 1, 0)
 z_index = 4096
-scale = Vector2(20.5, 11.874999)
+scale = Vector2(68.5, 40.25)
 texture = ExtResource("10_jej6c")
 
 [node name="InteractIndicator" parent="." instance=ExtResource("10_n7ghd")]

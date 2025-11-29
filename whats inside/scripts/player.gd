@@ -18,7 +18,7 @@ func _ready() -> void:
 	position = globals.wantedPlayerPos
 	$Camera2D/BlackScreen.modulate.a = 1
 	var blackTween = create_tween()
-	blackTween.tween_property($Camera2D/BlackScreen, "modulate:a", 0, 0.5).set_delay(0.15)
+	blackTween.tween_property($Camera2D/BlackScreen, "modulate:a", 0, 0.5).set_delay(0.25)
 
 func _physics_process(_delta: float) -> void:
 	if can_move:

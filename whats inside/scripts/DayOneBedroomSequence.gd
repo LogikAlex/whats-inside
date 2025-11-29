@@ -1,22 +1,28 @@
 extends Node2D
 
-@onready var cutsceneCam = $"../DayOneBedroom/CutsceneCam"
-@onready var blackScreen = $"../DayOneBedroom/CutsceneCam/BlackScreen"
-@onready var interactIndicator = $"../DayOneBedroom/InteractIndicator"
-@onready var bed: StaticBody2D = $"../DayOneBedroom/bed"
+@onready var cutsceneCam = $CutsceneCam
+@onready var blackScreen = $CutsceneCam/BlackScreen
+@onready var interactIndicator = $InteractIndicator
+@onready var bed: StaticBody2D = $bed
 @onready var bedSprite = bed.get_node("Sprite2D")
-@onready var player = $"../DayOneBedroom/Player"
+@onready var player = $Player
 @onready var z_sprite = preload("res://scenes/Objects/z_sprite.tscn")
 
 var tweensFinished = false
 
-var tween := create_tween()
+var tween: Tween
 
 var spawned_z: Sprite2D
 var z_head_tween: Tween
 
 func _ready() -> void:
 	#globals.wokeUp = true
+	_check_if_woke_up()
+
+func _process(_delta: float) -> void:
+	pass
+
+func _check_if_woke_up():
 	if !globals.wokeUp:
 		blackScreen.visible = true
 		fade_in_tween()
@@ -25,25 +31,22 @@ func _ready() -> void:
 		bedSprite.frame = 1
 		player.visible = false
 	else:
-		blackScreen.visible = false
+		player.position = globals.wantedPlayerPos
 		cutsceneCam.free()
 		player.can_move = true
 		bedSprite.frame = 0
 		player.visible = true
 
-func _process(_delta: float) -> void:
-	pass
-
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and tweensFinished:
-		if !globals.wokeUp:
-			globals.wokeUp = true
-			cam_shift()
-			z_head_tween.kill()
-			if spawned_z:
-				spawned_z.free()
-			bedSprite.frame = 0
-			player.visible = true
+	if !globals.wokeUp and event.is_action_pressed("interact") and tweensFinished:
+		globals.wokeUp = true
+		cam_shift()
+		z_head_tween.kill()
+		if spawned_z:
+			spawned_z.free()
+		bedSprite.frame = 0
+		player.visible = true
+
 func reset_tween():
 	if tween:
 		tween.kill()
@@ -60,10 +63,6 @@ func cam_shift():
 		cutsceneCam.free()
 		player.can_move = true
 	).set_delay(0.3)
-	tween.tween_callback(
-	func free_this():
-		free()
-	).set_delay(0.51)
 func fade_in_tween():
 	reset_tween()
 	tween.set_ease(Tween.EASE_OUT_IN)

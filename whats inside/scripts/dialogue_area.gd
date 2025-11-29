@@ -59,11 +59,8 @@ func _on_area_entered(area: Area2D) -> void:
 	if only_activate_once and has_activated_already:
 		return
 	if area.is_in_group("interact_hitbox_player"):
-		player_body_in = true
-		if activate_instant:
-			_activate_dialogue()
-			has_activated_already = true
-		else:
+		if !activate_instant:
+			player_body_in = true
 			player_node.interact_indicator_appear()
 
 
@@ -72,14 +69,16 @@ func _on_area_exited(area: Area2D) -> void:
 		player_node.interact_indicator_disappear()
 		player_body_in = false
 
-#func _on_body_entered(body: Node2D) -> void:
-#	if only_activate_once and has_activated_already:
-#		return
-#	if body.is_in_group("interact_hitbox_player"):
-#		player_body_in = true
-#		if activate_instant:
-#			_activate_dialogue()
+func _on_body_entered(body: Node2D) -> void:
+	if only_activate_once and has_activated_already:
+		return
+	if body.is_in_group("player"):
+		player_body_in = true
+		if activate_instant:
+			_activate_dialogue()
+			has_activated_already = true
+		print("Kara")
 
-#func _on_body_exited(body: Node2D) -> void:
-#	if body.is_in_group("interact_hitbox_player"):
-#		player_body_in = false
+func _on_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		player_body_in = false

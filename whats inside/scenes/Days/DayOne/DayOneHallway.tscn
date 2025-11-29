@@ -1,6 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://du2iecdkqr3l2"]
+[gd_scene load_steps=17 format=3 uid="uid://du2iecdkqr3l2"]
 
 [ext_resource type="Texture2D" uid="uid://durvrk5ksrj78" path="res://assets/tilesets/House_tiles.png" id="2_hh0xa"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="4_i3q4g"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="5_iw418"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="6_27gm7"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/ian_voice.wav" id="7_g1tqt"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="9_grsqm"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="16_pcyg8"]
 
@@ -57,11 +61,11 @@ texture = ExtResource("2_hh0xa")
 2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.9542885, -6.0173945, -3.954288, -6.032867, -8, -8, -8)
 2:3/0/physics_layer_0/polygon_1/points = PackedVector2Array(6.0623884, -3.9784427, 8, -3.9784427, 8, -8, 6.1097517, -8)
 3:3/0 = 0
-3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, 5.11823, 8, 5.0762777, 5.583905, -5.034324, 5.621662, -5.118229, 8, -8, 8)
 4:3/0 = 0
-4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, 5.11823, 8, 5.0762777, 5.583905, -5.034324, 5.621662, -5.118229, 8, -8, 8)
 5:3/0 = 0
-5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, 5.11823, 8, 5.0762777, 5.583905, -5.034324, 5.621662, -5.118229, 8, -8, 8)
 7:3/0 = 0
 7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:3/0 = 0
@@ -89,17 +93,41 @@ size = Vector2(4, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba3ax"]
 size = Vector2(5, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cyxqb"]
+size = Vector2(10, 4)
+
+[sub_resource type="Resource" id="Resource_cn4en"]
+script = ExtResource("6_27gm7")
+text = "*dis a door"
+text_speed = 14.0
+text_sound = ExtResource("7_g1tqt")
+text_volume_pitch_min = 0.8
+text_volume_pitch_max = 0.85
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2e2b7"]
+size = Vector2(10, 5)
+
+[sub_resource type="Resource" id="Resource_i3q4g"]
+script = ExtResource("6_27gm7")
+text = "*dis not a door"
+text_speed = 14.0
+text_sound = ExtResource("7_g1tqt")
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3q4g"]
+size = Vector2(4, 20)
+
 [node name="DayOneHallway" type="Node2D"]
 y_sort_enabled = true
 
 [node name="Tiles" type="TileMapLayer" parent="."]
 z_index = -1
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAIAAAAAAAEAAAAAAAIAAAABAAAAAAAAAAIAAAABAAEAAAAAAAIAAAACAAEAAAAAAAIAAAACAAAAAAAAAAIAAAADAAAAAAAAAAIAAAADAAEAAAAAAAIAAAAEAAAAAAAAAAIAAAAEAAEAAAAAAAIAAAAFAAAAAAAAAAIAAAAFAAEAAAAAAAIAAAAGAAEAAAAAAAIAAAAGAAAAAAAAAAIAAAAHAAAAAAAAAAIAAAAHAAEAAAAAAAIAAAD//wEAAAABAAIAAAD//wIAAAAFAAIAAAAAAAIAAAAFAAAAAAABAAIAAAAFAAAAAAACAAIAAAAFAAAAAAADAAIAAAAFAAAAAAAEAAIAAAAFAAAAAAAFAAIAAAAFAAAAAAAGAAIAAAAFAAAAAAAHAAIAAAAFAAAAAAAAAP//AAADAAMAAAABAP//AAABAAEAAAACAP//AAABAAEAAAADAP//AAABAAEAAAAEAP//AAAEAAMAAAAFAP//AAABAAEAAAAGAP//AAABAAEAAAAHAP//AAAFAAMAAAD/////AAADAAAAAAD//wAAAAADAAAAAAD///7/AAAFAAEAAAAAAP7/AAAGAAAAAAABAP7/AAAGAAAAAAACAP7/AAAGAAAAAAADAP7/AAAGAAAAAAAEAP7/AAAGAAAAAAAFAP7/AAAGAAAAAAAGAP7/AAAGAAAAAAAHAP7/AAAGAAAAAAAIAP7/AAAGAAEAAAAIAP//AAAEAAAAAAAIAAAAAAAEAAAAAAAIAAEAAAACAAIAAAAIAAIAAAAGAAIAAAA=")
 tile_set = SubResource("TileSet_d415y")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("9_grsqm")]
-position = Vector2(118, 21)
+position = Vector2(40, 4)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-8, 24)
@@ -107,27 +135,38 @@ position = Vector2(-8, 24)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_y7i15")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(136, 24)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-shape = SubResource("RectangleShape2D_y7i15")
-
 [node name="ToBedroom" parent="." instance=ExtResource("16_pcyg8")]
 position = Vector2(0, 24)
 wanted_room_path = "res://scenes/Days/DayOne/DayOneBedroom.tscn"
-wanted_player_pos = Vector2(88, 25)
+wanted_player_pos = Vector2(73, 25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToBedroom"]
 position = Vector2(-4.5, 0)
 shape = SubResource("RectangleShape2D_ba3ax")
 
-[node name="ToKitchen" parent="." instance=ExtResource("16_pcyg8")]
-position = Vector2(128, 24)
-rotation = -3.1415927
-wanted_room_path = "res://scenes/test_textbox.tscn"
-wanted_player_pos = Vector2(63, 30)
+[node name="ChangeRoom" parent="." instance=ExtResource("16_pcyg8")]
+position = Vector2(40, -1)
+wanted_room_path = "res://scenes/Days/DayOne/DayOneBathroom.tscn"
+wanted_player_pos = Vector2(56, 55)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ToKitchen"]
-position = Vector2(-4.5, 0)
-shape = SubResource("RectangleShape2D_ba3ax")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeRoom"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_cyxqb")
+
+[node name="DoorDialogue" parent="." instance=ExtResource("4_i3q4g")]
+position = Vector2(88, 0)
+dialogue = Array[ExtResource("5_iw418")]([SubResource("Resource_cn4en")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorDialogue"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_2e2b7")
+
+[node name="Trigger" parent="." instance=ExtResource("4_i3q4g")]
+position = Vector2(143, 27)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("5_iw418")]([SubResource("Resource_i3q4g")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_i3q4g")

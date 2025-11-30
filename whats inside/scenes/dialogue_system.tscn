@@ -21,6 +21,8 @@ shadow_color = Color(0, 0, 0, 0)
 [sub_resource type="Theme" id="Theme_a8p2u"]
 
 [node name="DialogueSystem" type="CanvasLayer"]
+offset = Vector2(0, 6)
+transform = Transform2D(1, 0, 0, 1, 0, 6)
 script = ExtResource("1_fu8b5")
 
 [node name="Panel" type="Panel" parent="."]

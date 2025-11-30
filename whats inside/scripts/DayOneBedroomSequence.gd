@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var b_table: StaticBody2D = $bedsideCabinet
 @onready var cutsceneCam = $CutsceneCam
 @onready var blackScreen = $CutsceneCam/BlackScreen
 @onready var interactIndicator = $InteractIndicator
@@ -16,7 +17,7 @@ var spawned_z: Sprite2D
 var z_head_tween: Tween
 
 func _ready() -> void:
-	#globals.wokeUp = true
+	globals.wokeUp = true
 	_check_if_woke_up()
 
 func _process(_delta: float) -> void:
@@ -108,3 +109,6 @@ func z_tween():
 			spawned_z.free()
 			z_tween()
 	).set_delay(tween_time)
+
+func pick_up_pixels():
+	b_table.get_node("Sprite2D").frame = 0

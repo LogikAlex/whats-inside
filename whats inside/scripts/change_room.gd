@@ -21,8 +21,9 @@ func _room_transition():
 	player_node.can_move = false
 	globals.wantedPlayerPos = wanted_player_pos
 	print(wanted_player_pos)
-	var blackScreen = player_node.get_node("Camera2D/BlackScreen")
-	trans_tween.tween_property(blackScreen, "modulate:a", 1, 0.5)
+	var blackScreen = player_node.get_node("Camera2D/BlackScreen/Sprite2D")
+	blackScreen.visible = true
+	trans_tween.tween_property(blackScreen, "modulate:a", 1, 0.35)
 	trans_tween.tween_callback(
 	func _change_room():
 		get_tree().change_scene_to_file(wanted_room_path)

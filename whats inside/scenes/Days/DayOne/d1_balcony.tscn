@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://sgubsit8fye1"]
+
+[ext_resource type="Texture2D" uid="uid://u06hiofvr4cj" path="res://assets/balcony_sprite.png" id="1_6csau"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_fp5f7"]
+[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="2_slygy"]
+[ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/spotlight.png" id="4_h5c6u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5c6u"]
+size = Vector2(20, 7)
+
+[node name="D1Balcony" type="Node2D"]
+
+[node name="Balcony" type="Sprite2D" parent="."]
+position = Vector2(24, 40)
+texture = ExtResource("1_6csau")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 20, 0, 0, 15, 0, 15, 11, 38, 11, 38, 72, 35, 72, 15, 72, 15, 75, 0, 75, 0, 53, 6, 53, 6, 69, 34, 69, 34, 19, 6, 19, 6, 37, 0, 37)
+
+[node name="toBedroom" parent="." instance=ExtResource("2_slygy")]
+position = Vector2(-1, 45)
+rotation = -1.5707964
+wanted_room_path = "res://scenes/Days/DayOne/d1_bedroom.tscn"
+wanted_player_pos = Vector2(75, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toBedroom"]
+shape = SubResource("RectangleShape2D_h5c6u")
+
+[node name="Player" parent="." instance=ExtResource("2_fp5f7")]
+position = Vector2(14, 46)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = 0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.9384497, 0.9384497, 0.9384497, 1)
+
+[node name="sun" type="PointLight2D" parent="."]
+position = Vector2(55, 42)
+scale = Vector2(1.5376877, 1.5735197)
+color = Color(1, 1, 0.8156863, 1)
+energy = 1.28
+shadow_enabled = true
+texture = ExtResource("4_h5c6u")
+
+[editable path="Player"]

@@ -27,11 +27,11 @@ func _process(_delta: float) -> void:
 			player_node = i
 		return
 	
-	if !chose_position:
-		dialogue_pos.x = player_node.position.x
-		dialogue_pos.y = player_node.position.y
-		print(dialogue_pos)
-		chose_position = true
+	#if !chose_position:
+	#	dialogue_pos.x = player_node.position.x
+	#	dialogue_pos.y = player_node.position.y
+	#	print(dialogue_pos)
+	#	chose_position = true
 	
 	if !activate_instant and player_body_in:
 		if only_activate_once and has_activated_already:

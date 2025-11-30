@@ -404,6 +404,7 @@ script = ExtResource("1_b26j0")
 speed = 60.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 0
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_u1c27")
 animation = &"front_idle"
@@ -418,10 +419,12 @@ position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="BlackScreen" type="Sprite2D" parent="Camera2D"]
-modulate = Color(1, 1, 1, 0)
-z_index = 4096
+[node name="BlackScreen" type="CanvasLayer" parent="Camera2D"]
 scale = Vector2(68.5, 40.25)
+transform = Transform2D(68.5, 0, 0, 40.25, 0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/BlackScreen"]
+visible = false
 texture = ExtResource("10_jej6c")
 
 [node name="InteractIndicator" parent="." instance=ExtResource("10_n7ghd")]

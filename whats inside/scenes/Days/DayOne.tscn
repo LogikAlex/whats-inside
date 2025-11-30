@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://bobes0ubgxfgr"]
 
-[ext_resource type="PackedScene" uid="uid://trq8e4jgloen" path="res://scenes/Days/DayOne/DayOneBedroom.tscn" id="2_ci8iy"]
+[ext_resource type="PackedScene" uid="uid://trq8e4jgloen" path="res://scenes/Days/DayOne/d1_bedroom.tscn" id="2_ci8iy"]
 
 [node name="dayOne" type="Node2D"]
 
-[node name="DayOneBedroom" parent="." instance=ExtResource("2_ci8iy")]
+[node name="Bedroom" parent="." instance=ExtResource("2_ci8iy")]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=4 uid="uid://c6frmwuv3f7q0"]
+
+[ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_5sxgv"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_bkd6f"]
+[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="3_ex822"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8ve7"]
+size = Vector2(20, 7)
+
+[node name="LivingRoom" type="Node2D"]
+
+[node name="Tiles" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAP//AAADAAMAAAABAP//AAABAAAAAAACAP7/AAAGAAIAAAACAP//AAAGAAMAAAADAP7/AAAGAAAAAAADAP//AAAGAAEAAAAAAP7/AAAGAAAAAAAAAP//AAAGAAEAAAAFAP7/AAAGAAIAAAAFAP//AAAGAAMAAAABAP7/AAADAAIAAAAEAP7/AAADAAIAAAD///7/AAACAAAAAAD/////AAACAAEAAAAGAP7/AAAEAAAAAAAGAP//AAAEAAEAAAD//wAAAAACAAIAAAD//wEAAAACAAIAAAAGAAAAAAAEAAMAAAAGAAIAAAABAAMAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAACAAIAAAD//wMAAAACAAQAAAAAAAMAAAADAAQAAAABAAMAAAADAAQAAAACAAMAAAADAAQAAAADAAMAAAADAAQAAAAEAAMAAAADAAQAAAAFAAMAAAADAAQAAAAGAAMAAAAEAAQAAAAGAAEAAAAFAAEAAAA=")
+tile_set = ExtResource("1_5sxgv")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_bkd6f")]
+position = Vector2(50, 21)
+
+[node name="toLivingroom" parent="." instance=ExtResource("3_ex822")]
+position = Vector2(72, -5)
+wanted_room_path = "res://scenes/Days/DayOne/d1_livingroom.tscn"
+wanted_player_pos = Vector2(25, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toLivingroom"]
+shape = SubResource("RectangleShape2D_c8ve7")
+
+[node name="toBathroom" parent="." instance=ExtResource("3_ex822")]
+position = Vector2(103, 24)
+rotation = 1.5707964
+wanted_room_path = "res://scenes/Days/DayOne/d1_bathroom.tscn"
+wanted_player_pos = Vector2(23, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toBathroom"]
+shape = SubResource("RectangleShape2D_c8ve7")

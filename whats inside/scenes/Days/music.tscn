@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3i71mghlijso"]
+
+[ext_resource type="AudioStream" uid="uid://0bsaexyghdpq" path="res://assets/tuff67.mp3" id="1_k6ng0"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_k6ng0")
+pitch_scale = 0.74
+autoplay = true
+parameters/looping = true

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dug5f4f4jm0p8"
-path="res://.godot/imported/papic_voice.wav-a95eeb46950b8ebdf19a2e52eeda942f.sample"
+path="res://.godot/imported/papic_voice.wav-6ad82670a0fc941bdbb3e1cf508d0c25.sample"
 
 [deps]
 
-source_file="res://assets/papic_voice.wav"
-dest_files=["res://.godot/imported/papic_voice.wav-a95eeb46950b8ebdf19a2e52eeda942f.sample"]
+source_file="res://assets/sfx/papic_voice.wav"
+dest_files=["res://.godot/imported/papic_voice.wav-6ad82670a0fc941bdbb3e1cf508d0c25.sample"]
 
 [params]
 

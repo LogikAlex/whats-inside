@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://c6frmwuv3f7q0"]
+[gd_scene load_steps=7 format=4 uid="uid://c6frmwuv3f7q0"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_5sxgv"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_bkd6f"]
@@ -6,6 +6,17 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8ve7"]
 size = Vector2(20, 7)
+
+[sub_resource type="Gradient" id="Gradient_5sxgv"]
+offsets = PackedFloat32Array(0, 0.7310606)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bkd6f"]
+gradient = SubResource("Gradient_5sxgv")
+width = 244
+height = 244
+fill = 1
+fill_from = Vector2(0.5, 0.4871795)
 
 [node name="LivingRoom" type="Node2D"]
 
@@ -21,7 +32,7 @@ position = Vector2(50, 21)
 [node name="toLivingroom" parent="." instance=ExtResource("3_ex822")]
 position = Vector2(72, -5)
 wanted_room_path = "res://scenes/Days/DayOne/d1_livingroom.tscn"
-wanted_player_pos = Vector2(25, 43)
+wanted_player_pos = Vector2(25, 42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toLivingroom"]
 shape = SubResource("RectangleShape2D_c8ve7")
@@ -34,3 +45,13 @@ wanted_player_pos = Vector2(23, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toBathroom"]
 shape = SubResource("RectangleShape2D_c8ve7")
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.79339314, 0.8146727, 0.8967175, 1)
+
+[node name="ceilingLight" type="PointLight2D" parent="."]
+position = Vector2(50, 20)
+color = Color(0.9843529, 0.98745495, 0.9660104, 1)
+energy = 0.4
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_bkd6f")

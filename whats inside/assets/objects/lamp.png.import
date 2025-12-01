@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm0b03u6il0ke"
-path="res://.godot/imported/spotlight.png-2e75f9f2cfda04449f6b45a3ab35c6b3.ctex"
+uid="uid://blawdj88i6brh"
+path="res://.godot/imported/lamp.png-cdb7c4fbcded34eaff2340c8ef5490a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/spotlight.png"
-dest_files=["res://.godot/imported/spotlight.png-2e75f9f2cfda04449f6b45a3ab35c6b3.ctex"]
+source_file="res://assets/objects/lamp.png"
+dest_files=["res://.godot/imported/lamp.png-cdb7c4fbcded34eaff2340c8ef5490a0.ctex"]
 
 [params]
 

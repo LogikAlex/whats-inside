@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://i08cixlwo7qb"]
 
-[ext_resource type="Texture2D" uid="uid://k11cc4j8715c" path="res://assets/bedside_whatever_this_shit_even_is.png" id="1_1f8sn"]
+[ext_resource type="Texture2D" uid="uid://k11cc4j8715c" path="res://assets/objects/bedside_whatever_this_shit_even_is.png" id="1_1f8sn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1f8sn"]
 size = Vector2(12, 6)

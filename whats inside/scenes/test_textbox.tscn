@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="3_gnaub"]
 [ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="4_2rfya"]
 [ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="5_4i6wr"]
-[ext_resource type="AudioStream" uid="uid://lk3h1gf4us57" path="res://assets/talk.wav" id="6_3jvqj"]
+[ext_resource type="AudioStream" uid="uid://lk3h1gf4us57" path="res://assets/sfx/talk.wav" id="6_3jvqj"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="8_4i6wr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2d6yk"]

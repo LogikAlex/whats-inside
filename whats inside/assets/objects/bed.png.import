@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceu5dcjnkrp0k"
-path="res://.godot/imported/tv_stand.png-2e637d62c9fed3006769ebaaa8513334.ctex"
+uid="uid://q7hsvwhigjy4"
+path="res://.godot/imported/bed.png-141cfbbc9132b81278f88d832c8b55b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tv_stand.png"
-dest_files=["res://.godot/imported/tv_stand.png-2e637d62c9fed3006769ebaaa8513334.ctex"]
+source_file="res://assets/objects/bed.png"
+dest_files=["res://.godot/imported/bed.png-141cfbbc9132b81278f88d832c8b55b6.ctex"]
 
 [params]
 

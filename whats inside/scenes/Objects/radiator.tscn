@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c014t28xfb40m"]
 
-[ext_resource type="Texture2D" uid="uid://re0l2n7fk747" path="res://assets/radijator.png" id="1_ngvrw"]
+[ext_resource type="Texture2D" uid="uid://re0l2n7fk747" path="res://assets/objects/radijator.png" id="1_ngvrw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngvrw"]
 size = Vector2(25, 10)

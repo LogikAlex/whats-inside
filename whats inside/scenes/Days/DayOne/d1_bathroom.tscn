@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://b408yeech5o4l"]
+[gd_scene load_steps=9 format=4 uid="uid://b408yeech5o4l"]
 
 [ext_resource type="Texture2D" uid="uid://bulrofjfrig43" path="res://assets/tilesets/bathroom_tiles.png" id="1_q7576"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_7agtt"]
@@ -68,6 +68,17 @@ sources/0 = SubResource("TileSetAtlasSource_7agtt")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8ve7"]
 size = Vector2(20, 7)
 
+[sub_resource type="Gradient" id="Gradient_5sxgv"]
+offsets = PackedFloat32Array(0, 0.7310606)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q7576"]
+gradient = SubResource("Gradient_5sxgv")
+width = 244
+height = 244
+fill = 1
+fill_from = Vector2(0.5, 0.4871795)
+
 [node name="Bathroom" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -85,3 +96,14 @@ wanted_player_pos = Vector2(89, 25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeRoom"]
 shape = SubResource("RectangleShape2D_c8ve7")
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.79339314, 0.8146727, 0.8967175, 1)
+
+[node name="ceilingLight" type="PointLight2D" parent="."]
+position = Vector2(64, 19)
+scale = Vector2(0.72131145, 0.72131145)
+color = Color(0.9843529, 0.98745495, 0.9660104, 1)
+energy = 0.25
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_q7576")

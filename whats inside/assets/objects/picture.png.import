@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://re0l2n7fk747"
-path="res://.godot/imported/radijator.png-ae0c77550c1d428f115dabe73d6a90b8.ctex"
+uid="uid://def25uwxx8hvy"
+path="res://.godot/imported/picture.png-10c1c2f22f427c50b60ea510a37c0aba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/radijator.png"
-dest_files=["res://.godot/imported/radijator.png-ae0c77550c1d428f115dabe73d6a90b8.ctex"]
+source_file="res://assets/objects/picture.png"
+dest_files=["res://.godot/imported/picture.png-10c1c2f22f427c50b60ea510a37c0aba.ctex"]
 
 [params]
 

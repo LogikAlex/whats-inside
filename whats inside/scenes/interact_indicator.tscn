@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dx8tl06100qlm"]
 
-[ext_resource type="Texture2D" uid="uid://ct8pvqumfr8q2" path="res://assets/interact_indicator.png" id="1_5vyue"]
+[ext_resource type="Texture2D" uid="uid://ct8pvqumfr8q2" path="res://assets/misc/interact_indicator.png" id="1_5vyue"]
 [ext_resource type="Script" uid="uid://beuwmb1l1qynx" path="res://scripts/interact_indicator.gd" id="2_58su0"]
 
 [node name="InteractIndicator" type="Sprite2D"]

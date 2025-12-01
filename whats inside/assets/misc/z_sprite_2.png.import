@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k11cc4j8715c"
-path="res://.godot/imported/bedside_whatever_this_shit_even_is.png-6c194a1d4dc54223debaa5926f7b2671.ctex"
+uid="uid://cdx605lb8teew"
+path="res://.godot/imported/z_sprite_2.png-2b76c66da5dfab247fb4ca86875a8fdc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bedside_whatever_this_shit_even_is.png"
-dest_files=["res://.godot/imported/bedside_whatever_this_shit_even_is.png-6c194a1d4dc54223debaa5926f7b2671.ctex"]
+source_file="res://assets/misc/z_sprite_2.png"
+dest_files=["res://.godot/imported/z_sprite_2.png-2b76c66da5dfab247fb4ca86875a8fdc.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r0ifx677b0mf"
-path="res://.godot/imported/enter_indicator.png-921353912218ae97fef33e62ea372ef7.ctex"
+uid="uid://c2dwnfutixjke"
+path="res://.godot/imported/black.png-553771a892f758c4b8934279d9789482.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enter_indicator.png"
-dest_files=["res://.godot/imported/enter_indicator.png-921353912218ae97fef33e62ea372ef7.ctex"]
+source_file="res://assets/misc/black.png"
+dest_files=["res://.godot/imported/black.png-553771a892f758c4b8934279d9789482.ctex"]
 
 [params]
 

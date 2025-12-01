@@ -16,6 +16,7 @@ enum playerState {IDLE, WALKING}
 
 func _ready() -> void:
 	position = globals.wantedPlayerPos
+	current_dir = globals.lastPlayerDir
 	$Camera2D/BlackScreen/Sprite2D.visible = true
 	$Camera2D/BlackScreen/Sprite2D.modulate.a = 1
 	var blackTween = create_tween()
@@ -37,28 +38,36 @@ func play_anim():
 			if direction.y > 0:
 				sprite.play("front_walk")
 				current_dir = directions.DOWN
+				globals.lastPlayerDir = directions.DOWN
 			elif direction.y < 0:
 				sprite.play("up_walk")
 				current_dir = directions.UP
+				globals.lastPlayerDir = directions.UP
 			else:
 				sprite.play("right_walk")
 				current_dir = directions.RIGHT
+				globals.lastPlayerDir = directions.RIGHT
 		elif direction.x < 0:
 			if direction.y > 0:
 				sprite.play("front_walk")
 				current_dir = directions.DOWN
+				globals.lastPlayerDir = directions.DOWN
 			elif direction.y < 0:
 				sprite.play("up_walk")
 				current_dir = directions.UP
+				globals.lastPlayerDir = directions.UP
 			else:
 				sprite.play("left_walk")
 				current_dir = directions.LEFT
+				globals.lastPlayerDir = directions.LEFT
 		elif direction.y > 0:
 			sprite.play("front_walk")
 			current_dir = directions.DOWN
+			globals.lastPlayerDir = directions.DOWN
 		elif direction.y < 0:
 			sprite.play("up_walk")
 			current_dir = directions.UP
+			globals.lastPlayerDir = directions.UP
 	else:
 		play_idle_anim()
 

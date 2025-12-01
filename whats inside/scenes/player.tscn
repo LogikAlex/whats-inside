@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://dt5bx3cwblvlu" path="res://assets/Spritesheets/player_walk_left.png" id="5_n7ghd"]
 [ext_resource type="Texture2D" uid="uid://ciuu5gb3xv4dw" path="res://assets/Spritesheets/player_walk_right.png" id="7_nvl01"]
 [ext_resource type="Texture2D" uid="uid://c8l3i44h463w" path="res://assets/Spritesheets/player_walk_up.png" id="9_ivps1"]
-[ext_resource type="Texture2D" uid="uid://c2dwnfutixjke" path="res://assets/black.png" id="10_jej6c"]
+[ext_resource type="Texture2D" uid="uid://c2dwnfutixjke" path="res://assets/misc/black.png" id="10_jej6c"]
 [ext_resource type="PackedScene" uid="uid://dx8tl06100qlm" path="res://scenes/interact_indicator.tscn" id="10_n7ghd"]
-[ext_resource type="Texture2D" uid="uid://bsnlq5gaas0au" path="res://assets/interact_indicator_v2.png" id="11_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://bsnlq5gaas0au" path="res://assets/misc/interact_indicator_v2.png" id="11_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://dnjmk0p42uyno" path="res://fico.png" id="11_nvl01"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
@@ -404,7 +404,7 @@ script = ExtResource("1_b26j0")
 speed = 60.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-light_mask = 0
+light_mask = 2
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_u1c27")
 animation = &"front_idle"

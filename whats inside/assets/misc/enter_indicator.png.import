@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsnlq5gaas0au"
-path="res://.godot/imported/interact_indicator_v2.png-1f4aa0e5e9cb4b3c49b618c20e7a02d2.ctex"
+uid="uid://r0ifx677b0mf"
+path="res://.godot/imported/enter_indicator.png-5522850a445f5f3ec49b59660d0448e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interact_indicator_v2.png"
-dest_files=["res://.godot/imported/interact_indicator_v2.png-1f4aa0e5e9cb4b3c49b618c20e7a02d2.ctex"]
+source_file="res://assets/misc/enter_indicator.png"
+dest_files=["res://.godot/imported/enter_indicator.png-5522850a445f5f3ec49b59660d0448e6.ctex"]
 
 [params]
 

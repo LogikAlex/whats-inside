@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cex0gnvp7q1r8"
-path="res://.godot/imported/bedside_table.png-654969fe29f01e29462978268bdca0da.ctex"
+uid="uid://b6w7nxkxhxsf7"
+path="res://.godot/imported/the_box.png-9b404e46a1a034799d01acff1cf852ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bedside_table.png"
-dest_files=["res://.godot/imported/bedside_table.png-654969fe29f01e29462978268bdca0da.ctex"]
+source_file="res://assets/objects/the_box.png"
+dest_files=["res://.godot/imported/the_box.png-9b404e46a1a034799d01acff1cf852ae.ctex"]
 
 [params]
 

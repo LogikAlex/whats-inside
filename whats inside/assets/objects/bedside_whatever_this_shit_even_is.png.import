@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u06hiofvr4cj"
-path="res://.godot/imported/balcony_sprite.png-040d2f94cbd7eb40994d8a0113b38a16.ctex"
+uid="uid://k11cc4j8715c"
+path="res://.godot/imported/bedside_whatever_this_shit_even_is.png-2aca3d450dc015bb00dc447219cc0eac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/balcony_sprite.png"
-dest_files=["res://.godot/imported/balcony_sprite.png-040d2f94cbd7eb40994d8a0113b38a16.ctex"]
+source_file="res://assets/objects/bedside_whatever_this_shit_even_is.png"
+dest_files=["res://.godot/imported/bedside_whatever_this_shit_even_is.png-2aca3d450dc015bb00dc447219cc0eac.ctex"]
 
 [params]
 

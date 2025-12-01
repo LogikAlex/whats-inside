@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://djui70epgv66"]
+
+[ext_resource type="Texture2D" uid="uid://d0jyf06ivptg0" path="res://assets/objects/plant.png" id="1_c6gm7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adpwn"]
+size = Vector2(9, 6)
+
+[node name="Plant" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+texture = ExtResource("1_c6gm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_adpwn")

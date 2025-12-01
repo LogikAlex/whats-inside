@@ -1,12 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://sgubsit8fye1"]
+[gd_scene load_steps=12 format=3 uid="uid://sgubsit8fye1"]
 
-[ext_resource type="Texture2D" uid="uid://u06hiofvr4cj" path="res://assets/balcony_sprite.png" id="1_6csau"]
+[ext_resource type="Texture2D" uid="uid://u06hiofvr4cj" path="res://assets/misc/balcony_sprite.png" id="1_6csau"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_fp5f7"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="2_slygy"]
-[ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/spotlight.png" id="4_h5c6u"]
+[ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="4_h5c6u"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="5_nfuck"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="6_1v70g"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="7_68ty5"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="8_4n428"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5c6u"]
 size = Vector2(20, 7)
+
+[sub_resource type="Resource" id="Resource_jvlks"]
+script = ExtResource("7_68ty5")
+text = "*the view is beautiful today."
+text_speed = 14.0
+text_sound = ExtResource("8_4n428")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7uxb"]
+size = Vector2(13, 62)
 
 [node name="D1Balcony" type="Node2D"]
 
@@ -34,15 +50,30 @@ position = Vector2(14, 46)
 [node name="Camera2D" parent="Player" index="2"]
 limit_left = 0
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.9384497, 0.9384497, 0.9384497, 1)
-
 [node name="sun" type="PointLight2D" parent="."]
-position = Vector2(55, 42)
-scale = Vector2(1.5376877, 1.5735197)
-color = Color(1, 1, 0.8156863, 1)
+position = Vector2(62.000004, 42)
+scale = Vector2(1.7688439, 1.8100625)
+color = Color(0.95937127, 0.93076706, 7.70092e-07, 1)
 energy = 1.28
 shadow_enabled = true
+texture = ExtResource("4_h5c6u")
+
+[node name="DialogueArea" parent="." instance=ExtResource("5_nfuck")]
+position = Vector2(37, 43)
+dialogue = Array[ExtResource("6_1v70g")]([SubResource("Resource_jvlks")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
+position = Vector2(4.5, -1)
+shape = SubResource("RectangleShape2D_b7uxb")
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.9092348, 0.9117436, 0.8771378, 1)
+
+[node name="Spotlight" type="Sprite2D" parent="."]
+modulate = Color(0.9332255, 0.9746534, 0.93158394, 1)
+light_mask = 0
+position = Vector2(466.99997, 53)
+scale = Vector2(15.0703125, 15.46875)
 texture = ExtResource("4_h5c6u")
 
 [editable path="Player"]

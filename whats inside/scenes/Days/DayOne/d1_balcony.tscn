@@ -53,7 +53,7 @@ limit_left = 0
 [node name="sun" type="PointLight2D" parent="."]
 position = Vector2(62.000004, 42)
 scale = Vector2(1.7688439, 1.8100625)
-color = Color(0.95937127, 0.93076706, 7.70092e-07, 1)
+color = Color(0.93909687, 0.94756943, 0.9663058, 1)
 energy = 1.28
 shadow_enabled = true
 texture = ExtResource("4_h5c6u")
@@ -72,7 +72,7 @@ color = Color(0.9092348, 0.9117436, 0.8771378, 1)
 [node name="Spotlight" type="Sprite2D" parent="."]
 modulate = Color(0.9332255, 0.9746534, 0.93158394, 1)
 light_mask = 0
-position = Vector2(466.99997, 53)
+position = Vector2(475, 50)
 scale = Vector2(15.0703125, 15.46875)
 texture = ExtResource("4_h5c6u")
 

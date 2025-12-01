@@ -9,6 +9,8 @@ extends Node2D
 @onready var player = $Player
 @onready var z_sprite = preload("res://scenes/Objects/z_sprite.tscn")
 
+@onready var anotherDayDialog = $anotherDayDialog/CollisionShape2D
+
 var tweensFinished = false
 
 var tween: Tween
@@ -17,7 +19,7 @@ var spawned_z: Sprite2D
 var z_head_tween: Tween
 
 func _ready() -> void:
-	globals.wokeUp = true
+	#globals.wokeUp = true
 	_check_if_woke_up()
 
 func _process(_delta: float) -> void:
@@ -33,6 +35,7 @@ func _check_if_woke_up():
 		player.visible = false
 	else:
 		player.position = globals.wantedPlayerPos
+		anotherDayDialog.disabled = true
 		cutsceneCam.free()
 		player.can_move = true
 		bedSprite.frame = 0
@@ -62,8 +65,13 @@ func cam_shift():
 	tween.tween_callback(
 	func switch_to_player_cam():
 		cutsceneCam.free()
-		player.can_move = true
 	).set_delay(0.3)
+	tween.tween_callback(
+	func show_dialog():
+		anotherDayDialog.disabled = false
+		player.can_move = true
+	).set_delay(0.5)
+	
 func fade_in_tween():
 	reset_tween()
 	tween.set_ease(Tween.EASE_OUT_IN)

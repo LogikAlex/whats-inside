@@ -57,6 +57,7 @@ func _activate_dialogue() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if only_activate_once and has_activated_already:
+		print("ALREADY DID IT BROTHER")
 		return
 	if area.is_in_group("interact_hitbox_player"):
 		if !activate_instant:
@@ -65,6 +66,9 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _on_area_exited(area: Area2D) -> void:
+	if only_activate_once and has_activated_already:
+		print("ALREADY DID IT BROTHER")
+		return
 	if area.is_in_group("interact_hitbox_player"):
 		player_node.interact_indicator_disappear()
 		player_body_in = false

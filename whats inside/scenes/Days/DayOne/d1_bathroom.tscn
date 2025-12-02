@@ -1,8 +1,16 @@
-[gd_scene load_steps=9 format=4 uid="uid://b408yeech5o4l"]
+[gd_scene load_steps=17 format=4 uid="uid://b408yeech5o4l"]
 
 [ext_resource type="Texture2D" uid="uid://bulrofjfrig43" path="res://assets/tilesets/bathroom_tiles.png" id="1_q7576"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_7agtt"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="3_luqbx"]
+[ext_resource type="PackedScene" uid="uid://d1ihff5cbsmms" path="res://scenes/Objects/bathroomSink.tscn" id="4_7agtt"]
+[ext_resource type="Texture2D" uid="uid://dkdlycq1b4kvu" path="res://assets/objects/mirror.png" id="5_luqbx"]
+[ext_resource type="PackedScene" uid="uid://ch73qqrhk5kmv" path="res://scenes/Objects/toilet.tscn" id="5_mlvh7"]
+[ext_resource type="PackedScene" uid="uid://cpn0v8in0pad5" path="res://scenes/Objects/washingMachine.tscn" id="7_swylh"]
+[ext_resource type="Texture2D" uid="uid://vaih3bys5mjy" path="res://assets/objects/toilet_paper.png" id="8_r3xkd"]
+[ext_resource type="Texture2D" uid="uid://q356uglah7st" path="res://assets/objects/towel.png" id="8_w1hqx"]
+[ext_resource type="PackedScene" uid="uid://b0xolnyw0l6jk" path="res://scenes/Objects/bathtub.tscn" id="10_tspe1"]
+[ext_resource type="PackedScene" uid="uid://diln5o5xi66rg" path="res://scenes/Objects/stand.tscn" id="11_fe5bx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7agtt"]
 texture = ExtResource("1_q7576")
@@ -80,13 +88,16 @@ fill = 1
 fill_from = Vector2(0.5, 0.4871795)
 
 [node name="Bathroom" type="Node2D"]
+y_sort_enabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -1
 tile_map_data = PackedByteArray("AAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAAAAAAAAAAAAAACAAAAAAAAAAAAAAACAP7/AAADAAAAAAACAP//AAADAAEAAAADAP7/AAADAAAAAAADAP//AAADAAEAAAAEAP7/AAADAAAAAAAEAP//AAADAAEAAAAFAP7/AAADAAAAAAAFAP//AAADAAEAAAAGAP7/AAADAAAAAAAGAP//AAADAAEAAAABAP7/AAADAAAAAAABAP//AAADAAEAAAAAAP7/AAACAAAAAAAAAP//AAACAAEAAAAAAAAAAAACAAMAAAAAAAIAAAAAAAMAAAAAAAMAAAACAAQAAAABAAMAAAADAAQAAAACAAMAAAADAAQAAAADAAMAAAADAAQAAAAEAAMAAAADAAQAAAAFAAMAAAADAAQAAAAGAAMAAAADAAQAAAAHAAIAAAAEAAIAAAAHAAMAAAAEAAQAAAAHAAEAAAAEAAIAAAAHAAAAAAAEAAIAAAAHAP7/AAAEAAAAAAAHAP//AAAEAAEAAAABAAIAAAAAAAAAAAABAAEAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAEAAAAGAAIAAAA=")
 tile_set = SubResource("TileSet_luqbx")
 
 [node name="Player" parent="." instance=ExtResource("2_7agtt")]
 position = Vector2(23, 24)
+speed = 50.0
 
 [node name="ChangeRoom" parent="." instance=ExtResource("3_luqbx")]
 position = Vector2(10, 24)
@@ -107,3 +118,30 @@ color = Color(0.9843529, 0.98745495, 0.9660104, 1)
 energy = 0.25
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_q7576")
+
+[node name="Towel" type="Sprite2D" parent="."]
+position = Vector2(81, -3)
+texture = ExtResource("8_w1hqx")
+
+[node name="BathroomSink" parent="." instance=ExtResource("4_7agtt")]
+position = Vector2(67, -7)
+
+[node name="Mirror" type="Sprite2D" parent="BathroomSink"]
+position = Vector2(0, -5)
+texture = ExtResource("5_luqbx")
+
+[node name="Stand" parent="." instance=ExtResource("11_fe5bx")]
+position = Vector2(52, -5)
+
+[node name="Toilet" parent="." instance=ExtResource("5_mlvh7")]
+position = Vector2(26, -3)
+
+[node name="ToiletPaper" type="Sprite2D" parent="Toilet"]
+position = Vector2(11, 1)
+texture = ExtResource("8_r3xkd")
+
+[node name="WashingMachine" parent="." instance=ExtResource("7_swylh")]
+position = Vector2(102, -2)
+
+[node name="Bathtub" parent="." instance=ExtResource("10_tspe1")]
+position = Vector2(100, 38)

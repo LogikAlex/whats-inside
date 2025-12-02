@@ -46,6 +46,7 @@ shape = SubResource("RectangleShape2D_h5c6u")
 
 [node name="Player" parent="." instance=ExtResource("2_fp5f7")]
 position = Vector2(14, 46)
+speed = 50.0
 
 [node name="Camera2D" parent="Player" index="2"]
 limit_left = 0
@@ -72,7 +73,7 @@ color = Color(0.9092348, 0.9117436, 0.8771378, 1)
 [node name="Spotlight" type="Sprite2D" parent="."]
 modulate = Color(0.9332255, 0.9746534, 0.93158394, 1)
 light_mask = 0
-position = Vector2(475, 50)
+position = Vector2(525, 50)
 scale = Vector2(15.0703125, 15.46875)
 texture = ExtResource("4_h5c6u")
 

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ts45enmkbyvs"]
+
+[ext_resource type="Texture2D" uid="uid://deru8l0g32v3o" path="res://assets/objects/coat_hanger.png" id="1_o5xji"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adpwn"]
+size = Vector2(9, 4)
+
+[node name="CoatHanger" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -9)
+texture = ExtResource("1_o5xji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_adpwn")

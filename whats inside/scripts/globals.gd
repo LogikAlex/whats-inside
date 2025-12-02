@@ -2,7 +2,7 @@ extends Node2D
 
 #any day
 @export var wokeUp = false
-@export var wantedPlayerPos: Vector2 = Vector2(27, 14)
+@export var wantedPlayerPos: Vector2 = Vector2(24, 10)
 var lastPlayerDir
 
 #day one

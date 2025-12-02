@@ -58,6 +58,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_8sw2p")]
 position = Vector2(48, 25)
+speed = 50.0
 
 [node name="toBedroom" parent="." instance=ExtResource("3_fqq4a")]
 position = Vector2(24, -5)

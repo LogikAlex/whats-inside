@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpn0v8in0pad5"]
+
+[ext_resource type="Texture2D" uid="uid://71dbr81kj46p" path="res://assets/objects/washing_machine.png" id="1_a03ap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adpwn"]
+size = Vector2(16, 13)
+
+[node name="WashingMachine" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a03ap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_adpwn")

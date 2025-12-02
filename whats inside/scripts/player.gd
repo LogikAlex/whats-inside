@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 50.0
+@export var speed: float = 45.0
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interactHitbox: Area2D = $InteractHitbox
 @onready var interactIndicator: Sprite2D = $InteractIndicator
@@ -98,3 +98,6 @@ func interact_indicator_appear():
 func interact_indicator_disappear():
 	var tween: Tween = create_tween()
 	tween.tween_property(interactIndicator, "modulate:a", 0, 0.2)
+
+func can_walk():
+	can_move = true

@@ -19,7 +19,7 @@ var spawned_z: Sprite2D
 var z_head_tween: Tween
 
 func _ready() -> void:
-	globals.wokeUp = true
+	#globals.wokeUp = true
 	_check_if_woke_up()
 
 func _process(_delta: float) -> void:

@@ -71,9 +71,6 @@ sources/0 = SubResource("TileSetAtlasSource_p8c40")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcu28"]
 size = Vector2(36, 8)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cjlok"]
-polygon = PackedVector2Array(64, 24, 64, -21, 35, -21, 35, 24)
-
 [sub_resource type="Gradient" id="Gradient_7vca8"]
 offsets = PackedFloat32Array(0, 0.7310606)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -84,6 +81,9 @@ width = 244
 height = 244
 fill = 1
 fill_from = Vector2(0.5, 0.4871795)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cjlok"]
+polygon = PackedVector2Array(64, 24, 64, -21, 35, -21, 35, 24)
 
 [node name="D1Kitchen" type="Node2D"]
 
@@ -97,7 +97,7 @@ position = Vector2(80, 8)
 [node name="toLivingroom" parent="." instance=ExtResource("3_3ipta")]
 position = Vector2(80, -12)
 wanted_room_path = "res://scenes/Days/DayOne/d1_livingroom.tscn"
-wanted_player_pos = Vector2(96, 43)
+wanted_player_pos = Vector2(96, 42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toLivingroom"]
 position = Vector2(0, 1)
@@ -112,13 +112,6 @@ blend_mode = 2
 shadow_enabled = true
 texture = ExtResource("4_tcu28")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_cjlok")
-
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
-position = Vector2(61, 0)
-occluder = SubResource("OccluderPolygon2D_cjlok")
-
 [node name="ambience" type="CanvasModulate" parent="."]
 color = Color(0.66454595, 0.7107056, 0.6692985, 1)
 
@@ -128,3 +121,10 @@ color = Color(0.9843529, 0.98745495, 0.9660104, 1)
 energy = 0.4
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_tcu28")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_cjlok")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+position = Vector2(61, 0)
+occluder = SubResource("OccluderPolygon2D_cjlok")

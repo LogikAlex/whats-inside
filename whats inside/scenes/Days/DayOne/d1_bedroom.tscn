@@ -21,8 +21,8 @@
 
 [sub_resource type="Resource" id="Resource_m2ldl"]
 script = ExtResource("13_sqv23")
-text = "*Another morning."
-text_speed = 8.0
+text = "...Morning already?"
+text_speed = 12.0
 text_sound = ExtResource("14_5tb5o")
 text_volume_pitch_min = 0.7
 text_volume_pitch_max = 0.75

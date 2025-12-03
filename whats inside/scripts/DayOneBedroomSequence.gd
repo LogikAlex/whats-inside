@@ -37,6 +37,7 @@ func _check_if_woke_up():
 		player.position = globals.wantedPlayerPos
 		anotherDayDialog.disabled = true
 		cutsceneCam.free()
+		$Camera2D.enabled = true
 		player.can_move = true
 		bedSprite.frame = 0
 		player.visible = true
@@ -59,12 +60,13 @@ func cam_shift():
 	reset_tween()
 	tween.set_parallel()
 	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(cutsceneCam, "global_position", player.position, 0.3).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(cutsceneCam, "global_position", Vector2(42, 19), 0.3).set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(interactIndicator, "modulate:a", 0, 0.5)
 	tween.tween_callback(
 	func switch_to_player_cam():
 		cutsceneCam.free()
+		$Camera2D.enabled = true
 	).set_delay(0.3)
 	tween.tween_callback(
 	func show_dialog():

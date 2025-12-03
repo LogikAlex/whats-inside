@@ -35,6 +35,9 @@ fill_from = Vector2(0.5, 0.5)
 
 [node name="D1Balcony" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(160, 43)
+
 [node name="Balcony" type="Sprite2D" parent="."]
 position = Vector2(24, 40)
 texture = ExtResource("1_6csau")
@@ -57,7 +60,7 @@ shape = SubResource("RectangleShape2D_h5c6u")
 position = Vector2(14, 46)
 speed = 50.0
 
-[node name="Camera2D" parent="Player" index="2"]
+[node name="Camera2D" parent="Player" index="3"]
 limit_left = 0
 
 [node name="sun" type="PointLight2D" parent="."]

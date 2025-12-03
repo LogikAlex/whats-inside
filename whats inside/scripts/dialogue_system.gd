@@ -9,6 +9,7 @@ var dialogue: Array[DE]
 var current_dialogue_item: int = 0
 var next_item: bool = true
 
+var cam_moved = false
 var player_node: CharacterBody2D
 
 func _ready() -> void:
@@ -93,6 +94,11 @@ func _text_resource(i: DialogueText) -> void:
 	if camera and i.camera_position != Vector2(999.9, 999.9):
 		var camera_tween: Tween = create_tween().set_trans(Tween.TRANS_SINE)
 		camera_tween.tween_property(camera, "global_position", i.camera_position, i.camera_transition_time)
+		camera_tween.finished.connect(
+		func _camera_moved():
+			cam_moved = true
+			print("MOVED")
+		)
 	
 	DialogueLabel.visible_characters = 0
 	DialogueLabel.text = i.text
@@ -130,8 +136,13 @@ func _text_resource(i: DialogueText) -> void:
 		await get_tree().process_frame
 		if DialogueLabel.visible_characters == total_characters:
 			if Input.is_action_just_pressed("skip_text"):
-				current_dialogue_item += 1
-				next_item = true
+				if i.camera_position != Vector2(999.9, 999.9) and cam_moved:
+					current_dialogue_item += 1
+					cam_moved = false
+					next_item = true
+				elif i.camera_position == Vector2(999.9, 999.9):
+					current_dialogue_item += 1
+					next_item = true
 
 func _text_without_square_brackets(text: String) -> String:
 	var result: String = ""

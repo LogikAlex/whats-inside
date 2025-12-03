@@ -7,5 +7,6 @@ var lastPlayerDir
 
 #day one
 @export var anotherDayDialogue = true
+@export var tv_off = false
 @export var teethReminder = true
 @export var brushedTeeth = false

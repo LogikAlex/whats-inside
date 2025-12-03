@@ -413,19 +413,25 @@ animation = &"front_idle"
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_76oay")
 
+[node name="BlackScreen" type="CanvasLayer" parent="."]
+scale = Vector2(68.5, 40.25)
+transform = Transform2D(68.5, 0, 0, 40.25, 0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BlackScreen"]
+visible = false
+texture = ExtResource("10_jej6c")
+
 [node name="Camera2D" type="Camera2D" parent="." groups=["player_cam"]]
+visible = false
+enabled = false
 process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-
-[node name="BlackScreen" type="CanvasLayer" parent="Camera2D"]
-scale = Vector2(68.5, 40.25)
-transform = Transform2D(68.5, 0, 0, 40.25, 0, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/BlackScreen"]
-visible = false
-texture = ExtResource("10_jej6c")
+drag_left_margin = 0.15
+drag_top_margin = 0.15
+drag_right_margin = 0.15
+drag_bottom_margin = 0.15
 
 [node name="InteractIndicator" parent="." instance=ExtResource("10_n7ghd")]
 modulate = Color(1, 1, 1, 0)

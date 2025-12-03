@@ -151,6 +151,10 @@ dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_m2ldl"), SubRes
 shape = SubResource("RectangleShape2D_i04c0")
 disabled = true
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(42, 19)
+enabled = false
+
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
 z_index = -1
 occluder = SubResource("OccluderPolygon2D_rnkns")

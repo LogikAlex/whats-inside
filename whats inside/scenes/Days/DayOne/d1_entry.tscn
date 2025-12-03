@@ -57,8 +57,11 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apbi4"]
 size = Vector2(14, 10)
 
-[node name="LivingRoom" type="Node2D"]
+[node name="Entry" type="Node2D"]
 y_sort_enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(50, 18)
 
 [node name="Tiles" type="TileMapLayer" parent="."]
 z_index = -1

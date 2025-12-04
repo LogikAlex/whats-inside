@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=4 uid="uid://b43aw0vqjcelw"]
+[gd_scene load_steps=18 format=4 uid="uid://b43aw0vqjcelw"]
 
 [ext_resource type="Texture2D" uid="uid://dsvpekb435jkq" path="res://assets/tilesets/kitchen_tiles.png" id="1_313v0"]
+[ext_resource type="Script" uid="uid://cg8df11qmw40t" path="res://scenes/Days/DayOne/DayOneKitchen.gd" id="1_ll6nb"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_p8c40"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="3_3ipta"]
 [ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="4_tcu28"]
@@ -101,6 +102,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02q0l"]
 
 [node name="D1Kitchen" type="Node2D"]
+script = ExtResource("1_ll6nb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(57, 30)
@@ -111,6 +113,7 @@ tile_set = SubResource("TileSet_3ipta")
 
 [node name="Player" parent="." instance=ExtResource("2_p8c40")]
 position = Vector2(80, 8)
+speed = 50.0
 
 [node name="toLivingroom" parent="." instance=ExtResource("3_3ipta")]
 position = Vector2(80, -12)
@@ -129,6 +132,7 @@ energy = 0.0
 blend_mode = 2
 shadow_enabled = true
 texture = ExtResource("4_tcu28")
+metadata/_edit_lock_ = true
 
 [node name="ambience" type="CanvasModulate" parent="."]
 color = Color(0.66454595, 0.7107056, 0.6692985, 1)
@@ -139,6 +143,7 @@ color = Color(0.9843529, 0.98745495, 0.9660104, 1)
 energy = 0.4
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_tcu28")
+metadata/_edit_lock_ = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_cjlok")

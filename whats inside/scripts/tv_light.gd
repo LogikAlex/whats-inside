@@ -16,3 +16,4 @@ func _turn_off():
 	$"../tv_turn_off".free()
 	$".".enabled = false
 	globals.tv_off = true
+	globals.coffeeDialog = true

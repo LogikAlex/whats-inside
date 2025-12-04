@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b408yeech5o4l"]
+[gd_scene load_steps=24 format=4 uid="uid://b408yeech5o4l"]
 
 [ext_resource type="Texture2D" uid="uid://bulrofjfrig43" path="res://assets/tilesets/bathroom_tiles.png" id="1_q7576"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_7agtt"]
@@ -11,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://q356uglah7st" path="res://assets/objects/towel.png" id="8_w1hqx"]
 [ext_resource type="PackedScene" uid="uid://b0xolnyw0l6jk" path="res://scenes/Objects/bathtub.tscn" id="10_tspe1"]
 [ext_resource type="PackedScene" uid="uid://diln5o5xi66rg" path="res://scenes/Objects/stand.tscn" id="11_fe5bx"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="12_ga33y"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="13_nbs3h"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="14_35lp7"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="15_nbs3h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7agtt"]
 texture = ExtResource("1_q7576")
@@ -87,6 +91,27 @@ height = 244
 fill = 1
 fill_from = Vector2(0.5, 0.4871795)
 
+[sub_resource type="Resource" id="Resource_8vf8s"]
+script = ExtResource("14_35lp7")
+text = "*it's me."
+text_speed = 12.0
+text_sound = ExtResource("15_nbs3h")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.75
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1y2v"]
+size = Vector2(3, 7)
+
+[sub_resource type="Resource" id="Resource_nbs3h"]
+script = ExtResource("14_35lp7")
+text = "*just my toothbrush"
+text_speed = 12.0
+text_sound = ExtResource("15_nbs3h")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.75
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
 [node name="Bathroom" type="Node2D"]
 y_sort_enabled = true
 
@@ -148,3 +173,19 @@ position = Vector2(102, -2)
 
 [node name="Bathtub" parent="." instance=ExtResource("10_tspe1")]
 position = Vector2(100, 38)
+
+[node name="mirror_dialog" parent="." instance=ExtResource("12_ga33y")]
+position = Vector2(67, -2)
+dialogue = Array[ExtResource("13_nbs3h")]([SubResource("Resource_8vf8s")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mirror_dialog"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_s1y2v")
+
+[node name="tbrush_dialog" parent="." instance=ExtResource("12_ga33y")]
+position = Vector2(52, -2)
+dialogue = Array[ExtResource("13_nbs3h")]([SubResource("Resource_nbs3h")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tbrush_dialog"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_s1y2v")

@@ -1,9 +1,13 @@
-[gd_scene load_steps=11 format=4 uid="uid://b43aw0vqjcelw"]
+[gd_scene load_steps=17 format=4 uid="uid://b43aw0vqjcelw"]
 
 [ext_resource type="Texture2D" uid="uid://dsvpekb435jkq" path="res://assets/tilesets/kitchen_tiles.png" id="1_313v0"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_p8c40"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="3_3ipta"]
 [ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="4_tcu28"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="5_8jhf5"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="6_tnify"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="7_ll6nb"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="8_tnify"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p8c40"]
 texture = ExtResource("1_313v0")
@@ -85,6 +89,17 @@ fill_from = Vector2(0.5, 0.4871795)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cjlok"]
 polygon = PackedVector2Array(64, 24, 64, -21, 35, -21, 35, 24)
 
+[sub_resource type="Resource" id="Resource_xgcxg"]
+script = ExtResource("7_ll6nb")
+text = "*i could really use a cup of coffee"
+text_speed = 14.0
+text_sound = ExtResource("8_tnify")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.75
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02q0l"]
+
 [node name="D1Kitchen" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -131,3 +146,12 @@ occluder = SubResource("OccluderPolygon2D_cjlok")
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
 position = Vector2(61, 0)
 occluder = SubResource("OccluderPolygon2D_cjlok")
+
+[node name="coffee_dialog" parent="." instance=ExtResource("5_8jhf5")]
+position = Vector2(80, 8)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("6_tnify")]([SubResource("Resource_xgcxg")])
+
+[node name="trigger_coffee" type="CollisionShape2D" parent="coffee_dialog"]
+shape = SubResource("RectangleShape2D_02q0l")

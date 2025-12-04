@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://71dbr81kj46p" path="res://assets/objects/washing_machine.png" id="1_a03ap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adpwn"]
-size = Vector2(16, 13)
+size = Vector2(18, 13)
 
 [node name="WashingMachine" type="StaticBody2D"]
 

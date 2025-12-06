@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dqiax3kuyuu7e" path="res://assets/objects/closet.png" id="1_42ggf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rm463"]
-size = Vector2(20, 7)
+size = Vector2(21, 14)
 
 [node name="closet" type="StaticBody2D"]
 
@@ -12,5 +12,5 @@ position = Vector2(0, -2)
 texture = ExtResource("1_42ggf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
+position = Vector2(-0.5, 3)
 shape = SubResource("RectangleShape2D_rm463")

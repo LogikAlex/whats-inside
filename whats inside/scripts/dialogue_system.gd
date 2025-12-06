@@ -10,6 +10,7 @@ var current_dialogue_item: int = 0
 var next_item: bool = true
 
 var cam_moved = false
+var first_dialogue = true
 var player_node: CharacterBody2D
 
 func _ready() -> void:
@@ -23,7 +24,8 @@ func _process(_delta: float) -> void:
 			for i in get_tree().get_nodes_in_group("player"):
 				player_node = i
 			return
-		player_node.can_move = true
+		if dialogue[current_dialogue_item - 1] is DialogueText:
+			player_node.can_move = true
 		queue_free()
 		return
 	
@@ -39,7 +41,8 @@ func _process(_delta: float) -> void:
 			_function_resource(i)
 		elif i is DialogueText:
 			visible = true
-			if (current_dialogue_item == 0):
+			if first_dialogue:
+				first_dialogue = false
 				DialoguePanel.size.x = 0
 				DialoguePanel.position.x = 160
 				DialoguePanel.modulate.a = 0
@@ -65,6 +68,7 @@ func _process(_delta: float) -> void:
 		else:
 			printerr("You accidentaly added a DE resource!")
 			current_dialogue_item += 1
+			first_dialogue = false
 			next_item = true
 
 func _function_resource(i: DialogueFunction) -> void:

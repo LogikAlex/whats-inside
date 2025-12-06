@@ -92,7 +92,7 @@ hide_dialogue_box = true
 metadata/_custom_type_script = "uid://bj218rqao0syu"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tivqm"]
-size = Vector2(6, 16)
+size = Vector2(7, 16)
 
 [node name="LivingRoom" type="Node2D"]
 y_sort_enabled = true
@@ -189,6 +189,7 @@ only_activate_once = true
 dialogue = Array[ExtResource("9_24ksx")]([SubResource("Resource_tivqm"), SubResource("Resource_3ffl5")])
 
 [node name="trigger_tv" type="CollisionShape2D" parent="tv_turn_off"]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_tivqm")
 
 [node name="Lamp" parent="." instance=ExtResource("12_7vca8")]

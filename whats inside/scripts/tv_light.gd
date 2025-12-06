@@ -13,6 +13,7 @@ func _flicker():
 
 func _turn_off():
 	print("BROTHER TURN OFF BROTHER")
+	$"../Player".can_move = true
 	$"../tv_turn_off".free()
 	$".".enabled = false
 	globals.tv_off = true

@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="14_5tb5o"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="15_gf58s"]
 [ext_resource type="PackedScene" uid="uid://dqpa3y3lkm1o8" path="res://scenes/Objects/closet.tscn" id="18_rnkns"]
+[ext_resource type="Texture2D" uid="uid://qhcs6stv71ts" path="res://assets/objects/carpet.png" id="19_rctb2"]
 
 [sub_resource type="Resource" id="Resource_m2ldl"]
 script = ExtResource("13_sqv23")
@@ -44,29 +45,6 @@ polygon = PackedVector2Array(80, 16, 86, 16, 86, -21, -6, -21, -6, 54, 48, 54, 4
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rctb2"]
 polygon = PackedVector2Array(64, 48, 80, 48, 80, 32, 86, 32, 86, 54, 64, 54)
 
-[sub_resource type="Resource" id="Resource_0dxpw"]
-script = ExtResource("13_sqv23")
-text = "*It's my bedside table"
-text_speed = 14.0
-text_sound = ExtResource("14_5tb5o")
-text_volume_db = 1
-text_volume_pitch_min = 0.8
-text_volume_pitch_max = 0.85
-metadata/_custom_type_script = "uid://c7hf8sppb4268"
-
-[sub_resource type="Resource" id="Resource_epvxm"]
-script = ExtResource("13_sqv23")
-text = "*it's empty"
-text_speed = 14.0
-text_sound = ExtResource("14_5tb5o")
-text_volume_db = 1
-text_volume_pitch_min = 0.8
-text_volume_pitch_max = 0.85
-metadata/_custom_type_script = "uid://c7hf8sppb4268"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2hfq"]
-size = Vector2(6, 7)
-
 [sub_resource type="Resource" id="Resource_fkvcy"]
 script = ExtResource("13_sqv23")
 text = "*A radiator. it keeps me warm."
@@ -78,7 +56,20 @@ text_volume_pitch_max = 0.85
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oarp8"]
-size = Vector2(19, 9)
+size = Vector2(4, 17)
+
+[sub_resource type="Resource" id="Resource_0dxpw"]
+script = ExtResource("13_sqv23")
+text = "*It's my bedside table."
+text_speed = 14.0
+text_sound = ExtResource("14_5tb5o")
+text_volume_db = 1
+text_volume_pitch_min = 0.8
+text_volume_pitch_max = 0.85
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2hfq"]
+size = Vector2(4, 7)
 
 [sub_resource type="Resource" id="Resource_0snk2"]
 script = ExtResource("13_sqv23")
@@ -105,7 +96,7 @@ size = Vector2(10, 11)
 
 [sub_resource type="Resource" id="Resource_rnkns"]
 script = ExtResource("13_sqv23")
-text = "*believe it or not, this is a closet"
+text = "*My closet."
 text_speed = 14.0
 text_sound = ExtResource("14_5tb5o")
 text_volume_pitch_min = 0.8
@@ -121,7 +112,7 @@ text_volume_pitch_max = 0.8
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rctb2"]
-size = Vector2(16, 7)
+size = Vector2(13, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyqo4"]
 size = Vector2(20, 7)
@@ -141,6 +132,14 @@ fill_from = Vector2(0.5, 0.4871795)
 y_sort_enabled = true
 script = ExtResource("1_fcra2")
 
+[node name="Player" parent="." instance=ExtResource("8_kv6j8")]
+position = Vector2(24, 10)
+speed = 50.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(42, 19)
+enabled = false
+
 [node name="anotherDayDialog" parent="." instance=ExtResource("11_ma0t7")]
 position = Vector2(24, 13)
 activate_instant = true
@@ -150,10 +149,6 @@ dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_m2ldl"), SubRes
 [node name="CollisionShape2D" type="CollisionShape2D" parent="anotherDayDialog"]
 shape = SubResource("RectangleShape2D_i04c0")
 disabled = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(42, 19)
-enabled = false
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
 z_index = -1
@@ -173,10 +168,25 @@ metadata/_edit_lock_ = true
 position = Vector2(8, -2)
 
 [node name="Radiator" parent="." instance=ExtResource("3_fcra2")]
-position = Vector2(65, -3)
+position = Vector2(2, 27)
+
+[node name="radiator_dialog" parent="." instance=ExtResource("11_ma0t7")]
+position = Vector2(1, 33)
+dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_fkvcy")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="radiator_dialog"]
+position = Vector2(1, 2.5)
+shape = SubResource("RectangleShape2D_oarp8")
 
 [node name="bedsideCabinet" parent="." instance=ExtResource("5_7k8r6")]
-position = Vector2(24, 0)
+position = Vector2(23, 1)
+
+[node name="b_cabinet_dialog" parent="." instance=ExtResource("11_ma0t7")]
+position = Vector2(23, 1)
+dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_0dxpw")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="b_cabinet_dialog"]
+shape = SubResource("RectangleShape2D_q2hfq")
 
 [node name="CutsceneCam" type="Camera2D" parent="."]
 position = Vector2(8, 6)
@@ -190,29 +200,10 @@ position = Vector2(1.9073486e-06, 0)
 scale = Vector2(20.999998, 12.625)
 texture = ExtResource("7_68srq")
 
-[node name="Player" parent="." instance=ExtResource("8_kv6j8")]
-position = Vector2(24, 10)
-speed = 50.0
-
 [node name="InteractIndicator" parent="." instance=ExtResource("9_n8kq3")]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(8, -15)
 texture = ExtResource("10_6m637")
-
-[node name="b_cabinet_dialog" parent="." instance=ExtResource("11_ma0t7")]
-position = Vector2(24, 0)
-dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_0dxpw"), SubResource("Resource_epvxm")])
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="b_cabinet_dialog"]
-shape = SubResource("RectangleShape2D_q2hfq")
-
-[node name="radiator_dialog" parent="." instance=ExtResource("11_ma0t7")]
-position = Vector2(56, -3)
-dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_fkvcy")])
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="radiator_dialog"]
-position = Vector2(7.5, -1.5)
-shape = SubResource("RectangleShape2D_oarp8")
 
 [node name="bed_dialog" parent="." instance=ExtResource("11_ma0t7")]
 position = Vector2(8, 7)
@@ -222,14 +213,14 @@ dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_0snk2"), SubRes
 shape = SubResource("RectangleShape2D_dihqp")
 
 [node name="closet" parent="." instance=ExtResource("18_rnkns")]
-position = Vector2(10, 43)
+position = Vector2(70, -3)
 
 [node name="closet_dialog" parent="." instance=ExtResource("11_ma0t7")]
-position = Vector2(10, 41)
+position = Vector2(70, 1)
 dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_rnkns"), SubResource("Resource_i04c0")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="closet_dialog"]
-position = Vector2(0, 0.5)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_rctb2")
 
 [node name="toLivingroom" parent="." instance=ExtResource("15_gf58s")]
@@ -248,6 +239,11 @@ wanted_player_pos = Vector2(14, 46)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toBalcony"]
 shape = SubResource("RectangleShape2D_fyqo4")
+
+[node name="Carpet" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(41, 27)
+texture = ExtResource("19_rctb2")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(96, 24)

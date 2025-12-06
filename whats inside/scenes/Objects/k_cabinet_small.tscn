@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyxlup5kvj4wj"]
+
+[ext_resource type="Texture2D" uid="uid://cai5n6f1ca4rl" path="res://assets/objects/k_cabinet_small.png" id="1_lwibg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm463"]
+size = Vector2(8, 22)
+
+[node name="KitchenCabinet" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_lwibg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_rm463")

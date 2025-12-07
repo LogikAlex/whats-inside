@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://76qk4vl7vadu"]
+[gd_scene load_steps=8 format=3 uid="uid://76qk4vl7vadu"]
 
 [ext_resource type="Texture2D" uid="uid://cb5h7rlv54o4o" path="res://assets/objects/spilled_coffee_big.png" id="1_81cy4"]
+[ext_resource type="Script" uid="uid://cek8uiuahy5v1" path="res://scripts/d1_coffee_minigame.gd" id="1_x6ef1"]
 [ext_resource type="Texture2D" uid="uid://ujt5upvpw5ti" path="res://assets/objects/cloth.png" id="2_v15b2"]
 
 [sub_resource type="Gradient" id="Gradient_g85m5"]
@@ -11,19 +12,38 @@ gradient = SubResource("Gradient_g85m5")
 width = 164
 height = 164
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v15b2"]
+size = Vector2(102, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6ef1"]
+size = Vector2(49, 50)
+
 [node name="D1CoffeeMinigame" type="Node2D"]
+script = ExtResource("1_x6ef1")
 
 [node name="BG" type="Sprite2D" parent="."]
-position = Vector2(146.75002, 90.00001)
+position = Vector2(147.00002, 90)
 scale = Vector2(3.3262196, 1.8064023)
 texture = SubResource("GradientTexture2D_81cy4")
+metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(151, 88.99999)
+[node name="SpilledCoffee" type="Area2D" parent="."]
+position = Vector2(119, 88)
+
+[node name="spilledcoffee" type="Sprite2D" parent="SpilledCoffee"]
 scale = Vector2(1.7500001, 1.7500002)
 texture = ExtResource("1_81cy4")
 
-[node name="Cloth" type="Sprite2D" parent="."]
-position = Vector2(175, 81)
-scale = Vector2(2.375, 2.375)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpilledCoffee"]
+shape = SubResource("RectangleShape2D_v15b2")
+
+[node name="Cloth" type="Area2D" parent="."]
+position = Vector2(220, 87)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cloth"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_x6ef1")
+
+[node name="Cloth" type="Sprite2D" parent="Cloth"]
+scale = Vector2(2.1, 2.1)
 texture = ExtResource("2_v15b2")

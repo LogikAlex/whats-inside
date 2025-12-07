@@ -122,10 +122,10 @@ text_volume_pitch_max = 0.7
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgvl7"]
-size = Vector2(6, 68)
+size = Vector2(6, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqefg"]
-size = Vector2(6, 68)
+size = Vector2(6, 48)
 
 [sub_resource type="Resource" id="Resource_4nr2n"]
 script = ExtResource("18_vcvn8")
@@ -284,6 +284,7 @@ activate_instant = true
 dialogue = Array[ExtResource("6_tnify")]([SubResource("Resource_kgvl7")])
 
 [node name="trigger" type="CollisionShape2D" parent="didnt_drink_bruh"]
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_kgvl7")
 disabled = true
 
@@ -291,6 +292,7 @@ disabled = true
 position = Vector2(62, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_fqefg")
 disabled = true
 

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://76qk4vl7vadu"]
+
+[ext_resource type="Texture2D" uid="uid://cb5h7rlv54o4o" path="res://assets/objects/spilled_coffee_big.png" id="1_81cy4"]
+[ext_resource type="Texture2D" uid="uid://ujt5upvpw5ti" path="res://assets/objects/cloth.png" id="2_v15b2"]
+
+[sub_resource type="Gradient" id="Gradient_g85m5"]
+colors = PackedColorArray(0.80368555, 0.75408953, 0.74884576, 1, 0.37875786, 0.38105282, 0.35262746, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_81cy4"]
+gradient = SubResource("Gradient_g85m5")
+width = 164
+height = 164
+
+[node name="D1CoffeeMinigame" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(146.75002, 90.00001)
+scale = Vector2(3.3262196, 1.8064023)
+texture = SubResource("GradientTexture2D_81cy4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(151, 88.99999)
+scale = Vector2(1.7500001, 1.7500002)
+texture = ExtResource("1_81cy4")
+
+[node name="Cloth" type="Sprite2D" parent="."]
+position = Vector2(175, 81)
+scale = Vector2(2.375, 2.375)
+texture = ExtResource("2_v15b2")

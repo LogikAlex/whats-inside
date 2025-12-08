@@ -9,4 +9,4 @@ var lastPlayerDir
 @export var anotherDayDialogue = true
 @export var tv_off = false
 @export var coffeeDialog = false
-@export var brushedTeeth = false
+@export var cleanedCoffee = false

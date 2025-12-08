@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://b43aw0vqjcelw"]
+[gd_scene load_steps=45 format=4 uid="uid://b43aw0vqjcelw"]
 
 [ext_resource type="Texture2D" uid="uid://dsvpekb435jkq" path="res://assets/tilesets/kitchen_tiles.png" id="1_313v0"]
 [ext_resource type="Script" uid="uid://cg8df11qmw40t" path="res://scripts/DayOneKitchen.gd" id="1_ll6nb"]
@@ -147,12 +147,19 @@ metadata/_custom_type_script = "uid://bj218rqao0syu"
 
 [sub_resource type="Resource" id="Resource_30ols"]
 script = ExtResource("7_ll6nb")
-text = "*I'm so stupid.."
+text = "*I'm so dumb.. i gotta clean this up now"
 text_speed = 14.0
 text_sound = ExtResource("8_tnify")
 text_volume_pitch_min = 0.75
 text_volume_pitch_max = 0.7
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_7m6if"]
+script = ExtResource("18_vcvn8")
+target_path = NodePath("..")
+function_name = "_start_minigame"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
 
 [sub_resource type="Resource" id="Resource_mbiup"]
 script = ExtResource("7_ll6nb")
@@ -242,6 +249,7 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_tcu28")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(81, -16)
 scale = Vector2(3.6249998, 1.421875)
@@ -308,7 +316,7 @@ shape = SubResource("RectangleShape2D_2niwv")
 [node name="taking_coffee" parent="." instance=ExtResource("5_8jhf5")]
 position = Vector2(23, 8)
 only_activate_once = true
-dialogue = Array[ExtResource("6_tnify")]([SubResource("Resource_fqefg"), SubResource("Resource_30ols")])
+dialogue = Array[ExtResource("6_tnify")]([SubResource("Resource_fqefg"), SubResource("Resource_30ols"), SubResource("Resource_7m6if")])
 
 [node name="take_trigger" type="CollisionShape2D" parent="taking_coffee"]
 position = Vector2(-0.5, -7.5)

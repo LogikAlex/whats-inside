@@ -20,7 +20,7 @@ size = Vector2(102, 104)
 size = Vector2(51, 52)
 
 [node name="D1CoffeeMinigame" type="Node2D"]
-z_index = 2
+z_index = 1
 script = ExtResource("1_x6ef1")
 
 [node name="BlackScreen" type="CanvasLayer" parent="."]
@@ -29,17 +29,15 @@ transform = Transform2D(1, 0, 0, 1, 160, 90)
 
 [node name="Sprite2D" type="Sprite2D" parent="BlackScreen"]
 modulate = Color(1, 1, 1, 0)
-z_index = 3
 texture = SubResource("GradientTexture2D_j8lfl")
 
 [node name="BG" type="Sprite2D" parent="."]
-z_index = 2
-position = Vector2(57.5, 30.5)
+position = Vector2(160, 90)
 texture = ExtResource("2_60sck")
+metadata/_edit_lock_ = true
 
 [node name="SpilledCoffee" type="Area2D" parent="."]
-z_index = 2
-position = Vector2(8.5, 30.5)
+position = Vector2(111, 90)
 
 [node name="spilledcoffee" type="Sprite2D" parent="SpilledCoffee"]
 scale = Vector2(1.7500001, 1.7500002)
@@ -49,8 +47,7 @@ texture = ExtResource("1_81cy4")
 shape = SubResource("RectangleShape2D_v15b2")
 
 [node name="Cloth" type="Area2D" parent="." groups=["cloth"]]
-z_index = 3
-position = Vector2(131.5, 27.5)
+position = Vector2(234, 87)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cloth"]
 position = Vector2(0.5, 0)

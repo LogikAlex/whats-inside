@@ -285,6 +285,7 @@ dialogue = Array[ExtResource("6_tnify")]([SubResource("Resource_xgcxg")])
 
 [node name="trigger_coffee" type="CollisionShape2D" parent="coffee_dialog"]
 shape = SubResource("RectangleShape2D_02q0l")
+disabled = true
 
 [node name="didnt_drink_bruh" parent="." instance=ExtResource("5_8jhf5")]
 position = Vector2(61, 32)

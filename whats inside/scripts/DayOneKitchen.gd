@@ -12,16 +12,23 @@ var cleaned = false
 func _ready() -> void:
 	if globals.coffeeDialog:
 		coffeeDialog.disabled = false
+		$making_coffee/coffe.disabled = false
 	else:
+		$making_coffee/coffe.disabled = true
 		coffeeDialog.disabled = true
 
 func _process(_delta: float) -> void:
 	if globals.cleanedCoffee and !cleaned:
 		cleaned = true
-		_fade_in()
+		globals.coffeeDialog = false
+		#_fade_in()
 		player.can_move = true
+		$making_coffee/coffe.disabled = true
+		$Mug.frame = 1
+		$Mug.visible = true
 		$SpilledCoffee.free()
 		$didnt_drink_bruh.free()
+		$StaticBody2D.free()
 
 func _spill_coffee():
 	$SpilledCoffee.visible = true

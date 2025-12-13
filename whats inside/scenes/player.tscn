@@ -435,7 +435,7 @@ drag_bottom_margin = 0.15
 
 [node name="InteractIndicator" parent="." instance=ExtResource("10_n7ghd")]
 modulate = Color(1, 1, 1, 0)
-z_index = 1
+z_index = 2
 position = Vector2(11, -10)
 texture = ExtResource("12_jej6c")
 hframes = 1

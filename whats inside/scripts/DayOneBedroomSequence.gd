@@ -8,7 +8,7 @@ extends Node2D
 @onready var bedSprite = bed.get_node("Sprite2D")
 @onready var player = $Player
 @onready var z_sprite = preload("res://scenes/Objects/z_sprite.tscn")
-
+@onready var ambience = $ambience
 @onready var anotherDayDialog = $anotherDayDialog/CollisionShape2D
 
 var tweensFinished = false
@@ -20,6 +20,13 @@ var z_head_tween: Tween
 
 func _ready() -> void:
 	#globals.wokeUp = true
+	if globals.is_dark:
+		ambience.color = Color8(45, 51, 76)
+		$PointLight2D.enabled = false
+	else:
+		ambience.color = Color8(202, 208, 229)
+		$PointLight2D.enabled = true
+	
 	_check_if_woke_up()
 
 func _process(_delta: float) -> void:
@@ -75,7 +82,7 @@ func cam_shift():
 	
 func fade_in_tween():
 	reset_tween()
-	tween.set_ease(Tween.EASE_OUT_IN)
+	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(cutsceneCam, "zoom", Vector2(1, 1), 8)
 	var bs_tween := create_tween()
 	bs_tween.set_ease(Tween.EASE_IN_OUT)

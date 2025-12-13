@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=4 uid="uid://b408yeech5o4l"]
+[gd_scene load_steps=25 format=4 uid="uid://b408yeech5o4l"]
 
+[ext_resource type="Script" uid="uid://deaqqysehty1" path="res://scripts/DayOneBathroom.gd" id="1_35lp7"]
 [ext_resource type="Texture2D" uid="uid://bulrofjfrig43" path="res://assets/tilesets/bathroom_tiles.png" id="1_q7576"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_7agtt"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="3_luqbx"]
@@ -114,6 +115,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [node name="Bathroom" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_35lp7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(66, 19)

@@ -55,7 +55,7 @@ func _process(_delta: float) -> void:
 				tween.tween_property(DialoguePanel, "position", Vector2(33, 110), 0.25).set_trans(tween.TRANS_QUAD)
 				tween.tween_callback(
 				func _garava():
-					print("ga- ga- garava")
+					#print("ga- ga- garava")
 					var garava_tween = create_tween()
 					garava_tween.set_parallel()
 					garava_tween.set_ease(Tween.EASE_IN)
@@ -101,7 +101,7 @@ func _text_resource(i: DialogueText) -> void:
 		camera_tween.finished.connect(
 		func _camera_moved():
 			cam_moved = true
-			print("MOVED")
+			#print("MOVED")
 		)
 	
 	DialogueLabel.visible_characters = 0

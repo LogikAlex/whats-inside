@@ -87,6 +87,9 @@ sources/0 = SubResource("TileSetAtlasSource_p8c40")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcu28"]
 size = Vector2(36, 8)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cjlok"]
+polygon = PackedVector2Array(64, 24, 64, -21, 35, -21, 35, 24)
+
 [sub_resource type="Gradient" id="Gradient_7vca8"]
 offsets = PackedFloat32Array(0, 0.7310606)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -97,9 +100,6 @@ width = 244
 height = 244
 fill = 1
 fill_from = Vector2(0.5, 0.4871795)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cjlok"]
-polygon = PackedVector2Array(64, 24, 64, -21, 35, -21, 35, 24)
 
 [sub_resource type="Resource" id="Resource_xgcxg"]
 script = ExtResource("7_ll6nb")
@@ -248,9 +248,11 @@ wanted_player_pos = Vector2(96, 42)
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_tcu28")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
-z_index = -1
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.6627451, 0.70980394, 0.67058825, 1)
+
+[node name="thedark" type="PointLight2D" parent="."]
+z_index = -2
 position = Vector2(81, -16)
 scale = Vector2(3.6249998, 1.421875)
 color = Color(0, 0, 0, 1)
@@ -259,8 +261,12 @@ blend_mode = 2
 shadow_enabled = true
 texture = ExtResource("4_tcu28")
 
-[node name="ambience" type="CanvasModulate" parent="."]
-color = Color(0.66454595, 0.7107056, 0.6692985, 1)
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_cjlok")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+position = Vector2(61, 0)
+occluder = SubResource("OccluderPolygon2D_cjlok")
 
 [node name="ceilingLight" type="PointLight2D" parent="."]
 position = Vector2(57.000004, 30)
@@ -269,13 +275,6 @@ color = Color(0.9843529, 0.98745495, 0.9660104, 1)
 energy = 0.4
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_tcu28")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_cjlok")
-
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
-position = Vector2(61, 0)
-occluder = SubResource("OccluderPolygon2D_cjlok")
 
 [node name="coffee_dialog" parent="." instance=ExtResource("5_8jhf5")]
 position = Vector2(80, 8)

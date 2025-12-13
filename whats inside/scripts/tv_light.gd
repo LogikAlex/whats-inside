@@ -1,12 +1,14 @@
 extends PointLight2D
 
 func _ready() -> void:
+	_flicker()
 	if !globals.tv_off:
-		_flicker()
+		$".".enabled = true
+	else:
+		$".".enabled = false
 
 func _flicker():
 	var flicker = create_tween()
-	$".".enabled = true
 	flicker.set_loops()
 	flicker.tween_property($".", "energy", 0.4, 0.2)
 	flicker.tween_property($".", "energy", 0.6, 0.2).set_delay(0.1)

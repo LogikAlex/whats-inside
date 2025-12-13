@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://nuymqiaevff7"]
+[gd_scene load_steps=41 format=4 uid="uid://nuymqiaevff7"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_6bm55"]
 [ext_resource type="Script" uid="uid://fgea5djxx3bf" path="res://scripts/DayOneLR.gd" id="1_625l6"]
@@ -89,44 +89,6 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_625l6"]
 size = Vector2(6, 68)
 
-[sub_resource type="Resource" id="Resource_ia1uf"]
-script = ExtResource("10_7vca8")
-text = "*it's dark already..."
-text_speed = 12.0
-text_sound = ExtResource("11_24ksx")
-text_volume_pitch_min = 0.75
-text_volume_pitch_max = 0.7
-metadata/_custom_type_script = "uid://c7hf8sppb4268"
-
-[sub_resource type="Resource" id="Resource_mmmxa"]
-script = ExtResource("10_7vca8")
-text = "*must've lost track of time."
-text_speed = 12.0
-text_sound = ExtResource("11_24ksx")
-text_volume_pitch_min = 0.75
-text_volume_pitch_max = 0.7
-metadata/_custom_type_script = "uid://c7hf8sppb4268"
-
-[sub_resource type="Resource" id="Resource_fxcas"]
-script = ExtResource("14_o5oe2")
-target_path = NodePath("..")
-function_name = "_end_tv"
-hide_dialogue_box = true
-metadata/_custom_type_script = "uid://bj218rqao0syu"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n220y"]
-size = Vector2(31, 43)
-
-[sub_resource type="Resource" id="Resource_njhrv"]
-script = ExtResource("14_o5oe2")
-target_path = NodePath("..")
-function_name = "_start_couch_timer"
-hide_dialogue_box = true
-metadata/_custom_type_script = "uid://bj218rqao0syu"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ffl5"]
-size = Vector2(8, 11)
-
 [sub_resource type="Resource" id="Resource_tivqm"]
 script = ExtResource("10_7vca8")
 text = "*why do i always forget?"
@@ -146,6 +108,35 @@ metadata/_custom_type_script = "uid://bj218rqao0syu"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tivqm"]
 size = Vector2(7, 16)
 
+[sub_resource type="Resource" id="Resource_njhrv"]
+script = ExtResource("14_o5oe2")
+target_path = NodePath("..")
+function_name = "_start_couch_timer"
+hide_dialogue_box = true
+wait_for_signal_to_continue = "transitioned"
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="Resource" id="Resource_fxcas"]
+script = ExtResource("10_7vca8")
+text = "*it's dark already..."
+text_speed = 14.0
+text_sound = ExtResource("11_24ksx")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_dsoqk"]
+script = ExtResource("10_7vca8")
+text = "*must've lost track of time."
+text_speed = 14.0
+text_sound = ExtResource("11_24ksx")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ffl5"]
+size = Vector2(8, 11)
+
 [sub_resource type="Resource" id="Resource_fkvcy"]
 script = ExtResource("10_7vca8")
 text = "*A radiator. it keeps me warm."
@@ -164,11 +155,6 @@ y_sort_enabled = true
 script = ExtResource("1_625l6")
 
 [node name="CouchTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
-[node name="EndCouchTimer" type="Timer" parent="."]
-wait_time = 1.5
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -264,27 +250,6 @@ dialogue = Array[ExtResource("9_24ksx")]([SubResource("Resource_m2ldl"), SubReso
 [node name="trigger_tv" type="CollisionShape2D" parent="tv_left_on"]
 shape = SubResource("RectangleShape2D_625l6")
 
-[node name="couch_end" parent="." instance=ExtResource("8_43tq7")]
-position = Vector2(102, 25)
-activate_instant = true
-only_activate_once = true
-dialogue = Array[ExtResource("9_24ksx")]([SubResource("Resource_ia1uf"), SubResource("Resource_mmmxa"), SubResource("Resource_fxcas")])
-
-[node name="trigger_end_couch" type="CollisionShape2D" parent="couch_end"]
-position = Vector2(-5.5, 0.5)
-shape = SubResource("RectangleShape2D_n220y")
-disabled = true
-
-[node name="tv_watch" parent="." instance=ExtResource("8_43tq7")]
-position = Vector2(97, 25)
-only_activate_once = true
-dialogue = Array[ExtResource("9_24ksx")]([SubResource("Resource_njhrv")])
-
-[node name="trigger_watch_tv" type="CollisionShape2D" parent="tv_watch"]
-position = Vector2(-1, -0.5)
-shape = SubResource("RectangleShape2D_3ffl5")
-disabled = true
-
 [node name="tv_turn_off" parent="." instance=ExtResource("8_43tq7")]
 position = Vector2(123, 25)
 only_activate_once = true
@@ -293,6 +258,15 @@ dialogue = Array[ExtResource("9_24ksx")]([SubResource("Resource_tivqm"), SubReso
 [node name="trigger_tv" type="CollisionShape2D" parent="tv_turn_off"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_tivqm")
+
+[node name="tv_watch" parent="." instance=ExtResource("8_43tq7")]
+position = Vector2(97, 25)
+only_activate_once = true
+dialogue = Array[ExtResource("9_24ksx")]([SubResource("Resource_njhrv"), SubResource("Resource_fxcas"), SubResource("Resource_dsoqk")])
+
+[node name="trigger_watch_tv" type="CollisionShape2D" parent="tv_watch"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_3ffl5")
 
 [node name="Lamp" parent="." instance=ExtResource("12_7vca8")]
 position = Vector2(123, 6)
@@ -326,4 +300,3 @@ hframes = 2
 frame = 1
 
 [connection signal="timeout" from="CouchTimer" to="." method="_on_couch_timer_timeout"]
-[connection signal="timeout" from="EndCouchTimer" to="." method="_on_end_couch_timer_timeout"]

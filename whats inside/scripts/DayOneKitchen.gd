@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var minigame = preload("res://scenes/Days/DayOne/d1_coffee_minigame.tscn")
-
+@onready var ambience = $ambience
 @onready var coffeeDialog = $coffee_dialog/trigger_coffee
 @onready var coffeeTimer = $CoffeeTimer
 @onready var mugTimer = $MugTimer
@@ -10,6 +10,11 @@ extends Node2D
 var cleaned = false
 
 func _ready() -> void:
+	if globals.is_dark:
+		ambience.color = Color8(45, 51, 76)
+	else:
+		ambience.color = Color8(169, 181, 171)
+	
 	if globals.coffeeDialog:
 		coffeeDialog.disabled = false
 		$making_coffee/coffe.disabled = false
@@ -26,6 +31,7 @@ func _process(_delta: float) -> void:
 		$making_coffee/coffe.disabled = true
 		$Mug.frame = 1
 		$Mug.visible = true
+		$thedark.visible = true
 		$SpilledCoffee.free()
 		$didnt_drink_bruh.free()
 		$StaticBody2D.free()
@@ -60,6 +66,7 @@ func _start_minigame():
 		var tween_fade_out = create_tween()
 		tween_fade_out.tween_property(player.get_node("BlackScreen").get_node("Sprite2D"), "modulate:a", 0, 1)
 		var _minigame: Node2D = minigame.instantiate()
+		$thedark.visible = false
 		add_child(_minigame)
 		_minigame.global_position = Vector2(0, 0)
 	).set_delay(2.1)

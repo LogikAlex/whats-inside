@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=4 uid="uid://c6frmwuv3f7q0"]
+[gd_scene load_steps=19 format=4 uid="uid://c6frmwuv3f7q0"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_5sxgv"]
+[ext_resource type="Script" uid="uid://qdnaxonkveav" path="res://scripts/DayOneEntry.gd" id="1_47h2k"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_bkd6f"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="3_ex822"]
 [ext_resource type="PackedScene" uid="uid://ts45enmkbyvs" path="res://scenes/Objects/coatHanger.tscn" id="4_bkd6f"]
@@ -59,6 +60,7 @@ size = Vector2(14, 10)
 
 [node name="Entry" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_47h2k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(50, 18)

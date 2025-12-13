@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://sgubsit8fye1"]
+[gd_scene load_steps=16 format=3 uid="uid://sgubsit8fye1"]
 
 [ext_resource type="Texture2D" uid="uid://u06hiofvr4cj" path="res://assets/misc/balcony_sprite.png" id="1_6csau"]
+[ext_resource type="Script" uid="uid://btadpl6swnvir" path="res://scripts/DayOneBalcony.gd" id="1_68ty5"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_fp5f7"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="2_slygy"]
 [ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="4_h5c6u"]
@@ -24,6 +25,15 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7uxb"]
 size = Vector2(13, 62)
 
+[sub_resource type="Resource" id="Resource_68ty5"]
+script = ExtResource("7_68ty5")
+text = "*i can't see anything.."
+text_speed = 12.0
+text_sound = ExtResource("8_4n428")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
 [sub_resource type="Gradient" id="Gradient_1v70g"]
 offsets = PackedFloat32Array(0, 0.6710098)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -34,6 +44,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="D1Balcony" type="Node2D"]
+script = ExtResource("1_68ty5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(160, 43)
@@ -78,6 +89,15 @@ dialogue = Array[ExtResource("6_1v70g")]([SubResource("Resource_jvlks")])
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
 position = Vector2(4.5, -1)
 shape = SubResource("RectangleShape2D_b7uxb")
+
+[node name="DarkDialogue" parent="." instance=ExtResource("5_nfuck")]
+position = Vector2(37, 43)
+dialogue = Array[ExtResource("6_1v70g")]([SubResource("Resource_68ty5")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DarkDialogue"]
+position = Vector2(4.5, -1)
+shape = SubResource("RectangleShape2D_b7uxb")
+disabled = true
 
 [node name="ambience" type="CanvasModulate" parent="."]
 color = Color(0.9092348, 0.9117436, 0.8771378, 1)

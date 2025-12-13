@@ -20,7 +20,7 @@ func _room_transition():
 	var trans_tween = create_tween()
 	player_node.can_move = false
 	globals.wantedPlayerPos = wanted_player_pos
-	print(wanted_player_pos)
+	#print(wanted_player_pos)
 	var blackScreen = player_node.get_node("BlackScreen/Sprite2D")
 	blackScreen.visible = true
 	trans_tween.tween_property(blackScreen, "modulate:a", 1, 0.35)

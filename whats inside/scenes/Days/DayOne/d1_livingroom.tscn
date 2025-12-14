@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://nuymqiaevff7"]
+[gd_scene load_steps=44 format=4 uid="uid://nuymqiaevff7"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_6bm55"]
 [ext_resource type="Script" uid="uid://fgea5djxx3bf" path="res://scripts/DayOneLR.gd" id="1_625l6"]
@@ -88,6 +88,15 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_625l6"]
 size = Vector2(6, 68)
+
+[sub_resource type="Resource" id="Resource_dsoqk"]
+script = ExtResource("10_7vca8")
+text = "*i'm so tired..."
+text_speed = 10.0
+text_sound = ExtResource("11_24ksx")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_ia1uf"]
 script = ExtResource("10_7vca8")
@@ -263,6 +272,16 @@ dialogue = Array[ExtResource("9_24ksx")]([SubResource("Resource_m2ldl"), SubReso
 
 [node name="trigger_tv" type="CollisionShape2D" parent="tv_left_on"]
 shape = SubResource("RectangleShape2D_625l6")
+
+[node name="should_sleep" parent="." instance=ExtResource("8_43tq7")]
+position = Vector2(53, 22)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("9_24ksx")]([SubResource("Resource_dsoqk")])
+
+[node name="trigger_sleep" type="CollisionShape2D" parent="should_sleep"]
+shape = SubResource("RectangleShape2D_625l6")
+disabled = true
 
 [node name="couch_end" parent="." instance=ExtResource("8_43tq7")]
 position = Vector2(102, 25)

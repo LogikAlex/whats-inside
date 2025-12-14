@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://trq8e4jgloen"]
+[gd_scene load_steps=47 format=4 uid="uid://trq8e4jgloen"]
 
 [ext_resource type="Script" uid="uid://dd23dtvbn3bqa" path="res://scripts/DayOneBedroomSequence.gd" id="1_fcra2"]
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="2_30r32"]
@@ -19,6 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="15_gf58s"]
 [ext_resource type="PackedScene" uid="uid://dqpa3y3lkm1o8" path="res://scenes/Objects/closet.tscn" id="18_rnkns"]
 [ext_resource type="Texture2D" uid="uid://qhcs6stv71ts" path="res://assets/objects/carpet.png" id="19_rctb2"]
+[ext_resource type="Texture2D" uid="uid://b82wipn7s8aq5" path="res://assets/objects/bedroom_table.png" id="20_ts5kf"]
+[ext_resource type="Texture2D" uid="uid://jdo75bmqq2qp" path="res://assets/objects/bedroom_chair.png" id="21_620v4"]
+[ext_resource type="Texture2D" uid="uid://c00lpo5jtae1x" path="res://assets/Spritesheets/player_idle_up.png" id="22_hk2v5"]
 
 [sub_resource type="Resource" id="Resource_m2ldl"]
 script = ExtResource("13_sqv23")
@@ -38,6 +41,35 @@ metadata/_custom_type_script = "uid://bj218rqao0syu"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i04c0"]
 size = Vector2(90, 72)
+
+[sub_resource type="Resource" id="Resource_ts5kf"]
+script = ExtResource("13_sqv23")
+text = "*i need to sleep."
+text_speed = 10.0
+text_sound = ExtResource("14_5tb5o")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_620v4"]
+script = ExtResource("6_rnkns")
+target_path = NodePath("..")
+function_name = "_sleep_timer"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dihqp"]
+size = Vector2(10, 11)
+
+[sub_resource type="Resource" id="Resource_hk2v5"]
+script = ExtResource("6_rnkns")
+target_path = NodePath("..")
+function_name = "_work_timer"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csr6t"]
+size = Vector2(16, 8)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rnkns"]
 polygon = PackedVector2Array(80, 16, 86, 16, 86, -21, -6, -21, -6, 54, 48, 54, 48, 48, 0, 48, 0, 0, 80, 0)
@@ -91,9 +123,6 @@ text_volume_pitch_min = 0.45
 text_volume_pitch_max = 0.5
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dihqp"]
-size = Vector2(10, 11)
-
 [sub_resource type="Resource" id="Resource_rnkns"]
 script = ExtResource("13_sqv23")
 text = "*My closet."
@@ -129,9 +158,23 @@ height = 244
 fill = 1
 fill_from = Vector2(0.5, 0.4871795)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_620v4"]
+size = Vector2(20, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hk2v5"]
+size = Vector2(8, 10)
+
 [node name="Bedroom" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_fcra2")
+
+[node name="SleepTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="WorkTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
 
 [node name="Player" parent="." instance=ExtResource("8_kv6j8")]
 position = Vector2(24, 10)
@@ -151,6 +194,33 @@ dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_m2ldl"), SubRes
 position = Vector2(16, 3)
 shape = SubResource("RectangleShape2D_i04c0")
 disabled = true
+
+[node name="gottaSleepDialogue" parent="." instance=ExtResource("11_ma0t7")]
+position = Vector2(24, 13)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_ts5kf")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gottaSleepDialogue"]
+position = Vector2(16, 3)
+shape = SubResource("RectangleShape2D_i04c0")
+disabled = true
+
+[node name="sleep_func" parent="." instance=ExtResource("11_ma0t7")]
+position = Vector2(8, 7)
+dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_620v4")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sleep_func"]
+shape = SubResource("RectangleShape2D_dihqp")
+disabled = true
+
+[node name="work_func" parent="." instance=ExtResource("11_ma0t7")]
+position = Vector2(45, 7)
+dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_hk2v5")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="work_func"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_csr6t")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
 z_index = -1
@@ -215,10 +285,10 @@ dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_0snk2"), SubRes
 shape = SubResource("RectangleShape2D_dihqp")
 
 [node name="closet" parent="." instance=ExtResource("18_rnkns")]
-position = Vector2(70, -3)
+position = Vector2(71, -3)
 
 [node name="closet_dialog" parent="." instance=ExtResource("11_ma0t7")]
-position = Vector2(70, 1)
+position = Vector2(71, 1)
 dialogue = Array[ExtResource("12_dtrlo")]([SubResource("Resource_rnkns"), SubResource("Resource_i04c0")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="closet_dialog"]
@@ -264,3 +334,35 @@ color = Color(0.9843529, 0.98745495, 0.9660104, 1)
 energy = 0.4
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_rnkns")
+
+[node name="BedroomTable" type="Sprite2D" parent="."]
+position = Vector2(45, 1)
+texture = ExtResource("20_ts5kf")
+
+[node name="BedroomChair" type="Sprite2D" parent="."]
+position = Vector2(45, 7)
+texture = ExtResource("21_620v4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(45, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_620v4")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(45, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_hk2v5")
+
+[node name="PlayerWorking" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(45, 2)
+texture = ExtResource("22_hk2v5")
+hframes = 2
+frame = 1
+
+[connection signal="timeout" from="SleepTimer" to="." method="_on_sleep_timer_timeout"]
+[connection signal="timeout" from="WorkTimer" to="." method="_on_work_timer_timeout"]

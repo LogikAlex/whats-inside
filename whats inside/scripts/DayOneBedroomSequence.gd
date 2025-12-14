@@ -10,6 +10,10 @@ extends Node2D
 @onready var z_sprite = preload("res://scenes/Objects/z_sprite.tscn")
 @onready var ambience = $ambience
 @onready var anotherDayDialog = $anotherDayDialog/CollisionShape2D
+@onready var gottaSleepDialog = $gottaSleepDialogue/CollisionShape2D
+@onready var sleepInteract = $sleep_func/CollisionShape2D
+@onready var bedInteract = $bed_dialog/CollisionShape2D
+@onready var workInteract = $work_func/CollisionShape2D
 
 var tweensFinished = false
 
@@ -19,18 +23,43 @@ var spawned_z: Sprite2D
 var z_head_tween: Tween
 
 func _ready() -> void:
-	#globals.wokeUp = true
+	globals.wokeUp = true
+	if globals.cleanedCoffee:
+		workInteract.disabled = false
 	if globals.is_dark:
 		ambience.color = Color8(45, 51, 76)
 		$PointLight2D.enabled = false
+		gottaSleepDialog.disabled = false
+		sleepInteract.disabled = false
+		bedInteract.disabled = true
 	else:
 		ambience.color = Color8(202, 208, 229)
 		$PointLight2D.enabled = true
-	
 	_check_if_woke_up()
 
 func _process(_delta: float) -> void:
 	pass
+
+func _sleep_timer():
+	$SleepTimer.start()
+
+func _work_timer():
+	$WorkTimer.start()
+
+func _work():
+	$PlayerWorking.visible = true
+	player.visible = false
+	
+
+func _go_to_sleep():
+	bedSprite.frame = 1
+	player.visible = false
+
+func _on_sleep_timer_timeout() -> void:
+	_go_to_sleep()
+
+func _on_work_timer_timeout() -> void:
+	_work()
 
 func _check_if_woke_up():
 	if !globals.wokeUp:
@@ -79,7 +108,6 @@ func cam_shift():
 	func show_dialog():
 		anotherDayDialog.disabled = false
 	).set_delay(0.5)
-	
 func fade_in_tween():
 	reset_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
@@ -125,6 +153,3 @@ func z_tween():
 			spawned_z.free()
 			z_tween()
 	).set_delay(tween_time)
-
-func pick_up_pixels():
-	b_table.get_node("Sprite2D").frame = 0

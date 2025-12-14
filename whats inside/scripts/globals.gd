@@ -11,3 +11,4 @@ var lastPlayerDir
 @export var tv_off = false
 @export var coffeeDialog = false
 @export var cleanedCoffee = false
+@export var workedD1 = false

@@ -8,6 +8,7 @@ extends Node2D
 @onready var couch_end_dialogue = $couch_end/trigger_end_couch
 @onready var tv_light = $tvLight
 @onready var watch_tv_trigger = $tv_watch/trigger_watch_tv
+@onready var sleep_trigger = $should_sleep/trigger_sleep
 
 #cad0e5
 #x - 109,  y - 25
@@ -23,6 +24,7 @@ func _watch_tv():
 func _end_tv():
 	player.position = Vector2(109, 25)
 	player.current_dir = player.directions.RIGHT
+	sleep_trigger.disabled = false
 	end_couch_timer.start()
 
 func _fade_to_dark():
@@ -36,6 +38,7 @@ func _ready() -> void:
 	if globals.is_dark:
 		ambience.color = Color8(45, 51, 76)
 		watch_tv_trigger.disabled = true
+		sleep_trigger.disabled = false
 	else:
 		ambience.color = Color8(202, 208, 229)
 	if globals.tv_off:

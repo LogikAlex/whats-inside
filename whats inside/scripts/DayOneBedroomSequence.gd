@@ -14,6 +14,8 @@ extends Node2D
 @onready var sleepInteract = $sleep_func/CollisionShape2D
 @onready var bedInteract = $bed_dialog/CollisionShape2D
 @onready var workInteract = $work_func/CollisionShape2D
+@onready var workDialogue = $workDialogue/CollisionShape2D
+@onready var workDialogue2 = $workDialogue2/CollisionShape2D
 
 var tweensFinished = false
 
@@ -23,9 +25,11 @@ var spawned_z: Sprite2D
 var z_head_tween: Tween
 
 func _ready() -> void:
-	globals.wokeUp = true
-	if globals.cleanedCoffee:
+	#globals.wokeUp = true
+	if globals.cleanedCoffee and !globals.workedD1:
 		workInteract.disabled = false
+	if globals.workedD1:
+		workInteract.disabled = true
 	if globals.is_dark:
 		ambience.color = Color8(45, 51, 76)
 		$PointLight2D.enabled = false
@@ -46,10 +50,29 @@ func _sleep_timer():
 func _work_timer():
 	$WorkTimer.start()
 
+func _stand_up_timer():
+	$StandUpTimer.start()
+
+func _work_dialogue_2_timer():
+	$keyboard_sounds.play()
+	$WorkDialogueTimer2.start()
+
 func _work():
+	globals.workedD1 = true
 	$PlayerWorking.visible = true
 	player.visible = false
-	
+	$WorkDialogueTimer.start()
+
+func _on_work_dialogue_timer_timeout() -> void:
+	workDialogue.disabled = false
+
+func _on_work_dialogue_timer_2_timeout() -> void:
+	workDialogue2.disabled = false
+
+func _on_stand_up_timer_timeout() -> void:
+	$PlayerWorking.visible = false
+	player.visible = true
+	player.can_move = true
 
 func _go_to_sleep():
 	bedSprite.frame = 1

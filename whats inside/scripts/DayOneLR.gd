@@ -44,7 +44,7 @@ func _ready() -> void:
 	if globals.tv_off:
 		$tv_turn_off.free()
 		$tv_left_on.free()
-	if globals.cleanedCoffee:
+	if globals.workedD1:
 		watch_tv_trigger.disabled = false
 
 func _process(_delta: float) -> void:

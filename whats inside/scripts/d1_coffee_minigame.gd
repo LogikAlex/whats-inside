@@ -16,13 +16,13 @@ var finished = false
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(idle_cursor, Input.CURSOR_ARROW, Vector2(8, 8))
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if delay_timer.is_stopped():
 		delay_timer.start()
 	
 	if cleaning and spilled_coffee.modulate.a != 0:
 		if (cloth.position != last_pos):
-			spilled_coffee.modulate.a -= 0.00135
+			spilled_coffee.modulate.a -= 0.21 * delta
 	
 	if spilled_coffee.modulate.a <= 0 and !finished:
 		finished = true

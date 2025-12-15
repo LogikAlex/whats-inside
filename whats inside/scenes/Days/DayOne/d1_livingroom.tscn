@@ -1,8 +1,9 @@
-[gd_scene load_steps=44 format=4 uid="uid://nuymqiaevff7"]
+[gd_scene load_steps=47 format=4 uid="uid://nuymqiaevff7"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_6bm55"]
 [ext_resource type="Script" uid="uid://fgea5djxx3bf" path="res://scripts/DayOneLR.gd" id="1_625l6"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_8sw2p"]
+[ext_resource type="AudioStream" uid="uid://cu0o2emdybhpl" path="res://assets/sfx/tv_sound.mp3" id="2_njhrv"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="3_fqq4a"]
 [ext_resource type="PackedScene" uid="uid://cth4hylf5dh1y" path="res://scenes/Objects/couch.tscn" id="4_c8ve7"]
 [ext_resource type="PackedScene" uid="uid://c4pyw280okyai" path="res://scenes/Objects/tv.tscn" id="5_adpwn"]
@@ -42,7 +43,7 @@ polygon = PackedVector2Array(122, 14, 101, 6, 122, 16, 122, 26, 100, 35, 122, 28
 
 [sub_resource type="Resource" id="Resource_0vuf1"]
 script = ExtResource("10_7vca8")
-text = "*not today."
+text = "*just a cardboard box"
 text_speed = 10.0
 text_sound = ExtResource("11_24ksx")
 text_volume_pitch_min = 0.8
@@ -77,7 +78,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_o5oe2"]
 script = ExtResource("10_7vca8")
-text = "*I should turn it off."
+text = "*I should turn it off"
 text_speed = 14.0
 text_sound = ExtResource("11_24ksx")
 text_volume_pitch_min = 0.65
@@ -98,6 +99,24 @@ text_volume_pitch_min = 0.75
 text_volume_pitch_max = 0.7
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
+[sub_resource type="Resource" id="Resource_n220y"]
+script = ExtResource("10_7vca8")
+text = "*i should probably do some work now"
+text_speed = 14.0
+text_sound = ExtResource("11_24ksx")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_yww2d"]
+script = ExtResource("10_7vca8")
+text = "*the code isn't going to write itself"
+text_speed = 14.0
+text_sound = ExtResource("11_24ksx")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
 [sub_resource type="Resource" id="Resource_ia1uf"]
 script = ExtResource("10_7vca8")
 text = "*it's dark already..."
@@ -109,7 +128,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_mmmxa"]
 script = ExtResource("10_7vca8")
-text = "*must've lost track of time."
+text = "*must've lost track of time"
 text_speed = 12.0
 text_sound = ExtResource("11_24ksx")
 text_volume_pitch_min = 0.75
@@ -138,7 +157,7 @@ size = Vector2(8, 11)
 
 [sub_resource type="Resource" id="Resource_tivqm"]
 script = ExtResource("10_7vca8")
-text = "*why do i always forget?"
+text = "*i always do this."
 text_speed = 14.0
 text_sound = ExtResource("11_24ksx")
 text_volume_pitch_min = 0.75
@@ -171,6 +190,11 @@ size = Vector2(4, 17)
 [node name="LivingRoom" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_625l6")
+
+[node name="tv_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_njhrv")
+volume_db = 24.0
+parameters/looping = true
 
 [node name="CouchTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -280,6 +304,16 @@ only_activate_once = true
 dialogue = Array[ExtResource("9_24ksx")]([SubResource("Resource_dsoqk")])
 
 [node name="trigger_sleep" type="CollisionShape2D" parent="should_sleep"]
+shape = SubResource("RectangleShape2D_625l6")
+disabled = true
+
+[node name="should_work" parent="." instance=ExtResource("8_43tq7")]
+position = Vector2(53, 22)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("9_24ksx")]([SubResource("Resource_n220y"), SubResource("Resource_yww2d")])
+
+[node name="trigger_work" type="CollisionShape2D" parent="should_work"]
 shape = SubResource("RectangleShape2D_625l6")
 disabled = true
 

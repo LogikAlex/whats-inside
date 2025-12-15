@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cs4wxlr7w2odq"
+path="res://.godot/imported/song for sum.mp3-420e4e7d16036177641eef12980fa76e.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/song for sum.mp3"
+dest_files=["res://.godot/imported/song for sum.mp3-420e4e7d16036177641eef12980fa76e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb64fb3gtkv2"]
+
+[ext_resource type="AudioStream" uid="uid://bdpxbg7ha565l" path="res://assets/sfx/normal_theme.mp3" id="1_wgks0"]
+[ext_resource type="Script" uid="uid://bijhxw4lcwvwu" path="res://scripts/main_song.gd" id="2_wgks0"]
+
+[node name="main_theme" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_wgks0")
+pitch_scale = 0.95
+parameters/looping = true
+script = ExtResource("2_wgks0")

@@ -18,5 +18,6 @@ func _turn_off():
 	$"../Player".can_move = true
 	$"../tv_turn_off".free()
 	$".".enabled = false
+	$"../tv_sound".stop()
 	globals.tv_off = true
 	globals.coffeeDialog = true

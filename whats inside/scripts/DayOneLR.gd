@@ -9,6 +9,7 @@ extends Node2D
 @onready var tv_light = $tvLight
 @onready var watch_tv_trigger = $tv_watch/trigger_watch_tv
 @onready var sleep_trigger = $should_sleep/trigger_sleep
+@onready var work_trigger = $should_work/trigger_work
 
 #cad0e5
 #x - 109,  y - 25
@@ -44,8 +45,12 @@ func _ready() -> void:
 	if globals.tv_off:
 		$tv_turn_off.free()
 		$tv_left_on.free()
+	else:
+		$tv_sound.play()
 	if globals.workedD1:
 		watch_tv_trigger.disabled = false
+	if globals.cleanedCoffee and !globals.workedD1:
+		work_trigger.disabled = false
 
 func _process(_delta: float) -> void:
 	if globals.is_dark:

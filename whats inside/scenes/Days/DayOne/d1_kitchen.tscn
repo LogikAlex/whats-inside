@@ -147,7 +147,7 @@ metadata/_custom_type_script = "uid://bj218rqao0syu"
 
 [sub_resource type="Resource" id="Resource_30ols"]
 script = ExtResource("7_ll6nb")
-text = "*I'm so dumb.. i gotta clean this up now"
+text = "*ugh... i have to clean this up."
 text_speed = 14.0
 text_sound = ExtResource("8_tnify")
 text_volume_pitch_min = 0.75

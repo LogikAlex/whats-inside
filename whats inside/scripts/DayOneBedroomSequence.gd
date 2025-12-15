@@ -176,3 +176,7 @@ func z_tween():
 			spawned_z.free()
 			z_tween()
 	).set_delay(tween_time)
+
+func _start_song():
+	MainSong.isPlaying = true
+	player.can_move = true

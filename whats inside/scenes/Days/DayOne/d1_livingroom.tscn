@@ -176,7 +176,7 @@ size = Vector2(7, 16)
 
 [sub_resource type="Resource" id="Resource_fkvcy"]
 script = ExtResource("10_7vca8")
-text = "*A radiator. it keeps me warm."
+text = "*A radiator. it keeps me warm"
 text_speed = 14.0
 text_sound = ExtResource("11_24ksx")
 text_volume_db = 1
@@ -237,6 +237,7 @@ shape = SubResource("RectangleShape2D_c8ve7")
 position = Vector2(96, 55)
 wanted_room_path = "res://scenes/Days/DayOne/d1_kitchen.tscn"
 wanted_player_pos = Vector2(80, 7)
+isDoor = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toKitchen"]
 position = Vector2(0, 1)

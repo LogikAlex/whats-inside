@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd8tqb8uc2jq7"]
+
+[ext_resource type="AudioStream" uid="uid://bfgai0k3i0a4f" path="res://assets/sfx/room_sfx.mp3" id="1_descb"]
+[ext_resource type="Script" uid="uid://bijhxw4lcwvwu" path="res://scripts/main_song.gd" id="2_1rnqh"]
+
+[node name="night_theme" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_descb")
+volume_db = 5.0
+pitch_scale = 0.95
+parameters/looping = true
+script = ExtResource("2_1rnqh")

@@ -16,6 +16,8 @@ extends Node2D
 @onready var workInteract = $work_func/CollisionShape2D
 @onready var workDialogue = $workDialogue/CollisionShape2D
 @onready var workDialogue2 = $workDialogue2/CollisionShape2D
+@onready var imOkayDialogue = $imOkay/CollisionShape2D
+@onready var deskDialogue = $deskDialogue/CollisionShape2D
 
 var tweensFinished = false
 
@@ -28,9 +30,12 @@ func _ready() -> void:
 	#globals.wokeUp = true
 	if globals.cleanedCoffee and !globals.workedD1:
 		workInteract.disabled = false
+		deskDialogue.disabled = true
 	if globals.workedD1:
+		deskDialogue.disabled = false
 		workInteract.disabled = true
 	if globals.is_dark:
+		NightSong.isPlaying = true
 		ambience.color = Color8(45, 51, 76)
 		$PointLight2D.enabled = false
 		gottaSleepDialog.disabled = false
@@ -74,9 +79,16 @@ func _on_stand_up_timer_timeout() -> void:
 	player.visible = true
 	player.can_move = true
 
+func _end_day():
+	var bScreen = $CanvasLayer/bScreen
+	var bTween = create_tween()
+	bTween.tween_property(bScreen, "modulate:a", 1, 6)
+	bTween.tween_property(NightSong, "volume_db", -80, 6)
 func _go_to_sleep():
 	bedSprite.frame = 1
 	player.visible = false
+	var imOkayTween = create_tween()
+	imOkayTween.tween_property(imOkayDialogue, "disabled", false, 0).set_delay(3)
 
 func _on_sleep_timer_timeout() -> void:
 	_go_to_sleep()

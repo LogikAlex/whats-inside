@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 globals="*res://scripts/globals.gd"
 MainSong="*res://scenes/Days/DayOne/main_song.tscn"
+NightSong="*res://scenes/Days/DayOne/night_song.tscn"
+DoorSoundEffect="*res://scenes/Days/DayOne/door_sound_effect.tscn"
 
 [dialogic]
 

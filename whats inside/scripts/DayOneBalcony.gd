@@ -6,9 +6,11 @@ extends Node2D
 
 func _ready() -> void:
 	if globals.is_dark:
+		$night_ambience.play()
+		NightSong.isPlaying = false
 		$sun.enabled = false
 		$Spotlight.visible = false
-		ambience.color = Color8(45, 51, 76)
+		ambience.color = Color8(66, 68, 83)
 		day_dialogue.disabled = true
 		night_dialogue.disabled = false
 	else:

@@ -114,7 +114,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_kgvl7"]
 script = ExtResource("7_ll6nb")
-text = "*i should drink that coffee."
+text = "*i should drink that coffee"
 text_speed = 14.0
 text_sound = ExtResource("8_tnify")
 text_volume_pitch_min = 0.75
@@ -147,7 +147,7 @@ metadata/_custom_type_script = "uid://bj218rqao0syu"
 
 [sub_resource type="Resource" id="Resource_30ols"]
 script = ExtResource("7_ll6nb")
-text = "*ugh... i have to clean this up."
+text = "*ugh... i have to clean this up"
 text_speed = 14.0
 text_sound = ExtResource("8_tnify")
 text_volume_pitch_min = 0.75
@@ -163,7 +163,7 @@ metadata/_custom_type_script = "uid://bj218rqao0syu"
 
 [sub_resource type="Resource" id="Resource_mbiup"]
 script = ExtResource("7_ll6nb")
-text = "*it's my fridge."
+text = "*it's my fridge"
 text_speed = 14.0
 text_sound = ExtResource("8_tnify")
 text_volume_pitch_min = 0.7
@@ -172,7 +172,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_iblvn"]
 script = ExtResource("7_ll6nb")
-text = "*i thought putting notes on it would make me more productive."
+text = "*i thought putting notes on it would make me more productive"
 text_speed = 14.0
 text_sound = ExtResource("8_tnify")
 text_volume_pitch_min = 0.7
@@ -181,7 +181,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_sipro"]
 script = ExtResource("7_ll6nb")
-text = "*it didn't."
+text = "*it didn't"
 text_speed = 14.0
 text_sound = ExtResource("8_tnify")
 text_volume_pitch_min = 0.7
@@ -243,6 +243,7 @@ speed = 50.0
 position = Vector2(80, -12)
 wanted_room_path = "res://scenes/Days/DayOne/d1_livingroom.tscn"
 wanted_player_pos = Vector2(96, 42)
+isDoor = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toLivingroom"]
 position = Vector2(0, 1)

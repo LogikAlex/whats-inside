@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c85uss1wua1id"]
+
+[ext_resource type="AudioStream" uid="uid://cn8atdtsvqiic" path="res://assets/sfx/door_open.mp3" id="1_lp1fs"]
+
+[node name="door_sfx" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_lp1fs")
+volume_db = 5.0
+pitch_scale = 0.95

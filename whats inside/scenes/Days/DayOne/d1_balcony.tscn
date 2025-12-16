@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://sgubsit8fye1"]
+[gd_scene load_steps=17 format=3 uid="uid://sgubsit8fye1"]
 
 [ext_resource type="Texture2D" uid="uid://u06hiofvr4cj" path="res://assets/misc/balcony_sprite.png" id="1_6csau"]
 [ext_resource type="Script" uid="uid://btadpl6swnvir" path="res://scripts/DayOneBalcony.gd" id="1_68ty5"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="6_1v70g"]
 [ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="7_68ty5"]
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="8_4n428"]
+[ext_resource type="AudioStream" uid="uid://dy15a5truwsky" path="res://assets/sfx/night_ambience.mp3" id="10_4n428"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5c6u"]
 size = Vector2(20, 7)
@@ -108,5 +109,10 @@ light_mask = 0
 position = Vector2(596, 61)
 scale = Vector2(16.035156, 15.46875)
 texture = SubResource("GradientTexture2D_68ty5")
+
+[node name="night_ambience" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_4n428")
+volume_db = 10.0
+parameters/looping = true
 
 [editable path="Player"]

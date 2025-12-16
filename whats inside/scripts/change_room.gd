@@ -2,8 +2,11 @@ extends Area2D
 
 @export var wanted_room_path: String
 @export var wanted_player_pos: Vector2
+@export var isDoor = true
 
 var player_node: CharacterBody2D = null
+
+
 
 func _ready() -> void:
 	for i in get_tree().get_nodes_in_group("player"):
@@ -21,6 +24,8 @@ func _room_transition():
 	player_node.can_move = false
 	globals.wantedPlayerPos = wanted_player_pos
 	#print(wanted_player_pos)
+	if isDoor:
+		DoorSoundEffect.play()
 	var blackScreen = player_node.get_node("BlackScreen/Sprite2D")
 	blackScreen.visible = true
 	trans_tween.tween_property(blackScreen, "modulate:a", 1, 0.35)

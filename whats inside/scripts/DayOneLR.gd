@@ -30,9 +30,13 @@ func _end_tv():
 
 func _fade_to_dark():
 	var tween = create_tween()
+	NightSong.volume_db = -80
 	tween.set_parallel()
+	tween.tween_property(MainSong, "volume_db", -80, 8).set_delay(7.5)
+	tween.tween_property(NightSong, "isPlaying", true, 0).set_delay(7.5)
+	tween.tween_property(NightSong, "volume_db", 6.5, 8).set_delay(5)
 	tween.tween_property(tv_light, "enabled", true, 0).set_delay(1.5)
-	tween.tween_property(ambience, "color", Color8(45, 51, 76), 8).set_delay(5)
+	tween.tween_property(ambience, "color", Color8(45, 51, 76), 10).set_delay(5)
 	tween.tween_callback(func enable_the_big_d(): couch_end_dialogue.disabled = false).set_delay(15.5)
 
 func _ready() -> void:

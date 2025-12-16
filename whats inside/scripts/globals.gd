@@ -12,3 +12,4 @@ var lastPlayerDir
 @export var coffeeDialog = false
 @export var cleanedCoffee = false
 @export var workedD1 = false
+@export var brushedTeeth = false

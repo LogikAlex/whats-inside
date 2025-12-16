@@ -18,9 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 globals="*res://scripts/globals.gd"
-MainSong="*res://scenes/Days/DayOne/main_song.tscn"
-NightSong="*res://scenes/Days/DayOne/night_song.tscn"
-DoorSoundEffect="*res://scenes/Days/DayOne/door_sound_effect.tscn"
+MainSong="*res://scenes/main_song.tscn"
+NightSong="*res://scenes/night_song.tscn"
+DoorSoundEffect="*res://scenes/door_sound_effect.tscn"
 
 [dialogic]
 

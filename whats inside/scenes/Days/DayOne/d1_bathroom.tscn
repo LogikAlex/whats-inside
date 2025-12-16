@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://b408yeech5o4l"]
+[gd_scene load_steps=30 format=4 uid="uid://b408yeech5o4l"]
 
 [ext_resource type="Script" uid="uid://deaqqysehty1" path="res://scripts/DayOneBathroom.gd" id="1_35lp7"]
 [ext_resource type="Texture2D" uid="uid://bulrofjfrig43" path="res://assets/tilesets/bathroom_tiles.png" id="1_q7576"]
@@ -16,6 +16,8 @@
 [ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="13_nbs3h"]
 [ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="14_35lp7"]
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="15_nbs3h"]
+[ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="17_8vf8s"]
+[ext_resource type="AudioStream" uid="uid://bglxkmf35gaq3" path="res://assets/sfx/sink_sound.mp3" id="18_s1y2v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7agtt"]
 texture = ExtResource("1_q7576")
@@ -94,7 +96,7 @@ fill_from = Vector2(0.5, 0.4871795)
 
 [sub_resource type="Resource" id="Resource_8vf8s"]
 script = ExtResource("14_35lp7")
-text = "*it's me."
+text = "*i can see myself"
 text_speed = 12.0
 text_sound = ExtResource("15_nbs3h")
 text_volume_pitch_min = 0.7
@@ -103,6 +105,25 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1y2v"]
 size = Vector2(3, 7)
+
+[sub_resource type="Resource" id="Resource_nsumv"]
+script = ExtResource("14_35lp7")
+text = "*i need to brush my teeth.."
+text_speed = 14.0
+text_sound = ExtResource("15_nbs3h")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsumv"]
+size = Vector2(118, 79)
+
+[sub_resource type="Resource" id="Resource_s1y2v"]
+script = ExtResource("17_8vf8s")
+target_path = NodePath("..")
+function_name = "_sink"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
 
 [sub_resource type="Resource" id="Resource_nbs3h"]
 script = ExtResource("14_35lp7")
@@ -183,6 +204,27 @@ dialogue = Array[ExtResource("13_nbs3h")]([SubResource("Resource_8vf8s")])
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mirror_dialog"]
 position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_s1y2v")
+disabled = true
+
+[node name="brushDialogue" parent="." instance=ExtResource("12_ga33y")]
+position = Vector2(67, -2)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("13_nbs3h")]([SubResource("Resource_nsumv")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="brushDialogue"]
+position = Vector2(-5, 17.5)
+shape = SubResource("RectangleShape2D_nsumv")
+disabled = true
+
+[node name="sink_func" parent="." instance=ExtResource("12_ga33y")]
+position = Vector2(67, -2)
+only_activate_once = true
+dialogue = Array[ExtResource("13_nbs3h")]([SubResource("Resource_s1y2v")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sink_func"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_s1y2v")
 
 [node name="tbrush_dialog" parent="." instance=ExtResource("12_ga33y")]
 position = Vector2(52, -2)
@@ -191,3 +233,13 @@ dialogue = Array[ExtResource("13_nbs3h")]([SubResource("Resource_nbs3h")])
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tbrush_dialog"]
 position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_s1y2v")
+
+[node name="sink_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_s1y2v")
+volume_db = 4.022
+
+[node name="sinkTimer" type="Timer" parent="."]
+wait_time = 9.299999999999999
+one_shot = true
+
+[connection signal="timeout" from="sinkTimer" to="." method="_on_sink_timer_timeout"]

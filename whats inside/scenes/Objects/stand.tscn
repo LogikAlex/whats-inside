@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://diln5o5xi66rg"]
 
-[ext_resource type="Texture2D" uid="uid://oc26l78wo4f7" path="res://assets/objects/stand.png" id="1_iw30b"]
+[ext_resource type="Texture2D" uid="uid://dwqgwbnib2lhk" path="res://assets/objects/stand1-sheet.png" id="1_iw30b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adpwn"]
 size = Vector2(10, 12)
@@ -10,6 +10,7 @@ size = Vector2(10, 12)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 4)
 texture = ExtResource("1_iw30b")
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)

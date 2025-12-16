@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://b43aw0vqjcelw"]
+[gd_scene load_steps=47 format=4 uid="uid://b43aw0vqjcelw"]
 
 [ext_resource type="Texture2D" uid="uid://dsvpekb435jkq" path="res://assets/tilesets/kitchen_tiles.png" id="1_313v0"]
 [ext_resource type="Script" uid="uid://cg8df11qmw40t" path="res://scripts/DayOneKitchen.gd" id="1_ll6nb"]
@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://x552m6ijmnjr" path="res://assets/objects/coffee_machine.png" id="17_2niwv"]
 [ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="18_vcvn8"]
 [ext_resource type="Texture2D" uid="uid://cwr7458fpren5" path="res://assets/objects/spilled_coffee.png" id="20_kgvl7"]
+[ext_resource type="AudioStream" uid="uid://bodwrd5w0rmff" path="res://assets/sfx/spill_coffee.mp3" id="21_fqefg"]
+[ext_resource type="AudioStream" uid="uid://b484mqfk5f8en" path="res://assets/sfx/coffee_machine.mp3" id="22_30ols"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p8c40"]
 texture = ExtResource("1_313v0")
@@ -220,7 +222,7 @@ y_sort_enabled = true
 script = ExtResource("1_ll6nb")
 
 [node name="CoffeeTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 2.5
 one_shot = true
 
 [node name="MugTimer" type="Timer" parent="."]
@@ -388,6 +390,15 @@ visible = false
 z_index = -1
 position = Vector2(23, 18)
 texture = ExtResource("20_kgvl7")
+
+[node name="spill_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_fqefg")
+pitch_scale = 0.87
+
+[node name="coffee_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_30ols")
+volume_db = 2.298
+pitch_scale = 0.98
 
 [connection signal="timeout" from="CoffeeTimer" to="." method="_on_coffee_timer_timeout"]
 [connection signal="timeout" from="MugTimer" to="." method="_on_mug_timer_timeout"]

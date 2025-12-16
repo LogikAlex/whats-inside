@@ -15,7 +15,7 @@ func _ready() -> void:
 	else:
 		ambience.color = Color8(169, 181, 171)
 	
-	if globals.coffeeDialog:
+	if globals.coffeeDialog and globals.brushedTeeth:
 		coffeeDialog.disabled = false
 		$making_coffee/coffe.disabled = false
 	else:
@@ -39,10 +39,12 @@ func _process(_delta: float) -> void:
 func _spill_coffee():
 	$SpilledCoffee.visible = true
 	$Mug.frame = 1
+	$spill_sfx.play()
 	#player.can_move = true
 
 func _start_cofe_tajmr():
 	coffeeTimer.start()
+	$coffee_sfx.play()
 	player.can_move = false
 
 func _on_coffee_timer_timeout() -> void:

@@ -3,6 +3,8 @@ extends Node2D
 @onready var minigame = preload("res://scenes/Days/DayOne/d1_coffee_minigame.tscn")
 @onready var ambience = $ambience
 @onready var coffeeDialog = $coffee_dialog/trigger_coffee
+@onready var cleanedDialog = $cleaned_dialogue/colbody2d
+@onready var spilledDialog = $spilled_dialogue/colbody2d
 @onready var coffeeTimer = $CoffeeTimer
 @onready var mugTimer = $MugTimer
 @onready var player = $Player
@@ -24,10 +26,13 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if globals.cleanedCoffee and !cleaned:
+		if globals.cleanedDialog:
+			cleanedDialog.disabled = false
+			globals.cleanedDialog = false
 		cleaned = true
 		globals.coffeeDialog = false
 		#_fade_in()
-		player.can_move = true
+		#player.can_move = true
 		$making_coffee/coffe.disabled = true
 		$Mug.frame = 1
 		$Mug.visible = true
@@ -40,7 +45,12 @@ func _spill_coffee():
 	$SpilledCoffee.visible = true
 	$Mug.frame = 1
 	$spill_sfx.play()
+	MainSong.isPlaying = false
+	$SpillTimer.start()
 	#player.can_move = true
+
+func _on_spill_timer_timeout() -> void:
+	spilledDialog.disabled = false
 
 func _start_cofe_tajmr():
 	coffeeTimer.start()

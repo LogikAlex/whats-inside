@@ -88,7 +88,7 @@ func _go_to_sleep():
 	bedSprite.frame = 1
 	player.visible = false
 	var imOkayTween = create_tween()
-	imOkayTween.tween_property(imOkayDialogue, "disabled", false, 0).set_delay(3)
+	imOkayTween.tween_property(imOkayDialogue, "disabled", false, 0).set_delay(4.5)
 
 func _on_sleep_timer_timeout() -> void:
 	_go_to_sleep()

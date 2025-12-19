@@ -5,6 +5,6 @@
 
 [node name="main_theme" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_wgks0")
-pitch_scale = 0.95
+volume_db = -5.571
 parameters/looping = true
 script = ExtResource("2_wgks0")

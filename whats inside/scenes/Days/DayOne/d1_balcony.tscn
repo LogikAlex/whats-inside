@@ -16,7 +16,7 @@ size = Vector2(20, 7)
 
 [sub_resource type="Resource" id="Resource_jvlks"]
 script = ExtResource("7_68ty5")
-text = "*the view is beautiful today."
+text = "*the view is beautiful today"
 text_speed = 14.0
 text_sound = ExtResource("8_4n428")
 text_volume_pitch_min = 0.75

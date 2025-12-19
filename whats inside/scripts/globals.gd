@@ -10,6 +10,7 @@ var lastPlayerDir
 @export var anotherDayDialogue = true
 @export var tv_off = false
 @export var coffeeDialog = false
+@export var cleanedDialog = true
 @export var cleanedCoffee = false
 @export var workedD1 = false
 @export var brushedTeeth = false

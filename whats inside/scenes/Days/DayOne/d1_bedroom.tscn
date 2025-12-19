@@ -54,7 +54,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_csr6t"]
 script = ExtResource("13_sqv23")
-text = "*i should finish this quickly"
+text = "*this keeps me busy"
 text_speed = 14.0
 text_sound = ExtResource("14_5tb5o")
 text_volume_pitch_min = 0.75
@@ -96,9 +96,9 @@ metadata/_custom_type_script = "uid://bj218rqao0syu"
 [sub_resource type="Resource" id="Resource_dxk2v"]
 script = ExtResource("13_sqv23")
 text = "*i'm okay."
-text_speed = 10.0
+text_speed = 9.0
 text_sound = ExtResource("14_5tb5o")
-text_volume_db = -1
+text_volume_db = -2
 text_volume_pitch_min = 0.75
 text_volume_pitch_max = 0.7
 metadata/_custom_type_script = "uid://c7hf8sppb4268"

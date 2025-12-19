@@ -14,6 +14,7 @@ var finished = false
 @onready var black_screen = $BlackScreen/Sprite2D
 
 func _ready() -> void:
+	MainSong.isPlaying = true
 	Input.set_custom_mouse_cursor(idle_cursor, Input.CURSOR_ARROW, Vector2(8, 8))
 
 func _process(delta: float) -> void:

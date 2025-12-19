@@ -10,8 +10,8 @@ func _ready() -> void:
 func _flicker():
 	var flicker = create_tween()
 	flicker.set_loops()
-	flicker.tween_property($".", "energy", 0.4, 0.2)
-	flicker.tween_property($".", "energy", 0.6, 0.2).set_delay(0.1)
+	flicker.tween_property($".", "energy", 0.5, 0.2)
+	flicker.tween_property($".", "energy", 0.7, 0.2).set_delay(0.1)
 
 func _turn_off():
 	print("BROTHER TURN OFF BROTHER")

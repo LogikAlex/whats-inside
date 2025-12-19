@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://nuymqiaevff7"]
+[gd_scene load_steps=48 format=4 uid="uid://nuymqiaevff7"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_6bm55"]
 [ext_resource type="Script" uid="uid://fgea5djxx3bf" path="res://scripts/DayOneLR.gd" id="1_625l6"]
@@ -67,7 +67,7 @@ size = Vector2(13, 9)
 
 [sub_resource type="Resource" id="Resource_m2ldl"]
 script = ExtResource("10_7vca8")
-text = "*Oh, i left the tv on again.."
+text = "*oh, i left the tv on again"
 text_speed = 14.0
 text_sound = ExtResource("11_24ksx")
 text_volume_pitch_min = 0.75
@@ -81,7 +81,7 @@ script = ExtResource("10_7vca8")
 text = "*I should turn it off"
 text_speed = 14.0
 text_sound = ExtResource("11_24ksx")
-text_volume_pitch_min = 0.65
+text_volume_pitch_min = 0.75
 text_volume_pitch_max = 0.7
 camera_position = Vector2(66, 18)
 camera_transition_time = 1.5
@@ -110,7 +110,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_yww2d"]
 script = ExtResource("10_7vca8")
-text = "*the essays aren't going to write themselves"
+text = "*those essays aren't going to write themselves"
 text_speed = 14.0
 text_sound = ExtResource("11_24ksx")
 text_volume_pitch_min = 0.75
@@ -144,6 +144,15 @@ metadata/_custom_type_script = "uid://bj218rqao0syu"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n220y"]
 size = Vector2(31, 43)
+
+[sub_resource type="Resource" id="Resource_gwd6h"]
+script = ExtResource("10_7vca8")
+text = "*just for a bit..."
+text_speed = 14.0
+text_sound = ExtResource("11_24ksx")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_njhrv"]
 script = ExtResource("14_o5oe2")
@@ -332,7 +341,7 @@ disabled = true
 [node name="tv_watch" parent="." instance=ExtResource("8_43tq7")]
 position = Vector2(97, 25)
 only_activate_once = true
-dialogue = Array[ExtResource("9_24ksx")]([SubResource("Resource_njhrv")])
+dialogue = Array[ExtResource("9_24ksx")]([SubResource("Resource_gwd6h"), SubResource("Resource_njhrv")])
 
 [node name="trigger_watch_tv" type="CollisionShape2D" parent="tv_watch"]
 position = Vector2(-1, -0.5)

@@ -1,15 +1,15 @@
-[gd_scene load_steps=19 format=4 uid="uid://c6frmwuv3f7q0"]
+[gd_scene load_steps=18 format=4 uid="uid://pyno3iwne2vl"]
 
-[ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_5sxgv"]
-[ext_resource type="Script" uid="uid://qdnaxonkveav" path="res://scripts/dayOne/DayOneEntry.gd" id="1_47h2k"]
-[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_bkd6f"]
-[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="3_ex822"]
-[ext_resource type="PackedScene" uid="uid://ts45enmkbyvs" path="res://scenes/Objects/coatHanger.tscn" id="4_bkd6f"]
-[ext_resource type="Texture2D" uid="uid://d4cr6d3ael2ty" path="res://assets/objects/welcome_mat.png" id="5_ex822"]
-[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="6_psevo"]
-[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="7_c65l0"]
-[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="8_47h2k"]
-[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="9_c65l0"]
+[ext_resource type="Script" uid="uid://qdnaxonkveav" path="res://scripts/dayOne/DayOneEntry.gd" id="1_5dw71"]
+[ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="2_kukaq"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="3_8bchy"]
+[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="4_10we6"]
+[ext_resource type="Texture2D" uid="uid://d4cr6d3ael2ty" path="res://assets/objects/welcome_mat.png" id="5_w3ass"]
+[ext_resource type="PackedScene" uid="uid://ts45enmkbyvs" path="res://scenes/Objects/coatHanger.tscn" id="6_i7ckw"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="7_rvbpq"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="8_15rbq"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="9_nr2t1"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="10_vacl0"]
 
 [sub_resource type="Gradient" id="Gradient_5sxgv"]
 offsets = PackedFloat32Array(0, 0.7310606)
@@ -26,19 +26,10 @@ fill_from = Vector2(0.5, 0.4871795)
 size = Vector2(20, 7)
 
 [sub_resource type="Resource" id="Resource_apbi4"]
-script = ExtResource("8_47h2k")
-text = "*i like this jacket"
+script = ExtResource("9_nr2t1")
+text = "*it's my jacket"
 text_speed = 14.0
-text_sound = ExtResource("9_c65l0")
-text_volume_pitch_min = 0.75
-text_volume_pitch_max = 0.7
-metadata/_custom_type_script = "uid://c7hf8sppb4268"
-
-[sub_resource type="Resource" id="Resource_c65l0"]
-script = ExtResource("8_47h2k")
-text = "*it was a birthday gift"
-text_speed = 14.0
-text_sound = ExtResource("9_c65l0")
+text_sound = ExtResource("10_vacl0")
 text_volume_pitch_min = 0.75
 text_volume_pitch_max = 0.7
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
@@ -47,10 +38,10 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 size = Vector2(11, 10)
 
 [sub_resource type="Resource" id="Resource_47h2k"]
-script = ExtResource("8_47h2k")
-text = "*maybe i'll go out later"
+script = ExtResource("9_nr2t1")
+text = "*maybe later"
 text_speed = 14.0
-text_sound = ExtResource("9_c65l0")
+text_sound = ExtResource("10_vacl0")
 text_volume_pitch_min = 0.75
 text_volume_pitch_max = 0.7
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
@@ -60,7 +51,7 @@ size = Vector2(14, 10)
 
 [node name="Entry" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_47h2k")
+script = ExtResource("1_5dw71")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(50, 18)
@@ -77,25 +68,25 @@ metadata/_edit_lock_ = true
 [node name="Tiles" type="TileMapLayer" parent="."]
 z_index = -1
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAP//AAADAAMAAAABAP//AAABAAAAAAACAP7/AAAGAAIAAAACAP//AAAGAAMAAAADAP7/AAAGAAAAAAADAP//AAAGAAEAAAAAAP7/AAAGAAAAAAAAAP//AAAGAAEAAAAFAP7/AAAGAAIAAAAFAP//AAAGAAMAAAABAP7/AAADAAIAAAAEAP7/AAADAAIAAAD///7/AAACAAAAAAD/////AAACAAEAAAAGAP7/AAAEAAAAAAAGAP//AAAEAAEAAAD//wAAAAACAAIAAAD//wEAAAACAAIAAAAGAAAAAAAEAAMAAAAGAAIAAAABAAMAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAACAAIAAAD//wMAAAACAAQAAAAAAAMAAAADAAQAAAABAAMAAAADAAQAAAACAAMAAAADAAQAAAADAAMAAAADAAQAAAAEAAMAAAADAAQAAAAFAAMAAAADAAQAAAAGAAMAAAAEAAQAAAAGAAEAAAAFAAEAAAA=")
-tile_set = ExtResource("1_5sxgv")
+tile_set = ExtResource("2_kukaq")
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." instance=ExtResource("2_bkd6f")]
+[node name="Player" parent="." instance=ExtResource("3_8bchy")]
 position = Vector2(50, 21)
 speed = 50.0
 
-[node name="toLivingroom" parent="." instance=ExtResource("3_ex822")]
+[node name="toLivingroom" parent="." instance=ExtResource("4_10we6")]
 position = Vector2(72, -5)
-wanted_room_path = "res://scenes/Days/DayOne/d1_livingroom.tscn"
+wanted_room_path = "res://scenes/Days/DayTwo/d2_livingroom.tscn"
 wanted_player_pos = Vector2(25, 42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toLivingroom"]
 shape = SubResource("RectangleShape2D_c8ve7")
 
-[node name="toBathroom" parent="." instance=ExtResource("3_ex822")]
+[node name="toBathroom" parent="." instance=ExtResource("4_10we6")]
 position = Vector2(103, 24)
 rotation = 1.5707964
-wanted_room_path = "res://scenes/Days/DayOne/d1_bathroom.tscn"
+wanted_room_path = "res://scenes/Days/DayTwo/d2_bathroom.tscn"
 wanted_player_pos = Vector2(23, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toBathroom"]
@@ -107,22 +98,22 @@ color = Color(0.79339314, 0.8146727, 0.8967175, 1)
 [node name="WelcomeMat" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(24, 4)
-texture = ExtResource("5_ex822")
+texture = ExtResource("5_w3ass")
 
-[node name="CoatHanger" parent="." instance=ExtResource("4_bkd6f")]
+[node name="CoatHanger" parent="." instance=ExtResource("6_i7ckw")]
 position = Vector2(49, 1)
 
-[node name="hanger_dialog" parent="." instance=ExtResource("6_psevo")]
+[node name="hanger_dialog" parent="." instance=ExtResource("7_rvbpq")]
 position = Vector2(49, 2)
-dialogue = Array[ExtResource("7_c65l0")]([SubResource("Resource_apbi4"), SubResource("Resource_c65l0")])
+dialogue = Array[ExtResource("8_15rbq")]([SubResource("Resource_apbi4")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hanger_dialog"]
 position = Vector2(-0.5, -3)
 shape = SubResource("RectangleShape2D_xoulh")
 
-[node name="door_dialog" parent="." instance=ExtResource("6_psevo")]
+[node name="door_dialog" parent="." instance=ExtResource("7_rvbpq")]
 position = Vector2(24, -5)
-dialogue = Array[ExtResource("7_c65l0")]([SubResource("Resource_47h2k")])
+dialogue = Array[ExtResource("8_15rbq")]([SubResource("Resource_47h2k")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door_dialog"]
 shape = SubResource("RectangleShape2D_apbi4")

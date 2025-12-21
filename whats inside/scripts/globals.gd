@@ -2,6 +2,8 @@ extends Node2D
 
 #any day
 @export var wokeUp = false
+@export var brushedTeeth = false
+@export var worked = false
 @export var is_dark = false
 @export var wantedPlayerPos: Vector2 = Vector2(24, 10)
 var lastPlayerDir
@@ -12,5 +14,3 @@ var lastPlayerDir
 @export var coffeeDialog = false
 @export var cleanedDialog = true
 @export var cleanedCoffee = false
-@export var workedD1 = false
-@export var brushedTeeth = false

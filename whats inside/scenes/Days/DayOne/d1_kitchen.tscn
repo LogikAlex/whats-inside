@@ -1,7 +1,7 @@
 [gd_scene load_steps=48 format=4 uid="uid://b43aw0vqjcelw"]
 
 [ext_resource type="Texture2D" uid="uid://dsvpekb435jkq" path="res://assets/tilesets/kitchen_tiles.png" id="1_313v0"]
-[ext_resource type="Script" uid="uid://cg8df11qmw40t" path="res://scripts/DayOneKitchen.gd" id="1_ll6nb"]
+[ext_resource type="Script" uid="uid://cg8df11qmw40t" path="res://scripts/dayOne/DayOneKitchen.gd" id="1_ll6nb"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_p8c40"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="3_3ipta"]
 [ext_resource type="Texture2D" uid="uid://32ls3khnu3a1" path="res://assets/objects/mug.png" id="4_4nr2n"]
@@ -125,7 +125,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_30ols"]
 script = ExtResource("7_ll6nb")
-text = "*ugh... i have to clean this up"
+text = "*how did i mess it up.."
 text_speed = 14.0
 text_sound = ExtResource("8_tnify")
 text_volume_pitch_min = 0.75

@@ -1,24 +1,24 @@
-[gd_scene load_steps=17 format=3 uid="uid://sgubsit8fye1"]
+[gd_scene load_steps=17 format=3 uid="uid://bmfsmfgx5gmb8"]
 
-[ext_resource type="Texture2D" uid="uid://u06hiofvr4cj" path="res://assets/misc/balcony_sprite.png" id="1_6csau"]
-[ext_resource type="Script" uid="uid://btadpl6swnvir" path="res://scripts/dayOne/DayOneBalcony.gd" id="1_68ty5"]
-[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_fp5f7"]
-[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="2_slygy"]
-[ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="4_h5c6u"]
-[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="5_nfuck"]
-[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="6_1v70g"]
-[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="7_68ty5"]
-[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="8_4n428"]
-[ext_resource type="AudioStream" uid="uid://dy15a5truwsky" path="res://assets/sfx/night_ambience.mp3" id="10_4n428"]
+[ext_resource type="Script" uid="uid://btadpl6swnvir" path="res://scripts/dayOne/DayOneBalcony.gd" id="1_bcpmc"]
+[ext_resource type="Texture2D" uid="uid://u06hiofvr4cj" path="res://assets/misc/balcony_sprite.png" id="2_3uhcd"]
+[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="3_7bqqh"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="4_nu7lu"]
+[ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="5_4cvig"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="6_unaxg"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="7_w26tj"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="8_lk1py"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="9_kjvl4"]
+[ext_resource type="AudioStream" uid="uid://dy15a5truwsky" path="res://assets/sfx/night_ambience.mp3" id="10_uoerg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5c6u"]
 size = Vector2(20, 7)
 
 [sub_resource type="Resource" id="Resource_jvlks"]
-script = ExtResource("7_68ty5")
+script = ExtResource("8_lk1py")
 text = "*the view is beautiful today"
-text_speed = 14.0
-text_sound = ExtResource("8_4n428")
+text_speed = 12.0
+text_sound = ExtResource("9_kjvl4")
 text_volume_pitch_min = 0.75
 text_volume_pitch_max = 0.7
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
@@ -27,10 +27,10 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 size = Vector2(13, 62)
 
 [sub_resource type="Resource" id="Resource_68ty5"]
-script = ExtResource("7_68ty5")
+script = ExtResource("8_lk1py")
 text = "*i can't see anything.."
 text_speed = 12.0
-text_sound = ExtResource("8_4n428")
+text_sound = ExtResource("9_kjvl4")
 text_volume_pitch_min = 0.75
 text_volume_pitch_max = 0.7
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
@@ -44,31 +44,31 @@ gradient = SubResource("Gradient_1v70g")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="D1Balcony" type="Node2D"]
-script = ExtResource("1_68ty5")
+[node name="D2Balcony" type="Node2D"]
+script = ExtResource("1_bcpmc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(160, 43)
 
 [node name="Balcony" type="Sprite2D" parent="."]
 position = Vector2(24, 40)
-texture = ExtResource("1_6csau")
+texture = ExtResource("2_3uhcd")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(0, 20, 0, 0, 15, 0, 15, 11, 38, 11, 38, 72, 35, 72, 15, 72, 15, 75, 0, 75, 0, 53, 6, 53, 6, 69, 34, 69, 34, 19, 6, 19, 6, 37, 0, 37)
 
-[node name="toBedroom" parent="." instance=ExtResource("2_slygy")]
+[node name="toBedroom" parent="." instance=ExtResource("3_7bqqh")]
 position = Vector2(-1, 45)
 rotation = -1.5707964
-wanted_room_path = "res://scenes/Days/DayOne/d1_bedroom.tscn"
+wanted_room_path = "res://scenes/Days/DayTwo/d2_bedroom.tscn"
 wanted_player_pos = Vector2(75, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toBedroom"]
 shape = SubResource("RectangleShape2D_h5c6u")
 
-[node name="Player" parent="." instance=ExtResource("2_fp5f7")]
+[node name="Player" parent="." instance=ExtResource("4_nu7lu")]
 position = Vector2(14, 46)
 speed = 50.0
 
@@ -81,19 +81,19 @@ scale = Vector2(1.7688439, 1.8100625)
 color = Color(0.93909687, 0.94756943, 0.9663058, 1)
 energy = 1.28
 shadow_enabled = true
-texture = ExtResource("4_h5c6u")
+texture = ExtResource("5_4cvig")
 
-[node name="DialogueArea" parent="." instance=ExtResource("5_nfuck")]
+[node name="DialogueArea" parent="." instance=ExtResource("6_unaxg")]
 position = Vector2(37, 43)
-dialogue = Array[ExtResource("6_1v70g")]([SubResource("Resource_jvlks")])
+dialogue = Array[ExtResource("7_w26tj")]([SubResource("Resource_jvlks")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
 position = Vector2(4.5, -1)
 shape = SubResource("RectangleShape2D_b7uxb")
 
-[node name="DarkDialogue" parent="." instance=ExtResource("5_nfuck")]
+[node name="DarkDialogue" parent="." instance=ExtResource("6_unaxg")]
 position = Vector2(37, 43)
-dialogue = Array[ExtResource("6_1v70g")]([SubResource("Resource_68ty5")])
+dialogue = Array[ExtResource("7_w26tj")]([SubResource("Resource_68ty5")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DarkDialogue"]
 position = Vector2(4.5, -1)
@@ -104,14 +104,14 @@ disabled = true
 color = Color(0.9092348, 0.9117436, 0.8771378, 1)
 
 [node name="Spotlight" type="Sprite2D" parent="."]
-modulate = Color(0.9332255, 0.9746534, 0.93158394, 1)
+modulate = Color(0.93333334, 0.9764706, 0.93333334, 0.6666667)
 light_mask = 0
 position = Vector2(596, 61)
 scale = Vector2(16.035156, 15.46875)
 texture = SubResource("GradientTexture2D_68ty5")
 
 [node name="night_ambience" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_4n428")
+stream = ExtResource("10_uoerg")
 volume_db = 10.0
 parameters/looping = true
 

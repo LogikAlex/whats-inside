@@ -28,10 +28,10 @@ var z_head_tween: Tween
 
 func _ready() -> void:
 	#globals.wokeUp = true
-	if globals.cleanedCoffee and !globals.workedD1:
+	if globals.cleanedCoffee and !globals.worked:
 		workInteract.disabled = false
 		deskDialogue.disabled = true
-	if globals.workedD1:
+	if globals.worked:
 		deskDialogue.disabled = false
 		workInteract.disabled = true
 	if globals.is_dark:
@@ -63,7 +63,7 @@ func _work_dialogue_2_timer():
 	$WorkDialogueTimer2.start()
 
 func _work():
-	globals.workedD1 = true
+	globals.worked = true
 	$PlayerWorking.visible = true
 	player.visible = false
 	$WorkDialogueTimer.start()
@@ -82,8 +82,15 @@ func _on_stand_up_timer_timeout() -> void:
 func _end_day():
 	var bScreen = $CanvasLayer/bScreen
 	var bTween = create_tween()
+	globals.wokeUp = false
+	bTween.set_parallel()
 	bTween.tween_property(bScreen, "modulate:a", 1, 6)
-	bTween.tween_property(NightSong, "volume_db", -80, 6)
+	bTween.tween_property(NightSong, "volume_db", -45, 6).set_delay(3)
+	bTween.tween_callback(func end():
+		globals.is_dark = false
+		get_tree().change_scene_to_file("res://scenes/Days/DayTwo/d2_bedroom.tscn")
+	).set_delay(7)
+	
 func _go_to_sleep():
 	bedSprite.frame = 1
 	player.visible = false
@@ -102,6 +109,7 @@ func _check_if_woke_up():
 		fade_in_tween()
 		z_tween()
 		player.can_move = false
+		player.current_dir = player.directions.DOWN
 		bedSprite.frame = 1
 		player.visible = false
 	else:
@@ -114,7 +122,7 @@ func _check_if_woke_up():
 		player.visible = true
 
 func _input(event: InputEvent) -> void:
-	if !globals.wokeUp and event.is_action_pressed("interact") and tweensFinished:
+	if !globals.wokeUp and event.is_action_released("interact") and tweensFinished:
 		globals.wokeUp = true
 		cam_shift()
 		z_head_tween.kill()

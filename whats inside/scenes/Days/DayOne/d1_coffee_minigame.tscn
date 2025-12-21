@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://76qk4vl7vadu"]
 
 [ext_resource type="Texture2D" uid="uid://cb5h7rlv54o4o" path="res://assets/objects/spilled_coffee_big.png" id="1_81cy4"]
-[ext_resource type="Script" uid="uid://cek8uiuahy5v1" path="res://scripts/d1_coffee_minigame.gd" id="1_x6ef1"]
+[ext_resource type="Script" uid="uid://cek8uiuahy5v1" path="res://scripts/dayOne/d1_coffee_minigame.gd" id="1_x6ef1"]
 [ext_resource type="Texture2D" uid="uid://bsgvbibwj27w" path="res://assets/misc/bg_kofi.png" id="2_60sck"]
 [ext_resource type="Texture2D" uid="uid://ujt5upvpw5ti" path="res://assets/objects/cloth.png" id="2_v15b2"]
 

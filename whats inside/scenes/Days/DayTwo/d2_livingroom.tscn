@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://btfwmvupkuu2g"]
+[gd_scene load_steps=43 format=4 uid="uid://btfwmvupkuu2g"]
 
 [ext_resource type="Script" uid="uid://busmdl533rawl" path="res://scripts/dayTwo/DayTwoLR.gd" id="1_ni2pb"]
 [ext_resource type="AudioStream" uid="uid://cu0o2emdybhpl" path="res://assets/sfx/tv_sound.mp3" id="2_0ekg8"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cth4hylf5dh1y" path="res://scenes/Objects/couch.tscn" id="6_iqkgt"]
 [ext_resource type="PackedScene" uid="uid://c4pyw280okyai" path="res://scenes/Objects/tv.tscn" id="7_idpsi"]
 [ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="8_gl7a4"]
+[ext_resource type="Script" uid="uid://m1npkkbsfmks" path="res://scripts/d2_tv_light.gd" id="9_ni2pb"]
 [ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="10_abkq3"]
 [ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="11_ttfv5"]
 [ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="12_gwp3y"]
@@ -42,7 +43,7 @@ polygon = PackedVector2Array(122, 14, 101, 6, 122, 16, 122, 26, 100, 35, 122, 28
 
 [sub_resource type="Resource" id="Resource_0vuf1"]
 script = ExtResource("13_85ve3")
-text = "*i don't want to.."
+text = "*it'll only hurt more"
 text_speed = 11.0
 text_sound = ExtResource("14_bfbal")
 text_volume_pitch_min = 0.8
@@ -78,16 +79,7 @@ size = Vector2(6, 68)
 
 [sub_resource type="Resource" id="Resource_n220y"]
 script = ExtResource("13_85ve3")
-text = "*i should probably get some work done"
-text_speed = 14.0
-text_sound = ExtResource("14_bfbal")
-text_volume_pitch_min = 0.75
-text_volume_pitch_max = 0.7
-metadata/_custom_type_script = "uid://c7hf8sppb4268"
-
-[sub_resource type="Resource" id="Resource_yww2d"]
-script = ExtResource("13_85ve3")
-text = "*those essays aren't going to write themselves"
+text = "*i need to work.."
 text_speed = 14.0
 text_sound = ExtResource("14_bfbal")
 text_volume_pitch_min = 0.75
@@ -96,16 +88,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_ia1uf"]
 script = ExtResource("13_85ve3")
-text = "*it's dark already..."
-text_speed = 12.0
-text_sound = ExtResource("14_bfbal")
-text_volume_pitch_min = 0.75
-text_volume_pitch_max = 0.7
-metadata/_custom_type_script = "uid://c7hf8sppb4268"
-
-[sub_resource type="Resource" id="Resource_mmmxa"]
-script = ExtResource("13_85ve3")
-text = "*must've lost track of time"
+text = "*it's dark already?"
 text_speed = 12.0
 text_sound = ExtResource("14_bfbal")
 text_volume_pitch_min = 0.75
@@ -122,25 +105,6 @@ metadata/_custom_type_script = "uid://bj218rqao0syu"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n220y"]
 size = Vector2(31, 43)
 
-[sub_resource type="Resource" id="Resource_gwd6h"]
-script = ExtResource("13_85ve3")
-text = "*just for a bit..."
-text_speed = 14.0
-text_sound = ExtResource("14_bfbal")
-text_volume_pitch_min = 0.75
-text_volume_pitch_max = 0.7
-metadata/_custom_type_script = "uid://c7hf8sppb4268"
-
-[sub_resource type="Resource" id="Resource_njhrv"]
-script = ExtResource("15_lwyg5")
-target_path = NodePath("..")
-function_name = "_start_couch_timer"
-hide_dialogue_box = true
-metadata/_custom_type_script = "uid://bj218rqao0syu"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ffl5"]
-size = Vector2(8, 11)
-
 [sub_resource type="Resource" id="Resource_fkvcy"]
 script = ExtResource("13_85ve3")
 text = "*A radiator. it keeps me warm"
@@ -154,6 +118,35 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kv4q3"]
 size = Vector2(4, 17)
 
+[sub_resource type="Resource" id="Resource_6r5e7"]
+script = ExtResource("15_lwyg5")
+target_path = NodePath("..")
+function_name = "_start_couch_timer"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni2pb"]
+size = Vector2(8, 11)
+
+[sub_resource type="Resource" id="Resource_gwd6h"]
+script = ExtResource("13_85ve3")
+text = "*i could go out later"
+text_speed = 14.0
+text_sound = ExtResource("14_bfbal")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_njhrv"]
+script = ExtResource("15_lwyg5")
+target_path = NodePath("..")
+function_name = "_fade_to_dark"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgo7x"]
+size = Vector2(32, 43)
+
 [node name="LivingRoom" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ni2pb")
@@ -164,7 +157,11 @@ volume_db = 24.0
 parameters/looping = true
 
 [node name="CouchTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 2.5
+one_shot = true
+
+[node name="CouchDialogue" type="Timer" parent="."]
+wait_time = 2.5
 one_shot = true
 
 [node name="EndCouchTimer" type="Timer" parent="."]
@@ -202,7 +199,7 @@ shape = SubResource("RectangleShape2D_c8ve7")
 
 [node name="toKitchen" parent="." instance=ExtResource("5_gh1vb")]
 position = Vector2(96, 55)
-wanted_room_path = "res://scenes/Days/DayOne/d1_kitchen.tscn"
+wanted_room_path = "res://scenes/Days/DayTwo/d2_kitchen.tscn"
 wanted_player_pos = Vector2(80, 7)
 isDoor = false
 
@@ -224,6 +221,7 @@ energy = 0.2
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = ExtResource("8_gl7a4")
+script = ExtResource("9_ni2pb")
 
 [node name="ceilingLight" type="PointLight2D" parent="."]
 position = Vector2(64, 19)
@@ -235,8 +233,7 @@ texture = SubResource("GradientTexture2D_0vuf1")
 [node name="boxLight" type="PointLight2D" parent="."]
 position = Vector2(6.9999995, 1)
 scale = Vector2(0.12295083, 0.12295081)
-color = Color(0.41943544, 0.71128404, 0.9305768, 1)
-energy = 0.31
+energy = 0.28
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_0vuf1")
 
@@ -276,7 +273,7 @@ disabled = true
 position = Vector2(53, 22)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("12_gwp3y")]([SubResource("Resource_n220y"), SubResource("Resource_yww2d")])
+dialogue = Array[ExtResource("12_gwp3y")]([SubResource("Resource_n220y")])
 
 [node name="trigger_work" type="CollisionShape2D" parent="should_work"]
 shape = SubResource("RectangleShape2D_625l6")
@@ -286,21 +283,11 @@ disabled = true
 position = Vector2(102, 25)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("12_gwp3y")]([SubResource("Resource_ia1uf"), SubResource("Resource_mmmxa"), SubResource("Resource_fxcas")])
+dialogue = Array[ExtResource("12_gwp3y")]([SubResource("Resource_ia1uf"), SubResource("Resource_fxcas")])
 
 [node name="trigger_end_couch" type="CollisionShape2D" parent="couch_end"]
 position = Vector2(-5.5, 0.5)
 shape = SubResource("RectangleShape2D_n220y")
-disabled = true
-
-[node name="tv_watch" parent="." instance=ExtResource("11_ttfv5")]
-position = Vector2(97, 25)
-only_activate_once = true
-dialogue = Array[ExtResource("12_gwp3y")]([SubResource("Resource_gwd6h"), SubResource("Resource_njhrv")])
-
-[node name="trigger_watch_tv" type="CollisionShape2D" parent="tv_watch"]
-position = Vector2(-1, -0.5)
-shape = SubResource("RectangleShape2D_3ffl5")
 disabled = true
 
 [node name="Lamp" parent="." instance=ExtResource("16_r3whv")]
@@ -334,5 +321,27 @@ texture = ExtResource("20_gy4ui")
 hframes = 2
 frame = 1
 
+[node name="tv_watch" parent="." instance=ExtResource("11_ttfv5")]
+position = Vector2(97, 25)
+only_activate_once = true
+dialogue = Array[ExtResource("12_gwp3y")]([SubResource("Resource_6r5e7")])
+
+[node name="trigger_watch_tv" type="CollisionShape2D" parent="tv_watch"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_ni2pb")
+disabled = true
+
+[node name="tv_watch2" parent="." instance=ExtResource("11_ttfv5")]
+position = Vector2(97, 25)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("12_gwp3y")]([SubResource("Resource_gwd6h"), SubResource("Resource_njhrv")])
+
+[node name="watch_tv" type="CollisionShape2D" parent="tv_watch2"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_pgo7x")
+disabled = true
+
 [connection signal="timeout" from="CouchTimer" to="." method="_on_couch_timer_timeout"]
+[connection signal="timeout" from="CouchDialogue" to="." method="_on_couch_dialogue_timeout"]
 [connection signal="timeout" from="EndCouchTimer" to="." method="_on_end_couch_timer_timeout"]

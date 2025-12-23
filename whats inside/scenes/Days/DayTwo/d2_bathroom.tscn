@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=4 uid="uid://byegobnbrjsvq"]
 
-[ext_resource type="Script" uid="uid://deaqqysehty1" path="res://scripts/dayOne/DayOneBathroom.gd" id="1_a3l7u"]
+[ext_resource type="Script" uid="uid://pnnbv8i74y01" path="res://scripts/dayTwo/DayTwoBathroom.gd" id="1_3tgk3"]
 [ext_resource type="Texture2D" uid="uid://bulrofjfrig43" path="res://assets/tilesets/bathroom_tiles.png" id="2_mtaex"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="3_vyk0g"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="4_r3fnc"]
@@ -96,7 +96,7 @@ fill_from = Vector2(0.5, 0.4871795)
 
 [sub_resource type="Resource" id="Resource_8vf8s"]
 script = ExtResource("15_gqwlr")
-text = "*it's still me"
+text = "*i look tired.."
 text_speed = 12.0
 text_sound = ExtResource("16_b7uis")
 text_volume_pitch_min = 0.7
@@ -136,7 +136,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [node name="Bathroom" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_a3l7u")
+script = ExtResource("1_3tgk3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(66, 19)

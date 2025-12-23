@@ -1,0 +1,431 @@
+[gd_scene load_steps=47 format=4 uid="uid://jvk4l3570te6"]
+
+[ext_resource type="Script" uid="uid://ck1p4oor2m8kv" path="res://scripts/dayTwo/DayTwoKitchen.gd" id="1_qsr2b"]
+[ext_resource type="Texture2D" uid="uid://dsvpekb435jkq" path="res://assets/tilesets/kitchen_tiles.png" id="2_3ta5l"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="3_lnpsw"]
+[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="4_tww0n"]
+[ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="5_4fn78"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="6_cfixx"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="7_xs54t"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="8_7i6p1"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="9_uejwj"]
+[ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="10_utwxq"]
+[ext_resource type="PackedScene" uid="uid://dtsqunddbw638" path="res://scenes/Objects/stove.tscn" id="11_gxh0t"]
+[ext_resource type="PackedScene" uid="uid://rs8ct2ujac38" path="res://scenes/Objects/k_cabinet_r.tscn" id="12_0gf43"]
+[ext_resource type="PackedScene" uid="uid://c1rne2my0x14t" path="res://scenes/Objects/k_cabinet_l.tscn" id="13_cs44d"]
+[ext_resource type="PackedScene" uid="uid://dyxlup5kvj4wj" path="res://scenes/Objects/k_cabinet_small.tscn" id="14_psjch"]
+[ext_resource type="PackedScene" uid="uid://bum4g86bdw1fk" path="res://scenes/Objects/fridge.tscn" id="15_yj6fs"]
+[ext_resource type="PackedScene" uid="uid://di7hauqx1cnir" path="res://scenes/Objects/chair.tscn" id="16_m53c5"]
+[ext_resource type="PackedScene" uid="uid://bmn2woebkx4n4" path="res://scenes/Objects/k_table.tscn" id="17_81aet"]
+[ext_resource type="Texture2D" uid="uid://x552m6ijmnjr" path="res://assets/objects/coffee_machine.png" id="18_4llq0"]
+[ext_resource type="Texture2D" uid="uid://32ls3khnu3a1" path="res://assets/objects/mug.png" id="19_k26ev"]
+[ext_resource type="Texture2D" uid="uid://cwr7458fpren5" path="res://assets/objects/spilled_coffee.png" id="20_uoj0u"]
+[ext_resource type="AudioStream" uid="uid://bodwrd5w0rmff" path="res://assets/sfx/spill_coffee.mp3" id="21_obqu2"]
+[ext_resource type="AudioStream" uid="uid://b484mqfk5f8en" path="res://assets/sfx/coffee_machine.mp3" id="22_bxac5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p8c40"]
+texture = ExtResource("2_3ta5l")
+0:0/0 = 0
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:3/0 = 0
+6:2/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3ipta"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_p8c40")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcu28"]
+size = Vector2(36, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cjlok"]
+polygon = PackedVector2Array(64, 24, 64, -21, 35, -21, 35, 24)
+
+[sub_resource type="Gradient" id="Gradient_7vca8"]
+offsets = PackedFloat32Array(0, 0.7310606)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tcu28"]
+gradient = SubResource("Gradient_7vca8")
+width = 244
+height = 244
+fill = 1
+fill_from = Vector2(0.5, 0.4871795)
+
+[sub_resource type="Resource" id="Resource_xgcxg"]
+script = ExtResource("8_7i6p1")
+text = "*i could use some coffee.."
+text_speed = 14.0
+text_sound = ExtResource("9_uejwj")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.75
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02q0l"]
+
+[sub_resource type="Resource" id="Resource_ev0vn"]
+script = ExtResource("8_7i6p1")
+text = "*good enough"
+text_speed = 14.0
+text_sound = ExtResource("9_uejwj")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_30ols"]
+script = ExtResource("8_7i6p1")
+text = "*again..?"
+text_speed = 14.0
+text_sound = ExtResource("9_uejwj")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_m8xw1"]
+script = ExtResource("10_utwxq")
+target_path = NodePath("..")
+function_name = "_start_minigame"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="Resource" id="Resource_kgvl7"]
+script = ExtResource("8_7i6p1")
+text = "*i should drink that coffee"
+text_speed = 14.0
+text_sound = ExtResource("9_uejwj")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgvl7"]
+size = Vector2(6, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqefg"]
+size = Vector2(6, 48)
+
+[sub_resource type="Resource" id="Resource_4nr2n"]
+script = ExtResource("10_utwxq")
+target_path = NodePath("..")
+function_name = "_start_cofe_tajmr"
+hide_dialogue_box = true
+wait_for_signal_to_continue = "_on_coffee_timer_timeout"
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2niwv"]
+size = Vector2(7, 15)
+
+[sub_resource type="Resource" id="Resource_fqefg"]
+script = ExtResource("10_utwxq")
+target_path = NodePath("..")
+function_name = "_spill_coffee"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="Resource" id="Resource_mbiup"]
+script = ExtResource("8_7i6p1")
+text = "*it's my fridge"
+text_speed = 14.0
+text_sound = ExtResource("9_uejwj")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.75
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_iblvn"]
+script = ExtResource("8_7i6p1")
+text = "*i'll need to stock up on food soon"
+text_speed = 14.0
+text_sound = ExtResource("9_uejwj")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.75
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbiup"]
+size = Vector2(18, 5)
+
+[sub_resource type="Resource" id="Resource_2niwv"]
+script = ExtResource("8_7i6p1")
+text = "*one note says:"
+text_speed = 14.0
+text_sound = ExtResource("9_uejwj")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_vcvn8"]
+script = ExtResource("8_7i6p1")
+text = "*\"turn the tv off\""
+text_speed = 14.0
+text_sound = ExtResource("9_uejwj")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iblvn"]
+size = Vector2(10, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sipro"]
+size = Vector2(14, 8)
+
+[node name="D2Kitchen" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_qsr2b")
+
+[node name="CoffeeTimer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[node name="MugTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="SpillTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(57, 30)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAACAAEAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAMAAAAAAAAAAAAAAP//AAADAAEAAAABAP//AAADAAEAAAACAP//AAADAAEAAAADAP//AAAFAAEAAAAGAP//AAAFAAMAAAAHAP//AAAEAAEAAAAHAAAAAAAEAAIAAAAHAAEAAAAEAAIAAAAHAAIAAAAEAAIAAAAHAAMAAAAEAAIAAAD/////AAACAAEAAAD//wAAAAACAAIAAAD//wEAAAACAAIAAAD//wIAAAACAAIAAAD//wMAAAACAAIAAAD//wQAAAACAAQAAAAAAAQAAAADAAQAAAABAAQAAAADAAQAAAACAAQAAAADAAQAAAADAAQAAAADAAQAAAAEAAQAAAADAAQAAAAFAAQAAAADAAQAAAAGAAQAAAADAAQAAAAHAAQAAAAEAAQAAAAAAP7/AAADAAAAAAABAP7/AAADAAAAAAACAP7/AAADAAAAAAADAP7/AAAFAAAAAAAGAP7/AAAFAAIAAAAHAP7/AAAEAAAAAAD///7/AAACAAAAAAAEAP//AAAGAAIAAAAFAP//AAAGAAIAAAA=")
+tile_set = SubResource("TileSet_3ipta")
+
+[node name="Player" parent="." instance=ExtResource("3_lnpsw")]
+position = Vector2(80, 8)
+speed = 50.0
+
+[node name="toLivingroom" parent="." instance=ExtResource("4_tww0n")]
+position = Vector2(80, -12)
+wanted_room_path = "res://scenes/Days/DayTwo/d2_livingroom.tscn"
+wanted_player_pos = Vector2(96, 42)
+isDoor = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toLivingroom"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_tcu28")
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.6627451, 0.70980394, 0.67058825, 1)
+
+[node name="thedark" type="PointLight2D" parent="."]
+z_index = -2
+position = Vector2(81, -16)
+scale = Vector2(3.6249998, 1.421875)
+color = Color(0, 0, 0, 1)
+energy = 0.0
+blend_mode = 2
+shadow_enabled = true
+texture = ExtResource("5_4fn78")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_cjlok")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+position = Vector2(61, 0)
+occluder = SubResource("OccluderPolygon2D_cjlok")
+
+[node name="ceilingLight" type="PointLight2D" parent="."]
+position = Vector2(57.000004, 30)
+scale = Vector2(0.68237704, 0.68237704)
+color = Color(0.9843529, 0.98745495, 0.9660104, 1)
+energy = 0.4
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_tcu28")
+
+[node name="coffee_dialog" parent="." instance=ExtResource("6_cfixx")]
+position = Vector2(80, 8)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("7_xs54t")]([SubResource("Resource_xgcxg")])
+
+[node name="trigger_coffee" type="CollisionShape2D" parent="coffee_dialog"]
+shape = SubResource("RectangleShape2D_02q0l")
+disabled = true
+
+[node name="cleaned_dialogue" parent="." instance=ExtResource("6_cfixx")]
+position = Vector2(22, 13)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("7_xs54t")]([SubResource("Resource_ev0vn")])
+
+[node name="colbody2d" type="CollisionShape2D" parent="cleaned_dialogue"]
+shape = SubResource("RectangleShape2D_02q0l")
+disabled = true
+
+[node name="spilled_dialogue" parent="." instance=ExtResource("6_cfixx")]
+position = Vector2(22, 13)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("7_xs54t")]([SubResource("Resource_30ols"), SubResource("Resource_m8xw1")])
+
+[node name="colbody2d" type="CollisionShape2D" parent="spilled_dialogue"]
+shape = SubResource("RectangleShape2D_02q0l")
+disabled = true
+
+[node name="didnt_drink_bruh" parent="." instance=ExtResource("6_cfixx")]
+position = Vector2(61, 32)
+activate_instant = true
+dialogue = Array[ExtResource("7_xs54t")]([SubResource("Resource_kgvl7")])
+
+[node name="trigger" type="CollisionShape2D" parent="didnt_drink_bruh"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_kgvl7")
+disabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(62, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_fqefg")
+disabled = true
+
+[node name="making_coffee" parent="." instance=ExtResource("6_cfixx")]
+position = Vector2(10, 7)
+only_activate_once = true
+dialogue = Array[ExtResource("7_xs54t")]([SubResource("Resource_4nr2n")])
+
+[node name="coffe" type="CollisionShape2D" parent="making_coffee"]
+position = Vector2(-0.5, -7.5)
+shape = SubResource("RectangleShape2D_2niwv")
+
+[node name="taking_coffee" parent="." instance=ExtResource("6_cfixx")]
+position = Vector2(23, 8)
+only_activate_once = true
+dialogue = Array[ExtResource("7_xs54t")]([SubResource("Resource_fqefg")])
+
+[node name="take_trigger" type="CollisionShape2D" parent="taking_coffee"]
+position = Vector2(-0.5, -7.5)
+shape = SubResource("RectangleShape2D_2niwv")
+disabled = true
+
+[node name="fridge_dialog" parent="." instance=ExtResource("6_cfixx")]
+position = Vector2(10, 40)
+dialogue = Array[ExtResource("7_xs54t")]([SubResource("Resource_mbiup"), SubResource("Resource_iblvn")])
+
+[node name="fridge" type="CollisionShape2D" parent="fridge_dialog"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_mbiup")
+
+[node name="notes_dialog" parent="." instance=ExtResource("6_cfixx")]
+position = Vector2(7, 47)
+dialogue = Array[ExtResource("7_xs54t")]([SubResource("Resource_2niwv"), SubResource("Resource_vcvn8")])
+
+[node name="notes" type="CollisionShape2D" parent="notes_dialog"]
+shape = SubResource("RectangleShape2D_iblvn")
+
+[node name="Stove" parent="." instance=ExtResource("11_gxh0t")]
+position = Vector2(36, 8)
+
+[node name="KitchenCabinet" parent="." instance=ExtResource("12_0gf43")]
+position = Vector2(54, 8)
+
+[node name="KitchenCabinet2" parent="." instance=ExtResource("13_cs44d")]
+position = Vector2(9, 8)
+
+[node name="KitchenCabinet3" parent="." instance=ExtResource("14_psjch")]
+position = Vector2(22, 8)
+
+[node name="Fridge" parent="." instance=ExtResource("15_yj6fs")]
+position = Vector2(9, 39)
+
+[node name="Chair" parent="." instance=ExtResource("16_m53c5")]
+position = Vector2(57, 40)
+
+[node name="Chair2" parent="." instance=ExtResource("16_m53c5")]
+position = Vector2(102, 40)
+
+[node name="Sprite2D" parent="Chair2" index="0"]
+flip_h = true
+
+[node name="CollisionShape2D" parent="Chair2" index="1"]
+position = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_sipro")
+
+[node name="KitchenTable" parent="." instance=ExtResource("17_81aet")]
+position = Vector2(80, 45)
+
+[node name="CoffeeMachine" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(10, -7)
+texture = ExtResource("18_4llq0")
+hframes = 2
+
+[node name="Mug" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(23, -3)
+texture = ExtResource("19_k26ev")
+hframes = 2
+
+[node name="SpilledCoffee" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(23, 18)
+texture = ExtResource("20_uoj0u")
+
+[node name="spill_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_obqu2")
+pitch_scale = 0.87
+
+[node name="coffee_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_bxac5")
+volume_db = 3.537
+pitch_scale = 0.98
+
+[connection signal="timeout" from="CoffeeTimer" to="." method="_on_coffee_timer_timeout"]
+[connection signal="timeout" from="MugTimer" to="." method="_on_mug_timer_timeout"]
+[connection signal="timeout" from="SpillTimer" to="." method="_on_spill_timer_timeout"]
+
+[editable path="Chair2"]

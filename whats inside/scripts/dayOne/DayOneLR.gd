@@ -8,6 +8,7 @@ extends Node2D
 @onready var couch_end_dialogue = $couch_end/trigger_end_couch
 @onready var tv_light = $tvLight
 @onready var watch_tv_trigger = $tv_watch/trigger_watch_tv
+@onready var watch_tv_dialogue = $tv_watch2/watch_tv
 @onready var sleep_trigger = $should_sleep/trigger_sleep
 @onready var work_trigger = $should_work/trigger_work
 
@@ -20,7 +21,7 @@ func _start_couch_timer():
 func _watch_tv():
 	player_couch.visible = true
 	player.visible = false
-	_fade_to_dark()
+	$CouchDialogue.start()
 
 func _end_tv():
 	player.position = Vector2(109, 25)
@@ -36,7 +37,7 @@ func _fade_to_dark():
 	tween.tween_property(NightSong, "isPlaying", true, 0).set_delay(7.5)
 	tween.tween_property(NightSong, "volume_db", 6.5, 8).set_delay(5)
 	tween.tween_property(tv_light, "enabled", true, 0).set_delay(1.5)
-	tween.tween_property(ambience, "color", Color8(45, 51, 76), 10).set_delay(5)
+	tween.tween_property(ambience, "color", Color8(45, 51, 76), 10).set_delay(6)
 	tween.tween_callback(func enable_the_big_d(): couch_end_dialogue.disabled = false).set_delay(15.5)
 
 func _ready() -> void:
@@ -69,3 +70,6 @@ func _on_end_couch_timer_timeout() -> void:
 	tv_light.enabled = false
 	player.visible = true
 	player.can_move = true
+
+func _on_couch_dialogue_timeout() -> void:
+	watch_tv_dialogue.disabled = false

@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://blxl0l1wj5o2u"]
+
+[ext_resource type="Script" uid="uid://c8exs2mq3mg55" path="res://scripts/dayTwo/d2_coffee_minigame.gd" id="1_dmdg1"]
+[ext_resource type="Texture2D" uid="uid://bsgvbibwj27w" path="res://assets/misc/bg_kofi.png" id="2_b1e1i"]
+[ext_resource type="Texture2D" uid="uid://cb5h7rlv54o4o" path="res://assets/objects/spilled_coffee_big.png" id="3_7fqgx"]
+[ext_resource type="Texture2D" uid="uid://ujt5upvpw5ti" path="res://assets/objects/cloth.png" id="4_8j8df"]
+
+[sub_resource type="Gradient" id="Gradient_60sck"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j8lfl"]
+gradient = SubResource("Gradient_60sck")
+width = 325
+height = 185
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v15b2"]
+size = Vector2(102, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6ef1"]
+size = Vector2(51, 52)
+
+[node name="D2CoffeeMinigame" type="Node2D"]
+z_index = 2
+script = ExtResource("1_dmdg1")
+
+[node name="BlackScreen" type="CanvasLayer" parent="."]
+offset = Vector2(160, 90)
+transform = Transform2D(1, 0, 0, 1, 160, 90)
+
+[node name="Sprite2D" type="Sprite2D" parent="BlackScreen"]
+modulate = Color(1, 1, 1, 0)
+z_index = 3
+texture = SubResource("GradientTexture2D_j8lfl")
+
+[node name="BG" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(57.5, 30.5)
+texture = ExtResource("2_b1e1i")
+
+[node name="SpilledCoffee" type="Area2D" parent="."]
+z_index = 2
+position = Vector2(8.5, 30.5)
+
+[node name="spilledcoffee" type="Sprite2D" parent="SpilledCoffee"]
+scale = Vector2(1.7500001, 1.7500002)
+texture = ExtResource("3_7fqgx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpilledCoffee"]
+shape = SubResource("RectangleShape2D_v15b2")
+
+[node name="Cloth" type="Area2D" parent="." groups=["cloth"]]
+z_index = 3
+position = Vector2(131.5, 27.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cloth"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_x6ef1")
+
+[node name="Cloth" type="Sprite2D" parent="Cloth"]
+scale = Vector2(2.1, 2.1)
+texture = ExtResource("4_8j8df")
+hframes = 2
+
+[node name="delay" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="area_entered" from="SpilledCoffee" to="." method="_on_spilled_coffee_area_entered"]
+[connection signal="area_exited" from="SpilledCoffee" to="." method="_on_spilled_coffee_area_exited"]
+[connection signal="mouse_entered" from="Cloth" to="." method="_on_cloth_mouse_entered"]
+[connection signal="mouse_exited" from="Cloth" to="." method="_on_cloth_mouse_exited"]
+[connection signal="timeout" from="delay" to="." method="_on_delay_timeout"]

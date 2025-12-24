@@ -43,6 +43,7 @@ func _process(_delta: float) -> void:
 
 func _spill_coffee():
 	$SpilledCoffee.visible = true
+	$Mug.visible = false
 	$Mug.frame = 1
 	$spill_sfx.play()
 	MainSong.isPlaying = false

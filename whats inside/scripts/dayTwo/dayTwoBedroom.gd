@@ -10,7 +10,11 @@ extends Node2D
 @onready var workDialogue = $workDialog/CollisionShape2D
 @onready var workDialogue2 = $workDialog2/CollisionShape2D
 @onready var workInteract = $work_func/CollisionShape2D
+@onready var sleepInteract = $sleep_func/CollisionShape2D
+@onready var bedDialogue = $bed_dialog/CollisionShape2D
 @onready var deskDialogue = $deskDialogue/CollisionShape2D
+@onready var sleepDialogue = $sleep_dialogue/CollisionShape2D
+@onready var sleepDialogue2 = $sleep_dialogue2/CollisionShape2D
 
 var spawned_z: Sprite2D
 var z_head_tween: Tween
@@ -24,11 +28,32 @@ func _ready() -> void:
 		workInteract.disabled = true
 	if globals.is_dark:
 		$PointLight2D.enabled = false
+		sleepInteract.disabled = false
+		bedDialogue.disabled = true
 		ambience.color = Color8(45, 51, 76)
 	else:
 		$PointLight2D.enabled = true
 		ambience.color = Color8(202, 208, 229)
 	_check_if_woke_up()
+
+func _start_sleep_timer():
+	$SleepTimer.start()
+
+func _on_sleep_timer_timeout() -> void:
+	bed.get_node("Sprite2D").frame = 1
+	player.can_move = false
+	player.visible = false
+	$SleepDialogueTimer.start()
+
+func _on_sleep_dialogue_timer_timeout() -> void:
+	sleepDialogue.disabled = false
+
+func _fade_out_sequence():
+	var ftween = create_tween()
+	blackScreen.visible = true
+	blackScreen.modulate.a = 0
+	ftween.tween_property(blackScreen, "modulate:a", 1, 6)
+	ftween.tween_property(sleepDialogue2, "disabled", false, 0).set_delay(2.5)
 
 func _process(_delta: float) -> void:
 	pass

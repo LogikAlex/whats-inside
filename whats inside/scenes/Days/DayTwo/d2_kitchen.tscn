@@ -125,7 +125,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_30ols"]
 script = ExtResource("8_7i6p1")
-text = "*again..?"
+text = "*i did it again..?"
 text_speed = 14.0
 text_sound = ExtResource("9_uejwj")
 text_volume_pitch_min = 0.75

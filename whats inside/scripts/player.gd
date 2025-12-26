@@ -15,7 +15,7 @@ enum directions {DOWN, UP, RIGHT, LEFT}
 enum playerState {IDLE, WALKING}
 
 func _ready() -> void:
-	position = globals.wantedPlayerPos
+	#position = globals.wantedPlayerPos
 	current_dir = globals.lastPlayerDir
 	$BlackScreen/Sprite2D.visible = true
 	$BlackScreen/Sprite2D.modulate.a = 1

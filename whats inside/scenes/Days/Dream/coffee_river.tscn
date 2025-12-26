@@ -1,0 +1,115 @@
+[gd_scene load_steps=13 format=3 uid="uid://cbo4qsbna2q5m"]
+
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="1_buk36"]
+[ext_resource type="Texture2D" uid="uid://wts0qss1dwot" path="res://assets/Spritesheets/coffee_river.png" id="2_67rto"]
+[ext_resource type="Texture2D" uid="uid://dyy86wykrn1j" path="res://assets/misc/terrain_dream_sq_1.png" id="3_nwp30"]
+[ext_resource type="Texture2D" uid="uid://cjotnsylspyjr" path="res://assets/misc/terrain_dream_sq_2.png" id="4_krt34"]
+[ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="5_krt34"]
+[ext_resource type="AudioStream" uid="uid://dih2hf6endof1" path="res://assets/sfx/coffee river sound effect.mp3" id="6_dacxr"]
+[ext_resource type="PackedScene" uid="uid://by1egbtidhebe" path="res://scenes/Objects/space_bar.tscn" id="7_1nkjv"]
+
+[sub_resource type="Gradient" id="Gradient_7vca8"]
+offsets = PackedFloat32Array(0, 0.7310606)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nwp30"]
+gradient = SubResource("Gradient_7vca8")
+width = 244
+height = 244
+fill = 1
+fill_from = Vector2(0.5, 0.4871795)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm3oa"]
+atlas = ExtResource("2_67rto")
+region = Rect2(0, 0, 92, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwp30"]
+atlas = ExtResource("2_67rto")
+region = Rect2(92, 0, 92, 164)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_krt34"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm3oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwp30")
+}],
+"loop": true,
+"name": &"flow",
+"speed": 5.0
+}]
+
+[node name="CoffeeRiver" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(167, 90)
+zoom = Vector2(1.1, 1.1)
+
+[node name="Player" parent="." instance=ExtResource("1_buk36")]
+z_index = 2
+position = Vector2(79, 100)
+speed = 45.0
+
+[node name="playerLight" type="PointLight2D" parent="Player"]
+scale = Vector2(0.4398053, 0.4398053)
+energy = 0.35
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_nwp30")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(182, 98)
+sprite_frames = SubResource("SpriteFrames_krt34")
+animation = &"flow"
+autoplay = "flow"
+frame = 1
+frame_progress = 0.95226216
+
+[node name="TerrainDreamSq1" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("3_nwp30")
+
+[node name="TerrainDreamSq2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(171, 90)
+texture = ExtResource("4_krt34")
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.49816018, 0.59255904, 0.7257535, 1)
+
+[node name="ceilingLight" type="PointLight2D" parent="."]
+position = Vector2(386.00003, 91)
+scale = Vector2(1.9866805, 1.2602459)
+color = Color(0.9843529, 0.98745495, 0.9660104, 1)
+energy = 0.93
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_nwp30")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(2, -17)
+polygon = PackedVector2Array(52, 142, 59, 136, 67, 137, 71, 141, 96, 129, 108, 139, 123, 134, 135, 142, 167, 142, 140, 91, 110, 90, 87, 103, 70, 93, 63, 97, 51, 90, 24, 90, 24, 142, 5, 89, 7, 84, 53, 84, 68, 83, 89, 93, 111, 83, 139, 81, 143, 87, 171, 141, 171, 197, 9, 197, 24, 142)
+
+[node name="thedark" type="PointLight2D" parent="."]
+z_index = -2
+position = Vector2(182.99998, 276)
+scale = Vector2(24.593163, 6.4101996)
+color = Color(0, 0, 0, 1)
+energy = 0.0
+blend_mode = 2
+shadow_enabled = true
+texture = ExtResource("5_krt34")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_dacxr")
+volume_db = -2.298
+pitch_scale = 0.95
+autoplay = true
+parameters/looping = true
+
+[node name="SpaceBar" parent="." instance=ExtResource("7_1nkjv")]
+z_index = 1
+position = Vector2(144, 99)

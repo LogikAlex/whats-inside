@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://bwi6sl1nbpsrw"]
+[gd_scene load_steps=60 format=4 uid="uid://bwi6sl1nbpsrw"]
 
 [ext_resource type="Script" uid="uid://cmgvvoykg3gr7" path="res://scripts/dayTwo/dayTwoBedroom.gd" id="1_8u8ut"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_bre7n"]
@@ -107,6 +107,37 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dihqp"]
 size = Vector2(10, 11)
 
+[sub_resource type="Resource" id="Resource_ydxs3"]
+script = ExtResource("5_p8t3o")
+text = "*it's not my fault"
+text_speed = 10.0
+text_sound = ExtResource("6_rt6dc")
+text_volume_pitch_min = 0.72
+text_volume_pitch_max = 0.68
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_yh1vm"]
+script = ExtResource("7_5k4d8")
+target_path = NodePath("..")
+function_name = "_fade_out_sequence"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_robq8"]
+size = Vector2(24.069675, 254.16583)
+
+[sub_resource type="Resource" id="Resource_bsotm"]
+script = ExtResource("5_p8t3o")
+text = "*right?"
+text_speed = 10.0
+text_sound = ExtResource("6_rt6dc")
+text_volume_pitch_min = 0.72
+text_volume_pitch_max = 0.68
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3b3h"]
+size = Vector2(56, 62)
+
 [sub_resource type="Resource" id="Resource_d3b3h"]
 script = ExtResource("5_p8t3o")
 text = "*it's my closet"
@@ -148,6 +179,16 @@ metadata/_custom_type_script = "uid://bj218rqao0syu"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6d6fp"]
 size = Vector2(16, 8)
+
+[sub_resource type="Resource" id="Resource_ofihm"]
+script = ExtResource("7_5k4d8")
+target_path = NodePath("..")
+function_name = "_start_sleep_timer"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjd2g"]
+size = Vector2(10, 12)
 
 [sub_resource type="Resource" id="Resource_tjd2g"]
 script = ExtResource("5_p8t3o")
@@ -218,6 +259,14 @@ one_shot = true
 
 [node name="WorkDialogueTimer2" type="Timer" parent="."]
 wait_time = 6.0
+one_shot = true
+
+[node name="SleepTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="SleepDialogueTimer" type="Timer" parent="."]
+wait_time = 5.5
 one_shot = true
 
 [node name="Player" parent="." instance=ExtResource("2_bre7n")]
@@ -295,6 +344,27 @@ dialogue = Array[ExtResource("4_juaa1")]([SubResource("Resource_0snk2")])
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bed_dialog"]
 shape = SubResource("RectangleShape2D_dihqp")
 
+[node name="sleep_dialogue" parent="." instance=ExtResource("3_075vm")]
+position = Vector2(15, 7)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("4_juaa1")]([SubResource("Resource_ydxs3"), SubResource("Resource_yh1vm")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sleep_dialogue"]
+scale = Vector2(2.326579, -0.24393523)
+shape = SubResource("RectangleShape2D_robq8")
+disabled = true
+
+[node name="sleep_dialogue2" parent="." instance=ExtResource("3_075vm")]
+position = Vector2(15, 7)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("4_juaa1")]([SubResource("Resource_bsotm")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sleep_dialogue2"]
+shape = SubResource("RectangleShape2D_d3b3h")
+disabled = true
+
 [node name="closet2" parent="." instance=ExtResource("12_vbc1d")]
 position = Vector2(71, -3)
 
@@ -330,6 +400,7 @@ texture = ExtResource("18_hbnwu")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(96, 24)
+scale = Vector2(1, 1.0124278)
 color = Color(1, 1, 0.8156863, 1)
 energy = 0.74
 shadow_enabled = true
@@ -394,6 +465,15 @@ position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_6d6fp")
 disabled = true
 
+[node name="sleep_func" parent="." instance=ExtResource("3_075vm")]
+position = Vector2(8, 7)
+only_activate_once = true
+dialogue = Array[ExtResource("4_juaa1")]([SubResource("Resource_ofihm")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sleep_func"]
+shape = SubResource("RectangleShape2D_tjd2g")
+disabled = true
+
 [node name="workDialog" parent="." instance=ExtResource("3_075vm")]
 position = Vector2(45, 8)
 activate_instant = true
@@ -426,3 +506,5 @@ pitch_scale = 0.93
 [connection signal="timeout" from="WorkTimer" to="." method="_on_work_timer_timeout"]
 [connection signal="timeout" from="WorkDialogueTimer" to="." method="_on_work_dialogue_timer_timeout"]
 [connection signal="timeout" from="WorkDialogueTimer2" to="." method="_on_work_dialogue_timer_2_timeout"]
+[connection signal="timeout" from="SleepTimer" to="." method="_on_sleep_timer_timeout"]
+[connection signal="timeout" from="SleepDialogueTimer" to="." method="_on_sleep_dialogue_timer_timeout"]

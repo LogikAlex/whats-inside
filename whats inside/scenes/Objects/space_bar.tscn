@@ -11,4 +11,4 @@ texture = ExtResource("1_q1mur")
 hframes = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-15, -16, 1, 17, 16, 17, 0, -16)
+polygon = PackedVector2Array(-16, -17, 1, 17, 16, 17, 12, 14, 3, 14, -11, -13, -1, -13, 12, 14, 16, 17, -1, -17, -11, -17)

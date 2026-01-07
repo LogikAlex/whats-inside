@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://nuymqiaevff7"]
+[gd_scene load_steps=58 format=4 uid="uid://nuymqiaevff7"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_6bm55"]
 [ext_resource type="Script" uid="uid://fgea5djxx3bf" path="res://scripts/dayOne/DayOneLR.gd" id="1_625l6"]
@@ -20,6 +20,8 @@
 [ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="14_o5oe2"]
 [ext_resource type="PackedScene" uid="uid://c014t28xfb40m" path="res://scenes/Objects/radiator.tscn" id="18_3ffl5"]
 [ext_resource type="Texture2D" uid="uid://dkcfj3mhkcom4" path="res://assets/Spritesheets/player_idle_right.png" id="19_kv4q3"]
+[ext_resource type="Texture2D" uid="uid://b5hki7kvg72vf" path="res://assets/misc/dust_particle.png" id="21_fxcas"]
+[ext_resource type="Curve" uid="uid://d3ufushs4pwfh" path="res://scenes/Days/DayOne/d1.tres" id="22_dsoqk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8ve7"]
 size = Vector2(20, 7)
@@ -223,6 +225,30 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kv4q3"]
 size = Vector2(4, 17)
+
+[sub_resource type="CurveTexture" id="CurveTexture_ia1uf"]
+width = 2048
+curve = ExtResource("22_dsoqk")
+
+[sub_resource type="Curve" id="Curve_ia1uf"]
+_data = [Vector2(0, 0.56320006), 0.0, 0.0, 0, 0, Vector2(0.27480915, 1), 0.0, 0.0, 0, 0, Vector2(0.71374047, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56320006), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_mmmxa"]
+width = 2048
+curve = SubResource("Curve_ia1uf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n220y"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(64, 30, 1)
+direction = Vector3(-1, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.5
+gravity = Vector3(-1, 2, 0)
+scale_curve = SubResource("CurveTexture_mmmxa")
+alpha_curve = SubResource("CurveTexture_ia1uf")
 
 [node name="LivingRoom" type="Node2D"]
 y_sort_enabled = true
@@ -439,6 +465,15 @@ position = Vector2(96, 18)
 texture = ExtResource("19_kv4q3")
 hframes = 2
 frame = 1
+
+[node name="dust" type="GPUParticles2D" parent="."]
+position = Vector2(64, 17)
+amount = 30
+texture = ExtResource("21_fxcas")
+speed_scale = 0.2
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_n220y")
+metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="CouchTimer" to="." method="_on_couch_timer_timeout"]
 [connection signal="timeout" from="CouchDialogue" to="." method="_on_couch_dialogue_timeout"]

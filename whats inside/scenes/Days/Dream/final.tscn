@@ -1,0 +1,372 @@
+[gd_scene load_steps=49 format=3 uid="uid://c6ce621q80cx1"]
+
+[ext_resource type="Texture2D" uid="uid://ch4t7k3k7qj8o" path="res://assets/misc/the_box_final_terrain.png" id="1_1rg6u"]
+[ext_resource type="Script" uid="uid://bsh8djds0uero" path="res://scripts/final.gd" id="1_ff6jt"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_1n7g1"]
+[ext_resource type="Texture2D" uid="uid://b5hki7kvg72vf" path="res://assets/misc/dust_particle.png" id="3_ff6jt"]
+[ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="4_1n7g1"]
+[ext_resource type="Texture2D" uid="uid://mvgkrnayxjlf" path="res://assets/misc/square.png" id="4_73kat"]
+[ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="6_pxt66"]
+[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="7_hod4f"]
+[ext_resource type="PackedScene" uid="uid://di7hauqx1cnir" path="res://scenes/Objects/chair.tscn" id="8_ptxco"]
+[ext_resource type="PackedScene" uid="uid://cth4hylf5dh1y" path="res://scenes/Objects/couch.tscn" id="9_4i5kr"]
+[ext_resource type="PackedScene" uid="uid://bum4g86bdw1fk" path="res://scenes/Objects/fridge.tscn" id="10_vcriw"]
+[ext_resource type="PackedScene" uid="uid://c4pyw280okyai" path="res://scenes/Objects/tv.tscn" id="11_p32am"]
+[ext_resource type="PackedScene" uid="uid://dqpa3y3lkm1o8" path="res://scenes/Objects/closet.tscn" id="12_p32am"]
+[ext_resource type="PackedScene" uid="uid://ts45enmkbyvs" path="res://scenes/Objects/coatHanger.tscn" id="13_pcwi0"]
+[ext_resource type="PackedScene" uid="uid://cbsr1cdpporx" path="res://scenes/Objects/lamp.tscn" id="14_401yo"]
+[ext_resource type="PackedScene" uid="uid://djui70epgv66" path="res://scenes/Objects/plant.tscn" id="15_7ih5e"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="16_m6cpu"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="17_h6g4d"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="18_73kat"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="19_h6g4d"]
+[ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="21_qtq6v"]
+[ext_resource type="PackedScene" uid="uid://cne7csaj4qa1k" path="res://scenes/WhiteDialogueArea.tscn" id="22_fvxd5"]
+
+[sub_resource type="Gradient" id="Gradient_7vca8"]
+offsets = PackedFloat32Array(0, 0.7310606)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pxt66"]
+gradient = SubResource("Gradient_7vca8")
+width = 244
+height = 244
+fill = 1
+fill_from = Vector2(0.5, 0.4871795)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_73kat"]
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_hod4f"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.23282444, 0.14720011), -0.07785186, -0.07785186, 0, 0, Vector2(0.78625953, 0.1888001), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_7m6if"]
+width = 2048
+curve = SubResource("Curve_hod4f")
+
+[sub_resource type="Curve" id="Curve_ptxco"]
+_data = [Vector2(0, 0.56320006), 0.0, 0.0, 0, 0, Vector2(0.27480915, 1), 0.0, 0.0, 0, 0, Vector2(0.71374047, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56320006), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ev0vn"]
+width = 2048
+curve = SubResource("Curve_ptxco")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4i5kr"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(160, 100, 1)
+direction = Vector3(-1, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.5
+gravity = Vector3(-1, 2, 0)
+scale_curve = SubResource("CurveTexture_ev0vn")
+alpha_curve = SubResource("CurveTexture_7m6if")
+
+[sub_resource type="Gradient" id="Gradient_pxt66"]
+offsets = PackedFloat32Array(0, 0.7310606)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hod4f"]
+gradient = SubResource("Gradient_pxt66")
+width = 244
+height = 244
+fill = 1
+fill_from = Vector2(0.5, 0.4871795)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptxco"]
+size = Vector2(10, 82)
+
+[sub_resource type="Resource" id="Resource_qtq6v"]
+script = ExtResource("18_73kat")
+text = "*it's our closet"
+text_speed = 10.0
+text_sound = ExtResource("19_h6g4d")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.68
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvxd5"]
+size = Vector2(17, 10)
+
+[sub_resource type="Resource" id="Resource_h6g4d"]
+script = ExtResource("18_73kat")
+text = "*it's the couch"
+text_speed = 10.0
+text_sound = ExtResource("19_h6g4d")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.68
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6g4d"]
+size = Vector2(13, 19)
+
+[sub_resource type="Resource" id="Resource_73kat"]
+script = ExtResource("18_73kat")
+text = "*one note says:"
+text_speed = 10.0
+text_sound = ExtResource("19_h6g4d")
+text_volume_pitch_min = 0.68
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_fvxd5"]
+script = ExtResource("18_73kat")
+text = "*\"open it\""
+text_speed = 10.0
+text_sound = ExtResource("19_h6g4d")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.68
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73kat"]
+size = Vector2(14, 8)
+
+[sub_resource type="Resource" id="Resource_8t2ga"]
+script = ExtResource("18_73kat")
+text = "*i don't want to throw it away"
+text_speed = 10.0
+text_sound = ExtResource("19_h6g4d")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.68
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtq6v"]
+size = Vector2(7, 5)
+
+[sub_resource type="Resource" id="Resource_1jjke"]
+script = ExtResource("18_73kat")
+text = "*it's just the lamp"
+text_speed = 10.0
+text_sound = ExtResource("19_h6g4d")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.68
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jjke"]
+size = Vector2(7, 5)
+
+[sub_resource type="Resource" id="Resource_5tm4e"]
+script = ExtResource("21_qtq6v")
+target_path = NodePath("..")
+function_name = "start_box_timer"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t2ga"]
+size = Vector2(7, 6)
+
+[sub_resource type="Resource" id="Resource_rj6lp"]
+script = ExtResource("18_73kat")
+text = "*i can't do it."
+text_speed = 10.0
+text_sound = ExtResource("19_h6g4d")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.68
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5tm4e"]
+size = Vector2(46, 40)
+
+[node name="Final" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ff6jt")
+
+[node name="Delay" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="BoxTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="FinalTerrain" type="Sprite2D" parent="."]
+position = Vector2(217, 98)
+texture = ExtResource("1_1rg6u")
+
+[node name="Player" parent="." instance=ExtResource("2_1n7g1")]
+z_index = 1
+position = Vector2(21, 109)
+speed = 45.0
+
+[node name="playerLight" type="PointLight2D" parent="Player"]
+scale = Vector2(0.4398053, 0.4398053)
+energy = 0.15
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_pxt66")
+metadata/_edit_lock_ = true
+
+[node name="playerCam" type="Camera2D" parent="Player"]
+zoom = Vector2(1.1, 1.1)
+process_callback = 0
+limit_left = 0
+limit_top = 17
+limit_right = 485
+limit_bottom = 180
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.49816018, 0.59255904, 0.7257535, 1)
+
+[node name="whiteScreen" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+light_mask = 0
+z_index = 4096
+material = SubResource("CanvasItemMaterial_73kat")
+position = Vector2(267, 94.499985)
+scale = Vector2(444.00003, 296.99994)
+texture = ExtResource("4_73kat")
+metadata/_edit_lock_ = true
+
+[node name="dust" type="GPUParticles2D" parent="."]
+z_index = 1
+position = Vector2(167, 89)
+emitting = false
+amount = 70
+amount_ratio = 0.65
+texture = ExtResource("3_ff6jt")
+speed_scale = 0.2
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_4i5kr")
+
+[node name="TheBox" parent="." instance=ExtResource("4_1n7g1")]
+z_index = 1
+position = Vector2(359, 105)
+
+[node name="thedark" type="PointLight2D" parent="."]
+z_index = -2
+position = Vector2(182.99998, 276)
+scale = Vector2(24.593163, 6.4101996)
+color = Color(0, 0, 0, 1)
+energy = 0.0
+blend_mode = 2
+shadow_enabled = true
+texture = ExtResource("6_pxt66")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+z_index = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-2, 83, -11, 83, -11, 143, 405, 143, 405, 69, -11, 69, -11, 83, -2, 83, -2, 80, 60, 80, 67, 84, 74, 80, 281, 80, 307, 87, 333, 80, 391, 80, 395, 84, 395, 111.98587, 390, 122, 395, 132, 395, 136, 344, 137, 327, 127, 308, 137, 202, 136, 196, 132, 189, 136, -2, 136)
+
+[node name="ceilingLight" type="PointLight2D" parent="."]
+position = Vector2(406.00003, 114)
+scale = Vector2(1.9866805, 1.2602459)
+color = Color(0.9843529, 0.98745495, 0.9660104, 1)
+energy = 0.3
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_hod4f")
+metadata/_edit_lock_ = true
+
+[node name="toCoffee" parent="." instance=ExtResource("7_hod4f")]
+position = Vector2(-1, 109)
+wanted_room_path = "res://scenes/Days/Dream/coffee_river.tscn"
+wanted_player_pos = Vector2(300, 100)
+isDoor = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toCoffee"]
+position = Vector2(-5, 3)
+shape = SubResource("RectangleShape2D_ptxco")
+
+[node name="Chair" parent="." instance=ExtResource("8_ptxco")]
+z_index = 1
+position = Vector2(61, 124)
+
+[node name="Couch" parent="." instance=ExtResource("9_4i5kr")]
+z_index = 1
+position = Vector2(132, 101)
+
+[node name="Fridge" parent="." instance=ExtResource("10_vcriw")]
+z_index = 1
+position = Vector2(204, 85)
+
+[node name="tv" parent="." instance=ExtResource("11_p32am")]
+z_index = 1
+position = Vector2(162, 103)
+
+[node name="closet" parent="." instance=ExtResource("12_p32am")]
+z_index = 1
+position = Vector2(33, 84)
+
+[node name="CoatHanger" parent="." instance=ExtResource("13_pcwi0")]
+z_index = 1
+position = Vector2(246, 131)
+
+[node name="Lamp" parent="." instance=ExtResource("14_401yo")]
+z_index = 1
+position = Vector2(270, 88)
+
+[node name="Plant" parent="." instance=ExtResource("15_7ih5e")]
+z_index = 1
+position = Vector2(102, 90)
+
+[node name="closetDialogue" parent="." instance=ExtResource("16_m6cpu")]
+z_index = 1
+position = Vector2(33, 87)
+dialogue = Array[ExtResource("17_h6g4d")]([SubResource("Resource_qtq6v")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="closetDialogue"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_fvxd5")
+
+[node name="couchDialogue" parent="." instance=ExtResource("16_m6cpu")]
+z_index = 1
+position = Vector2(133, 108)
+dialogue = Array[ExtResource("17_h6g4d")]([SubResource("Resource_h6g4d")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="couchDialogue"]
+position = Vector2(-1.5, 1.5)
+shape = SubResource("RectangleShape2D_h6g4d")
+
+[node name="fridgeDialogue" parent="." instance=ExtResource("16_m6cpu")]
+z_index = 1
+position = Vector2(204, 85)
+dialogue = Array[ExtResource("17_h6g4d")]([SubResource("Resource_73kat"), SubResource("Resource_fvxd5")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fridgeDialogue"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_73kat")
+
+[node name="coatHanger" parent="." instance=ExtResource("16_m6cpu")]
+z_index = 1
+position = Vector2(246, 131)
+dialogue = Array[ExtResource("17_h6g4d")]([SubResource("Resource_8t2ga")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coatHanger"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_qtq6v")
+
+[node name="lightDialogue" parent="." instance=ExtResource("16_m6cpu")]
+z_index = 1
+position = Vector2(270, 88)
+dialogue = Array[ExtResource("17_h6g4d")]([SubResource("Resource_1jjke")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lightDialogue"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_1jjke")
+
+[node name="boxInteract" parent="." instance=ExtResource("16_m6cpu")]
+z_index = 1
+position = Vector2(359, 106)
+dialogue = Array[ExtResource("17_h6g4d")]([SubResource("Resource_5tm4e")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boxInteract"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_8t2ga")
+
+[node name="boxDialogue" parent="." instance=ExtResource("22_fvxd5")]
+position = Vector2(358, 107)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("17_h6g4d")]([SubResource("Resource_rj6lp")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boxDialogue"]
+shape = SubResource("RectangleShape2D_5tm4e")
+disabled = true
+
+[connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]
+[connection signal="timeout" from="BoxTimer" to="." method="_on_box_timer_timeout"]

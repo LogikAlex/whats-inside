@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://btfwmvupkuu2g"]
+[gd_scene load_steps=51 format=4 uid="uid://btfwmvupkuu2g"]
 
 [ext_resource type="Script" uid="uid://busmdl533rawl" path="res://scripts/dayTwo/DayTwoLR.gd" id="1_ni2pb"]
 [ext_resource type="AudioStream" uid="uid://cu0o2emdybhpl" path="res://assets/sfx/tv_sound.mp3" id="2_0ekg8"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="4_3ngda"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="5_gh1vb"]
 [ext_resource type="PackedScene" uid="uid://cth4hylf5dh1y" path="res://scenes/Objects/couch.tscn" id="6_iqkgt"]
-[ext_resource type="PackedScene" uid="uid://c4pyw280okyai" path="res://scenes/Objects/tv.tscn" id="7_idpsi"]
 [ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="8_gl7a4"]
 [ext_resource type="Script" uid="uid://m1npkkbsfmks" path="res://scripts/d2_tv_light.gd" id="9_ni2pb"]
 [ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="10_abkq3"]
@@ -20,6 +19,11 @@
 [ext_resource type="Texture2D" uid="uid://def25uwxx8hvy" path="res://assets/objects/picture.png" id="18_eo4i5"]
 [ext_resource type="PackedScene" uid="uid://c014t28xfb40m" path="res://scenes/Objects/radiator.tscn" id="19_pw0t8"]
 [ext_resource type="Texture2D" uid="uid://dkcfj3mhkcom4" path="res://assets/Spritesheets/player_idle_right.png" id="20_gy4ui"]
+[ext_resource type="Texture2D" uid="uid://b5hki7kvg72vf" path="res://assets/misc/dust_particle.png" id="21_pgo7x"]
+[ext_resource type="PackedScene" uid="uid://b08631to2twuy" path="res://scenes/Objects/tv_d2.tscn" id="22_gbdtq"]
+[ext_resource type="Texture2D" uid="uid://cmi7pf3kwmats" path="res://scenes/Days/DayTwo/d2.tres" id="22_iyqsm"]
+[ext_resource type="Texture2D" uid="uid://d3t7e3b5dulg7" path="res://assets/misc/crack_1.png" id="23_icu17"]
+[ext_resource type="Texture2D" uid="uid://bmas8ygllior4" path="res://assets/misc/crack_2.png" id="24_2he23"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8ve7"]
 size = Vector2(20, 7)
@@ -52,6 +56,15 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ldl"]
 size = Vector2(11, 7.000002)
+
+[sub_resource type="Resource" id="Resource_ni2pb"]
+script = ExtResource("13_85ve3")
+text = "*nope."
+text_speed = 12.0
+text_sound = ExtResource("14_bfbal")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_kv4q3"]
 script = ExtResource("13_85ve3")
@@ -147,6 +160,26 @@ metadata/_custom_type_script = "uid://bj218rqao0syu"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgo7x"]
 size = Vector2(32, 43)
 
+[sub_resource type="Curve" id="Curve_gbdtq"]
+_data = [Vector2(0, 0.56320006), 0.0, 0.0, 0, 0, Vector2(0.27480915, 1), 0.0, 0.0, 0, 0, Vector2(0.71374047, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56320006), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_mmmxa"]
+width = 2048
+curve = SubResource("Curve_gbdtq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_icu17"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(64, 30, 1)
+direction = Vector3(-1, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.5
+gravity = Vector3(-1, 2, 0)
+scale_curve = SubResource("CurveTexture_mmmxa")
+alpha_curve = ExtResource("22_iyqsm")
+
 [node name="LivingRoom" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ni2pb")
@@ -210,9 +243,6 @@ shape = SubResource("RectangleShape2D_fqq4a")
 [node name="Couch" parent="." instance=ExtResource("6_iqkgt")]
 position = Vector2(94, 17)
 
-[node name="TV" parent="." instance=ExtResource("7_idpsi")]
-position = Vector2(123, 19)
-
 [node name="tvLight" type="PointLight2D" parent="."]
 position = Vector2(121, 21)
 enabled = false
@@ -243,9 +273,18 @@ occluder = SubResource("OccluderPolygon2D_50stm")
 [node name="TheBox" parent="." instance=ExtResource("10_abkq3")]
 position = Vector2(7.000002, -1.9073486e-06)
 
-[node name="box_dialog" parent="." instance=ExtResource("11_ttfv5")]
+[node name="box_dialog_dark" parent="." instance=ExtResource("11_ttfv5")]
 position = Vector2(7.000002, 0.9999981)
 dialogue = Array[ExtResource("12_gwp3y")]([SubResource("Resource_0vuf1")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box_dialog_dark"]
+position = Vector2(-0.5, 0.50000095)
+shape = SubResource("RectangleShape2D_m2ldl")
+disabled = true
+
+[node name="box_dialog" parent="." instance=ExtResource("11_ttfv5")]
+position = Vector2(7.000002, 0.9999981)
+dialogue = Array[ExtResource("12_gwp3y")]([SubResource("Resource_ni2pb")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="box_dialog"]
 position = Vector2(-0.5, 0.50000095)
@@ -341,6 +380,26 @@ dialogue = Array[ExtResource("12_gwp3y")]([SubResource("Resource_gwd6h"), SubRes
 position = Vector2(-1, -0.5)
 shape = SubResource("RectangleShape2D_pgo7x")
 disabled = true
+
+[node name="dust" type="GPUParticles2D" parent="."]
+position = Vector2(64, 17)
+amount = 30
+texture = ExtResource("21_pgo7x")
+speed_scale = 0.2
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_icu17")
+metadata/_edit_lock_ = true
+
+[node name="TV" parent="." instance=ExtResource("22_gbdtq")]
+position = Vector2(123, 19)
+
+[node name="Crack1" type="Sprite2D" parent="."]
+position = Vector2(67, -3)
+texture = ExtResource("23_icu17")
+
+[node name="Crack2" type="Sprite2D" parent="."]
+position = Vector2(64, -18)
+texture = ExtResource("24_2he23")
 
 [connection signal="timeout" from="CouchTimer" to="." method="_on_couch_timer_timeout"]
 [connection signal="timeout" from="CouchDialogue" to="." method="_on_couch_dialogue_timeout"]

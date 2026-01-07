@@ -55,6 +55,14 @@ func _fade_out_sequence():
 	ftween.tween_property(blackScreen, "modulate:a", 1, 6)
 	ftween.tween_property(sleepDialogue2, "disabled", false, 0).set_delay(2.5)
 
+
+func _on_dream_sq_timeout() -> void:
+	globals.wantedPlayerPos = Vector2(38, 100)
+	get_tree().change_scene_to_file("res://scenes/Days/Dream/coffee_river.tscn")
+
+func dreamTimer():
+	$DreamSq.start()
+
 func _process(_delta: float) -> void:
 	pass
 

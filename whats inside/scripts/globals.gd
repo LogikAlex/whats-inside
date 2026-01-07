@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var playerName: String
+
 #any day
 @export var wokeUp = false
 @export var brushedTeeth = false
@@ -14,3 +16,7 @@ var lastPlayerDir
 @export var coffeeDialog = false
 @export var cleanedDialog = true
 @export var cleanedCoffee = false
+
+#dream
+@export var wokeUpDream = false
+@export var jumped = false

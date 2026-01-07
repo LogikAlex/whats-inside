@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://by1egbtidhebe"]
 
-[ext_resource type="Script" uid="uid://cow42ger4xuji" path="res://scenes/Objects/space_bar.gd" id="1_ls4us"]
+[ext_resource type="Script" uid="uid://cow42ger4xuji" path="res://scripts/space_bar.gd" id="1_ls4us"]
 [ext_resource type="Texture2D" uid="uid://nrxipv27t5rk" path="res://assets/Spritesheets/space_bar.png" id="1_q1mur"]
 
 [node name="SpaceBar" type="StaticBody2D"]

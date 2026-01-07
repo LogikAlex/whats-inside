@@ -1,0 +1,131 @@
+[gd_scene load_steps=18 format=3 uid="uid://dodd2lywus5o4"]
+
+[ext_resource type="Script" uid="uid://dln0n3kjl6h4e" path="res://scripts/starting_point.gd" id="1_dif1j"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="1_fy1vn"]
+[ext_resource type="Texture2D" uid="uid://b5hki7kvg72vf" path="res://assets/misc/dust_particle.png" id="2_yxvh4"]
+[ext_resource type="Texture2D" uid="uid://cmtid1rcucux2" path="res://assets/misc/dream_sq_terrain_bed.png" id="3_yxvh4"]
+[ext_resource type="PackedScene" uid="uid://i08cixlwo7qb" path="res://scenes/Objects/bedsideCabinet.tscn" id="4_8rm2a"]
+[ext_resource type="PackedScene" uid="uid://lyewe0q5cjnt" path="res://scenes/Objects/bed.tscn" id="4_esrck"]
+[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="6_7oker"]
+[ext_resource type="PackedScene" uid="uid://dx8tl06100qlm" path="res://scenes/interact_indicator.tscn" id="8_c33nu"]
+[ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="9_cvwdo"]
+
+[sub_resource type="Gradient" id="Gradient_7vca8"]
+offsets = PackedFloat32Array(0, 0.7310606)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_esrck"]
+gradient = SubResource("Gradient_7vca8")
+width = 244
+height = 244
+fill = 1
+fill_from = Vector2(0.5, 0.4871795)
+
+[sub_resource type="Curve" id="Curve_8rm2a"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.23282444, 0.14720011), -0.07785186, -0.07785186, 0, 0, Vector2(0.78625953, 0.1888001), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_7m6if"]
+width = 2048
+curve = SubResource("Curve_8rm2a")
+
+[sub_resource type="Curve" id="Curve_7oker"]
+_data = [Vector2(0, 0.56320006), 0.0, 0.0, 0, 0, Vector2(0.27480915, 1), 0.0, 0.0, 0, 0, Vector2(0.71374047, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56320006), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ev0vn"]
+width = 2048
+curve = SubResource("Curve_7oker")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dif1j"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(160, 100, 1)
+direction = Vector3(-1, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.5
+gravity = Vector3(-1, 2, 0)
+scale_curve = SubResource("CurveTexture_ev0vn")
+alpha_curve = SubResource("CurveTexture_7m6if")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dif1j"]
+size = Vector2(10, 82)
+
+[node name="StartingPoint" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_dif1j")
+
+[node name="DreamSqTerrainBed" type="Sprite2D" parent="."]
+position = Vector2(162, 98)
+texture = ExtResource("3_yxvh4")
+
+[node name="Player" parent="." instance=ExtResource("1_fy1vn")]
+visible = false
+z_index = 1
+position = Vector2(121, 110)
+speed = 45.0
+
+[node name="playerLight" type="PointLight2D" parent="Player"]
+scale = Vector2(0.4398053, 0.4398053)
+energy = 0.15
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_esrck")
+metadata/_edit_lock_ = true
+
+[node name="bed" parent="." instance=ExtResource("4_esrck")]
+z_index = 1
+position = Vector2(105, 99)
+
+[node name="bedsideCabinet" parent="." instance=ExtResource("4_8rm2a")]
+z_index = 1
+position = Vector2(120, 102)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(105, 105)
+zoom = Vector2(2, 2)
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.49816018, 0.59255904, 0.7257535, 1)
+
+[node name="dust" type="GPUParticles2D" parent="."]
+z_index = 1
+position = Vector2(167, 89)
+emitting = false
+amount = 70
+amount_ratio = 0.65
+texture = ExtResource("2_yxvh4")
+speed_scale = 0.2
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_dif1j")
+
+[node name="toCoffee" parent="." instance=ExtResource("6_7oker")]
+position = Vector2(330, 109)
+wanted_room_path = "res://scenes/Days/Dream/coffee_river.tscn"
+wanted_player_pos = Vector2(38, 100)
+isDoor = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toCoffee"]
+position = Vector2(-5, 3)
+shape = SubResource("RectangleShape2D_dif1j")
+
+[node name="InteractIndicator" parent="." instance=ExtResource("8_c33nu")]
+z_index = 1
+position = Vector2(105, 85)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+z_index = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(83, 83, 78, 83, 78, 143, 332, 143, 332, 69, 78, 69, 78, 83, 83, 83, 89, 78.527275, 132, 80, 141, 84, 148, 81, 168, 90, 190, 80, 265, 80, 290, 86, 315, 80, 323, 80, 323, 136, 208, 136, 200, 133, 194, 136, 83, 136, 83, 119, 88, 109, 83, 98)
+
+[node name="thedark" type="PointLight2D" parent="."]
+z_index = -2
+position = Vector2(182.99998, 276)
+scale = Vector2(24.593163, 6.4101996)
+color = Color(0, 0, 0, 1)
+energy = 0.0
+blend_mode = 2
+shadow_enabled = true
+texture = ExtResource("9_cvwdo")
+metadata/_edit_lock_ = true

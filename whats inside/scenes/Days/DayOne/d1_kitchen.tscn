@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://b43aw0vqjcelw"]
+[gd_scene load_steps=54 format=4 uid="uid://b43aw0vqjcelw"]
 
 [ext_resource type="Texture2D" uid="uid://dsvpekb435jkq" path="res://assets/tilesets/kitchen_tiles.png" id="1_313v0"]
 [ext_resource type="Script" uid="uid://cg8df11qmw40t" path="res://scripts/dayOne/DayOneKitchen.gd" id="1_ll6nb"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cwr7458fpren5" path="res://assets/objects/spilled_coffee.png" id="20_kgvl7"]
 [ext_resource type="AudioStream" uid="uid://bodwrd5w0rmff" path="res://assets/sfx/spill_coffee.mp3" id="21_fqefg"]
 [ext_resource type="AudioStream" uid="uid://b484mqfk5f8en" path="res://assets/sfx/coffee_machine.mp3" id="22_30ols"]
+[ext_resource type="Texture2D" uid="uid://b5hki7kvg72vf" path="res://assets/misc/dust_particle.png" id="23_7m6if"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p8c40"]
 texture = ExtResource("1_313v0")
@@ -225,6 +226,34 @@ size = Vector2(10, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sipro"]
 size = Vector2(14, 8)
+
+[sub_resource type="Curve" id="Curve_ev0vn"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.20610687, 0.09520006), -0.07785186, -0.07785186, 0, 0, Vector2(0.759542, 0.053600073), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_7m6if"]
+width = 2048
+curve = SubResource("Curve_ev0vn")
+
+[sub_resource type="Curve" id="Curve_87bxl"]
+_data = [Vector2(0, 0.56320006), 0.0, 0.0, 0, 0, Vector2(0.27480915, 1), 0.0, 0.0, 0, 0, Vector2(0.71374047, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56320006), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ev0vn"]
+width = 2048
+curve = SubResource("Curve_87bxl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bpksq"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(55, 38, 1)
+direction = Vector3(-1, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.5
+gravity = Vector3(-1, 2, 0)
+scale_curve = SubResource("CurveTexture_ev0vn")
+alpha_curve = SubResource("CurveTexture_7m6if")
 
 [node name="D1Kitchen" type="Node2D"]
 y_sort_enabled = true
@@ -432,6 +461,15 @@ pitch_scale = 0.87
 stream = ExtResource("22_30ols")
 volume_db = 3.537
 pitch_scale = 0.98
+
+[node name="dust" type="GPUParticles2D" parent="."]
+z_index = 1
+position = Vector2(56, 24)
+amount = 30
+texture = ExtResource("23_7m6if")
+speed_scale = 0.2
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_bpksq")
 
 [connection signal="timeout" from="CoffeeTimer" to="." method="_on_coffee_timer_timeout"]
 [connection signal="timeout" from="MugTimer" to="." method="_on_mug_timer_timeout"]

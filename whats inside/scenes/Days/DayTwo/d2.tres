@@ -1,0 +1,9 @@
+[gd_resource type="CurveTexture" load_steps=2 format=3 uid="uid://cmi7pf3kwmats"]
+
+[sub_resource type="Curve" id="Curve_iyqsm"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.22137403, 0.13464451), -0.07785186, -0.07785186, 0, 0, Vector2(0.76717556, 0.09520006), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[resource]
+width = 2048
+curve = SubResource("Curve_iyqsm")

@@ -11,6 +11,8 @@ extends Node2D
 @onready var watch_tv_dialogue = $tv_watch2/watch_tv
 #@onready var sleep_trigger = $should_sleep/trigger_sleep
 @onready var work_trigger = $should_work/trigger_work
+@onready var box_dialogue = $box_dialog/CollisionShape2D
+@onready var box_dialogue_dark = $box_dialog_dark/CollisionShape2D
 
 #cad0e5
 #x - 109,  y - 25
@@ -44,8 +46,11 @@ func _ready() -> void:
 	if globals.is_dark:
 		ambience.color = Color8(45, 51, 76)
 		watch_tv_trigger.disabled = true
+		box_dialogue.disabled = true
+		box_dialogue_dark.disabled = false
 		#sleep_trigger.disabled = false
 	else:
+		box_dialogue_dark.disabled = true
 		ambience.color = Color8(202, 208, 229)
 	if globals.worked:
 		watch_tv_trigger.disabled = false
@@ -54,6 +59,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if globals.is_dark:
+		box_dialogue.disabled = true
+		box_dialogue_dark.disabled = false
 		watch_tv_trigger.disabled = true
 
 func _on_couch_timer_timeout() -> void:

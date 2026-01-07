@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://bwi6sl1nbpsrw"]
+[gd_scene load_steps=66 format=4 uid="uid://bwi6sl1nbpsrw"]
 
 [ext_resource type="Script" uid="uid://cmgvvoykg3gr7" path="res://scripts/dayTwo/dayTwoBedroom.gd" id="1_8u8ut"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_bre7n"]
@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://jdo75bmqq2qp" path="res://assets/objects/bedroom_chair.png" id="21_q5ial"]
 [ext_resource type="AudioStream" uid="uid://d2sgjcdb4dheu" path="res://assets/sfx/normal_typing.mp3" id="22_2yqx1"]
 [ext_resource type="Texture2D" uid="uid://c00lpo5jtae1x" path="res://assets/Spritesheets/player_idle_up.png" id="22_vlh28"]
+[ext_resource type="Texture2D" uid="uid://b5hki7kvg72vf" path="res://assets/misc/dust_particle.png" id="23_ev7bu"]
+[ext_resource type="Texture2D" uid="uid://cmi7pf3kwmats" path="res://scenes/Days/DayTwo/d2.tres" id="24_tjd2g"]
 
 [sub_resource type="Resource" id="Resource_y7lw4"]
 script = ExtResource("5_p8t3o")
@@ -135,6 +137,13 @@ text_volume_pitch_min = 0.72
 text_volume_pitch_max = 0.68
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
+[sub_resource type="Resource" id="Resource_0ei1j"]
+script = ExtResource("7_5k4d8")
+target_path = NodePath("..")
+function_name = "dreamTimer"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3b3h"]
 size = Vector2(56, 62)
 
@@ -237,6 +246,26 @@ metadata/_custom_type_script = "uid://bj218rqao0syu"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ev7bu"]
 size = Vector2(31, 31)
 
+[sub_resource type="Curve" id="Curve_robq8"]
+_data = [Vector2(0, 0.56320006), 0.0, 0.0, 0, 0, Vector2(0.27480915, 1), 0.0, 0.0, 0, 0, Vector2(0.71374047, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56320006), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_dsoqk"]
+width = 2048
+curve = SubResource("Curve_robq8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d3b3h"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(38, 30, 1)
+direction = Vector3(-1, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.5
+gravity = Vector3(-1, 2, 0)
+scale_curve = SubResource("CurveTexture_dsoqk")
+alpha_curve = ExtResource("24_tjd2g")
+
 [node name="Bedroom" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_8u8ut")
@@ -267,6 +296,10 @@ one_shot = true
 
 [node name="SleepDialogueTimer" type="Timer" parent="."]
 wait_time = 5.5
+one_shot = true
+
+[node name="DreamSq" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [node name="Player" parent="." instance=ExtResource("2_bre7n")]
@@ -359,7 +392,7 @@ disabled = true
 position = Vector2(15, 7)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("4_juaa1")]([SubResource("Resource_bsotm")])
+dialogue = Array[ExtResource("4_juaa1")]([SubResource("Resource_bsotm"), SubResource("Resource_0ei1j")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sleep_dialogue2"]
 shape = SubResource("RectangleShape2D_d3b3h")
@@ -501,6 +534,15 @@ stream = ExtResource("22_2yqx1")
 volume_db = -3.096
 pitch_scale = 0.93
 
+[node name="dust" type="GPUParticles2D" parent="."]
+position = Vector2(40, 15)
+amount = 20
+texture = ExtResource("23_ev7bu")
+speed_scale = 0.2
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_d3b3h")
+metadata/_edit_lock_ = true
+
 [connection signal="timeout" from="standUpTimer" to="." method="_on_stand_up_timer_timeout"]
 [connection signal="timeout" from="standUpDeskTimer" to="." method="_on_stand_up_desk_timer_timeout"]
 [connection signal="timeout" from="WorkTimer" to="." method="_on_work_timer_timeout"]
@@ -508,3 +550,4 @@ pitch_scale = 0.93
 [connection signal="timeout" from="WorkDialogueTimer2" to="." method="_on_work_dialogue_timer_2_timeout"]
 [connection signal="timeout" from="SleepTimer" to="." method="_on_sleep_timer_timeout"]
 [connection signal="timeout" from="SleepDialogueTimer" to="." method="_on_sleep_dialogue_timer_timeout"]
+[connection signal="timeout" from="DreamSq" to="." method="_on_dream_sq_timeout"]

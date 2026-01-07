@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://bsidwe7v8i1np"]
+
+[ext_resource type="Script" uid="uid://t58d3tb2ws5j" path="res://scripts/dialogue_system.gd" id="1_nuwgo"]
+[ext_resource type="FontFile" uid="uid://bwsast0682an6" path="res://assets/fonts/8_bit_1_6/8bit16.ttf" id="2_v2qee"]
+[ext_resource type="Texture2D" uid="uid://r0ifx677b0mf" path="res://assets/misc/enter_indicator.png" id="3_q8kwq"]
+[ext_resource type="Script" uid="uid://cb03gjtdtyyot" path="res://scripts/enter_indicator.gd" id="4_1nhnv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ota6"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(0, 0, 0, 0)
+
+[sub_resource type="Theme" id="Theme_a8p2u"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nuwgo"]
+blend_mode = 2
+
+[node name="DialogueSystemWhite" type="CanvasLayer"]
+offset = Vector2(0, 6)
+transform = Transform2D(1, 0, 0, 1, 0, 6)
+script = ExtResource("1_nuwgo")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 33.0
+offset_top = 110.0
+offset_right = 287.0
+offset_bottom = 164.0
+pivot_offset = Vector2(127, 27)
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ota6")
+
+[node name="NameLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 47.0
+offset_bottom = 12.0
+size_flags_vertical = 3
+theme = SubResource("Theme_a8p2u")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 3
+theme_override_constants/paragraph_separation = 3
+theme_override_fonts/normal_font = ExtResource("2_v2qee")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Ethan"
+scroll_active = false
+visible_characters_behavior = 1
+
+[node name="TextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 14.0
+offset_right = 233.0
+offset_bottom = 52.0
+size_flags_vertical = 3
+theme = SubResource("Theme_a8p2u")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 3
+theme_override_constants/paragraph_separation = 3
+theme_override_fonts/normal_font = ExtResource("2_v2qee")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+scroll_active = false
+visible_characters_behavior = 1
+
+[node name="EnterIndicator" type="Sprite2D" parent="Panel"]
+material = SubResource("CanvasItemMaterial_nuwgo")
+position = Vector2(242, 41)
+texture = ExtResource("3_q8kwq")
+hframes = 2
+script = ExtResource("4_1nhnv")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 1000

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmfsmfgx5gmb8"]
+[gd_scene load_steps=18 format=3 uid="uid://bmfsmfgx5gmb8"]
 
 [ext_resource type="Script" uid="uid://btadpl6swnvir" path="res://scripts/dayOne/DayOneBalcony.gd" id="1_bcpmc"]
 [ext_resource type="Texture2D" uid="uid://u06hiofvr4cj" path="res://assets/misc/balcony_sprite.png" id="2_3uhcd"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="8_lk1py"]
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="9_kjvl4"]
 [ext_resource type="AudioStream" uid="uid://dy15a5truwsky" path="res://assets/sfx/night_ambience.mp3" id="10_uoerg"]
+[ext_resource type="Texture2D" uid="uid://d3t7e3b5dulg7" path="res://assets/misc/crack_1.png" id="11_5iclc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5c6u"]
 size = Vector2(20, 7)
@@ -53,6 +54,11 @@ position = Vector2(160, 43)
 [node name="Balcony" type="Sprite2D" parent="."]
 position = Vector2(24, 40)
 texture = ExtResource("2_3uhcd")
+
+[node name="Crack1" type="Sprite2D" parent="."]
+position = Vector2(10, 18)
+texture = ExtResource("11_5iclc")
+flip_h = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

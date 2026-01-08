@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var table: Sprite2D = $BedroomTable
 @onready var ambience = $ambience
 @onready var bed: StaticBody2D = $bed
 @onready var bedSprite = bed.get_node("Sprite2D")
@@ -15,7 +16,18 @@ extends Node2D
 @onready var deskDialogue = $deskDialogue/CollisionShape2D
 @onready var sleepDialogue = $sleep_dialogue/CollisionShape2D
 @onready var sleepDialogue2 = $sleep_dialogue2/CollisionShape2D
+@onready var interactIndicator: Sprite2D = $InteractIndicator
 
+@onready var typeIndicator = $InteractIndicatorType
+@onready var rand_letter = preload("res://scenes/Objects/randLetter.tscn")
+@onready var camera: Camera2D = $Camera2D
+
+var canType = false
+var ended = true
+var spawned_letter: Sprite2D
+var rand_letter_tween: Tween
+
+var canWake = false
 var spawned_z: Sprite2D
 var z_head_tween: Tween
 
@@ -58,20 +70,35 @@ func _fade_out_sequence():
 
 func _on_dream_sq_timeout() -> void:
 	globals.wantedPlayerPos = Vector2(38, 100)
-	get_tree().change_scene_to_file("res://scenes/Days/Dream/coffee_river.tscn")
+	get_tree().change_scene_to_file("res://scenes/Days/Dream/starting_point.tscn")
 
 func dreamTimer():
 	$DreamSq.start()
 
 func _process(_delta: float) -> void:
-	pass
+	if Input.is_action_just_released("interact") and canWake:
+		canWake = false
+		standUp()
+	if Input.is_action_just_released("interact") and ended:
+		if canType and camera.zoom < Vector2(1.6, 1.6):
+			letter_tween()
+			typingCam()
+			$keyboard_sounds.play()
+		if canType and camera.zoom >= Vector2(1.6, 1.6):
+			canType = false
+			zoomOut()
 
 func _work_timer():
 	$WorkTimer.start()
 
-func _work_dialogue_2_timer():
-	$keyboard_sounds.play()
-	$WorkDialogueTimer2.start()
+func _type():
+	var interactTween = create_tween()
+	interactTween.tween_property(typeIndicator, "modulate:a", 1, 1)
+	interactTween.tween_callback(
+	func letHimType():
+		canType = true
+		typeIndicator.isUpdating = true
+	).set_delay(0.1)
 
 func _work():
 	globals.worked = true
@@ -114,22 +141,29 @@ func _check_if_woke_up():
 func wakeUp():
 	var wakeUpTween = create_tween()
 	wakeUpTween.tween_property(blackScreen, "modulate:a", 0, 5).set_delay(2)
-	wakeUpTween.tween_callback(wakeUpDialogue).set_delay(4)
+	wakeUpTween.tween_property(interactIndicator, "modulate:a", 1, 1.5).set_delay(2)
+	wakeUpTween.tween_callback(
+	func canStand():
+		canWake = true
+		interactIndicator.isUpdating = true
+	).set_delay(0.1)
 
-func wakeUpDialogue():
-	wakeUpDial.disabled = false
-	z_head_tween.kill()
-	if spawned_z:
-		spawned_z.free()
-
-func standUp():
-	globals.wokeUp = true
+func startMusic():
+	player.can_move = true
 	MainSong.isPlaying = true
 	MainSong.stop()
 	MainSong.play()
 	MainSong.volume_db = -5.5
+
+func standUp():
+	wakeUpDial.disabled = false
+	var intTween = create_tween()
+	intTween.tween_property(interactIndicator, "modulate:a", 0, 0.5)
+	z_head_tween.kill()
+	if spawned_z:
+		spawned_z.free()
+	globals.wokeUp = true
 	player.position = Vector2(24, 10)
-	player.can_move = true
 	bedSprite.frame = 0
 	player.visible = true
 
@@ -178,3 +212,44 @@ func z_tween():
 			spawned_z.free()
 			z_tween()
 	).set_delay(tween_time)
+
+func zoomOut():
+	var zoomTween = create_tween()
+	zoomTween.set_parallel()
+	zoomTween.tween_property(typeIndicator, "modulate:a", 0, 0.30)
+	zoomTween.tween_property(camera, "zoom", Vector2(1, 1), 0.5).set_ease(Tween.EASE_OUT)
+	zoomTween.tween_callback(
+	func enableDialog():
+		workDialogue2.disabled = false
+	).set_delay(1.5)
+
+func typingCam():
+	var camTween = create_tween()
+	camTween.tween_property(camera, "zoom", camera.zoom + Vector2(0.03, 0.03), 0.15).set_ease(Tween.EASE_OUT)
+
+func letter_tween():
+	ended = false
+	
+	var letter: Sprite2D = rand_letter.instantiate()
+	add_child(letter)
+	
+	letter.modulate.a = 0
+	letter.position.x = table.position.x + 0.5
+	letter.position.y = table.position.y - 8
+	letter.rotation_degrees = 0
+	
+	var l_tween = create_tween()
+	var tween_rotaton = randf_range(-25, 35)
+	var x_offset = randf_range(-3, 3)
+	var wanted_x = (table.position.x + 0.5) + x_offset
+	
+	l_tween.set_parallel()
+	l_tween.tween_property(letter, "modulate:a", 1, 0.3)
+	l_tween.tween_property(letter, "position:x", wanted_x, 0.8)
+	l_tween.tween_property(letter, "position:y", table.position.y - 13, 0.8)
+	l_tween.tween_property(letter, "rotation_degrees", tween_rotaton, 0.8)
+	l_tween.tween_property(letter, "modulate:a", 0, 0.4).set_delay(0.4)
+	l_tween.tween_callback(
+	func canAgain():
+		ended = true
+	).set_delay(0.15)

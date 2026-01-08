@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://bwi6sl1nbpsrw"]
+[gd_scene load_steps=65 format=4 uid="uid://bwi6sl1nbpsrw"]
 
 [ext_resource type="Script" uid="uid://cmgvvoykg3gr7" path="res://scripts/dayTwo/dayTwoBedroom.gd" id="1_8u8ut"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_bre7n"]
@@ -14,14 +14,13 @@
 [ext_resource type="PackedScene" uid="uid://b0qm5wflcpv33" path="res://scenes/Objects/closet_d2.tscn" id="12_vbc1d"]
 [ext_resource type="Texture2D" uid="uid://c2dwnfutixjke" path="res://assets/misc/black.png" id="13_dfhm6"]
 [ext_resource type="PackedScene" uid="uid://dx8tl06100qlm" path="res://scenes/interact_indicator.tscn" id="14_uy1yx"]
-[ext_resource type="Texture2D" uid="uid://bsnlq5gaas0au" path="res://assets/misc/interact_indicator_v2.png" id="15_tg8ti"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="17_d88li"]
 [ext_resource type="Texture2D" uid="uid://qhcs6stv71ts" path="res://assets/objects/carpet.png" id="18_hbnwu"]
 [ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="19_67ua3"]
 [ext_resource type="Texture2D" uid="uid://b82wipn7s8aq5" path="res://assets/objects/bedroom_table.png" id="20_yhrd0"]
 [ext_resource type="Texture2D" uid="uid://jdo75bmqq2qp" path="res://assets/objects/bedroom_chair.png" id="21_q5ial"]
-[ext_resource type="AudioStream" uid="uid://d2sgjcdb4dheu" path="res://assets/sfx/normal_typing.mp3" id="22_2yqx1"]
 [ext_resource type="Texture2D" uid="uid://c00lpo5jtae1x" path="res://assets/Spritesheets/player_idle_up.png" id="22_vlh28"]
+[ext_resource type="AudioStream" uid="uid://b51t5mrbwbh16" path="res://assets/sfx/keyboard_click.mp3" id="23_2ffop"]
 [ext_resource type="Texture2D" uid="uid://b5hki7kvg72vf" path="res://assets/misc/dust_particle.png" id="23_ev7bu"]
 [ext_resource type="Texture2D" uid="uid://cmi7pf3kwmats" path="res://scenes/Days/DayTwo/d2.tres" id="24_tjd2g"]
 
@@ -54,17 +53,17 @@ polygon = PackedVector2Array(64, 48, 80, 48, 80, 32, 86, 32, 86, 54, 64, 54)
 
 [sub_resource type="Resource" id="Resource_6d6fp"]
 script = ExtResource("5_p8t3o")
-text = "*it's morning"
+text = "*it's morning.."
 text_speed = 12.0
 text_sound = ExtResource("6_rt6dc")
 text_volume_pitch_min = 0.75
 text_volume_pitch_max = 0.7
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
-[sub_resource type="Resource" id="Resource_2yqx1"]
+[sub_resource type="Resource" id="Resource_akati"]
 script = ExtResource("7_5k4d8")
 target_path = NodePath("..")
-function_name = "startWakeUpTimer"
+function_name = "startMusic"
 hide_dialogue_box = true
 metadata/_custom_type_script = "uid://bj218rqao0syu"
 
@@ -211,7 +210,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 [sub_resource type="Resource" id="Resource_robq8"]
 script = ExtResource("7_5k4d8")
 target_path = NodePath("..")
-function_name = "_work_dialogue_2_timer"
+function_name = "_type"
 hide_dialogue_box = true
 metadata/_custom_type_script = "uid://bj218rqao0syu"
 
@@ -275,7 +274,7 @@ wait_time = 2.5
 one_shot = true
 
 [node name="standUpDeskTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [node name="WorkTimer" type="Timer" parent="."]
@@ -283,11 +282,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="WorkDialogueTimer" type="Timer" parent="."]
-wait_time = 4.0
-one_shot = true
-
-[node name="WorkDialogueTimer2" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 2.0
 one_shot = true
 
 [node name="SleepTimer" type="Timer" parent="."]
@@ -335,7 +330,7 @@ metadata/_edit_lock_ = true
 position = Vector2(24, 10)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("4_juaa1")]([SubResource("Resource_6d6fp"), SubResource("Resource_2yqx1")])
+dialogue = Array[ExtResource("4_juaa1")]([SubResource("Resource_6d6fp"), SubResource("Resource_akati")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wakeUpDialogue"]
 shape = SubResource("RectangleShape2D_2ffop")
@@ -367,8 +362,7 @@ shape = SubResource("RectangleShape2D_q2hfq")
 
 [node name="InteractIndicator" parent="." instance=ExtResource("14_uy1yx")]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(8, -15)
-texture = ExtResource("15_tg8ti")
+position = Vector2(8, -12)
 
 [node name="bed_dialog" parent="." instance=ExtResource("3_075vm")]
 position = Vector2(8, 7)
@@ -529,11 +523,6 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_ev7bu")
 disabled = true
 
-[node name="keyboard_sounds" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("22_2yqx1")
-volume_db = -3.096
-pitch_scale = 0.93
-
 [node name="dust" type="GPUParticles2D" parent="."]
 position = Vector2(40, 15)
 amount = 20
@@ -543,11 +532,19 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_d3b3h")
 metadata/_edit_lock_ = true
 
+[node name="InteractIndicatorType" parent="." instance=ExtResource("14_uy1yx")]
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+position = Vector2(45, -15)
+
+[node name="keyboard_sounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_2ffop")
+volume_db = -0.001
+
 [connection signal="timeout" from="standUpTimer" to="." method="_on_stand_up_timer_timeout"]
 [connection signal="timeout" from="standUpDeskTimer" to="." method="_on_stand_up_desk_timer_timeout"]
 [connection signal="timeout" from="WorkTimer" to="." method="_on_work_timer_timeout"]
 [connection signal="timeout" from="WorkDialogueTimer" to="." method="_on_work_dialogue_timer_timeout"]
-[connection signal="timeout" from="WorkDialogueTimer2" to="." method="_on_work_dialogue_timer_2_timeout"]
 [connection signal="timeout" from="SleepTimer" to="." method="_on_sleep_timer_timeout"]
 [connection signal="timeout" from="SleepDialogueTimer" to="." method="_on_sleep_dialogue_timer_timeout"]
 [connection signal="timeout" from="DreamSq" to="." method="_on_dream_sq_timeout"]

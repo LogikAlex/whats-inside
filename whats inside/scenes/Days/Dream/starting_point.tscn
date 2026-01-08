@@ -111,7 +111,7 @@ shape = SubResource("RectangleShape2D_dif1j")
 
 [node name="InteractIndicator" parent="." instance=ExtResource("8_c33nu")]
 z_index = 1
-position = Vector2(105, 85)
+position = Vector2(104.99999, 88)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 z_index = 1

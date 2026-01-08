@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcjm7wqlvv5fp"]
+
+[ext_resource type="Script" uid="uid://rhfvjdv7dxuv" path="res://scenes/Objects/rand_letter.gd" id="1_fy5l5"]
+[ext_resource type="Texture2D" uid="uid://bbgh8w7q3wwge" path="res://assets/misc/letters.png" id="1_xt4pa"]
+
+[node name="RandLetter" type="Sprite2D"]
+z_index = 1
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_xt4pa")
+hframes = 11
+script = ExtResource("1_fy5l5")

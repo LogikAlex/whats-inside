@@ -440,7 +440,7 @@ texture = ExtResource("7_68srq")
 
 [node name="InteractIndicatorType" parent="." instance=ExtResource("9_n8kq3")]
 modulate = Color(1, 1, 1, 0)
-z_index = 2
+z_index = 1
 position = Vector2(45, -15)
 
 [node name="InteractIndicator" parent="." instance=ExtResource("9_n8kq3")]

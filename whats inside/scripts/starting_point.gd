@@ -48,6 +48,11 @@ func cutscene():
 		$InteractIndicator.isUpdating = true
 		canGetUp = true
 	).set_delay(23.05)
+	tween.tween_callback(
+	func keva2():
+		MainSong.isPlaying = true
+		MainSong.pitch_scale = 0.30
+	).set_delay(12)
 
 func fadeOutInteract():
 	var fadeOutTween = create_tween()

@@ -64,8 +64,10 @@ func _fade_out_sequence():
 	var ftween = create_tween()
 	blackScreen.visible = true
 	blackScreen.modulate.a = 0
+	ftween.set_parallel()
+	ftween.tween_property(NightSong, "volume_db", -45, 3).set_delay(3)
 	ftween.tween_property(blackScreen, "modulate:a", 1, 6)
-	ftween.tween_property(sleepDialogue2, "disabled", false, 0).set_delay(2.5)
+	ftween.tween_property(sleepDialogue2, "disabled", false, 0).set_delay(8.5)
 
 
 func _on_dream_sq_timeout() -> void:

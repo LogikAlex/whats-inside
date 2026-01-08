@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bijso44bvdy8o"]
+
+[ext_resource type="Texture2D" uid="uid://ejnr2jymn831" path="res://assets/misc/right_arrow.png" id="1_20plc"]
+[ext_resource type="Script" uid="uid://pk568f4wwx22" path="res://scenes/Days/DayOne/right_arrow.gd" id="2_axt8u"]
+
+[node name="RightArrow" type="Sprite2D"]
+texture = ExtResource("1_20plc")
+hframes = 2
+script = ExtResource("2_axt8u")

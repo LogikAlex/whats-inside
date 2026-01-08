@@ -3,6 +3,7 @@ extends Node2D
 @export var playerName: String
 
 #any day
+@export var lastRandLetterFrame: int = -1
 @export var wokeUp = false
 @export var brushedTeeth = false
 @export var worked = false

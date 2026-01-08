@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://6dpanx0b6q7s"]
+
+[ext_resource type="Texture2D" uid="uid://wepy2t1yokgp" path="res://assets/misc/left_arrow.png" id="1_5oydx"]
+[ext_resource type="Script" uid="uid://d20fy32kltbx7" path="res://scenes/left_arrow.gd" id="2_pfrvl"]
+
+[node name="LeftArrow" type="Sprite2D"]
+texture = ExtResource("1_5oydx")
+hframes = 2
+script = ExtResource("2_pfrvl")

@@ -111,7 +111,7 @@ func _text_resource(i: DialogueText) -> void:
 	var character_timer: float = 0.0
 	
 	while DialogueLabel.visible_characters < total_characters:
-		if Input.is_action_just_pressed("skip_text") and character_timer > 0:
+		if Input.is_action_just_released("skip_text") and character_timer > 0:
 			DialogueLabel.visible_characters = total_characters
 			break
 		
@@ -139,7 +139,7 @@ func _text_resource(i: DialogueText) -> void:
 	while true:
 		await get_tree().process_frame
 		if DialogueLabel.visible_characters == total_characters:
-			if Input.is_action_just_pressed("skip_text"):
+			if Input.is_action_just_released("skip_text"):
 				if i.camera_position != Vector2(999.9, 999.9) and cam_moved:
 					current_dialogue_item += 1
 					cam_moved = false

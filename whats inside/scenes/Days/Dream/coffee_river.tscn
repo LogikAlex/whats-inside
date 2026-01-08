@@ -177,7 +177,6 @@ metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_dacxr")
-volume_db = -2.298
 pitch_scale = 0.95
 autoplay = true
 parameters/looping = true

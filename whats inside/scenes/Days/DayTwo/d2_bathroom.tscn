@@ -1,10 +1,12 @@
-[gd_scene load_steps=30 format=4 uid="uid://byegobnbrjsvq"]
+[gd_scene load_steps=32 format=4 uid="uid://byegobnbrjsvq"]
 
 [ext_resource type="Script" uid="uid://pnnbv8i74y01" path="res://scripts/dayTwo/DayTwoBathroom.gd" id="1_3tgk3"]
 [ext_resource type="Texture2D" uid="uid://bulrofjfrig43" path="res://assets/tilesets/bathroom_tiles.png" id="2_mtaex"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="3_vyk0g"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="4_r3fnc"]
+[ext_resource type="PackedScene" uid="uid://6dpanx0b6q7s" path="res://scenes/left_arrow.tscn" id="4_taatd"]
 [ext_resource type="Texture2D" uid="uid://q356uglah7st" path="res://assets/objects/towel.png" id="5_1ktjp"]
+[ext_resource type="PackedScene" uid="uid://bijso44bvdy8o" path="res://scenes/Days/DayOne/right_arrow.tscn" id="5_plx05"]
 [ext_resource type="PackedScene" uid="uid://d1ihff5cbsmms" path="res://scenes/Objects/bathroomSink.tscn" id="6_rwoeo"]
 [ext_resource type="Texture2D" uid="uid://dkdlycq1b4kvu" path="res://assets/objects/mirror.png" id="7_w4gng"]
 [ext_resource type="PackedScene" uid="uid://diln5o5xi66rg" path="res://scenes/Objects/stand.tscn" id="8_u1rle"]
@@ -17,7 +19,7 @@
 [ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="15_gqwlr"]
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="16_b7uis"]
 [ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="17_sr2u8"]
-[ext_resource type="AudioStream" uid="uid://bglxkmf35gaq3" path="res://assets/sfx/sink_sound.mp3" id="18_84a6r"]
+[ext_resource type="AudioStream" uid="uid://cjfnjcilrbaca" path="res://assets/sfx/brush_teeth.mp3" id="18_3tgk3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7agtt"]
 texture = ExtResource("2_mtaex")
@@ -121,7 +123,7 @@ size = Vector2(118, 79)
 [sub_resource type="Resource" id="Resource_s1y2v"]
 script = ExtResource("17_sr2u8")
 target_path = NodePath("..")
-function_name = "_sink"
+function_name = "_brush"
 hide_dialogue_box = true
 metadata/_custom_type_script = "uid://bj218rqao0syu"
 
@@ -149,6 +151,16 @@ tile_set = SubResource("TileSet_luqbx")
 [node name="Player" parent="." instance=ExtResource("3_vyk0g")]
 position = Vector2(23, 24)
 speed = 50.0
+
+[node name="arrow_keys" type="Node2D" parent="Player"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1, 12)
+
+[node name="LeftArrow" parent="Player/arrow_keys" instance=ExtResource("4_taatd")]
+position = Vector2(-10, 2)
+
+[node name="RightArrow" parent="Player/arrow_keys" instance=ExtResource("5_plx05")]
+position = Vector2(8, 2)
 
 [node name="ChangeRoom" parent="." instance=ExtResource("4_r3fnc")]
 position = Vector2(10, 24)
@@ -234,12 +246,12 @@ dialogue = Array[ExtResource("14_oitxv")]([SubResource("Resource_nbs3h")])
 position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_s1y2v")
 
-[node name="sink_sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("18_84a6r")
-volume_db = 4.022
-
 [node name="sinkTimer" type="Timer" parent="."]
 wait_time = 9.3
 one_shot = true
+
+[node name="brush_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_3tgk3")
+volume_db = 1.546
 
 [connection signal="timeout" from="sinkTimer" to="." method="_on_sink_timer_timeout"]

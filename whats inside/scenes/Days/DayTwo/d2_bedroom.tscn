@@ -499,7 +499,6 @@ dialogue = Array[ExtResource("4_juaa1")]([SubResource("Resource_ofihm")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sleep_func"]
 shape = SubResource("RectangleShape2D_tjd2g")
-disabled = true
 
 [node name="workDialog" parent="." instance=ExtResource("3_075vm")]
 position = Vector2(45, 8)

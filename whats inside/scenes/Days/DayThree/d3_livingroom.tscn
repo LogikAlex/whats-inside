@@ -1,0 +1,340 @@
+[gd_scene load_steps=47 format=4 uid="uid://cqsma4oxbtcum"]
+
+[ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_5wcec"]
+[ext_resource type="Script" uid="uid://s1vaqjvg254d" path="res://scenes/Days/DayThree/d3_livingroom.gd" id="1_c1dst"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_861p8"]
+[ext_resource type="PackedScene" uid="uid://cth4hylf5dh1y" path="res://scenes/Objects/couch.tscn" id="3_4hhdt"]
+[ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="4_14dsx"]
+[ext_resource type="Script" uid="uid://m1npkkbsfmks" path="res://scripts/d2_tv_light.gd" id="5_8evka"]
+[ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="6_fa5al"]
+[ext_resource type="PackedScene" uid="uid://cbsr1cdpporx" path="res://scenes/Objects/lamp.tscn" id="7_ymvvc"]
+[ext_resource type="PackedScene" uid="uid://cgpoipqm1ls12" path="res://scenes/Objects/plant_d3.tscn" id="8_4hhdt"]
+[ext_resource type="Texture2D" uid="uid://def25uwxx8hvy" path="res://assets/objects/picture.png" id="9_wxamg"]
+[ext_resource type="PackedScene" uid="uid://c014t28xfb40m" path="res://scenes/Objects/radiator.tscn" id="10_syrsp"]
+[ext_resource type="Texture2D" uid="uid://dkcfj3mhkcom4" path="res://assets/Spritesheets/player_idle_right.png" id="11_lr1fy"]
+[ext_resource type="Texture2D" uid="uid://b5hki7kvg72vf" path="res://assets/misc/dust_particle.png" id="12_wjf0p"]
+[ext_resource type="Texture2D" uid="uid://bs7cxyqisn674" path="res://scenes/Days/DayThree/d3.tres" id="13_861p8"]
+[ext_resource type="PackedScene" uid="uid://b08631to2twuy" path="res://scenes/Objects/tv_d2.tscn" id="14_60v34"]
+[ext_resource type="Texture2D" uid="uid://dciukd8npw6x2" path="res://assets/misc/crack_3.png" id="15_yw21r"]
+[ext_resource type="Texture2D" uid="uid://c8pr53qdhnfn7" path="res://assets/misc/crack_4.png" id="16_j7lcb"]
+[ext_resource type="Texture2D" uid="uid://d3t7e3b5dulg7" path="res://assets/misc/crack_1.png" id="17_861p8"]
+[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="18_4hhdt"]
+[ext_resource type="Script" uid="uid://xgson572mw6s" path="res://scenes/Objects/fade_in_box.gd" id="19_14dsx"]
+[ext_resource type="Texture2D" uid="uid://xtdk2s5q4bfx" path="res://assets/objects/broken_picture.png" id="20_8evka"]
+[ext_resource type="Texture2D" uid="uid://c5t4va7d62rg3" path="res://assets/misc/glass_shard.png" id="21_fa5al"]
+[ext_resource type="Texture2D" uid="uid://dmebk3gpcrv4a" path="res://assets/misc/glass_shard_2.png" id="22_ymvvc"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="24_lr1fy"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="25_wjf0p"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="26_m5qn8"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="27_wjf0p"]
+[ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="28_m5qn8"]
+
+[sub_resource type="Gradient" id="Gradient_7vca8"]
+offsets = PackedFloat32Array(0, 0.7310606)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5jjir"]
+gradient = SubResource("Gradient_7vca8")
+width = 244
+height = 244
+fill = 1
+fill_from = Vector2(0.5, 0.4871795)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i71jf"]
+polygon = PackedVector2Array(122, 14, 101, 6, 122, 16, 122, 26, 100, 35, 122, 28, 124, 28, 124, 14)
+
+[sub_resource type="Curve" id="Curve_j65t5"]
+_data = [Vector2(0, 0.56320006), 0.0, 0.0, 0, 0, Vector2(0.27480915, 1), 0.0, 0.0, 0, 0, Vector2(0.71374047, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56320006), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_mmmxa"]
+width = 2048
+curve = SubResource("Curve_j65t5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qnqys"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(64, 30, 1)
+direction = Vector3(-1, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.5
+gravity = Vector3(-1, 2, 0)
+scale_curve = SubResource("CurveTexture_mmmxa")
+alpha_curve = ExtResource("13_861p8")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14dsx"]
+size = Vector2(20, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8evka"]
+size = Vector2(36, 8)
+
+[sub_resource type="Resource" id="Resource_j65t5"]
+script = ExtResource("26_m5qn8")
+text = "*i should've noticed it was hanging weird"
+text_speed = 12.0
+text_sound = ExtResource("27_wjf0p")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5qn8"]
+size = Vector2(40, 27)
+
+[sub_resource type="Resource" id="Resource_60v34"]
+script = ExtResource("26_m5qn8")
+text = "*i know what's in there"
+text_speed = 12.0
+text_sound = ExtResource("27_wjf0p")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_j7lcb"]
+script = ExtResource("28_m5qn8")
+target_path = NodePath("..")
+function_name = "enableBoxDialogue"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yw21r"]
+size = Vector2(11, 7.000002)
+
+[sub_resource type="Resource" id="Resource_wjf0p"]
+script = ExtResource("26_m5qn8")
+text = "*i don't want to.."
+text_speed = 12.0
+text_sound = ExtResource("27_wjf0p")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.75
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_5jjir"]
+script = ExtResource("28_m5qn8")
+target_path = NodePath("..")
+function_name = "enableBoxDialogue2"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="Resource" id="Resource_m5qn8"]
+script = ExtResource("26_m5qn8")
+text = "*i'm not ready"
+text_speed = 12.0
+text_sound = ExtResource("27_wjf0p")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.75
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_i71jf"]
+script = ExtResource("28_m5qn8")
+target_path = NodePath("..")
+function_name = "enableBoxDialogue3"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="Resource" id="Resource_yw21r"]
+script = ExtResource("26_m5qn8")
+text = "*stop."
+text_speed = 10.0
+text_sound = ExtResource("27_wjf0p")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.75
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[node name="D3Livingroom" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_c1dst")
+
+[node name="Tiles" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAAAP//AAAGAAEAAAADAP//AAADAAEAAAAEAP//AAADAAEAAAAHAP//AAADAAEAAAAAAP7/AAAGAAAAAAACAP7/AAAGAAIAAAADAP7/AAADAAAAAAAEAP7/AAADAAAAAAAHAP7/AAADAAAAAAD//wIAAAACAAIAAAD//wEAAAACAAIAAAD//wAAAAACAAIAAAD/////AAACAAEAAAD///7/AAACAAAAAAAIAAIAAAAEAAIAAAAIAAEAAAAEAAIAAAAIAAAAAAAEAAIAAAAIAP//AAAEAAEAAAAIAP7/AAAEAAAAAAAFAP7/AAADAAAAAAAFAP//AAADAAEAAAAGAP7/AAADAAAAAAAGAP//AAADAAEAAAD//wMAAAACAAQAAAAAAAMAAAAAAAQAAAABAAMAAAAFAAMAAAACAAMAAAABAAQAAAADAAMAAAADAAQAAAAEAAMAAAAAAAQAAAAGAAMAAAAFAAMAAAAHAAMAAAABAAQAAAAIAAMAAAAEAAQAAAACAP//AAAGAAMAAAABAP//AAADAAMAAAABAP7/AAADAAIAAAAFAAMAAAAFAAMAAAA=")
+tile_set = ExtResource("1_5wcec")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(66, 18)
+
+[node name="Player" parent="." instance=ExtResource("2_861p8")]
+position = Vector2(53, 25)
+speed = 50.0
+
+[node name="Couch" parent="." instance=ExtResource("3_4hhdt")]
+position = Vector2(94, 17)
+
+[node name="tvLight" type="PointLight2D" parent="."]
+position = Vector2(121, 21)
+enabled = false
+color = Color(1, 1, 0.8156863, 1)
+energy = 0.2
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("4_14dsx")
+script = ExtResource("5_8evka")
+
+[node name="ceilingLight" type="PointLight2D" parent="."]
+position = Vector2(64, 19)
+scale = Vector2(0.44262296, 0.3114754)
+energy = 0.2
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_5jjir")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_i71jf")
+
+[node name="TheBox" parent="." instance=ExtResource("6_fa5al")]
+z_index = -1
+position = Vector2(7.000002, -1.9073486e-06)
+
+[node name="Lamp" parent="." instance=ExtResource("7_ymvvc")]
+position = Vector2(123, 6)
+
+[node name="Plant2" parent="." instance=ExtResource("8_4hhdt")]
+position = Vector2(48, 3)
+
+[node name="Picture" type="Sprite2D" parent="."]
+position = Vector2(95, -10)
+texture = ExtResource("9_wxamg")
+
+[node name="BrokenPicture" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(95, 1)
+texture = ExtResource("20_8evka")
+
+[node name="GlassShard2" type="Sprite2D" parent="BrokenPicture"]
+position = Vector2(11, 2)
+rotation = -0.5235584
+texture = ExtResource("21_fa5al")
+
+[node name="GlassShard3" type="Sprite2D" parent="BrokenPicture"]
+position = Vector2(-13, 7)
+rotation = -1.8325958
+texture = ExtResource("21_fa5al")
+
+[node name="GlassShard4" type="Sprite2D" parent="BrokenPicture"]
+position = Vector2(-12, 1)
+rotation = 0.5235988
+texture = ExtResource("22_ymvvc")
+
+[node name="Radiator" parent="." instance=ExtResource("10_syrsp")]
+position = Vector2(2, 27)
+
+[node name="Player_on_couch" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(96, 18)
+texture = ExtResource("11_lr1fy")
+hframes = 2
+frame = 1
+
+[node name="dust" type="GPUParticles2D" parent="."]
+position = Vector2(64, 17)
+amount = 30
+texture = ExtResource("12_wjf0p")
+speed_scale = 0.2
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_qnqys")
+metadata/_edit_lock_ = true
+
+[node name="TV" parent="." instance=ExtResource("14_60v34")]
+position = Vector2(123, 19)
+
+[node name="Crack3" type="Sprite2D" parent="."]
+position = Vector2(65, -16)
+texture = ExtResource("15_yw21r")
+
+[node name="Crack4" type="Sprite2D" parent="."]
+position = Vector2(67, -4)
+texture = ExtResource("16_j7lcb")
+
+[node name="Crack1" type="Sprite2D" parent="."]
+position = Vector2(52, 51)
+texture = ExtResource("17_861p8")
+flip_h = true
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.7233474, 0.72355604, 0.8178685, 1)
+
+[node name="toBedroom" parent="." instance=ExtResource("18_4hhdt")]
+position = Vector2(24, -5)
+wanted_room_path = "res://scenes/Days/DayThree/d3_bedroom.tscn"
+wanted_player_pos = Vector2(56, 42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toBedroom"]
+shape = SubResource("RectangleShape2D_14dsx")
+
+[node name="toEntry" parent="." instance=ExtResource("18_4hhdt")]
+position = Vector2(24, 55)
+wanted_room_path = "res://scenes/Days/DayThree/d3_entry.tscn"
+wanted_player_pos = Vector2(72, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toEntry"]
+shape = SubResource("RectangleShape2D_14dsx")
+
+[node name="BoxFade" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="TheBox" parent="BoxFade" instance=ExtResource("6_fa5al")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(7.000002, -1.9073486e-06)
+script = ExtResource("19_14dsx")
+
+[node name="toKitchen" parent="." instance=ExtResource("18_4hhdt")]
+position = Vector2(96, 55)
+wanted_room_path = "res://scenes/Days/DayThree/d3_kitchen.tscn"
+wanted_player_pos = Vector2(80, 7)
+isDoor = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toKitchen"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_8evka")
+
+[node name="nail" type="Sprite2D" parent="."]
+modulate = Color(0.32156864, 0.32156864, 0.36078432, 1)
+position = Vector2(94.5, -16.5)
+scale = Vector2(1.0000019, 1.0000005)
+texture = ExtResource("12_wjf0p")
+
+[node name="picture_dialog" parent="." instance=ExtResource("24_lr1fy")]
+position = Vector2(94, 5)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("25_wjf0p")]([SubResource("Resource_j65t5")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="picture_dialog"]
+position = Vector2(2, 5.5)
+shape = SubResource("RectangleShape2D_m5qn8")
+
+[node name="box_dialog" parent="." instance=ExtResource("24_lr1fy")]
+position = Vector2(7.000002, 0.9999981)
+dialogue = Array[ExtResource("25_wjf0p")]([SubResource("Resource_60v34"), SubResource("Resource_j7lcb")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box_dialog"]
+position = Vector2(-0.5, 0.50000095)
+shape = SubResource("RectangleShape2D_yw21r")
+
+[node name="box_dialog2" parent="." instance=ExtResource("24_lr1fy")]
+position = Vector2(7.000002, 0.9999981)
+dialogue = Array[ExtResource("25_wjf0p")]([SubResource("Resource_wjf0p"), SubResource("Resource_5jjir")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box_dialog2"]
+position = Vector2(-0.5, 0.50000095)
+shape = SubResource("RectangleShape2D_yw21r")
+disabled = true
+
+[node name="box_dialog3" parent="." instance=ExtResource("24_lr1fy")]
+position = Vector2(7.000002, 0.9999981)
+dialogue = Array[ExtResource("25_wjf0p")]([SubResource("Resource_m5qn8"), SubResource("Resource_i71jf")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box_dialog3"]
+position = Vector2(-0.5, 0.50000095)
+shape = SubResource("RectangleShape2D_yw21r")
+disabled = true
+
+[node name="box_dialog4" parent="." instance=ExtResource("24_lr1fy")]
+position = Vector2(7.000002, 0.9999981)
+dialogue = Array[ExtResource("25_wjf0p")]([SubResource("Resource_yw21r")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box_dialog4"]
+position = Vector2(-0.5, 0.50000095)
+shape = SubResource("RectangleShape2D_yw21r")
+disabled = true

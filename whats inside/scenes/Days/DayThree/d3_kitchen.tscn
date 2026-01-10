@@ -1,0 +1,296 @@
+[gd_scene load_steps=39 format=4 uid="uid://cw34n7vfbol6v"]
+
+[ext_resource type="Script" uid="uid://6kk8ku18ache" path="res://scenes/Days/DayThree/d3_kitchen.gd" id="1_gst1f"]
+[ext_resource type="Texture2D" uid="uid://dsvpekb435jkq" path="res://assets/tilesets/kitchen_tiles.png" id="1_m8ryj"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_nr1mx"]
+[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="3_gst1f"]
+[ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="4_jrgii"]
+[ext_resource type="PackedScene" uid="uid://dtsqunddbw638" path="res://scenes/Objects/stove.tscn" id="5_2n72d"]
+[ext_resource type="PackedScene" uid="uid://rs8ct2ujac38" path="res://scenes/Objects/k_cabinet_r.tscn" id="6_vn2kt"]
+[ext_resource type="PackedScene" uid="uid://c1rne2my0x14t" path="res://scenes/Objects/k_cabinet_l.tscn" id="7_vm8x3"]
+[ext_resource type="PackedScene" uid="uid://dyxlup5kvj4wj" path="res://scenes/Objects/k_cabinet_small.tscn" id="8_pdsvx"]
+[ext_resource type="PackedScene" uid="uid://bum4g86bdw1fk" path="res://scenes/Objects/fridge.tscn" id="9_51sxl"]
+[ext_resource type="PackedScene" uid="uid://di7hauqx1cnir" path="res://scenes/Objects/chair.tscn" id="10_hxsb7"]
+[ext_resource type="PackedScene" uid="uid://bmn2woebkx4n4" path="res://scenes/Objects/k_table.tscn" id="11_26ojf"]
+[ext_resource type="Texture2D" uid="uid://x552m6ijmnjr" path="res://assets/objects/coffee_machine.png" id="12_fkswg"]
+[ext_resource type="Texture2D" uid="uid://b5hki7kvg72vf" path="res://assets/misc/dust_particle.png" id="13_ilrl1"]
+[ext_resource type="Texture2D" uid="uid://cmi7pf3kwmats" path="res://scenes/Days/DayTwo/d2.tres" id="14_l4pkf"]
+[ext_resource type="Texture2D" uid="uid://cwr7458fpren5" path="res://assets/objects/spilled_coffee.png" id="15_nr1mx"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="17_vn2kt"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="18_vm8x3"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="19_pdsvx"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="20_vm8x3"]
+[ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="21_51sxl"]
+[ext_resource type="Texture2D" uid="uid://32ls3khnu3a1" path="res://assets/objects/mug.png" id="21_pdsvx"]
+[ext_resource type="AudioStream" uid="uid://cj3w81k1wrsl7" path="res://assets/sfx/picture_fall.mp3" id="23_hxsb7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gl1i8"]
+texture = ExtResource("1_m8ryj")
+0:0/0 = 0
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:3/0 = 0
+6:2/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1usho"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_gl1i8")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1u7q5"]
+size = Vector2(36, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7a6lo"]
+polygon = PackedVector2Array(64, 24, 64, -21, 35, -21, 35, 24)
+
+[sub_resource type="Gradient" id="Gradient_7vca8"]
+offsets = PackedFloat32Array(0, 0.7310606)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_26gds"]
+gradient = SubResource("Gradient_7vca8")
+width = 244
+height = 244
+fill = 1
+fill_from = Vector2(0.5, 0.4871795)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8jf7"]
+size = Vector2(14, 8)
+
+[sub_resource type="Curve" id="Curve_0bfna"]
+_data = [Vector2(0, 0.56320006), 0.0, 0.0, 0, 0, Vector2(0.27480915, 1), 0.0, 0.0, 0, 0, Vector2(0.71374047, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56320006), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_vkr1w"]
+width = 2048
+curve = SubResource("Curve_0bfna")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j6h7j"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(55, 38, 1)
+direction = Vector3(-1, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.5
+gravity = Vector3(-1, 2, 0)
+scale_curve = SubResource("CurveTexture_vkr1w")
+alpha_curve = ExtResource("14_l4pkf")
+
+[sub_resource type="Resource" id="Resource_pdsvx"]
+script = ExtResource("19_pdsvx")
+text = "*i would just spill it again..."
+text_speed = 12.0
+text_sound = ExtResource("20_vm8x3")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.75
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_26ojf"]
+script = ExtResource("21_51sxl")
+target_path = NodePath("..")
+function_name = "checkCoffee"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxsb7"]
+size = Vector2(21, 12)
+
+[sub_resource type="Resource" id="Resource_hxsb7"]
+script = ExtResource("21_51sxl")
+target_path = NodePath("..")
+function_name = "pictureFall"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdsvx"]
+size = Vector2(6.5, 36)
+
+[node name="D3Kitchen" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_gst1f")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(57, 30)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAACAAEAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAMAAAAAAAAAAAAAAP//AAADAAEAAAABAP//AAADAAEAAAACAP//AAADAAEAAAADAP//AAAFAAEAAAAGAP//AAAFAAMAAAAHAP//AAAEAAEAAAAHAAAAAAAEAAIAAAAHAAEAAAAEAAIAAAAHAAIAAAAEAAIAAAAHAAMAAAAEAAIAAAD/////AAACAAEAAAD//wAAAAACAAIAAAD//wEAAAACAAIAAAD//wIAAAACAAIAAAD//wMAAAACAAIAAAD//wQAAAACAAQAAAAAAAQAAAADAAQAAAABAAQAAAADAAQAAAACAAQAAAADAAQAAAADAAQAAAADAAQAAAAEAAQAAAADAAQAAAAFAAQAAAADAAQAAAAGAAQAAAADAAQAAAAHAAQAAAAEAAQAAAAAAP7/AAADAAAAAAABAP7/AAADAAAAAAACAP7/AAADAAAAAAADAP7/AAAFAAAAAAAGAP7/AAAFAAIAAAAHAP7/AAAEAAAAAAD///7/AAACAAAAAAAEAP//AAAGAAIAAAAFAP//AAAGAAIAAAA=")
+tile_set = SubResource("TileSet_1usho")
+
+[node name="Player" parent="." instance=ExtResource("2_nr1mx")]
+position = Vector2(80, 8)
+speed = 50.0
+
+[node name="toLivingroom" parent="." instance=ExtResource("3_gst1f")]
+position = Vector2(80, -12)
+wanted_room_path = "res://scenes/Days/DayThree/d3_livingroom.tscn"
+wanted_player_pos = Vector2(96, 42)
+isDoor = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toLivingroom"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_1u7q5")
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.6123439, 0.6621473, 0.6198985, 1)
+
+[node name="thedark" type="PointLight2D" parent="."]
+z_index = -2
+position = Vector2(81, -16)
+scale = Vector2(3.6249998, 1.421875)
+color = Color(0, 0, 0, 1)
+energy = 0.0
+blend_mode = 2
+shadow_enabled = true
+texture = ExtResource("4_jrgii")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_7a6lo")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+position = Vector2(61, 0)
+occluder = SubResource("OccluderPolygon2D_7a6lo")
+
+[node name="ceilingLight" type="PointLight2D" parent="."]
+position = Vector2(57.000004, 30)
+scale = Vector2(0.29508194, 0.22950818)
+color = Color(0.9843529, 0.98745495, 0.9660104, 1)
+energy = 0.2
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_26gds")
+
+[node name="Stove" parent="." instance=ExtResource("5_2n72d")]
+position = Vector2(36, 8)
+
+[node name="KitchenCabinet" parent="." instance=ExtResource("6_vn2kt")]
+position = Vector2(54, 8)
+
+[node name="KitchenCabinet2" parent="." instance=ExtResource("7_vm8x3")]
+position = Vector2(9, 8)
+
+[node name="KitchenCabinet3" parent="." instance=ExtResource("8_pdsvx")]
+position = Vector2(22, 8)
+
+[node name="Fridge" parent="." instance=ExtResource("9_51sxl")]
+position = Vector2(9, 39)
+
+[node name="Chair" parent="." instance=ExtResource("10_hxsb7")]
+position = Vector2(57, 40)
+
+[node name="Chair2" parent="." instance=ExtResource("10_hxsb7")]
+position = Vector2(102, 40)
+
+[node name="Sprite2D" parent="Chair2" index="0"]
+flip_h = true
+
+[node name="CollisionShape2D" parent="Chair2" index="1"]
+position = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_t8jf7")
+
+[node name="KitchenTable" parent="." instance=ExtResource("11_26ojf")]
+position = Vector2(80, 45)
+
+[node name="CoffeeMachine" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(10, -7)
+texture = ExtResource("12_fkswg")
+hframes = 2
+
+[node name="dust" type="GPUParticles2D" parent="."]
+z_index = 1
+position = Vector2(56, 24)
+amount = 30
+texture = ExtResource("13_ilrl1")
+speed_scale = 0.2
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_j6h7j")
+
+[node name="SpilledCoffee" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(23, 18)
+texture = ExtResource("15_nr1mx")
+
+[node name="coffee_dialog" parent="." instance=ExtResource("17_vn2kt")]
+z_index = 1
+position = Vector2(9, 2)
+dialogue = Array[ExtResource("18_vm8x3")]([SubResource("Resource_pdsvx"), SubResource("Resource_26ojf")])
+
+[node name="trigger_coffee" type="CollisionShape2D" parent="coffee_dialog"]
+position = Vector2(4.5, 0)
+shape = SubResource("RectangleShape2D_hxsb7")
+
+[node name="picture_trigger" parent="." instance=ExtResource("17_vn2kt")]
+z_index = 1
+position = Vector2(54, 31)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("18_vm8x3")]([SubResource("Resource_hxsb7")])
+
+[node name="trigger_coffee" type="CollisionShape2D" parent="picture_trigger"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_pdsvx")
+disabled = true
+
+[node name="Mug" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(23, -3)
+texture = ExtResource("21_pdsvx")
+hframes = 2
+frame = 1
+
+[node name="pictureFall" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_hxsb7")
+volume_db = -7.0
+
+[editable path="Chair2"]

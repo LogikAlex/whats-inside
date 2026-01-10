@@ -17,6 +17,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		for i in get_tree().get_nodes_in_group("player"):
 			player_node = i
+		if get_tree().current_scene.name == "D3Livingroom":
+			globals.inLR = true
 		_room_transition()
 
 func _room_transition():

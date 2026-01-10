@@ -338,10 +338,10 @@ texture = SubResource("GradientTexture2D_0vuf1")
 occluder = SubResource("OccluderPolygon2D_50stm")
 
 [node name="TheBox" parent="." instance=ExtResource("6_hrsw7")]
-position = Vector2(7, -1)
+position = Vector2(7, 0)
 
 [node name="box_dialog_dark" parent="." instance=ExtResource("8_43tq7")]
-position = Vector2(7, 0)
+position = Vector2(7, 1)
 dialogue = Array[ExtResource("9_24ksx")]([SubResource("Resource_0vuf1")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="box_dialog_dark"]
@@ -350,7 +350,7 @@ shape = SubResource("RectangleShape2D_m2ldl")
 disabled = true
 
 [node name="box_dialog" parent="." instance=ExtResource("8_43tq7")]
-position = Vector2(7, 0)
+position = Vector2(7, 1)
 dialogue = Array[ExtResource("9_24ksx")]([SubResource("Resource_did0y")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="box_dialog"]

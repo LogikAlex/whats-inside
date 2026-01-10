@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://c6ce621q80cx1"]
+[gd_scene load_steps=51 format=3 uid="uid://c6ce621q80cx1"]
 
 [ext_resource type="Texture2D" uid="uid://ch4t7k3k7qj8o" path="res://assets/misc/the_box_final_terrain.png" id="1_1rg6u"]
 [ext_resource type="Script" uid="uid://bsh8djds0uero" path="res://scripts/final.gd" id="1_ff6jt"]
@@ -168,6 +168,13 @@ text_volume_pitch_min = 0.7
 text_volume_pitch_max = 0.68
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
+[sub_resource type="Resource" id="Resource_i8vkx"]
+script = ExtResource("21_qtq6v")
+target_path = NodePath("..")
+function_name = "_start_scene_timer"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5tm4e"]
 size = Vector2(46, 40)
 
@@ -181,6 +188,10 @@ one_shot = true
 
 [node name="BoxTimer" type="Timer" parent="."]
 wait_time = 4.0
+one_shot = true
+
+[node name="SceneTimer" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [node name="FinalTerrain" type="Sprite2D" parent="."]
@@ -362,7 +373,7 @@ shape = SubResource("RectangleShape2D_8t2ga")
 position = Vector2(358, 107)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("17_h6g4d")]([SubResource("Resource_rj6lp")])
+dialogue = Array[ExtResource("17_h6g4d")]([SubResource("Resource_rj6lp"), SubResource("Resource_i8vkx")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boxDialogue"]
 shape = SubResource("RectangleShape2D_5tm4e")
@@ -374,3 +385,4 @@ volume_db = 5.0
 
 [connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]
 [connection signal="timeout" from="BoxTimer" to="." method="_on_box_timer_timeout"]
+[connection signal="timeout" from="SceneTimer" to="." method="_on_scene_timer_timeout"]

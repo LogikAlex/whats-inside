@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="17_sr2u8"]
 [ext_resource type="AudioStream" uid="uid://cjfnjcilrbaca" path="res://assets/sfx/brush_teeth.mp3" id="18_3tgk3"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7agtt"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_taatd"]
 texture = ExtResource("2_mtaex")
 0:0/0 = 0
 2:0/0 = 0
@@ -80,17 +80,17 @@ texture = ExtResource("2_mtaex")
 
 [sub_resource type="TileSet" id="TileSet_luqbx"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_7agtt")
+sources/0 = SubResource("TileSetAtlasSource_taatd")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8ve7"]
 size = Vector2(20, 7)
 
-[sub_resource type="Gradient" id="Gradient_5sxgv"]
+[sub_resource type="Gradient" id="Gradient_plx05"]
 offsets = PackedFloat32Array(0, 0.7310606)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_q7576"]
-gradient = SubResource("Gradient_5sxgv")
+gradient = SubResource("Gradient_plx05")
 width = 244
 height = 244
 fill = 1
@@ -162,13 +162,13 @@ position = Vector2(-10, 2)
 [node name="RightArrow" parent="Player/arrow_keys" instance=ExtResource("5_plx05")]
 position = Vector2(8, 2)
 
-[node name="ChangeRoom" parent="." instance=ExtResource("4_r3fnc")]
+[node name="toEntry" parent="." instance=ExtResource("4_r3fnc")]
 position = Vector2(10, 24)
 rotation = 1.5707964
 wanted_room_path = "res://scenes/Days/DayTwo/d2_entry.tscn"
 wanted_player_pos = Vector2(89, 25)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeRoom"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toEntry"]
 shape = SubResource("RectangleShape2D_c8ve7")
 
 [node name="ambience" type="CanvasModulate" parent="."]

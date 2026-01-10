@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://jvk4l3570te6"]
+[gd_scene load_steps=53 format=4 uid="uid://jvk4l3570te6"]
 
 [ext_resource type="Script" uid="uid://ck1p4oor2m8kv" path="res://scripts/dayTwo/DayTwoKitchen.gd" id="1_qsr2b"]
 [ext_resource type="Texture2D" uid="uid://dsvpekb435jkq" path="res://assets/tilesets/kitchen_tiles.png" id="2_3ta5l"]
@@ -127,7 +127,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_30ols"]
 script = ExtResource("8_7i6p1")
-text = "*i did it again..?"
+text = "*i messed up again..."
 text_speed = 14.0
 text_sound = ExtResource("9_uejwj")
 text_volume_pitch_min = 0.75
@@ -155,6 +155,15 @@ size = Vector2(6, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqefg"]
 size = Vector2(6, 48)
+
+[sub_resource type="Resource" id="Resource_sabe1"]
+script = ExtResource("8_7i6p1")
+text = "*i used to make two.."
+text_speed = 12.0
+text_sound = ExtResource("9_uejwj")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.75
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_4nr2n"]
 script = ExtResource("10_utwxq")
@@ -356,7 +365,7 @@ disabled = true
 [node name="making_coffee" parent="." instance=ExtResource("6_cfixx")]
 position = Vector2(10, 7)
 only_activate_once = true
-dialogue = Array[ExtResource("7_xs54t")]([SubResource("Resource_4nr2n")])
+dialogue = Array[ExtResource("7_xs54t")]([SubResource("Resource_sabe1"), SubResource("Resource_4nr2n")])
 
 [node name="coffe" type="CollisionShape2D" parent="making_coffee"]
 position = Vector2(-0.5, -7.5)
@@ -432,7 +441,6 @@ texture = ExtResource("19_k26ev")
 hframes = 2
 
 [node name="SpilledCoffee" type="Sprite2D" parent="."]
-visible = false
 z_index = -1
 position = Vector2(23, 18)
 texture = ExtResource("20_uoj0u")

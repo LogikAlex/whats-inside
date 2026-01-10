@@ -128,6 +128,7 @@ func _on_work_timer_timeout() -> void:
 
 func _check_if_woke_up():
 	if !globals.wokeUp:
+		globals.tv_off = false
 		blackScreen.visible = true
 		fade_in_tween()
 		z_tween()

@@ -13,10 +13,16 @@ var lastPlayerDir
 
 #day one
 @export var anotherDayDialogue = true
-@export var tv_off = false
+@export var tv_off = true
 @export var coffeeDialog = false
 @export var cleanedDialog = true
 @export var cleanedCoffee = false
+
+#day three
+@export var wokeFromDream = false
+@export var inLR = false
+@export var pictureFell = false
+@export var boxEvent = false
 
 #dream
 @export var wokeUpDream = false

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfo0d7h2e0dkd"]
+
+[ext_resource type="Texture2D" uid="uid://i7cmcw1pnuhv" path="res://assets/objects/closet_d3.png" id="1_lemep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm463"]
+size = Vector2(21, 14)
+
+[node name="closet" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("1_lemep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_rm463")

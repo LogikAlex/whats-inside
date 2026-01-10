@@ -6,6 +6,7 @@ extends Node2D
 @onready var theBox: StaticBody2D = $TheBox
 @onready var delay_timer: Timer = $Delay
 @onready var box_timer: Timer = $BoxTimer
+@onready var scene_timer: Timer = $SceneTimer
 @onready var whiteScreen: Sprite2D = $whiteScreen
 @onready var boxDialogue: CollisionShape2D = $boxDialogue/CollisionShape2D
 
@@ -52,3 +53,9 @@ func _on_box_timer_timeout() -> void:
 	box_tween.tween_property(MainSong, "volume_db", -50, 3)
 	box_tween.tween_property(suspenseSound, "playing", true, 0).set_delay(2.5)
 	box_tween.tween_property(boxDialogue, "disabled", false, 0).set_delay(9)
+
+func _start_scene_timer():
+	scene_timer.start()
+
+func _on_scene_timer_timeout() -> void:
+	get_tree().change_scene_to_file("res://scenes/Days/DayThree/d3_bedroom.tscn")

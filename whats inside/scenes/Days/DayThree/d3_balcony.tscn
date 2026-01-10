@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://1rk568hxr3ps"]
+
+[ext_resource type="Texture2D" uid="uid://u06hiofvr4cj" path="res://assets/misc/balcony_sprite.png" id="1_rc7ly"]
+[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="2_5fjk0"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="3_e0u7t"]
+[ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="4_r2aia"]
+[ext_resource type="AudioStream" uid="uid://dy15a5truwsky" path="res://assets/sfx/night_ambience.mp3" id="5_pvda8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftn5i"]
+size = Vector2(20, 7)
+
+[sub_resource type="Gradient" id="Gradient_1v70g"]
+offsets = PackedFloat32Array(0, 0.6710098)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rc7ly"]
+gradient = SubResource("Gradient_1v70g")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="D3Balcony" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(160, 43)
+
+[node name="Balcony" type="Sprite2D" parent="."]
+position = Vector2(24, 40)
+texture = ExtResource("1_rc7ly")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 20, 0, 0, 15, 0, 15, 11, 38, 11, 38, 72, 35, 72, 15, 72, 15, 75, 0, 75, 0, 53, 6, 53, 6, 69, 34, 69, 34, 19, 6, 19, 6, 37, 0, 37)
+
+[node name="toBedroom" parent="." instance=ExtResource("2_5fjk0")]
+position = Vector2(-1, 45)
+rotation = -1.5707964
+wanted_room_path = "res://scenes/Days/DayThree/d3_bedroom.tscn"
+wanted_player_pos = Vector2(75, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toBedroom"]
+shape = SubResource("RectangleShape2D_ftn5i")
+
+[node name="Player" parent="." instance=ExtResource("3_e0u7t")]
+position = Vector2(14, 46)
+speed = 50.0
+
+[node name="Camera2D" parent="Player" index="3"]
+limit_left = 0
+
+[node name="sun" type="PointLight2D" parent="."]
+position = Vector2(62.000004, 42)
+scale = Vector2(1.7688439, 1.8100625)
+color = Color(0.93909687, 0.94756943, 0.9663058, 1)
+energy = 1.28
+shadow_enabled = true
+texture = ExtResource("4_r2aia")
+
+[node name="night_ambience" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_pvda8")
+volume_db = 10.0
+parameters/looping = true
+
+[node name="Spotlight" type="Sprite2D" parent="."]
+modulate = Color(0.93333334, 0.9764706, 0.93333334, 0.29411766)
+light_mask = 0
+position = Vector2(596, 61)
+scale = Vector2(16.035156, 15.46875)
+texture = SubResource("GradientTexture2D_rc7ly")
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.7026079, 0.7044205, 0.74580026, 1)
+
+[editable path="Player"]

@@ -21,6 +21,8 @@ func _ready() -> void:
 	if globals.cleanedCoffee:
 		$SpilledCoffee.visible = true
 		$SpilledCoffee.modulate.a = 0.3
+		$Mug.frame = 1
+		$Mug.visible = true
 		coffeeDialog.disabled = true
 	
 	if globals.brushedTeeth and !globals.cleanedCoffee:

@@ -1,0 +1,253 @@
+[gd_scene load_steps=33 format=4 uid="uid://csu25dtsxbeh"]
+
+[ext_resource type="Texture2D" uid="uid://bulrofjfrig43" path="res://assets/tilesets/bathroom_tiles.png" id="1_1mpho"]
+[ext_resource type="Script" uid="uid://cs8qwyelto6ri" path="res://scenes/Days/DayThree/d3_bathroom.gd" id="1_odtc1"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_0uofq"]
+[ext_resource type="PackedScene" uid="uid://6dpanx0b6q7s" path="res://scenes/left_arrow.tscn" id="3_yeerk"]
+[ext_resource type="PackedScene" uid="uid://bijso44bvdy8o" path="res://scenes/Days/DayOne/right_arrow.tscn" id="4_i1a27"]
+[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="5_aw7k4"]
+[ext_resource type="Texture2D" uid="uid://q356uglah7st" path="res://assets/objects/towel.png" id="6_x7cua"]
+[ext_resource type="PackedScene" uid="uid://d1ihff5cbsmms" path="res://scenes/Objects/bathroomSink.tscn" id="7_odtc1"]
+[ext_resource type="Texture2D" uid="uid://dkdlycq1b4kvu" path="res://assets/objects/mirror.png" id="8_au7ll"]
+[ext_resource type="PackedScene" uid="uid://diln5o5xi66rg" path="res://scenes/Objects/stand.tscn" id="9_adixq"]
+[ext_resource type="PackedScene" uid="uid://ch73qqrhk5kmv" path="res://scenes/Objects/toilet.tscn" id="10_t0fth"]
+[ext_resource type="Texture2D" uid="uid://vaih3bys5mjy" path="res://assets/objects/toilet_paper.png" id="11_jmjyr"]
+[ext_resource type="PackedScene" uid="uid://cpn0v8in0pad5" path="res://scenes/Objects/washingMachine.tscn" id="12_036ba"]
+[ext_resource type="PackedScene" uid="uid://b0xolnyw0l6jk" path="res://scenes/Objects/bathtub.tscn" id="13_8aaxg"]
+[ext_resource type="AudioStream" uid="uid://cjfnjcilrbaca" path="res://assets/sfx/brush_teeth.mp3" id="14_hrl7o"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="15_x7cua"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="16_odtc1"]
+[ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="17_au7ll"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="18_adixq"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="19_t0fth"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v5s5n"]
+texture = ExtResource("1_1mpho")
+0:0/0 = 0
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_a2oqb"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_v5s5n")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5e561"]
+size = Vector2(20, 7)
+
+[sub_resource type="Gradient" id="Gradient_5sxgv"]
+offsets = PackedFloat32Array(0, 0.7310606)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pxyr7"]
+gradient = SubResource("Gradient_5sxgv")
+width = 244
+height = 244
+fill = 1
+fill_from = Vector2(0.5, 0.4871795)
+
+[sub_resource type="Resource" id="Resource_s1y2v"]
+script = ExtResource("17_au7ll")
+target_path = NodePath("..")
+function_name = "_brush"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmjyr"]
+size = Vector2(3, 7)
+
+[sub_resource type="Resource" id="Resource_nbs3h"]
+script = ExtResource("18_adixq")
+text = "*my toothbrush"
+text_speed = 12.0
+text_sound = ExtResource("19_t0fth")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.75
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_odtc1"]
+script = ExtResource("18_adixq")
+text = "*i'm tired"
+text_speed = 12.0
+text_sound = ExtResource("19_t0fth")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odtc1"]
+size = Vector2(3, 7)
+
+[sub_resource type="Resource" id="Resource_au7ll"]
+script = ExtResource("18_adixq")
+text = "*i should do it"
+text_speed = 12.0
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adixq"]
+size = Vector2(118, 79)
+
+[node name="D3Bathroom" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_odtc1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(66, 19)
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.7233474, 0.72355604, 0.8178685, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAAAAAAAAAAAAAACAAAAAAAAAAAAAAACAP7/AAADAAAAAAACAP//AAADAAEAAAADAP7/AAADAAAAAAADAP//AAADAAEAAAAEAP7/AAADAAAAAAAEAP//AAADAAEAAAAFAP7/AAADAAAAAAAFAP//AAADAAEAAAAGAP7/AAADAAAAAAAGAP//AAADAAEAAAABAP7/AAADAAAAAAABAP//AAADAAEAAAAAAP7/AAACAAAAAAAAAP//AAACAAEAAAAAAAAAAAACAAMAAAAAAAIAAAAAAAMAAAAAAAMAAAACAAQAAAABAAMAAAADAAQAAAACAAMAAAADAAQAAAADAAMAAAADAAQAAAAEAAMAAAADAAQAAAAFAAMAAAADAAQAAAAGAAMAAAADAAQAAAAHAAIAAAAEAAIAAAAHAAMAAAAEAAQAAAAHAAEAAAAEAAIAAAAHAAAAAAAEAAIAAAAHAP7/AAAEAAAAAAAHAP//AAAEAAEAAAABAAIAAAAAAAAAAAABAAEAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAEAAAAGAAIAAAA=")
+tile_set = SubResource("TileSet_a2oqb")
+
+[node name="Player" parent="." instance=ExtResource("2_0uofq")]
+position = Vector2(23, 24)
+speed = 50.0
+
+[node name="arrow_keys" type="Node2D" parent="Player"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1, 12)
+
+[node name="LeftArrow" parent="Player/arrow_keys" instance=ExtResource("3_yeerk")]
+position = Vector2(-10, 2)
+
+[node name="RightArrow" parent="Player/arrow_keys" instance=ExtResource("4_i1a27")]
+position = Vector2(8, 2)
+
+[node name="toEntry" parent="." instance=ExtResource("5_aw7k4")]
+position = Vector2(10, 24)
+rotation = 1.5707964
+wanted_room_path = "res://scenes/Days/DayThree/d3_entry.tscn"
+wanted_player_pos = Vector2(89, 25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toEntry"]
+shape = SubResource("RectangleShape2D_5e561")
+
+[node name="ceilingLight" type="PointLight2D" parent="."]
+position = Vector2(64, 19)
+scale = Vector2(0.27049178, 0.19672133)
+color = Color(0.9843529, 0.98745495, 0.9660104, 1)
+energy = 0.2
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_pxyr7")
+
+[node name="Towel" type="Sprite2D" parent="."]
+position = Vector2(81, -3)
+texture = ExtResource("6_x7cua")
+
+[node name="BathroomSink" parent="." instance=ExtResource("7_odtc1")]
+position = Vector2(67, -7)
+
+[node name="Mirror" type="Sprite2D" parent="BathroomSink"]
+position = Vector2(0, -5)
+texture = ExtResource("8_au7ll")
+
+[node name="Stand" parent="." instance=ExtResource("9_adixq")]
+position = Vector2(52, -5)
+
+[node name="Toilet" parent="." instance=ExtResource("10_t0fth")]
+position = Vector2(26, -3)
+
+[node name="ToiletPaper" type="Sprite2D" parent="Toilet"]
+position = Vector2(11, 1)
+texture = ExtResource("11_jmjyr")
+
+[node name="WashingMachine" parent="." instance=ExtResource("12_036ba")]
+position = Vector2(102, -2)
+
+[node name="Bathtub" parent="." instance=ExtResource("13_8aaxg")]
+position = Vector2(100, 38)
+
+[node name="brush_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_hrl7o")
+volume_db = 1.546
+
+[node name="sink_func" parent="." instance=ExtResource("15_x7cua")]
+position = Vector2(67, -2)
+only_activate_once = true
+dialogue = Array[ExtResource("16_odtc1")]([SubResource("Resource_s1y2v")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sink_func"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_jmjyr")
+
+[node name="tbrush_dialog" parent="." instance=ExtResource("15_x7cua")]
+position = Vector2(52, -2)
+dialogue = Array[ExtResource("16_odtc1")]([SubResource("Resource_nbs3h")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tbrush_dialog"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_jmjyr")
+
+[node name="mirror_dialog" parent="." instance=ExtResource("15_x7cua")]
+position = Vector2(67, -2)
+dialogue = Array[ExtResource("16_odtc1")]([SubResource("Resource_odtc1")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mirror_dialog"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_odtc1")
+disabled = true
+
+[node name="brushDialogue" parent="." instance=ExtResource("15_x7cua")]
+position = Vector2(67, -2)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("16_odtc1")]([SubResource("Resource_au7ll")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="brushDialogue"]
+position = Vector2(-5, 17.5)
+shape = SubResource("RectangleShape2D_adixq")
+disabled = true

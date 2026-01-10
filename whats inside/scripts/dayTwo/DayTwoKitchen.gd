@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var camera: Camera2D = $Camera2D
 @onready var minigame = preload("res://scenes/Days/DayTwo/d2_coffee_minigame.tscn")
 @onready var ambience = $ambience
 @onready var coffeeDialog = $coffee_dialog/trigger_coffee
@@ -46,7 +47,14 @@ func _process(_delta: float) -> void:
 		$didnt_drink_bruh.free()
 		$StaticBody2D.free()
 
+func cameraShake():
+	var camShake = create_tween()
+	camShake.tween_property(camera, "offset", Vector2(3.0, 0.0), 0.09)
+	camShake.tween_property(camera, "offset", Vector2(-3.0, 0.0), 0.1)
+	camShake.tween_property(camera, "offset", Vector2(0.0, 0.0), 0.1)
+
 func _spill_coffee():
+	cameraShake()
 	$SpilledCoffee.visible = true
 	$Mug.visible = false
 	$Mug.frame = 1

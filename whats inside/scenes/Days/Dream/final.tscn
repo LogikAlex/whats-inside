@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://c6ce621q80cx1"]
+[gd_scene load_steps=50 format=3 uid="uid://c6ce621q80cx1"]
 
 [ext_resource type="Texture2D" uid="uid://ch4t7k3k7qj8o" path="res://assets/misc/the_box_final_terrain.png" id="1_1rg6u"]
 [ext_resource type="Script" uid="uid://bsh8djds0uero" path="res://scripts/final.gd" id="1_ff6jt"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="19_h6g4d"]
 [ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="21_qtq6v"]
 [ext_resource type="PackedScene" uid="uid://cne7csaj4qa1k" path="res://scenes/WhiteDialogueArea.tscn" id="22_fvxd5"]
+[ext_resource type="AudioStream" uid="uid://cc5menqok8osf" path="res://assets/sfx/suspense.mp3" id="23_8t2ga"]
 
 [sub_resource type="Gradient" id="Gradient_7vca8"]
 offsets = PackedFloat32Array(0, 0.7310606)
@@ -56,7 +57,7 @@ curve = SubResource("Curve_ptxco")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4i5kr"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(160, 100, 1)
+emission_box_extents = Vector3(196.63, 100, 1)
 direction = Vector3(-1, 0, 0)
 spread = 180.0
 initial_velocity_min = 0.099999994
@@ -223,8 +224,7 @@ metadata/_edit_lock_ = true
 
 [node name="dust" type="GPUParticles2D" parent="."]
 z_index = 1
-position = Vector2(167, 89)
-emitting = false
+position = Vector2(200, 89)
 amount = 70
 amount_ratio = 0.65
 texture = ExtResource("3_ff6jt")
@@ -367,6 +367,10 @@ dialogue = Array[ExtResource("17_h6g4d")]([SubResource("Resource_rj6lp")])
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boxDialogue"]
 shape = SubResource("RectangleShape2D_5tm4e")
 disabled = true
+
+[node name="suspenseSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_8t2ga")
+volume_db = 5.0
 
 [connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]
 [connection signal="timeout" from="BoxTimer" to="." method="_on_box_timer_timeout"]

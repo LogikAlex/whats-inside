@@ -51,6 +51,7 @@ func cutscene():
 	tween.tween_callback(
 	func keva2():
 		MainSong.isPlaying = true
+		MainSong.volume_db = -3.0
 		MainSong.pitch_scale = 0.30
 	).set_delay(12)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cbo4qsbna2q5m"]
+[gd_scene load_steps=33 format=3 uid="uid://cbo4qsbna2q5m"]
 
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="1_buk36"]
 [ext_resource type="Script" uid="uid://fceup7sys7av" path="res://scripts/coffee_river.gd" id="1_ycmcw"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="5_krt34"]
 [ext_resource type="AudioStream" uid="uid://dih2hf6endof1" path="res://assets/sfx/coffee river sound effect.mp3" id="6_dacxr"]
 [ext_resource type="PackedScene" uid="uid://by1egbtidhebe" path="res://scenes/Objects/space_bar.tscn" id="7_1nkjv"]
+[ext_resource type="AudioStream" uid="uid://kc4sdna64vwb" path="res://assets/sfx/space_press.mp3" id="7_448cq"]
+[ext_resource type="AudioStream" uid="uid://dgyq12rttlibb" path="res://assets/sfx/space_release.mp3" id="8_wxx4l"]
 [ext_resource type="Texture2D" uid="uid://dkcfj3mhkcom4" path="res://assets/Spritesheets/player_idle_right.png" id="9_b4xjq"]
 [ext_resource type="Texture2D" uid="uid://b5hki7kvg72vf" path="res://assets/misc/dust_particle.png" id="10_ok6l5"]
 [ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="11_d840h"]
@@ -175,7 +177,17 @@ shadow_enabled = true
 texture = ExtResource("5_krt34")
 metadata/_edit_lock_ = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="spaceClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_448cq")
+volume_db = -4.0
+pitch_scale = 0.72
+
+[node name="spaceRelease" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_wxx4l")
+volume_db = 1.238
+pitch_scale = 0.85
+
+[node name="river" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_dacxr")
 pitch_scale = 0.95
 autoplay = true

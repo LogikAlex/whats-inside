@@ -13,3 +13,7 @@ func _process(_delta: float) -> void:
 		else:
 			space_sprite.frame = 0
 			collisions.disabled = false
+		if Input.is_action_just_released("interact"):
+			$"../spaceRelease".play()
+		if Input.is_action_just_pressed("interact"):
+			$"../spaceClick".play()

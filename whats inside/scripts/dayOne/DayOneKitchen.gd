@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var camera: Camera2D = $Camera2D
 @onready var minigame = preload("res://scenes/Days/DayOne/d1_coffee_minigame.tscn")
 @onready var ambience = $ambience
 @onready var coffeeDialog = $coffee_dialog/trigger_coffee
@@ -41,7 +42,14 @@ func _process(_delta: float) -> void:
 		$didnt_drink_bruh.free()
 		$StaticBody2D.free()
 
+func cameraShake():
+	var camShake = create_tween()
+	camShake.tween_property(camera, "offset", Vector2(3.0, 0.0), 0.09)
+	camShake.tween_property(camera, "offset", Vector2(-3.0, 0.0), 0.1)
+	camShake.tween_property(camera, "offset", Vector2(0.0, 0.0), 0.1)
+
 func _spill_coffee():
+	cameraShake()
 	$SpilledCoffee.visible = true
 	$Mug.visible = false
 	$Mug.frame = 1
@@ -71,7 +79,7 @@ func _on_mug_timer_timeout() -> void:
 	player.can_move = true
 
 func _start_minigame():
-	print("START MINIGAME")
+	#print("START MINIGAME")
 	var tween = create_tween()
 	tween.tween_property(player.get_node("BlackScreen").get_node("Sprite2D"), "modulate:a", 1, 2)
 	tween.tween_callback(

@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var suspenseSound: AudioStreamPlayer2D = $suspenseSound
 @onready var player: CharacterBody2D = $Player
 @onready var playerCam: Camera2D = $Player/playerCam
 @onready var theBox: StaticBody2D = $TheBox
@@ -11,7 +12,7 @@ extends Node2D
 var distance
 var last_pos
 
-var zoom_step = 0.00025
+var zoom_step = 0.00028
 var min_zoom = 1.1
 var max_zoom = 2.0
 
@@ -48,4 +49,6 @@ func _on_box_timer_timeout() -> void:
 	box_tween.set_parallel()
 	box_tween.tween_property(playerCam, "zoom", Vector2(1.3, 1.3), 10).set_ease(Tween.EASE_IN)
 	box_tween.tween_property(whiteScreen, "modulate:a", 1, 5).set_delay(2.5)
-	box_tween.tween_property(boxDialogue, "disabled", false, 0).set_delay(12)
+	box_tween.tween_property(MainSong, "volume_db", -50, 3)
+	box_tween.tween_property(suspenseSound, "playing", true, 0).set_delay(2.5)
+	box_tween.tween_property(boxDialogue, "disabled", false, 0).set_delay(9)

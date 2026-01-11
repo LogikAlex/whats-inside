@@ -29,9 +29,9 @@ func _ready() -> void:
 		ambience.color = Color8(202, 208, 229)
 
 func _process(_delta: float) -> void:
-	if brushing and brushCount < 2:
+	if brushing and brushCount < 3:
 		camTween()
-	if brushing and brushCount >= 2:
+	if brushing and brushCount >= 3:
 		endBrushing()
 
 func camTween():

@@ -14,5 +14,5 @@ func _process(_delta: float) -> void:
 
 func _fadeOutBox():
 	var fadeTween = create_tween()
-	fadeTween.tween_property($".", "modulate:a", 0.3, 0.3)
+	fadeTween.tween_property($".", "modulate:a", 0.3, 0.1)
 	fadeTween.tween_property($".", "modulate:a", 0, 0.2).set_delay(0.1)

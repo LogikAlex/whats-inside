@@ -22,6 +22,8 @@ var lastPlayerDir
 @export var wokeFromDream = false
 @export var inLR = false
 @export var pictureFell = false
+@export var checkedPicture = false
+@export var checkedCoffee = false
 @export var boxEvent = false
 
 #dream

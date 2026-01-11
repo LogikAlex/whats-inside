@@ -7,21 +7,35 @@ extends Node2D
 @onready var boxDialogue4 = $box_dialog4/CollisionShape2D
 
 #Other objects
+@onready var player: CharacterBody2D = $Player
 @onready var picture: Sprite2D = $Picture
 @onready var brokenPicture: Sprite2D = $BrokenPicture
+@onready var pictureDialogue: CollisionShape2D = $picture_dialog/CollisionShape2D
+@onready var pictureCheckDialogue: CollisionShape2D = $picture_check/CollisionShape2D
 
 var currentBoxDialogue = 1
 
 func _ready() -> void:
-	if globals.pictureFell:
+	if globals.checkedPicture:
 		brokenPicture.visible = true
 		picture.visible = false
+		pictureDialogue.disabled = true
+		pictureCheckDialogue.disabled = false
+	if globals.pictureFell and !globals.checkedPicture:
+		brokenPicture.visible = true
+		picture.visible = false
+		pictureDialogue.disabled = false
 	if globals.boxEvent:
 		boxDialogue1.disabled = true
 		boxDialogue4.disabled = false
 
 func _process(_delta: float) -> void:
 	pass
+
+func checkPic():
+	player.can_move = true
+	globals.checkedPicture = true
+	pictureCheckDialogue.disabled = false
 
 func enableBoxDialogue():
 	if currentBoxDialogue == 1:

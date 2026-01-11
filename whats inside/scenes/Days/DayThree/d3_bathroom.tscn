@@ -131,6 +131,7 @@ size = Vector2(3, 7)
 script = ExtResource("18_adixq")
 text = "*i should do it"
 text_speed = 12.0
+text_sound = ExtResource("19_t0fth")
 text_volume_pitch_min = 0.75
 text_volume_pitch_max = 0.7
 metadata/_custom_type_script = "uid://c7hf8sppb4268"

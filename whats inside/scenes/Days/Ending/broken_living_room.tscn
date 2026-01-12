@@ -1,0 +1,122 @@
+[gd_scene load_steps=19 format=3 uid="uid://drntq0ipi3nnm"]
+
+[ext_resource type="Texture2D" uid="uid://7kdsis81pjem" path="res://assets/misc/broken_room.png" id="1_ddyvq"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_ah875"]
+[ext_resource type="Texture2D" uid="uid://b5hki7kvg72vf" path="res://assets/misc/dust_particle.png" id="3_mctgb"]
+[ext_resource type="Texture2D" uid="uid://bs7cxyqisn674" path="res://scenes/Days/DayThree/d3.tres" id="4_8h5wn"]
+[ext_resource type="PackedScene" uid="uid://cgpoipqm1ls12" path="res://scenes/Objects/plant_d3.tscn" id="5_mctgb"]
+[ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="6_8h5wn"]
+[ext_resource type="PackedScene" uid="uid://c014t28xfb40m" path="res://scenes/Objects/radiator.tscn" id="7_bqo4w"]
+[ext_resource type="PackedScene" uid="uid://cth4hylf5dh1y" path="res://scenes/Objects/couch.tscn" id="8_urh5m"]
+[ext_resource type="PackedScene" uid="uid://cbsr1cdpporx" path="res://scenes/Objects/lamp.tscn" id="9_oi5q6"]
+[ext_resource type="Texture2D" uid="uid://xtdk2s5q4bfx" path="res://assets/objects/broken_picture.png" id="10_3hx7e"]
+[ext_resource type="Texture2D" uid="uid://c5t4va7d62rg3" path="res://assets/misc/glass_shard.png" id="11_v7da7"]
+[ext_resource type="Texture2D" uid="uid://dmebk3gpcrv4a" path="res://assets/misc/glass_shard_2.png" id="12_ai2xw"]
+[ext_resource type="PackedScene" uid="uid://b08631to2twuy" path="res://scenes/Objects/tv_d2.tscn" id="13_ee8ru"]
+
+[sub_resource type="Gradient" id="Gradient_7vca8"]
+offsets = PackedFloat32Array(0, 0.7310606)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bqo4w"]
+gradient = SubResource("Gradient_7vca8")
+width = 244
+height = 244
+fill = 1
+fill_from = Vector2(0.5, 0.4871795)
+
+[sub_resource type="Curve" id="Curve_1p8dj"]
+_data = [Vector2(0, 0.56320006), 0.0, 0.0, 0, 0, Vector2(0.27480915, 1), 0.0, 0.0, 0, 0, Vector2(0.71374047, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56320006), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_mmmxa"]
+width = 2048
+curve = SubResource("Curve_1p8dj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4fgdo"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(73.31, 30, 1)
+direction = Vector3(-1, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.5
+gravity = Vector3(-1, 2, 0)
+scale_curve = SubResource("CurveTexture_mmmxa")
+alpha_curve = ExtResource("4_8h5wn")
+
+[node name="BrokenLivingRoom" type="Node2D"]
+y_sort_enabled = true
+
+[node name="broken_lr" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(89, 39)
+texture = ExtResource("1_ddyvq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(88, 43)
+
+[node name="Player" parent="." instance=ExtResource("2_ah875")]
+position = Vector2(38, 39)
+speed = 50.0
+
+[node name="ceilingLight" type="PointLight2D" parent="."]
+position = Vector2(45, 43)
+scale = Vector2(0.44262296, 0.39754102)
+energy = 0.15
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_bqo4w")
+
+[node name="dust" type="GPUParticles2D" parent="."]
+position = Vector2(88, 43)
+amount = 30
+texture = ExtResource("3_mctgb")
+speed_scale = 0.2
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_4fgdo")
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.14920607, 0.19276252, 0.28800634, 1)
+
+[node name="Plant2" parent="." instance=ExtResource("5_mctgb")]
+position = Vector2(62, 31)
+
+[node name="TheBox" parent="." instance=ExtResource("6_8h5wn")]
+position = Vector2(21, 28)
+
+[node name="Radiator" parent="." instance=ExtResource("7_bqo4w")]
+position = Vector2(16, 55)
+
+[node name="Couch" parent="." instance=ExtResource("8_urh5m")]
+position = Vector2(129, 45)
+
+[node name="Lamp" parent="." instance=ExtResource("9_oi5q6")]
+position = Vector2(158, 34)
+
+[node name="BrokenPicture" type="Sprite2D" parent="."]
+position = Vector2(130, 29)
+texture = ExtResource("10_3hx7e")
+
+[node name="GlassShard2" type="Sprite2D" parent="BrokenPicture"]
+position = Vector2(11, 2)
+rotation = -0.5235584
+texture = ExtResource("11_v7da7")
+
+[node name="GlassShard3" type="Sprite2D" parent="BrokenPicture"]
+position = Vector2(-13, 7)
+rotation = -1.8325958
+texture = ExtResource("11_v7da7")
+
+[node name="GlassShard4" type="Sprite2D" parent="BrokenPicture"]
+position = Vector2(-12, 1)
+rotation = 0.5235988
+texture = ExtResource("12_ai2xw")
+
+[node name="TV" parent="." instance=ExtResource("13_ee8ru")]
+position = Vector2(158, 47)
+
+[node name="nail" type="Sprite2D" parent="."]
+modulate = Color(0.32156864, 0.32156864, 0.36078432, 1)
+position = Vector2(129.5, 11.5)
+scale = Vector2(0.9999943, 1)
+texture = ExtResource("3_mctgb")

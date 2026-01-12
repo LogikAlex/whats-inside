@@ -31,12 +31,12 @@
 [ext_resource type="Texture2D" uid="uid://0atsfe242lba" path="res://assets/misc/floor_crack.png" id="29_60v34"]
 [ext_resource type="PackedScene" uid="uid://dx8tl06100qlm" path="res://scenes/interact_indicator.tscn" id="30_yw21r"]
 
-[sub_resource type="Gradient" id="Gradient_7vca8"]
+[sub_resource type="Gradient" id="Gradient_yw21r"]
 offsets = PackedFloat32Array(0, 0.7310606)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5jjir"]
-gradient = SubResource("Gradient_7vca8")
+gradient = SubResource("Gradient_yw21r")
 width = 244
 height = 244
 fill = 1
@@ -49,7 +49,7 @@ polygon = PackedVector2Array(122, 14, 101, 6, 122, 16, 122, 26, 100, 35, 122, 28
 _data = [Vector2(0, 0.56320006), 0.0, 0.0, 0, 0, Vector2(0.27480915, 1), 0.0, 0.0, 0, 0, Vector2(0.71374047, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56320006), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_mmmxa"]
+[sub_resource type="CurveTexture" id="CurveTexture_j7lcb"]
 width = 2048
 curve = SubResource("Curve_j65t5")
 
@@ -62,7 +62,7 @@ spread = 180.0
 initial_velocity_min = 0.099999994
 initial_velocity_max = 0.5
 gravity = Vector3(-1, 2, 0)
-scale_curve = SubResource("CurveTexture_mmmxa")
+scale_curve = SubResource("CurveTexture_j7lcb")
 alpha_curve = ExtResource("13_861p8")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14dsx"]

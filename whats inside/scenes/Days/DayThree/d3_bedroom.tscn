@@ -338,15 +338,6 @@ position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_fqwto")
 disabled = true
 
-[node name="WorkTimer" type="Timer" parent="."]
-wait_time = 1.5
-one_shot = true
-
-[node name="InteractIndicatorType" parent="." instance=ExtResource("6_qnf5k")]
-modulate = Color(1, 1, 1, 0)
-z_index = 2
-position = Vector2(45, -15)
-
 [node name="workDialog" parent="." instance=ExtResource("17_wngcm")]
 position = Vector2(45, 8)
 activate_instant = true
@@ -357,6 +348,15 @@ dialogue = Array[ExtResource("18_ld16a")]([SubResource("Resource_2yd7u"), SubRes
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_g2ca2")
 disabled = true
+
+[node name="WorkTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="InteractIndicatorType" parent="." instance=ExtResource("6_qnf5k")]
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+position = Vector2(45, -15)
 
 [node name="keyboard_sounds" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_g2ca2")

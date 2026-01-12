@@ -148,7 +148,7 @@ size = Vector2(21, 12)
 
 [sub_resource type="Resource" id="Resource_fkswg"]
 script = ExtResource("19_pdsvx")
-text = "*coffee"
+text = "*coffee."
 text_speed = 12.0
 text_sound = ExtResource("20_vm8x3")
 text_volume_pitch_min = 0.75

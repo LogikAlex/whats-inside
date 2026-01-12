@@ -441,6 +441,7 @@ texture = ExtResource("19_k26ev")
 hframes = 2
 
 [node name="SpilledCoffee" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(23, 18)
 texture = ExtResource("20_uoj0u")

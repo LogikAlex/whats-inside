@@ -28,5 +28,6 @@ func checkCoffee():
 
 func pictureFall():
 	player.can_move = true
+	MainSong.isPlaying = false
 	pictureSound.play()
 	globals.pictureFell = true

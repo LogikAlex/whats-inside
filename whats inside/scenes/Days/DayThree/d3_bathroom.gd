@@ -35,9 +35,9 @@ func _process(_delta: float) -> void:
 		endBrushing()
 
 func camTween():
-	var tween = create_tween()
 	if Input.is_action_just_released("ui_left") and right or \
 	Input.is_action_just_released("ui_left") and first:
+		var tween = create_tween()
 		tween.tween_property(camera, "offset", Vector2(-5, 0.0), 0.15)
 		tween.tween_callback(
 		func changeState():
@@ -47,6 +47,7 @@ func camTween():
 			brushCount += 1
 		)
 	if Input.is_action_just_released("ui_right") and !right:
+		var tween = create_tween()
 		tween.tween_property(camera, "offset", Vector2(5, 0.0), 0.15)
 		tween.tween_callback(
 		func changeState():

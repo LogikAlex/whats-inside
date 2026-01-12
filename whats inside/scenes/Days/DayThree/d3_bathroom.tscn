@@ -129,7 +129,7 @@ size = Vector2(3, 7)
 
 [sub_resource type="Resource" id="Resource_au7ll"]
 script = ExtResource("18_adixq")
-text = "*i should do it"
+text = "*brush."
 text_speed = 12.0
 text_sound = ExtResource("19_t0fth")
 text_volume_pitch_min = 0.75
@@ -181,7 +181,7 @@ shape = SubResource("RectangleShape2D_5e561")
 position = Vector2(64, 19)
 scale = Vector2(0.27049178, 0.19672133)
 color = Color(0.9843529, 0.98745495, 0.9660104, 1)
-energy = 0.2
+energy = 0.1
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_pxyr7")
 

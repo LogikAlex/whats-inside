@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://cqsma4oxbtcum"]
+[gd_scene load_steps=53 format=4 uid="uid://cqsma4oxbtcum"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_5wcec"]
 [ext_resource type="Script" uid="uid://s1vaqjvg254d" path="res://scenes/Days/DayThree/d3_livingroom.gd" id="1_c1dst"]
@@ -165,9 +165,21 @@ script = ExtResource("26_m5qn8")
 text = "*stop."
 text_speed = 10.0
 text_sound = ExtResource("27_wjf0p")
-text_volume_pitch_min = 0.7
-text_volume_pitch_max = 0.75
+text_volume_pitch_min = 0.6
+text_volume_pitch_max = 0.65
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_ocr4i"]
+script = ExtResource("26_m5qn8")
+text = "*work."
+text_speed = 12.0
+text_sound = ExtResource("27_wjf0p")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7lcb"]
+size = Vector2(6.5, 54)
 
 [node name="D3Livingroom" type="Node2D"]
 y_sort_enabled = true
@@ -183,7 +195,7 @@ metadata/_edit_lock_ = true
 position = Vector2(66, 18)
 
 [node name="Player" parent="." instance=ExtResource("2_861p8")]
-position = Vector2(53, 25)
+position = Vector2(56, 23)
 speed = 50.0
 
 [node name="Couch" parent="." instance=ExtResource("3_4hhdt")]
@@ -375,4 +387,16 @@ dialogue = Array[ExtResource("25_wjf0p")]([SubResource("Resource_yw21r")])
 [node name="CollisionShape2D" type="CollisionShape2D" parent="box_dialog4"]
 position = Vector2(-0.5, 0.50000095)
 shape = SubResource("RectangleShape2D_yw21r")
+disabled = true
+
+[node name="work_dialog" parent="." instance=ExtResource("24_lr1fy")]
+z_index = 1
+position = Vector2(56, 31)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("25_wjf0p")]([SubResource("Resource_ocr4i")])
+
+[node name="trigger_work" type="CollisionShape2D" parent="work_dialog"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_j7lcb")
 disabled = true

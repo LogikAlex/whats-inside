@@ -12,11 +12,15 @@ extends Node2D
 @onready var brokenPicture: Sprite2D = $BrokenPicture
 @onready var pictureDialogue: CollisionShape2D = $picture_dialog/CollisionShape2D
 @onready var pictureCheckDialogue: CollisionShape2D = $picture_check/CollisionShape2D
+@onready var workDialogue: CollisionShape2D = $work_dialog/trigger_work
 
 var currentBoxDialogue = 1
 
 func _ready() -> void:
 	if globals.checkedPicture:
+		if !globals.worked:
+			globals.canWork = true
+			workDialogue.disabled = false
 		brokenPicture.visible = true
 		picture.visible = false
 		pictureDialogue.disabled = true
@@ -36,6 +40,7 @@ func checkPic():
 	player.can_move = true
 	globals.checkedPicture = true
 	pictureCheckDialogue.disabled = false
+	workDialogue.disabled = false
 
 func enableBoxDialogue():
 	if currentBoxDialogue == 1:

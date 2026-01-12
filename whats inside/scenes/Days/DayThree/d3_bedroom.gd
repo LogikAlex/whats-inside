@@ -8,6 +8,8 @@ extends Node2D
 @onready var spaceIndicator: Sprite2D = $InteractIndicator
 @onready var typeIndicator: Sprite2D = $InteractIndicatorType
 @onready var workDialog: CollisionShape2D = $workDialog/CollisionShape2D
+@onready var workTrigger: CollisionShape2D = $work_func/CollisionShape2D
+@onready var deskDialog: CollisionShape2D = $deskDialogue/CollisionShape2D
 
 @onready var rand_letter = preload("res://scenes/Objects/randLetter.tscn")
 @onready var camera: Camera2D = $Camera2D
@@ -20,7 +22,12 @@ var rand_letter_tween: Tween
 var canWakeUp = false
 
 func _ready() -> void:
+	if globals.canWork:
+		deskDialog.disabled = true
+		workTrigger.disabled = false
 	if !globals.wokeFromDream:
+		globals.is_dark = false
+		globals.worked = false
 		globals.brushedTeeth = false
 		fadeInWhite()
 
@@ -32,6 +39,9 @@ func _process(_delta: float) -> void:
 		player.visible = true
 		player.can_move = true
 		fadeOutInteract()
+		MainSong.isPlaying = true
+		MainSong.volume_db = -3.0
+		MainSong.pitch_scale = 0.93
 	if Input.is_action_just_released("interact") and ended:
 		if canType and camera.zoom < Vector2(1.1, 1.1):
 			letter_tween()
@@ -79,7 +89,7 @@ func fadeInWhite():
 	player.position = Vector2(24.0, 10.0)
 	var fadeIn = create_tween()
 	fadeIn.tween_property(whiteScreen, "modulate:a", 0, 4).set_delay(0.5)
-	fadeIn.tween_property(spaceIndicator, "modulate:a", 1, 2).set_delay(6)
+	fadeIn.tween_property(spaceIndicator, "modulate:a", 1, 2).set_delay(4)
 	fadeIn.tween_callback(
 	func letHimUp():
 		spaceIndicator.isUpdating = true

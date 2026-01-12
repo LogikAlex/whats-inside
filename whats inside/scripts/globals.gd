@@ -19,6 +19,7 @@ var lastPlayerDir
 @export var cleanedCoffee = false
 
 #day three
+@export var canWork = false
 @export var wokeFromDream = false
 @export var inLR = false
 @export var pictureFell = false

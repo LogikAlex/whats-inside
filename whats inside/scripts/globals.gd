@@ -18,6 +18,10 @@ var lastPlayerDir
 @export var cleanedDialog = true
 @export var cleanedCoffee = false
 
+#dream
+@export var wokeUpDream = false
+@export var jumped = false
+
 #day three
 @export var canWork = false
 @export var wokeFromDream = false
@@ -26,7 +30,4 @@ var lastPlayerDir
 @export var checkedPicture = false
 @export var checkedCoffee = false
 @export var boxEvent = false
-
-#dream
-@export var wokeUpDream = false
-@export var jumped = false
+@export var watchedTV = false

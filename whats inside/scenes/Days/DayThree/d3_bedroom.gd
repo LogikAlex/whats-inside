@@ -10,6 +10,8 @@ extends Node2D
 @onready var workDialog: CollisionShape2D = $workDialog/CollisionShape2D
 @onready var workTrigger: CollisionShape2D = $work_func/CollisionShape2D
 @onready var deskDialog: CollisionShape2D = $deskDialogue/CollisionShape2D
+@onready var ambience: CanvasModulate = $ambience
+@onready var balconyLight: PointLight2D = $balconyLight
 
 @onready var rand_letter = preload("res://scenes/Objects/randLetter.tscn")
 @onready var camera: Camera2D = $Camera2D
@@ -22,6 +24,12 @@ var rand_letter_tween: Tween
 var canWakeUp = false
 
 func _ready() -> void:
+	if globals.is_dark:
+		ambience.color = Color8(45, 51, 76)
+		balconyLight.enabled = false
+	else:
+		ambience.color = Color8(184, 185, 209)
+		balconyLight.enabled = true
 	if globals.canWork:
 		deskDialog.disabled = true
 		workTrigger.disabled = false
@@ -49,6 +57,7 @@ func _process(_delta: float) -> void:
 			$keyboard_sounds.play()
 		if canType and camera.zoom >= Vector2(1.1, 1.1):
 			canType = false
+			globals.canWork = false
 			zoomOut()
 
 func _work_timer():

@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=4 uid="uid://bea25xxa1muwp"]
+[gd_scene load_steps=16 format=4 uid="uid://bea25xxa1muwp"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_2r0cj"]
+[ext_resource type="Script" uid="uid://dtshqvq1rwucr" path="res://scenes/Days/DayThree/d3_entry.gd" id="1_xp0fp"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_xp0fp"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="3_w4tmq"]
 [ext_resource type="Texture2D" uid="uid://d4cr6d3ael2ty" path="res://assets/objects/welcome_mat.png" id="4_wqtkd"]
@@ -45,18 +46,18 @@ alpha_curve = ExtResource("7_x86gy")
 
 [node name="D3Entry" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_xp0fp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(50, 18)
 
 [node name="ceilingLight" type="PointLight2D" parent="."]
 position = Vector2(49, 16)
-scale = Vector2(0.7008197, 0.7008197)
+scale = Vector2(0.36065573, 0.24590164)
 color = Color(0.9843529, 0.98745495, 0.9660104, 1)
 energy = 0.2
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_iqg1v")
-metadata/_edit_lock_ = true
 
 [node name="Tiles" type="TileMapLayer" parent="."]
 z_index = -1

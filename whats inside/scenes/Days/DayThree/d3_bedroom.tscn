@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://du6dg3w2q0m80"]
+[gd_scene load_steps=50 format=4 uid="uid://du6dg3w2q0m80"]
 
 [ext_resource type="Script" uid="uid://cjhal7om24y2c" path="res://scenes/Days/DayThree/d3_bedroom.gd" id="1_or88v"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="1_rf1mp"]
@@ -161,6 +161,9 @@ metadata/_custom_type_script = "uid://bj218rqao0syu"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2ca2"]
 size = Vector2(31, 31)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g2ca2"]
+light_mode = 1
+
 [node name="Bedroom" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_or88v")
@@ -216,11 +219,11 @@ texture = ExtResource("8_wngcm")
 [node name="closet" parent="." instance=ExtResource("9_or88v")]
 position = Vector2(71, -3)
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="balconyLight" type="PointLight2D" parent="."]
 position = Vector2(96, 24)
 scale = Vector2(1, 1.0124278)
 color = Color(1, 1, 0.8156863, 1)
-energy = 0.74
+energy = 0.4
 shadow_enabled = true
 texture = ExtResource("9_ld16a")
 
@@ -228,8 +231,8 @@ texture = ExtResource("9_ld16a")
 color = Color(0.7233474, 0.72355604, 0.8178685, 1)
 
 [node name="ceilingLight" type="PointLight2D" parent="."]
-position = Vector2(41, 19)
-scale = Vector2(0.5204918, 0.5204918)
+position = Vector2(41, 16)
+scale = Vector2(0.28688523, 0.2622951)
 color = Color(0.9843529, 0.98745495, 0.9660104, 1)
 energy = 0.2
 range_item_cull_mask = 3
@@ -365,6 +368,14 @@ volume_db = -0.001
 [node name="standUpDeskTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="FOR_DAY_4" type="Sprite2D" parent="."]
+visible = false
+z_index = -3
+material = SubResource("CanvasItemMaterial_g2ca2")
+position = Vector2(36.999996, 17)
+scale = Vector2(350, 208.49998)
+texture = ExtResource("2_s6uye")
 
 [connection signal="timeout" from="WorkTimer" to="." method="_on_work_timer_timeout"]
 [connection signal="timeout" from="standUpDeskTimer" to="." method="_on_stand_up_desk_timer_timeout"]

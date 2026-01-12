@@ -26,7 +26,7 @@ func _ready() -> void:
 	if globals.is_dark:
 		ambience.color = Color8(45, 51, 76)
 	else:
-		ambience.color = Color8(202, 208, 229)
+		ambience.color = Color8(184, 185, 209)
 
 func _process(_delta: float) -> void:
 	if brushing and brushCount < 3:

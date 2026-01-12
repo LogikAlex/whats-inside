@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://1rk568hxr3ps"]
+[gd_scene load_steps=10 format=3 uid="uid://1rk568hxr3ps"]
 
+[ext_resource type="Script" uid="uid://dllfsxdipbkr7" path="res://scenes/Days/DayThree/d3_balcony.gd" id="1_5fjk0"]
 [ext_resource type="Texture2D" uid="uid://u06hiofvr4cj" path="res://assets/misc/balcony_sprite.png" id="1_rc7ly"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="2_5fjk0"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="3_e0u7t"]
@@ -19,6 +20,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="D3Balcony" type="Node2D"]
+script = ExtResource("1_5fjk0")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(160, 43)
@@ -64,8 +66,8 @@ parameters/looping = true
 [node name="Spotlight" type="Sprite2D" parent="."]
 modulate = Color(0.93333334, 0.9764706, 0.93333334, 0.29411766)
 light_mask = 0
-position = Vector2(596, 61)
-scale = Vector2(16.035156, 15.46875)
+position = Vector2(540, 46)
+scale = Vector2(11.899413, 10.387237)
 texture = SubResource("GradientTexture2D_rc7ly")
 
 [node name="ambience" type="CanvasModulate" parent="."]

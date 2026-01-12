@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://cqsma4oxbtcum"]
+[gd_scene load_steps=61 format=4 uid="uid://cqsma4oxbtcum"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_5wcec"]
 [ext_resource type="Script" uid="uid://s1vaqjvg254d" path="res://scenes/Days/DayThree/d3_livingroom.gd" id="1_c1dst"]
@@ -28,6 +28,8 @@
 [ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="26_m5qn8"]
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="27_wjf0p"]
 [ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="28_m5qn8"]
+[ext_resource type="Texture2D" uid="uid://0atsfe242lba" path="res://assets/misc/floor_crack.png" id="29_60v34"]
+[ext_resource type="PackedScene" uid="uid://dx8tl06100qlm" path="res://scenes/interact_indicator.tscn" id="30_yw21r"]
 
 [sub_resource type="Gradient" id="Gradient_7vca8"]
 offsets = PackedFloat32Array(0, 0.7310606)
@@ -181,6 +183,43 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7lcb"]
 size = Vector2(6.5, 54)
 
+[sub_resource type="Resource" id="Resource_f77w6"]
+script = ExtResource("26_m5qn8")
+text = "*tv."
+text_speed = 12.0
+text_sound = ExtResource("27_wjf0p")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_xgyw7"]
+script = ExtResource("28_m5qn8")
+target_path = NodePath("..")
+function_name = "sitOnCouch"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iugen"]
+size = Vector2(8, 11)
+
+[sub_resource type="Resource" id="Resource_iugen"]
+script = ExtResource("26_m5qn8")
+text = "*maybe later."
+text_speed = 12.0
+text_sound = ExtResource("27_wjf0p")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_athdj"]
+script = ExtResource("28_m5qn8")
+target_path = NodePath("..")
+function_name = "fadeToDark"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jjir"]
+
 [node name="D3Livingroom" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_c1dst")
@@ -259,13 +298,6 @@ texture = ExtResource("22_ymvvc")
 [node name="Radiator" parent="." instance=ExtResource("10_syrsp")]
 position = Vector2(2, 27)
 
-[node name="Player_on_couch" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(96, 18)
-texture = ExtResource("11_lr1fy")
-hframes = 2
-frame = 1
-
 [node name="dust" type="GPUParticles2D" parent="."]
 position = Vector2(64, 17)
 amount = 30
@@ -290,6 +322,27 @@ texture = ExtResource("16_j7lcb")
 position = Vector2(52, 51)
 texture = ExtResource("17_861p8")
 flip_h = true
+
+[node name="FloorCracks" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(67, 4)
+texture = ExtResource("29_60v34")
+
+[node name="FloorCrack2" type="Sprite2D" parent="FloorCracks"]
+position = Vector2(-12, 36)
+scale = Vector2(1, 2)
+texture = ExtResource("29_60v34")
+
+[node name="Crack2" type="Sprite2D" parent="FloorCracks"]
+position = Vector2(-14, 45)
+texture = ExtResource("17_861p8")
+flip_h = true
+
+[node name="Crack5" type="Sprite2D" parent="FloorCracks"]
+position = Vector2(-1, -12)
+scale = Vector2(1, 1.9999999)
+texture = ExtResource("16_j7lcb")
 
 [node name="ambience" type="CanvasModulate" parent="."]
 color = Color(0.7233474, 0.72355604, 0.8178685, 1)
@@ -400,3 +453,53 @@ dialogue = Array[ExtResource("25_wjf0p")]([SubResource("Resource_ocr4i")])
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_j7lcb")
 disabled = true
+
+[node name="tv_dialog" parent="." instance=ExtResource("24_lr1fy")]
+z_index = 1
+position = Vector2(56, 31)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("25_wjf0p")]([SubResource("Resource_f77w6")])
+
+[node name="trigger_tv" type="CollisionShape2D" parent="tv_dialog"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_j7lcb")
+disabled = true
+
+[node name="tv_watch" parent="." instance=ExtResource("24_lr1fy")]
+position = Vector2(97, 25)
+only_activate_once = true
+dialogue = Array[ExtResource("25_wjf0p")]([SubResource("Resource_xgyw7")])
+
+[node name="trigger_watch_tv" type="CollisionShape2D" parent="tv_watch"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_iugen")
+disabled = true
+
+[node name="tv_dialogue" parent="." instance=ExtResource("24_lr1fy")]
+position = Vector2(101, 25)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("25_wjf0p")]([SubResource("Resource_iugen"), SubResource("Resource_athdj")])
+
+[node name="dialogue" type="CollisionShape2D" parent="tv_dialogue"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_5jjir")
+disabled = true
+
+[node name="SitOnCouchTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Player_on_couch" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(96, 18)
+texture = ExtResource("11_lr1fy")
+hframes = 2
+frame = 1
+
+[node name="InteractIndicator" parent="." instance=ExtResource("30_yw21r")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(96, 5.000002)
+
+[connection signal="timeout" from="SitOnCouchTimer" to="." method="_on_sit_on_couch_timer_timeout"]

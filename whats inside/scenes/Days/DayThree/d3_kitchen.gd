@@ -6,6 +6,7 @@ extends Node2D
 @onready var pictureTrigger: CollisionShape2D = $picture_trigger/trigger_coffee
 @onready var coffeeCheck: CollisionShape2D = $coffee_dialog/trigger_coffee
 @onready var coffeeRemind: CollisionShape2D = $coffee_remind/trigger_coffee
+@onready var ambience: CanvasModulate = $ambience
 
 var checkedCoffee = false
 
@@ -16,6 +17,10 @@ func _ready() -> void:
 	if globals.brushedTeeth and !globals.checkedCoffee:
 		coffeeRemind.disabled = false
 		coffeeCheck.disabled = false
+	if globals.is_dark:
+		ambience.color = Color8(45, 51, 76)
+	else:
+		ambience.color = Color8(156, 169, 158)
 
 func _process(_delta: float) -> void:
 	pass

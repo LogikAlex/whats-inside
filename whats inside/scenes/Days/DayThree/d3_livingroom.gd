@@ -17,6 +17,7 @@ extends Node2D
 
 
 #Other objects
+@onready var pictureDialoguePreFall = $picture_dialog_prefall/CollisionShape2D
 @onready var newCracks: Sprite2D = $FloorCracks
 @onready var player: CharacterBody2D = $Player
 @onready var picture: Sprite2D = $Picture
@@ -40,6 +41,7 @@ func _ready() -> void:
 			tvTrigger.disabled = false
 		newCracks.visible = true
 	if globals.checkedPicture:
+		pictureDialoguePreFall.disabled = true
 		if !globals.worked:
 			workDialogue.disabled = false
 		brokenPicture.visible = true
@@ -50,6 +52,7 @@ func _ready() -> void:
 		brokenPicture.visible = true
 		picture.visible = false
 		pictureDialogue.disabled = false
+		pictureDialoguePreFall.disabled = true
 	if globals.boxEvent:
 		boxDialogue1.disabled = true
 		boxDialogue4.disabled = false

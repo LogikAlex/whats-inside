@@ -5,8 +5,13 @@ extends Node2D
 @onready var sun: PointLight2D = $sun
 @onready var light: Sprite2D = $Spotlight
 
+@onready var dayDialogue: CollisionShape2D = $dayDialogue/CollisionShape2D
+@onready var nightDialogue: CollisionShape2D = $nightDialogue/CollisionShape2D
+
 func _ready() -> void:
 	if globals.is_dark:
+		dayDialogue.disabled = true
+		nightDialogue.disabled = false
 		ambience.color = Color8(45, 51, 76)
 		nightSound.play()
 		sun.enabled = false

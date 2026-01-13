@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://cqsma4oxbtcum"]
+[gd_scene load_steps=65 format=4 uid="uid://cqsma4oxbtcum"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_5wcec"]
 [ext_resource type="Script" uid="uid://s1vaqjvg254d" path="res://scenes/Days/DayThree/d3_livingroom.gd" id="1_c1dst"]
@@ -219,6 +219,30 @@ hide_dialogue_box = true
 metadata/_custom_type_script = "uid://bj218rqao0syu"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5jjir"]
+
+[sub_resource type="Resource" id="Resource_kv4q3"]
+script = ExtResource("26_m5qn8")
+text = "*it's a picture of a rainy day"
+text_speed = 14.0
+text_sound = ExtResource("27_wjf0p")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i71jf"]
+size = Vector2(13, 9)
+
+[sub_resource type="Resource" id="Resource_pb3fx"]
+script = ExtResource("26_m5qn8")
+text = "*keeps me warm..."
+text_speed = 12.0
+text_sound = ExtResource("27_wjf0p")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1k05"]
+size = Vector2(4, 17)
 
 [node name="D3Livingroom" type="Node2D"]
 y_sort_enabled = true
@@ -501,5 +525,21 @@ frame = 1
 [node name="InteractIndicator" parent="." instance=ExtResource("30_yw21r")]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(96, 5.000002)
+
+[node name="picture_dialog_prefall" parent="." instance=ExtResource("24_lr1fy")]
+position = Vector2(95, -8)
+dialogue = Array[ExtResource("25_wjf0p")]([SubResource("Resource_kv4q3")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="picture_dialog_prefall"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_i71jf")
+
+[node name="radiator_dialog" parent="." instance=ExtResource("24_lr1fy")]
+position = Vector2(1, 33)
+dialogue = Array[ExtResource("25_wjf0p")]([SubResource("Resource_pb3fx")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="radiator_dialog"]
+position = Vector2(1, 2.5)
+shape = SubResource("RectangleShape2D_i1k05")
 
 [connection signal="timeout" from="SitOnCouchTimer" to="." method="_on_sit_on_couch_timer_timeout"]

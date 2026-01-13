@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bea25xxa1muwp"]
+[gd_scene load_steps=24 format=4 uid="uid://bea25xxa1muwp"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_2r0cj"]
 [ext_resource type="Script" uid="uid://dtshqvq1rwucr" path="res://scenes/Days/DayThree/d3_entry.gd" id="1_xp0fp"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://b5hki7kvg72vf" path="res://assets/misc/dust_particle.png" id="6_yub5v"]
 [ext_resource type="Texture2D" uid="uid://cmi7pf3kwmats" path="res://scenes/Days/DayTwo/d2.tres" id="7_x86gy"]
 [ext_resource type="Texture2D" uid="uid://d3t7e3b5dulg7" path="res://assets/misc/crack_1.png" id="8_b6fph"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="10_yub5v"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="11_x86gy"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="12_b6fph"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="13_iqg1v"]
 
 [sub_resource type="Gradient" id="Gradient_5sxgv"]
 offsets = PackedFloat32Array(0, 0.7310606)
@@ -43,6 +47,30 @@ initial_velocity_max = 0.5
 gravity = Vector3(-1, 2, 0)
 scale_curve = SubResource("CurveTexture_u65lh")
 alpha_curve = ExtResource("7_x86gy")
+
+[sub_resource type="Resource" id="Resource_1oe1r"]
+script = ExtResource("12_b6fph")
+text = "*i can't throw it away"
+text_speed = 12.0
+text_sound = ExtResource("13_iqg1v")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uc3tt"]
+size = Vector2(11, 10)
+
+[sub_resource type="Resource" id="Resource_yub5v"]
+script = ExtResource("12_b6fph")
+text = "*later."
+text_speed = 12.0
+text_sound = ExtResource("13_iqg1v")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvyth"]
+size = Vector2(14, 10)
 
 [node name="D3Entry" type="Node2D"]
 y_sort_enabled = true
@@ -124,3 +152,18 @@ flip_h = true
 position = Vector2(91, -3)
 texture = ExtResource("8_b6fph")
 flip_h = true
+
+[node name="hanger_dialog" parent="." instance=ExtResource("10_yub5v")]
+position = Vector2(49, 2)
+dialogue = Array[ExtResource("11_x86gy")]([SubResource("Resource_1oe1r")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hanger_dialog"]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_uc3tt")
+
+[node name="door_dialog" parent="." instance=ExtResource("10_yub5v")]
+position = Vector2(24, -5)
+dialogue = Array[ExtResource("11_x86gy")]([SubResource("Resource_yub5v")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door_dialog"]
+shape = SubResource("RectangleShape2D_uvyth")

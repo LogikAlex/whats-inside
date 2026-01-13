@@ -34,6 +34,7 @@ func _ready() -> void:
 		deskDialog.disabled = true
 		workTrigger.disabled = false
 	if !globals.wokeFromDream:
+		MainSong.stop()
 		globals.is_dark = false
 		globals.worked = false
 		globals.brushedTeeth = false

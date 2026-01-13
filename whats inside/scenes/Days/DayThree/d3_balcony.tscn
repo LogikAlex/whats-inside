@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://1rk568hxr3ps"]
+[gd_scene load_steps=17 format=3 uid="uid://1rk568hxr3ps"]
 
 [ext_resource type="Script" uid="uid://dllfsxdipbkr7" path="res://scenes/Days/DayThree/d3_balcony.gd" id="1_5fjk0"]
 [ext_resource type="Texture2D" uid="uid://u06hiofvr4cj" path="res://assets/misc/balcony_sprite.png" id="1_rc7ly"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="3_e0u7t"]
 [ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="4_r2aia"]
 [ext_resource type="AudioStream" uid="uid://dy15a5truwsky" path="res://assets/sfx/night_ambience.mp3" id="5_pvda8"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="7_ftn5i"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="8_jsjqx"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="9_0n7xg"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="10_jxpnx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftn5i"]
 size = Vector2(20, 7)
@@ -18,6 +22,27 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_1v70g")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Resource" id="Resource_jvlks"]
+script = ExtResource("9_0n7xg")
+text = "*the view is beautiful today"
+text_speed = 12.0
+text_sound = ExtResource("10_jxpnx")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f647x"]
+size = Vector2(13, 62)
+
+[sub_resource type="Resource" id="Resource_68ty5"]
+script = ExtResource("9_0n7xg")
+text = "*i can't see anything.."
+text_speed = 12.0
+text_sound = ExtResource("10_jxpnx")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [node name="D3Balcony" type="Node2D"]
 script = ExtResource("1_5fjk0")
@@ -72,5 +97,22 @@ texture = SubResource("GradientTexture2D_rc7ly")
 
 [node name="ambience" type="CanvasModulate" parent="."]
 color = Color(0.7026079, 0.7044205, 0.74580026, 1)
+
+[node name="dayDialogue" parent="." instance=ExtResource("7_ftn5i")]
+position = Vector2(37, 43)
+dialogue = Array[ExtResource("8_jsjqx")]([SubResource("Resource_jvlks")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dayDialogue"]
+position = Vector2(4.5, -1)
+shape = SubResource("RectangleShape2D_f647x")
+
+[node name="nightDialogue" parent="." instance=ExtResource("7_ftn5i")]
+position = Vector2(37, 43)
+dialogue = Array[ExtResource("8_jsjqx")]([SubResource("Resource_68ty5")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nightDialogue"]
+position = Vector2(4.5, -1)
+shape = SubResource("RectangleShape2D_f647x")
+disabled = true
 
 [editable path="Player"]

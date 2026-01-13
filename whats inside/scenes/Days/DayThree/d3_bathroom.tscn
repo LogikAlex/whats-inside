@@ -1,7 +1,7 @@
 [gd_scene load_steps=33 format=4 uid="uid://csu25dtsxbeh"]
 
 [ext_resource type="Texture2D" uid="uid://bulrofjfrig43" path="res://assets/tilesets/bathroom_tiles.png" id="1_1mpho"]
-[ext_resource type="Script" uid="uid://cs8qwyelto6ri" path="res://scenes/Days/DayThree/d3_bathroom.gd" id="1_odtc1"]
+[ext_resource type="Script" uid="uid://cs8qwyelto6ri" path="res://scripts/dayThree/d3_bathroom.gd" id="1_odtc1"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_0uofq"]
 [ext_resource type="PackedScene" uid="uid://6dpanx0b6q7s" path="res://scenes/left_arrow.tscn" id="3_yeerk"]
 [ext_resource type="PackedScene" uid="uid://bijso44bvdy8o" path="res://scenes/Days/DayOne/right_arrow.tscn" id="4_i1a27"]

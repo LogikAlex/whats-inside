@@ -1,6 +1,6 @@
-[gd_scene load_steps=50 format=4 uid="uid://du6dg3w2q0m80"]
+[gd_scene load_steps=51 format=4 uid="uid://du6dg3w2q0m80"]
 
-[ext_resource type="Script" uid="uid://cjhal7om24y2c" path="res://scenes/Days/DayThree/d3_bedroom.gd" id="1_or88v"]
+[ext_resource type="Script" uid="uid://cjhal7om24y2c" path="res://scripts/dayThree/d3_bedroom.gd" id="1_or88v"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="1_rf1mp"]
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="2_or88v"]
 [ext_resource type="Texture2D" uid="uid://mvgkrnayxjlf" path="res://assets/misc/square.png" id="2_s6uye"]
@@ -30,12 +30,12 @@ polygon = PackedVector2Array(80, 16, 86, 16, 86, -21, -6, -21, -6, 54, 48, 54, 4
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_j26m0"]
 polygon = PackedVector2Array(64, 48, 80, 48, 80, 32, 86, 32, 86, 54, 64, 54)
 
-[sub_resource type="Gradient" id="Gradient_i04c0"]
+[sub_resource type="Gradient" id="Gradient_g2ca2"]
 offsets = PackedFloat32Array(0, 0.7310606)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_cbwy0"]
-gradient = SubResource("Gradient_i04c0")
+gradient = SubResource("Gradient_g2ca2")
 width = 244
 height = 244
 fill = 1
@@ -51,7 +51,7 @@ size = Vector2(8, 10)
 _data = [Vector2(0, 0.56320006), 0.0, 0.0, 0, 0, Vector2(0.27480915, 1), 0.0, 0.0, 0, 0, Vector2(0.71374047, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56320006), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_dsoqk"]
+[sub_resource type="CurveTexture" id="CurveTexture_fqwto"]
 width = 2048
 curve = SubResource("Curve_w5swn")
 
@@ -64,7 +64,7 @@ spread = 180.0
 initial_velocity_min = 0.099999994
 initial_velocity_max = 0.5
 gravity = Vector3(-1, 2, 0)
-scale_curve = SubResource("CurveTexture_dsoqk")
+scale_curve = SubResource("CurveTexture_fqwto")
 alpha_curve = ExtResource("14_or88v")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s6uye"]
@@ -161,6 +161,13 @@ metadata/_custom_type_script = "uid://bj218rqao0syu"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2ca2"]
 size = Vector2(31, 31)
 
+[sub_resource type="Resource" id="Resource_68ayb"]
+script = ExtResource("22_g2ca2")
+target_path = NodePath("..")
+function_name = "sleep"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g2ca2"]
 light_mode = 1
 
@@ -168,11 +175,29 @@ light_mode = 1
 y_sort_enabled = true
 script = ExtResource("1_or88v")
 
+[node name="WorkTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="standUpDeskTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [node name="WhiteScreen" type="CanvasLayer" parent="."]
 layer = 2
 visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="WhiteScreen"]
+position = Vector2(160.5, 89.99999)
+scale = Vector2(327.00003, 188)
+texture = ExtResource("2_s6uye")
+
+[node name="BlackScreen" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="BlackScreen"]
+modulate = Color(0, 0, 0, 0)
 position = Vector2(160.5, 89.99999)
 scale = Vector2(327.00003, 188)
 texture = ExtResource("2_s6uye")
@@ -315,6 +340,7 @@ dialogue = Array[ExtResource("18_ld16a")]([SubResource("Resource_wngcm")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bed_dialog"]
 shape = SubResource("RectangleShape2D_cbwy0")
+disabled = true
 
 [node name="closet_dialog" parent="." instance=ExtResource("17_wngcm")]
 position = Vector2(71, 1)
@@ -352,9 +378,12 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_g2ca2")
 disabled = true
 
-[node name="WorkTimer" type="Timer" parent="."]
-wait_time = 1.5
-one_shot = true
+[node name="sleep_func" parent="." instance=ExtResource("17_wngcm")]
+position = Vector2(8, 7)
+dialogue = Array[ExtResource("18_ld16a")]([SubResource("Resource_68ayb")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sleep_func"]
+shape = SubResource("RectangleShape2D_cbwy0")
 
 [node name="InteractIndicatorType" parent="." instance=ExtResource("6_qnf5k")]
 modulate = Color(1, 1, 1, 0)
@@ -364,10 +393,6 @@ position = Vector2(45, -15)
 [node name="keyboard_sounds" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_g2ca2")
 volume_db = -0.001
-
-[node name="standUpDeskTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
 
 [node name="FOR_DAY_4" type="Sprite2D" parent="."]
 visible = false

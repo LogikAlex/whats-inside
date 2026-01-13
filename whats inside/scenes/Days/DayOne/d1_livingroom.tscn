@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://nuymqiaevff7"]
+[gd_scene load_steps=59 format=4 uid="uid://nuymqiaevff7"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_6bm55"]
 [ext_resource type="Script" uid="uid://fgea5djxx3bf" path="res://scripts/dayOne/DayOneLR.gd" id="1_625l6"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c014t28xfb40m" path="res://scenes/Objects/radiator.tscn" id="18_3ffl5"]
 [ext_resource type="Texture2D" uid="uid://dkcfj3mhkcom4" path="res://assets/Spritesheets/player_idle_right.png" id="19_kv4q3"]
 [ext_resource type="Texture2D" uid="uid://b5hki7kvg72vf" path="res://assets/misc/dust_particle.png" id="21_fxcas"]
+[ext_resource type="Texture2D" uid="uid://bt55338t2mcu3" path="res://assets/objects/remote.png" id="21_ia1uf"]
 [ext_resource type="Curve" uid="uid://d3ufushs4pwfh" path="res://scenes/Days/DayOne/d1.tres" id="22_dsoqk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8ve7"]
@@ -465,6 +466,10 @@ position = Vector2(96, 18)
 texture = ExtResource("19_kv4q3")
 hframes = 2
 frame = 1
+
+[node name="Remote" type="Sprite2D" parent="Player_on_couch"]
+position = Vector2(4, 5)
+texture = ExtResource("21_ia1uf")
 
 [node name="dust" type="GPUParticles2D" parent="."]
 position = Vector2(64, 17)

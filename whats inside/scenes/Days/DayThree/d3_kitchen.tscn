@@ -1,6 +1,6 @@
 [gd_scene load_steps=45 format=4 uid="uid://cw34n7vfbol6v"]
 
-[ext_resource type="Script" uid="uid://6kk8ku18ache" path="res://scenes/Days/DayThree/d3_kitchen.gd" id="1_gst1f"]
+[ext_resource type="Script" uid="uid://6kk8ku18ache" path="res://scripts/dayThree/d3_kitchen.gd" id="1_gst1f"]
 [ext_resource type="Texture2D" uid="uid://dsvpekb435jkq" path="res://assets/tilesets/kitchen_tiles.png" id="1_m8ryj"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_nr1mx"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="3_gst1f"]

@@ -1,0 +1,154 @@
+[gd_scene load_steps=18 format=4 uid="uid://mc8ttn2r6rdh"]
+
+[ext_resource type="Texture2D" uid="uid://bulrofjfrig43" path="res://assets/tilesets/bathroom_tiles.png" id="1_7pveq"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="1_pstnn"]
+[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="2_pstnn"]
+[ext_resource type="Texture2D" uid="uid://q356uglah7st" path="res://assets/objects/towel.png" id="3_dud14"]
+[ext_resource type="PackedScene" uid="uid://d1ihff5cbsmms" path="res://scenes/Objects/bathroomSink.tscn" id="4_1cu62"]
+[ext_resource type="Texture2D" uid="uid://dkdlycq1b4kvu" path="res://assets/objects/mirror.png" id="5_1h6ra"]
+[ext_resource type="PackedScene" uid="uid://diln5o5xi66rg" path="res://scenes/Objects/stand.tscn" id="6_cvljm"]
+[ext_resource type="PackedScene" uid="uid://ch73qqrhk5kmv" path="res://scenes/Objects/toilet.tscn" id="7_mk3pj"]
+[ext_resource type="Texture2D" uid="uid://vaih3bys5mjy" path="res://assets/objects/toilet_paper.png" id="8_6d7b0"]
+[ext_resource type="PackedScene" uid="uid://cpn0v8in0pad5" path="res://scenes/Objects/washingMachine.tscn" id="9_3cbt3"]
+[ext_resource type="PackedScene" uid="uid://b0xolnyw0l6jk" path="res://scenes/Objects/bathtub.tscn" id="10_atgfm"]
+[ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="12_dud14"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b8uxy"]
+texture = ExtResource("1_7pveq")
+0:0/0 = 0
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_iepdw"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_b8uxy")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vd5ds"]
+size = Vector2(20, 7)
+
+[sub_resource type="Gradient" id="Gradient_5sxgv"]
+offsets = PackedFloat32Array(0, 0.7310606)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xuxop"]
+gradient = SubResource("Gradient_5sxgv")
+width = 244
+height = 244
+fill = 1
+fill_from = Vector2(0.5, 0.4871795)
+
+[node name="D4Bathroom" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_pstnn")]
+position = Vector2(26, 25)
+speed = 42.0
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.54725987, 0.5333227, 0.58319277, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(66, 19)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAAAAAAAAAAAAAACAAAAAAAAAAAAAAACAP7/AAADAAAAAAACAP//AAADAAEAAAADAP7/AAADAAAAAAADAP//AAADAAEAAAAEAP7/AAADAAAAAAAEAP//AAADAAEAAAAFAP7/AAADAAAAAAAFAP//AAADAAEAAAAGAP7/AAADAAAAAAAGAP//AAADAAEAAAABAP7/AAADAAAAAAABAP//AAADAAEAAAAAAP7/AAACAAAAAAAAAP//AAACAAEAAAAAAAAAAAACAAMAAAAAAAIAAAAAAAMAAAAAAAMAAAACAAQAAAABAAMAAAADAAQAAAACAAMAAAADAAQAAAADAAMAAAADAAQAAAAEAAMAAAADAAQAAAAFAAMAAAADAAQAAAAGAAMAAAADAAQAAAAHAAIAAAAEAAIAAAAHAAMAAAAEAAQAAAAHAAEAAAAEAAIAAAAHAAAAAAAEAAIAAAAHAP7/AAAEAAAAAAAHAP//AAAEAAEAAAABAAIAAAAAAAAAAAABAAEAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAEAAAAGAAIAAAA=")
+tile_set = SubResource("TileSet_iepdw")
+
+[node name="toEntry" parent="." instance=ExtResource("2_pstnn")]
+position = Vector2(10, 24)
+rotation = 1.5707964
+wanted_room_path = "res://scenes/Days/DayFour/d4_entry.tscn"
+wanted_player_pos = Vector2(89, 25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toEntry"]
+shape = SubResource("RectangleShape2D_vd5ds")
+
+[node name="ceilingLight" type="PointLight2D" parent="."]
+position = Vector2(64, 19)
+scale = Vector2(0.27049178, 0.19672133)
+color = Color(0.9843529, 0.98745495, 0.9660104, 1)
+energy = 0.1
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_xuxop")
+
+[node name="Towel" type="Sprite2D" parent="."]
+position = Vector2(81, -3)
+texture = ExtResource("3_dud14")
+
+[node name="BathroomSink" parent="." instance=ExtResource("4_1cu62")]
+position = Vector2(67, -7)
+
+[node name="Mirror" type="Sprite2D" parent="BathroomSink"]
+position = Vector2(0, -5)
+texture = ExtResource("5_1h6ra")
+
+[node name="Stand" parent="." instance=ExtResource("6_cvljm")]
+position = Vector2(52, -5)
+
+[node name="Toilet" parent="." instance=ExtResource("7_mk3pj")]
+position = Vector2(26, -3)
+
+[node name="ToiletPaper" type="Sprite2D" parent="Toilet"]
+position = Vector2(11, 1)
+texture = ExtResource("8_6d7b0")
+
+[node name="WashingMachine" parent="." instance=ExtResource("9_3cbt3")]
+position = Vector2(102, -2)
+
+[node name="Bathtub" parent="." instance=ExtResource("10_atgfm")]
+position = Vector2(100, 38)
+
+[node name="TheBox" parent="." instance=ExtResource("12_dud14")]
+position = Vector2(23, 40)

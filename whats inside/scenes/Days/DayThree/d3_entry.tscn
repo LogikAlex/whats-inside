@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=4 uid="uid://bea25xxa1muwp"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_2r0cj"]
-[ext_resource type="Script" uid="uid://dtshqvq1rwucr" path="res://scenes/Days/DayThree/d3_entry.gd" id="1_xp0fp"]
+[ext_resource type="Script" uid="uid://dtshqvq1rwucr" path="res://scripts/dayThree/d3_entry.gd" id="1_xp0fp"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_xp0fp"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="3_w4tmq"]
 [ext_resource type="Texture2D" uid="uid://d4cr6d3ael2ty" path="res://assets/objects/welcome_mat.png" id="4_wqtkd"]

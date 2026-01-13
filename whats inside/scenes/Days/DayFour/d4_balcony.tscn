@@ -1,0 +1,140 @@
+[gd_scene load_steps=18 format=3 uid="uid://bdftqums551tf"]
+
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="1_d2gyc"]
+[ext_resource type="Texture2D" uid="uid://u06hiofvr4cj" path="res://assets/misc/balcony_sprite.png" id="1_egamy"]
+[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="2_d2gyc"]
+[ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="3_pvu8c"]
+[ext_resource type="AudioStream" uid="uid://dy15a5truwsky" path="res://assets/sfx/night_ambience.mp3" id="4_51cla"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="5_oiolr"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="6_7gfoq"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="7_71t5s"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="8_mkxex"]
+[ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="10_pvu8c"]
+[ext_resource type="Texture2D" uid="uid://d3t7e3b5dulg7" path="res://assets/misc/crack_1.png" id="11_51cla"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xolem"]
+size = Vector2(20, 7)
+
+[sub_resource type="Gradient" id="Gradient_1v70g"]
+offsets = PackedFloat32Array(0, 0.6710098)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d8rlr"]
+gradient = SubResource("Gradient_1v70g")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Resource" id="Resource_jvlks"]
+script = ExtResource("7_71t5s")
+text = "*the view is beautiful today"
+text_speed = 12.0
+text_sound = ExtResource("8_mkxex")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7onxc"]
+size = Vector2(13, 62)
+
+[sub_resource type="Resource" id="Resource_68ty5"]
+script = ExtResource("7_71t5s")
+text = "*i can't see anything.."
+text_speed = 12.0
+text_sound = ExtResource("8_mkxex")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[node name="D4Balcony" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(160, 43)
+
+[node name="Player" parent="." instance=ExtResource("1_d2gyc")]
+position = Vector2(16, 42)
+speed = 42.0
+
+[node name="Balcony" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(24, 40)
+texture = ExtResource("1_egamy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 20, 0, 0, 15, 0, 15, 11, 38, 11, 38, 72, 35, 72, 15, 72, 15, 75, 0, 75, 0, 53, 6, 53, 6, 69, 34, 69, 34, 19, 6, 19, 6, 37, 0, 37)
+
+[node name="toBedroom" parent="." instance=ExtResource("2_d2gyc")]
+position = Vector2(-1, 45)
+rotation = -1.5707964
+wanted_room_path = "res://scenes/Days/DayFour/d4_bedroom.tscn"
+wanted_player_pos = Vector2(75, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toBedroom"]
+shape = SubResource("RectangleShape2D_xolem")
+
+[node name="sun" type="PointLight2D" parent="."]
+position = Vector2(62.000004, 42)
+scale = Vector2(1.7688439, 1.8100625)
+color = Color(0.93909687, 0.94756943, 0.9663058, 1)
+energy = 1.28
+shadow_enabled = true
+texture = ExtResource("3_pvu8c")
+
+[node name="night_ambience" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_51cla")
+volume_db = 10.0
+parameters/looping = true
+
+[node name="Spotlight" type="Sprite2D" parent="."]
+modulate = Color(0.93333334, 0.9764706, 0.93333334, 0.29411766)
+light_mask = 0
+position = Vector2(644, 46)
+scale = Vector2(13.715332, 10.387237)
+texture = SubResource("GradientTexture2D_d8rlr")
+
+[node name="dayDialogue" parent="." instance=ExtResource("5_oiolr")]
+position = Vector2(37, 43)
+dialogue = Array[ExtResource("6_7gfoq")]([SubResource("Resource_jvlks")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dayDialogue"]
+position = Vector2(4.5, -1)
+shape = SubResource("RectangleShape2D_7onxc")
+
+[node name="nightDialogue" parent="." instance=ExtResource("5_oiolr")]
+position = Vector2(37, 43)
+dialogue = Array[ExtResource("6_7gfoq")]([SubResource("Resource_68ty5")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nightDialogue"]
+position = Vector2(4.5, -1)
+shape = SubResource("RectangleShape2D_7onxc")
+disabled = true
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.54725987, 0.5333227, 0.58319277, 1)
+
+[node name="TheBox" parent="." instance=ExtResource("10_pvu8c")]
+position = Vector2(13, 22)
+
+[node name="Crack1" type="Sprite2D" parent="."]
+position = Vector2(10, 18)
+texture = ExtResource("11_51cla")
+flip_h = true
+
+[node name="Crack2" type="Sprite2D" parent="."]
+position = Vector2(11, 14)
+scale = Vector2(1, 2)
+texture = ExtResource("11_51cla")
+flip_h = true
+
+[node name="Crack3" type="Sprite2D" parent="."]
+position = Vector2(14, 5)
+texture = ExtResource("11_51cla")
+flip_h = true
+
+[node name="Crack4" type="Sprite2D" parent="."]
+position = Vector2(13, 7)
+scale = Vector2(1, 2)
+texture = ExtResource("11_51cla")
+flip_h = true

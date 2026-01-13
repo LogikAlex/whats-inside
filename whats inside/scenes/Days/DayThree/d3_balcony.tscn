@@ -1,6 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://1rk568hxr3ps"]
+[gd_scene load_steps=18 format=3 uid="uid://1rk568hxr3ps"]
 
-[ext_resource type="Script" uid="uid://dllfsxdipbkr7" path="res://scenes/Days/DayThree/d3_balcony.gd" id="1_5fjk0"]
+[ext_resource type="Script" uid="uid://dllfsxdipbkr7" path="res://scripts/dayThree/d3_balcony.gd" id="1_5fjk0"]
 [ext_resource type="Texture2D" uid="uid://u06hiofvr4cj" path="res://assets/misc/balcony_sprite.png" id="1_rc7ly"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="2_5fjk0"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="3_e0u7t"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="8_jsjqx"]
 [ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="9_0n7xg"]
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="10_jxpnx"]
+[ext_resource type="Texture2D" uid="uid://d3t7e3b5dulg7" path="res://assets/misc/crack_1.png" id="11_jsjqx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftn5i"]
 size = Vector2(20, 7)
@@ -114,5 +115,20 @@ dialogue = Array[ExtResource("8_jsjqx")]([SubResource("Resource_68ty5")])
 position = Vector2(4.5, -1)
 shape = SubResource("RectangleShape2D_f647x")
 disabled = true
+
+[node name="Crack1" type="Sprite2D" parent="."]
+position = Vector2(10, 18)
+texture = ExtResource("11_jsjqx")
+flip_h = true
+
+[node name="Crack2" type="Sprite2D" parent="."]
+position = Vector2(11, 16)
+texture = ExtResource("11_jsjqx")
+flip_h = true
+
+[node name="Crack3" type="Sprite2D" parent="."]
+position = Vector2(14, 5)
+texture = ExtResource("11_jsjqx")
+flip_h = true
 
 [editable path="Player"]

@@ -31,3 +31,6 @@ var lastPlayerDir
 @export var checkedCoffee = false
 @export var boxEvent = false
 @export var watchedTV = false
+
+#day four
+@export var wokeD4 = false

@@ -1,8 +1,11 @@
 extends Node2D
 
+@onready var bedSprite: Sprite2D = $bed.get_node("Sprite2D")
 @onready var table: Sprite2D = $BedroomTable
 @onready var whiteScreenCanvasLayer: CanvasLayer = $WhiteScreen
 @onready var whiteScreen: Sprite2D = $WhiteScreen/Sprite2D
+@onready var blackScreenCanvas: CanvasLayer = $BlackScreen
+@onready var blackScreen: Sprite2D = $BlackScreen/Sprite2D
 @onready var bedPlayerSprite: Sprite2D = $bed.get_node("Sprite2D")
 @onready var player: CharacterBody2D = $Player
 @onready var spaceIndicator: Sprite2D = $InteractIndicator
@@ -60,6 +63,17 @@ func _process(_delta: float) -> void:
 			canType = false
 			globals.canWork = false
 			zoomOut()
+
+func sleep():
+	var sleepTween = create_tween()
+	sleepTween.tween_property(bedSprite, "frame", 1, 0).set_delay(2)
+	sleepTween.tween_property(player, "visible", false, 0)
+	sleepTween.tween_property(blackScreenCanvas, "visible", true, 0).set_delay(3)
+	sleepTween.tween_property(blackScreen, "modulate:a", 1, 4)
+	sleepTween.tween_callback(
+	func nextDay():
+		get_tree().change_scene_to_file("res://scenes/Days/DayFour/d4_bedroom.tscn")
+	).set_delay(3)
 
 func _work_timer():
 	$WorkTimer.start()

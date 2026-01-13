@@ -1,0 +1,238 @@
+[gd_scene load_steps=28 format=4 uid="uid://dfvjlsfx3n2tg"]
+
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="1_wslf8"]
+[ext_resource type="Texture2D" uid="uid://dsvpekb435jkq" path="res://assets/tilesets/kitchen_tiles.png" id="1_ybcoj"]
+[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="2_wslf8"]
+[ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="3_2a63c"]
+[ext_resource type="PackedScene" uid="uid://dtsqunddbw638" path="res://scenes/Objects/stove.tscn" id="4_f7f3t"]
+[ext_resource type="PackedScene" uid="uid://rs8ct2ujac38" path="res://scenes/Objects/k_cabinet_r.tscn" id="5_fni47"]
+[ext_resource type="PackedScene" uid="uid://c1rne2my0x14t" path="res://scenes/Objects/k_cabinet_l.tscn" id="6_f3fsx"]
+[ext_resource type="PackedScene" uid="uid://dyxlup5kvj4wj" path="res://scenes/Objects/k_cabinet_small.tscn" id="7_xqtnw"]
+[ext_resource type="PackedScene" uid="uid://bum4g86bdw1fk" path="res://scenes/Objects/fridge.tscn" id="8_ubmpg"]
+[ext_resource type="PackedScene" uid="uid://di7hauqx1cnir" path="res://scenes/Objects/chair.tscn" id="9_cip12"]
+[ext_resource type="PackedScene" uid="uid://bmn2woebkx4n4" path="res://scenes/Objects/k_table.tscn" id="10_2ula6"]
+[ext_resource type="Texture2D" uid="uid://x552m6ijmnjr" path="res://assets/objects/coffee_machine.png" id="11_pmwe7"]
+[ext_resource type="Texture2D" uid="uid://b5hki7kvg72vf" path="res://assets/misc/dust_particle.png" id="12_t57f0"]
+[ext_resource type="Texture2D" uid="uid://cmi7pf3kwmats" path="res://scenes/Days/DayTwo/d2.tres" id="13_mavyu"]
+[ext_resource type="Texture2D" uid="uid://cwr7458fpren5" path="res://assets/objects/spilled_coffee.png" id="14_1eb3e"]
+[ext_resource type="Texture2D" uid="uid://32ls3khnu3a1" path="res://assets/objects/mug.png" id="15_eya1k"]
+[ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="17_2a63c"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g0ong"]
+texture = ExtResource("1_ybcoj")
+0:0/0 = 0
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:3/0 = 0
+6:2/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_cmj5a"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_g0ong")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3h3v"]
+size = Vector2(36, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jhwra"]
+polygon = PackedVector2Array(64, 24, 64, -21, 35, -21, 35, 24)
+
+[sub_resource type="Gradient" id="Gradient_7vca8"]
+offsets = PackedFloat32Array(0, 0.7310606)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k7tf8"]
+gradient = SubResource("Gradient_7vca8")
+width = 244
+height = 244
+fill = 1
+fill_from = Vector2(0.5, 0.4871795)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8boq"]
+size = Vector2(14, 8)
+
+[sub_resource type="Curve" id="Curve_5kwlm"]
+_data = [Vector2(0, 0.56320006), 0.0, 0.0, 0, 0, Vector2(0.27480915, 1), 0.0, 0.0, 0, 0, Vector2(0.71374047, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56320006), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_vkr1w"]
+width = 2048
+curve = SubResource("Curve_5kwlm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wiy2b"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(55, 38, 1)
+direction = Vector3(-1, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.5
+gravity = Vector3(-1, 2, 0)
+scale_curve = SubResource("CurveTexture_vkr1w")
+alpha_curve = ExtResource("13_mavyu")
+
+[node name="D4Kitchen" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_wslf8")]
+position = Vector2(80, 12)
+speed = 42.0
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.54725987, 0.5333227, 0.58319277, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(57, 30)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAACAAEAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAMAAAAAAAAAAAAAAP//AAADAAEAAAABAP//AAADAAEAAAACAP//AAADAAEAAAADAP//AAAFAAEAAAAGAP//AAAFAAMAAAAHAP//AAAEAAEAAAAHAAAAAAAEAAIAAAAHAAEAAAAEAAIAAAAHAAIAAAAEAAIAAAAHAAMAAAAEAAIAAAD/////AAACAAEAAAD//wAAAAACAAIAAAD//wEAAAACAAIAAAD//wIAAAACAAIAAAD//wMAAAACAAIAAAD//wQAAAACAAQAAAAAAAQAAAADAAQAAAABAAQAAAADAAQAAAACAAQAAAADAAQAAAADAAQAAAADAAQAAAAEAAQAAAADAAQAAAAFAAQAAAADAAQAAAAGAAQAAAADAAQAAAAHAAQAAAAEAAQAAAAAAP7/AAADAAAAAAABAP7/AAADAAAAAAACAP7/AAADAAAAAAADAP7/AAAFAAAAAAAGAP7/AAAFAAIAAAAHAP7/AAAEAAAAAAD///7/AAACAAAAAAAEAP//AAAGAAIAAAAFAP//AAAGAAIAAAA=")
+tile_set = SubResource("TileSet_cmj5a")
+
+[node name="toLivingroom" parent="." instance=ExtResource("2_wslf8")]
+position = Vector2(80, -12)
+wanted_room_path = "res://scenes/Days/DayFour/d4_livingroom.tscn"
+wanted_player_pos = Vector2(96, 42)
+isDoor = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toLivingroom"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_e3h3v")
+
+[node name="thedark" type="PointLight2D" parent="."]
+z_index = -2
+position = Vector2(81, -16)
+scale = Vector2(3.6249998, 1.421875)
+color = Color(0, 0, 0, 1)
+energy = 0.0
+blend_mode = 2
+shadow_enabled = true
+texture = ExtResource("3_2a63c")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_jhwra")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+position = Vector2(61, 0)
+occluder = SubResource("OccluderPolygon2D_jhwra")
+
+[node name="ceilingLight" type="PointLight2D" parent="."]
+position = Vector2(57.000004, 30)
+scale = Vector2(0.29508194, 0.22950818)
+color = Color(0.9843529, 0.98745495, 0.9660104, 1)
+energy = 0.2
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_k7tf8")
+
+[node name="Stove" parent="." instance=ExtResource("4_f7f3t")]
+position = Vector2(36, 8)
+
+[node name="KitchenCabinet" parent="." instance=ExtResource("5_fni47")]
+position = Vector2(54, 8)
+
+[node name="KitchenCabinet2" parent="." instance=ExtResource("6_f3fsx")]
+position = Vector2(9, 8)
+
+[node name="KitchenCabinet3" parent="." instance=ExtResource("7_xqtnw")]
+position = Vector2(22, 8)
+
+[node name="Fridge" parent="." instance=ExtResource("8_ubmpg")]
+position = Vector2(9, 39)
+
+[node name="Chair" parent="." instance=ExtResource("9_cip12")]
+position = Vector2(57, 40)
+
+[node name="Chair2" parent="." instance=ExtResource("9_cip12")]
+position = Vector2(102, 40)
+
+[node name="Sprite2D" parent="Chair2" index="0"]
+flip_h = true
+
+[node name="CollisionShape2D" parent="Chair2" index="1"]
+position = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_w8boq")
+
+[node name="KitchenTable" parent="." instance=ExtResource("10_2ula6")]
+position = Vector2(80, 45)
+
+[node name="CoffeeMachine" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(10, -7)
+texture = ExtResource("11_pmwe7")
+hframes = 2
+
+[node name="dust" type="GPUParticles2D" parent="."]
+z_index = 1
+position = Vector2(56, 24)
+amount = 30
+texture = ExtResource("12_t57f0")
+speed_scale = 0.2
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_wiy2b")
+
+[node name="SpilledCoffee" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(23, 18)
+texture = ExtResource("14_1eb3e")
+
+[node name="Mug" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(23, -3)
+texture = ExtResource("15_eya1k")
+hframes = 2
+frame = 1
+
+[node name="TheBox" parent="." instance=ExtResource("17_2a63c")]
+position = Vector2(7, 56)
+
+[editable path="Chair2"]

@@ -12,8 +12,9 @@ var canTryAgain = true
 var tries = 1
 
 func _ready() -> void:
-	globals.wokeD4 = true
+	#globals.wokeD4 = true
 	if !globals.wokeD4:
+		player.position = Vector2(24.0, 9.0)
 		globals.is_dark = false
 		wakeUp()
 

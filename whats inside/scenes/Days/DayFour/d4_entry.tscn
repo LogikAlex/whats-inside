@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://d3fls7t2kg6qn"]
+[gd_scene load_steps=22 format=4 uid="uid://d3fls7t2kg6qn"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_ggdu0"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="2_gfnau"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://d3t7e3b5dulg7" path="res://assets/misc/crack_1.png" id="7_d1tvp"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="8_1ugul"]
 [ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="9_gfnau"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="10_yn2vh"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="11_d1tvp"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="12_1ugul"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="13_nwfj5"]
 
 [sub_resource type="Gradient" id="Gradient_5sxgv"]
 offsets = PackedFloat32Array(0, 0.7310606)
@@ -43,6 +47,18 @@ initial_velocity_max = 0.5
 gravity = Vector3(-1, 2, 0)
 scale_curve = SubResource("CurveTexture_u65lh")
 alpha_curve = ExtResource("6_yn2vh")
+
+[sub_resource type="Resource" id="Resource_weelw"]
+script = ExtResource("12_1ugul")
+text = "*nobody's coming."
+text_speed = 10.0
+text_sound = ExtResource("13_nwfj5")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kd6k3"]
+size = Vector2(23, 7)
 
 [node name="D4Entry" type="Node2D"]
 y_sort_enabled = true
@@ -145,3 +161,13 @@ color = Color(0.54725987, 0.5333227, 0.58319277, 1)
 
 [node name="TheBox" parent="." instance=ExtResource("9_gfnau")]
 position = Vector2(90, 0)
+
+[node name="blameDialog" parent="." instance=ExtResource("10_yn2vh")]
+position = Vector2(72, -4)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("11_d1tvp")]([SubResource("Resource_weelw")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blameDialog"]
+position = Vector2(1.5, 5.5)
+shape = SubResource("RectangleShape2D_kd6k3")

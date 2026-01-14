@@ -221,6 +221,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_wiy2b")
 
 [node name="SpilledCoffee" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.3764706)
 z_index = -1
 position = Vector2(23, 18)
 texture = ExtResource("14_1eb3e")

@@ -15,6 +15,9 @@ extends Node2D
 @onready var deskDialog: CollisionShape2D = $deskDialogue/CollisionShape2D
 @onready var ambience: CanvasModulate = $ambience
 @onready var balconyLight: PointLight2D = $balconyLight
+@onready var sleepFunc: CollisionShape2D = $sleep_func/CollisionShape2D
+@onready var sleepDialog: CollisionShape2D = $sleepDialog/CollisionShape2D
+@onready var bedDialog: CollisionShape2D = $bed_dialog/CollisionShape2D
 
 @onready var rand_letter = preload("res://scenes/Objects/randLetter.tscn")
 @onready var camera: Camera2D = $Camera2D
@@ -30,6 +33,9 @@ func _ready() -> void:
 	if globals.is_dark:
 		ambience.color = Color8(45, 51, 76)
 		balconyLight.enabled = false
+		sleepFunc.disabled = false
+		sleepDialog.disabled = false
+		bedDialog.disabled = true
 	else:
 		ambience.color = Color8(184, 185, 209)
 		balconyLight.enabled = true

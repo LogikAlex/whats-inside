@@ -133,7 +133,7 @@ size = Vector2(11, 7.000002)
 
 [sub_resource type="Resource" id="Resource_wjf0p"]
 script = ExtResource("26_m5qn8")
-text = "*i don't want to.."
+text = "*i don't want to"
 text_speed = 12.0
 text_sound = ExtResource("27_wjf0p")
 text_volume_pitch_min = 0.7
@@ -149,7 +149,7 @@ metadata/_custom_type_script = "uid://bj218rqao0syu"
 
 [sub_resource type="Resource" id="Resource_m5qn8"]
 script = ExtResource("26_m5qn8")
-text = "*i'm not ready"
+text = "*i can't"
 text_speed = 12.0
 text_sound = ExtResource("27_wjf0p")
 text_volume_pitch_min = 0.7
@@ -235,7 +235,7 @@ size = Vector2(13, 9)
 
 [sub_resource type="Resource" id="Resource_pb3fx"]
 script = ExtResource("26_m5qn8")
-text = "*keeps me warm..."
+text = "*keeps me warm."
 text_speed = 12.0
 text_sound = ExtResource("27_wjf0p")
 text_volume_pitch_min = 0.75
@@ -274,6 +274,7 @@ shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = ExtResource("4_14dsx")
 script = ExtResource("5_8evka")
+metadata/_edit_lock_ = true
 
 [node name="ceilingLight" type="PointLight2D" parent="."]
 position = Vector2(64, 19)
@@ -281,6 +282,7 @@ scale = Vector2(0.44262296, 0.3114754)
 energy = 0.2
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_5jjir")
+metadata/_edit_lock_ = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_i71jf")

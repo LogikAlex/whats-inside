@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://du6dg3w2q0m80"]
+[gd_scene load_steps=53 format=4 uid="uid://du6dg3w2q0m80"]
 
 [ext_resource type="Script" uid="uid://cjhal7om24y2c" path="res://scripts/dayThree/d3_bedroom.gd" id="1_or88v"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="1_rf1mp"]
@@ -84,7 +84,7 @@ size = Vector2(16, 8)
 
 [sub_resource type="Resource" id="Resource_fkvcy"]
 script = ExtResource("19_2yd7u")
-text = "*A radiator. it keeps me warm"
+text = "*keeps me warm."
 text_speed = 14.0
 text_sound = ExtResource("20_g2ca2")
 text_volume_db = 1
@@ -122,7 +122,7 @@ size = Vector2(10, 11)
 
 [sub_resource type="Resource" id="Resource_d3b3h"]
 script = ExtResource("19_2yd7u")
-text = "*it's my closet"
+text = "*it's the closet."
 text_speed = 14.0
 text_sound = ExtResource("20_g2ca2")
 text_volume_pitch_min = 0.75
@@ -160,6 +160,18 @@ metadata/_custom_type_script = "uid://bj218rqao0syu"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2ca2"]
 size = Vector2(31, 31)
+
+[sub_resource type="Resource" id="Resource_614l8"]
+script = ExtResource("19_2yd7u")
+text = "*sleep."
+text_speed = 12.0
+text_sound = ExtResource("20_g2ca2")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rr8s5"]
+size = Vector2(10, 8)
 
 [sub_resource type="Resource" id="Resource_68ayb"]
 script = ExtResource("22_g2ca2")
@@ -340,7 +352,6 @@ dialogue = Array[ExtResource("18_ld16a")]([SubResource("Resource_wngcm")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bed_dialog"]
 shape = SubResource("RectangleShape2D_cbwy0")
-disabled = true
 
 [node name="closet_dialog" parent="." instance=ExtResource("17_wngcm")]
 position = Vector2(71, 1)
@@ -378,12 +389,23 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_g2ca2")
 disabled = true
 
+[node name="sleepDialog" parent="." instance=ExtResource("17_wngcm")]
+position = Vector2(24, 14)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("18_ld16a")]([SubResource("Resource_614l8")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sleepDialog"]
+shape = SubResource("RectangleShape2D_rr8s5")
+disabled = true
+
 [node name="sleep_func" parent="." instance=ExtResource("17_wngcm")]
 position = Vector2(8, 7)
 dialogue = Array[ExtResource("18_ld16a")]([SubResource("Resource_68ayb")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sleep_func"]
 shape = SubResource("RectangleShape2D_cbwy0")
+disabled = true
 
 [node name="InteractIndicatorType" parent="." instance=ExtResource("6_qnf5k")]
 modulate = Color(1, 1, 1, 0)

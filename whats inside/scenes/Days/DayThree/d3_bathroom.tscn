@@ -108,7 +108,7 @@ size = Vector2(3, 7)
 
 [sub_resource type="Resource" id="Resource_nbs3h"]
 script = ExtResource("18_adixq")
-text = "*my toothbrush"
+text = "*i ruined it."
 text_speed = 12.0
 text_sound = ExtResource("19_t0fth")
 text_volume_pitch_min = 0.7

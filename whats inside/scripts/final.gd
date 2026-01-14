@@ -58,4 +58,5 @@ func _start_scene_timer():
 	scene_timer.start()
 
 func _on_scene_timer_timeout() -> void:
+	globals.is_dark = false
 	get_tree().change_scene_to_file("res://scenes/Days/DayThree/d3_bedroom.tscn")

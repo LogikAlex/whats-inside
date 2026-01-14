@@ -1,13 +1,17 @@
-[gd_scene load_steps=29 format=4 uid="uid://040iln4r6icu"]
+[gd_scene load_steps=35 format=4 uid="uid://040iln4r6icu"]
 
 [ext_resource type="Texture2D" uid="uid://mvgkrnayxjlf" path="res://assets/misc/square.png" id="1_injro"]
 [ext_resource type="Script" uid="uid://bg8wn553memmb" path="res://scripts/dayFour/d4_bedroom.gd" id="1_smwkx"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_smwkx"]
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="3_c1d8e"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="4_s5uhs"]
 [ext_resource type="PackedScene" uid="uid://lyewe0q5cjnt" path="res://scenes/Objects/bed.tscn" id="4_xussd"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="5_iwwf2"]
 [ext_resource type="PackedScene" uid="uid://c014t28xfb40m" path="res://scenes/Objects/radiator.tscn" id="5_wqhel"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="6_ivwm8"]
 [ext_resource type="PackedScene" uid="uid://i08cixlwo7qb" path="res://scenes/Objects/bedsideCabinet.tscn" id="6_kfirv"]
 [ext_resource type="PackedScene" uid="uid://dx8tl06100qlm" path="res://scenes/interact_indicator.tscn" id="7_s5uhs"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="7_tu4vo"]
 [ext_resource type="Texture2D" uid="uid://qhcs6stv71ts" path="res://assets/objects/carpet.png" id="8_iwwf2"]
 [ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="10_tu4vo"]
 [ext_resource type="Texture2D" uid="uid://b82wipn7s8aq5" path="res://assets/objects/bedroom_table.png" id="11_8bguy"]
@@ -17,6 +21,18 @@
 [ext_resource type="Texture2D" uid="uid://bs7cxyqisn674" path="res://scenes/Days/DayThree/d3.tres" id="14_xa663"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="15_uo3qx"]
 [ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="17_c1d8e"]
+
+[sub_resource type="Resource" id="Resource_kfirv"]
+script = ExtResource("6_ivwm8")
+text = "*it was my fault."
+text_speed = 10.0
+text_sound = ExtResource("7_tu4vo")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8bguy"]
+size = Vector2(26, 7)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kd4do"]
 polygon = PackedVector2Array(80, 16, 86, 16, 86, -21, -6, -21, -6, 54, 48, 54, 48, 48, 0, 48, 0, 0, 80, 0)
@@ -82,8 +98,18 @@ scale = Vector2(327.00003, 188)
 texture = ExtResource("1_injro")
 metadata/_edit_lock_ = true
 
+[node name="blameDialog" parent="." instance=ExtResource("4_s5uhs")]
+position = Vector2(57, 40)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("5_iwwf2")]([SubResource("Resource_kfirv")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blameDialog"]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_8bguy")
+
 [node name="Player" parent="." instance=ExtResource("2_smwkx")]
-position = Vector2(24, 9)
+position = Vector2(40, 23)
 speed = 42.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -177,7 +203,7 @@ metadata/_edit_lock_ = true
 [node name="toLivingroom" parent="." instance=ExtResource("15_uo3qx")]
 position = Vector2(56, 55)
 wanted_room_path = "res://scenes/Days/DayFour/d4_livingroom.tscn"
-wanted_player_pos = Vector2(24, 6)
+wanted_player_pos = Vector2(24, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toLivingroom"]
 shape = SubResource("RectangleShape2D_63rrv")

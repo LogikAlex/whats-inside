@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://cfouj58y3frym"]
+[gd_scene load_steps=38 format=4 uid="uid://cfouj58y3frym"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_f6swm"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_3yau0"]
@@ -23,6 +23,10 @@
 [ext_resource type="Texture2D" uid="uid://dkcfj3mhkcom4" path="res://assets/Spritesheets/player_idle_right.png" id="20_buk5g"]
 [ext_resource type="Texture2D" uid="uid://bt55338t2mcu3" path="res://assets/objects/remote.png" id="22_3yau0"]
 [ext_resource type="Texture2D" uid="uid://csago72bbir6w" path="res://assets/objects/remote_outline.png" id="23_wp1dh"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="24_v5l6h"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="25_qop75"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="26_s86u8"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="27_8glna"]
 
 [sub_resource type="Gradient" id="Gradient_yw21r"]
 offsets = PackedFloat32Array(0, 0.7310606)
@@ -64,6 +68,18 @@ size = Vector2(20, 7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7kmsl"]
 size = Vector2(36, 8)
 
+[sub_resource type="Resource" id="Resource_bev3e"]
+script = ExtResource("26_s86u8")
+text = "*why am i like this?"
+text_speed = 10.0
+text_sound = ExtResource("27_8glna")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_808va"]
+size = Vector2(23, 7)
+
 [node name="D4Livingroom" type="Node2D"]
 y_sort_enabled = true
 
@@ -74,7 +90,7 @@ tile_set = ExtResource("1_f6swm")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_3yau0")]
-position = Vector2(24, 9)
+position = Vector2(60, 22)
 speed = 42.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -237,3 +253,13 @@ scale = Vector2(0.16803275, 0.1557377)
 energy = 0.54
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_q0npr")
+
+[node name="blameDialog" parent="." instance=ExtResource("24_v5l6h")]
+position = Vector2(24, -3)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("25_qop75")]([SubResource("Resource_bev3e")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blameDialog"]
+position = Vector2(-1.5, 5.5)
+shape = SubResource("RectangleShape2D_808va")

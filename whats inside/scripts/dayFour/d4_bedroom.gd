@@ -6,13 +6,17 @@ extends Node2D
 @onready var player: CharacterBody2D = $Player
 @onready var interactIndicator: Sprite2D = $InteractIndicator
 @onready var wFlash: Sprite2D = $whiteFlash
+@onready var wakeSfx: AudioStreamPlayer2D = $wake_sfx
+@onready var blameDialogue: CollisionShape2D = $blameDialog/CollisionShape2D
 
 var canWake = false
 var canTryAgain = true
 var tries = 1
 
 func _ready() -> void:
-	#globals.wokeD4 = true
+	globals.wokeD4 = true
+	if globals.bedroomBlame:
+		blameDialogue.disabled = false
 	if !globals.wokeD4:
 		player.position = Vector2(24.0, 9.0)
 		globals.is_dark = false
@@ -31,6 +35,10 @@ func _process(_delta: float) -> void:
 				bedPlayerSprite.frame = 0
 				fadeOutInteract()
 
+func set_false():
+	globals.bedroomBlame = false
+	player.can_move = true
+
 func wakeUp():
 	var wakeTween = create_tween()
 	bedPlayerSprite.frame = 1
@@ -47,6 +55,7 @@ func wakeUp():
 	).set_delay(0.1)
 
 func whiteFlash():
+	wakeSfx.play()
 	canTryAgain = false
 	var flash = create_tween()
 	wFlash.visible = true

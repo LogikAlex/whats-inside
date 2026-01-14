@@ -34,3 +34,16 @@ var lastPlayerDir
 
 #day four
 @export var wokeD4 = false
+@export var checkedAll = false
+@export var bedroomBlame = true
+@export var balconyBlame = true
+@export var livingroomBlame = true
+@export var entryBlame = true
+@export var bathroomBlame = true
+@export var kitchenBlame = true
+
+func _process(_delta: float) -> void:
+	if bedroomBlame == false and balconyBlame == false \
+	and livingroomBlame == false and entryBlame == false \
+	and bathroomBlame == false and kitchenBlame == false:
+		checkedAll = true

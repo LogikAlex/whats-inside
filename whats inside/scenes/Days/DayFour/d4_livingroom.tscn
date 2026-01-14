@@ -1,7 +1,9 @@
-[gd_scene load_steps=38 format=4 uid="uid://cfouj58y3frym"]
+[gd_scene load_steps=44 format=4 uid="uid://cfouj58y3frym"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_f6swm"]
+[ext_resource type="Script" uid="uid://d4hffu667kf5p" path="res://scripts/dayFour/d4_livingroom.gd" id="1_qop75"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_3yau0"]
+[ext_resource type="Texture2D" uid="uid://mvgkrnayxjlf" path="res://assets/misc/square.png" id="2_8glna"]
 [ext_resource type="PackedScene" uid="uid://cth4hylf5dh1y" path="res://scenes/Objects/couch.tscn" id="2_ywxxk"]
 [ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="3_3yau0"]
 [ext_resource type="Script" uid="uid://m1npkkbsfmks" path="res://scripts/d2_tv_light.gd" id="4_wp1dh"]
@@ -27,6 +29,7 @@
 [ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="25_qop75"]
 [ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="26_s86u8"]
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="27_8glna"]
+[ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="29_s86u8"]
 
 [sub_resource type="Gradient" id="Gradient_yw21r"]
 offsets = PackedFloat32Array(0, 0.7310606)
@@ -70,18 +73,46 @@ size = Vector2(36, 8)
 
 [sub_resource type="Resource" id="Resource_bev3e"]
 script = ExtResource("26_s86u8")
-text = "*why am i like this?"
+text = "*was it a mistake?"
 text_speed = 10.0
 text_sound = ExtResource("27_8glna")
 text_volume_pitch_min = 0.75
 text_volume_pitch_max = 0.7
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
+[sub_resource type="Resource" id="Resource_8glna"]
+script = ExtResource("29_s86u8")
+target_path = NodePath("..")
+function_name = "set_false"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_808va"]
 size = Vector2(23, 7)
 
+[sub_resource type="Resource" id="Resource_xgyw7"]
+script = ExtResource("29_s86u8")
+target_path = NodePath("..")
+function_name = "sitOnCouch"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s86u8"]
+size = Vector2(8, 11)
+
 [node name="D4Livingroom" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_qop75")
+
+[node name="BlackScreen" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="BlackScreen"]
+modulate = Color(0, 0, 0, 0)
+position = Vector2(160.5, 89.99999)
+scale = Vector2(327.00003, 188)
+texture = ExtResource("2_8glna")
+metadata/_edit_lock_ = true
 
 [node name="Tiles" type="TileMapLayer" parent="."]
 z_index = -1
@@ -108,6 +139,7 @@ shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = ExtResource("3_3yau0")
 script = ExtResource("4_wp1dh")
+metadata/_edit_lock_ = true
 
 [node name="ceilingLight" type="PointLight2D" parent="."]
 position = Vector2(64, 19)
@@ -115,6 +147,16 @@ scale = Vector2(0.44262296, 0.3114754)
 energy = 0.2
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_q0npr")
+metadata/_edit_lock_ = true
+
+[node name="couchLight" type="PointLight2D" parent="."]
+position = Vector2(105, 23.000002)
+scale = Vector2(0.29149595, 0.27560243)
+enabled = false
+energy = 0.65
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_q0npr")
+metadata/_edit_lock_ = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_giuew")
@@ -258,8 +300,19 @@ texture = SubResource("GradientTexture2D_q0npr")
 position = Vector2(24, -3)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("25_qop75")]([SubResource("Resource_bev3e")])
+dialogue = Array[ExtResource("25_qop75")]([SubResource("Resource_bev3e"), SubResource("Resource_8glna")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blameDialog"]
 position = Vector2(-1.5, 5.5)
 shape = SubResource("RectangleShape2D_808va")
+disabled = true
+
+[node name="tv_watch" parent="." instance=ExtResource("24_v5l6h")]
+position = Vector2(97, 25)
+only_activate_once = true
+dialogue = Array[ExtResource("25_qop75")]([SubResource("Resource_xgyw7")])
+
+[node name="trigger_watch_tv" type="CollisionShape2D" parent="tv_watch"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_s86u8")
+disabled = true

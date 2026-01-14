@@ -1,5 +1,6 @@
-[gd_scene load_steps=28 format=4 uid="uid://dfvjlsfx3n2tg"]
+[gd_scene load_steps=37 format=4 uid="uid://dfvjlsfx3n2tg"]
 
+[ext_resource type="Script" uid="uid://blyrj1i5mmleg" path="res://scripts/dayFour/d4_kitchen.gd" id="1_ubmpg"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="1_wslf8"]
 [ext_resource type="Texture2D" uid="uid://dsvpekb435jkq" path="res://assets/tilesets/kitchen_tiles.png" id="1_ybcoj"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="2_wslf8"]
@@ -17,6 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://cwr7458fpren5" path="res://assets/objects/spilled_coffee.png" id="14_1eb3e"]
 [ext_resource type="Texture2D" uid="uid://32ls3khnu3a1" path="res://assets/objects/mug.png" id="15_eya1k"]
 [ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="17_2a63c"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="18_xqtnw"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="19_ubmpg"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="20_cip12"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="21_2ula6"]
+[ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="23_cip12"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g0ong"]
 texture = ExtResource("1_ybcoj")
@@ -121,8 +127,27 @@ gravity = Vector3(-1, 2, 0)
 scale_curve = SubResource("CurveTexture_vkr1w")
 alpha_curve = ExtResource("13_mavyu")
 
+[sub_resource type="Resource" id="Resource_pmwe7"]
+script = ExtResource("20_cip12")
+text = "*i'm scared."
+text_speed = 10.0
+text_sound = ExtResource("21_2ula6")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_2ula6"]
+script = ExtResource("23_cip12")
+target_path = NodePath("..")
+function_name = "set_false"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t57f0"]
+
 [node name="D4Kitchen" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_ubmpg")
 
 [node name="Player" parent="." instance=ExtResource("1_wslf8")]
 position = Vector2(80, 12)
@@ -235,5 +260,15 @@ frame = 1
 
 [node name="TheBox" parent="." instance=ExtResource("17_2a63c")]
 position = Vector2(7, 56)
+
+[node name="blameDialog" parent="." instance=ExtResource("18_xqtnw")]
+position = Vector2(7, 57)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("19_ubmpg")]([SubResource("Resource_pmwe7"), SubResource("Resource_2ula6")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blameDialog"]
+shape = SubResource("RectangleShape2D_t57f0")
+disabled = true
 
 [editable path="Chair2"]

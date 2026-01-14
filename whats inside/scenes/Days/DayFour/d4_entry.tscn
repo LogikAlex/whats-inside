@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=4 uid="uid://d3fls7t2kg6qn"]
+[gd_scene load_steps=29 format=4 uid="uid://d3fls7t2kg6qn"]
 
+[ext_resource type="Script" uid="uid://0dmxh6ol2ocl" path="res://scripts/dayFour/d4_entry.gd" id="1_1ugul"]
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_ggdu0"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="2_gfnau"]
 [ext_resource type="Texture2D" uid="uid://d4cr6d3ael2ty" path="res://assets/objects/welcome_mat.png" id="3_kv0y5"]
@@ -13,6 +14,7 @@
 [ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="11_d1tvp"]
 [ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="12_1ugul"]
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="13_nwfj5"]
+[ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="14_d1tvp"]
 
 [sub_resource type="Gradient" id="Gradient_5sxgv"]
 offsets = PackedFloat32Array(0, 0.7310606)
@@ -57,11 +59,43 @@ text_volume_pitch_min = 0.75
 text_volume_pitch_max = 0.7
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
+[sub_resource type="Resource" id="Resource_1ugul"]
+script = ExtResource("14_d1tvp")
+target_path = NodePath("..")
+function_name = "set_false"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd6k3"]
 size = Vector2(23, 7)
 
+[sub_resource type="Resource" id="Resource_yn2vh"]
+script = ExtResource("12_1ugul")
+text = "*it's still here."
+text_speed = 12.0
+text_sound = ExtResource("13_nwfj5")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1tvp"]
+size = Vector2(11, 10)
+
+[sub_resource type="Resource" id="Resource_d1tvp"]
+script = ExtResource("12_1ugul")
+text = "*not coming back."
+text_speed = 10.0
+text_sound = ExtResource("13_nwfj5")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ugul"]
+size = Vector2(14, 10)
+
 [node name="D4Entry" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_1ugul")
 
 [node name="Player" parent="." instance=ExtResource("8_1ugul")]
 position = Vector2(72, 6)
@@ -166,8 +200,24 @@ position = Vector2(90, 0)
 position = Vector2(72, -4)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("11_d1tvp")]([SubResource("Resource_weelw")])
+dialogue = Array[ExtResource("11_d1tvp")]([SubResource("Resource_weelw"), SubResource("Resource_1ugul")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blameDialog"]
 position = Vector2(1.5, 5.5)
 shape = SubResource("RectangleShape2D_kd6k3")
+disabled = true
+
+[node name="hanger_dialog" parent="." instance=ExtResource("10_yn2vh")]
+position = Vector2(49, 2)
+dialogue = Array[ExtResource("11_d1tvp")]([SubResource("Resource_yn2vh")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hanger_dialog"]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_d1tvp")
+
+[node name="door_dialog" parent="." instance=ExtResource("10_yn2vh")]
+position = Vector2(24, -5)
+dialogue = Array[ExtResource("11_d1tvp")]([SubResource("Resource_d1tvp")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door_dialog"]
+shape = SubResource("RectangleShape2D_1ugul")

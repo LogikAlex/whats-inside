@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdftqums551tf"]
+[gd_scene load_steps=23 format=3 uid="uid://bdftqums551tf"]
 
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="1_d2gyc"]
 [ext_resource type="Texture2D" uid="uid://u06hiofvr4cj" path="res://assets/misc/balcony_sprite.png" id="1_egamy"]
+[ext_resource type="Script" uid="uid://bbsj1eo1cp4fm" path="res://scripts/dayFour/d4_balcony.gd" id="1_oiolr"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="2_d2gyc"]
 [ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="3_pvu8c"]
 [ext_resource type="AudioStream" uid="uid://dy15a5truwsky" path="res://assets/sfx/night_ambience.mp3" id="4_51cla"]
@@ -11,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="8_mkxex"]
 [ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="10_pvu8c"]
 [ext_resource type="Texture2D" uid="uid://d3t7e3b5dulg7" path="res://assets/misc/crack_1.png" id="11_51cla"]
+[ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="13_7gfoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xolem"]
 size = Vector2(20, 7)
@@ -26,7 +28,7 @@ fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="Resource" id="Resource_jvlks"]
 script = ExtResource("7_71t5s")
-text = "*the view is beautiful today"
+text = "*why am i like this?"
 text_speed = 12.0
 text_sound = ExtResource("8_mkxex")
 text_volume_pitch_min = 0.75
@@ -45,8 +47,27 @@ text_volume_pitch_min = 0.75
 text_volume_pitch_max = 0.7
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
+[sub_resource type="Resource" id="Resource_51cla"]
+script = ExtResource("7_71t5s")
+text = "*i should have done better."
+text_speed = 10.0
+text_sound = ExtResource("8_mkxex")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_71t5s"]
+script = ExtResource("13_7gfoq")
+target_path = NodePath("..")
+function_name = "set_false"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51cla"]
+
 [node name="D4Balcony" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_oiolr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(160, 43)
@@ -138,3 +159,13 @@ position = Vector2(13, 7)
 scale = Vector2(1, 2)
 texture = ExtResource("11_51cla")
 flip_h = true
+
+[node name="blameDialog" parent="." instance=ExtResource("5_oiolr")]
+position = Vector2(15, 24)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("6_7gfoq")]([SubResource("Resource_51cla"), SubResource("Resource_71t5s")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blameDialog"]
+shape = SubResource("RectangleShape2D_51cla")
+disabled = true

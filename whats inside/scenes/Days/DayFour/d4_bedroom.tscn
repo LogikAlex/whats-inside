@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://040iln4r6icu"]
+[gd_scene load_steps=38 format=4 uid="uid://040iln4r6icu"]
 
 [ext_resource type="Texture2D" uid="uid://mvgkrnayxjlf" path="res://assets/misc/square.png" id="1_injro"]
 [ext_resource type="Script" uid="uid://bg8wn553memmb" path="res://scripts/dayFour/d4_bedroom.gd" id="1_smwkx"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c014t28xfb40m" path="res://scenes/Objects/radiator.tscn" id="5_wqhel"]
 [ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="6_ivwm8"]
 [ext_resource type="PackedScene" uid="uid://i08cixlwo7qb" path="res://scenes/Objects/bedsideCabinet.tscn" id="6_kfirv"]
+[ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="7_ivwm8"]
 [ext_resource type="PackedScene" uid="uid://dx8tl06100qlm" path="res://scenes/interact_indicator.tscn" id="7_s5uhs"]
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="7_tu4vo"]
 [ext_resource type="Texture2D" uid="uid://qhcs6stv71ts" path="res://assets/objects/carpet.png" id="8_iwwf2"]
@@ -21,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://bs7cxyqisn674" path="res://scenes/Days/DayThree/d3.tres" id="14_xa663"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="15_uo3qx"]
 [ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="17_c1d8e"]
+[ext_resource type="AudioStream" uid="uid://d2h2wbhspu83t" path="res://assets/sfx/wake_sfx.mp3" id="22_iwwf2"]
 
 [sub_resource type="Resource" id="Resource_kfirv"]
 script = ExtResource("6_ivwm8")
@@ -31,6 +33,13 @@ text_volume_pitch_min = 0.75
 text_volume_pitch_max = 0.7
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
+[sub_resource type="Resource" id="Resource_tu4vo"]
+script = ExtResource("7_ivwm8")
+target_path = NodePath("..")
+function_name = "set_false"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8bguy"]
 size = Vector2(26, 7)
 
@@ -40,12 +49,12 @@ polygon = PackedVector2Array(80, 16, 86, 16, 86, -21, -6, -21, -6, 54, 48, 54, 4
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pt4xg"]
 polygon = PackedVector2Array(64, 48, 80, 48, 80, 32, 86, 32, 86, 54, 64, 54)
 
-[sub_resource type="Gradient" id="Gradient_i04c0"]
+[sub_resource type="Gradient" id="Gradient_ivwm8"]
 offsets = PackedFloat32Array(0, 0.7310606)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5j82n"]
-gradient = SubResource("Gradient_i04c0")
+gradient = SubResource("Gradient_ivwm8")
 width = 244
 height = 244
 fill = 1
@@ -61,7 +70,7 @@ size = Vector2(8, 10)
 _data = [Vector2(0, 0.56320006), 0.0, 0.0, 0, 0, Vector2(0.27480915, 1), 0.0, 0.0, 0, 0, Vector2(0.71374047, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56320006), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_dsoqk"]
+[sub_resource type="CurveTexture" id="CurveTexture_tu4vo"]
 width = 2048
 curve = SubResource("Curve_ufs44")
 
@@ -74,7 +83,7 @@ spread = 180.0
 initial_velocity_min = 0.099999994
 initial_velocity_max = 0.5
 gravity = Vector3(-1, 2, 0)
-scale_curve = SubResource("CurveTexture_dsoqk")
+scale_curve = SubResource("CurveTexture_tu4vo")
 alpha_curve = ExtResource("14_xa663")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63rrv"]
@@ -102,11 +111,12 @@ metadata/_edit_lock_ = true
 position = Vector2(57, 40)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("5_iwwf2")]([SubResource("Resource_kfirv")])
+dialogue = Array[ExtResource("5_iwwf2")]([SubResource("Resource_kfirv"), SubResource("Resource_tu4vo")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blameDialog"]
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_8bguy")
+disabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_smwkx")]
 position = Vector2(40, 23)
@@ -227,3 +237,8 @@ texture = ExtResource("1_injro")
 
 [node name="TheBox" parent="." instance=ExtResource("17_c1d8e")]
 position = Vector2(74, 40)
+
+[node name="wake_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_iwwf2")
+volume_db = -4.022
+pitch_scale = 0.93

@@ -52,6 +52,7 @@ script = ExtResource("1_5fjk0")
 position = Vector2(160, 43)
 
 [node name="Balcony" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(24, 40)
 texture = ExtResource("1_rc7ly")
 
@@ -117,11 +118,13 @@ shape = SubResource("RectangleShape2D_f647x")
 disabled = true
 
 [node name="Crack1" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(10, 18)
 texture = ExtResource("11_jsjqx")
 flip_h = true
 
 [node name="Crack2" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(11, 16)
 texture = ExtResource("11_jsjqx")
 flip_h = true

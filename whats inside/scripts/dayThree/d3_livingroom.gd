@@ -86,6 +86,8 @@ func fadeToDark():
 	watch.set_parallel()
 	watch.tween_property(tvLight, "enabled", true, 0).set_delay(4)
 	watch.tween_property(ambience, "color", Color8(45, 51, 76), 0).set_delay(4)
+	watch.tween_property(NightSong, "isPlaying", true, 0).set_delay(4)
+	watch.tween_property(NightSong, "volume_db", 6.5, 0).set_delay(4)
 	watch.tween_property(interactIndicator, "modulate:a", 1, 2).set_delay(8)
 	watch.tween_callback(
 	func canStandUp():

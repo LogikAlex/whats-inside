@@ -1,0 +1,295 @@
+[gd_scene load_steps=41 format=4 uid="uid://bcfstkvmw7vr2"]
+
+[ext_resource type="Script" uid="uid://dm0xeci2nrdop" path="res://scenes/Days/Tweaking Day/livingroom_remote.gd" id="1_r5c1g"]
+[ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_wvk1l"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_r5c1g"]
+[ext_resource type="PackedScene" uid="uid://cth4hylf5dh1y" path="res://scenes/Objects/couch.tscn" id="3_c2vmu"]
+[ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="4_68dhh"]
+[ext_resource type="Script" uid="uid://m1npkkbsfmks" path="res://scripts/d2_tv_light.gd" id="5_3c7by"]
+[ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="6_500s7"]
+[ext_resource type="PackedScene" uid="uid://cbsr1cdpporx" path="res://scenes/Objects/lamp.tscn" id="7_78y63"]
+[ext_resource type="PackedScene" uid="uid://cgpoipqm1ls12" path="res://scenes/Objects/plant_d3.tscn" id="8_8mfbh"]
+[ext_resource type="Texture2D" uid="uid://xtdk2s5q4bfx" path="res://assets/objects/broken_picture.png" id="9_1ggpp"]
+[ext_resource type="Texture2D" uid="uid://c5t4va7d62rg3" path="res://assets/misc/glass_shard.png" id="10_dadp3"]
+[ext_resource type="Texture2D" uid="uid://dmebk3gpcrv4a" path="res://assets/misc/glass_shard_2.png" id="11_xpdln"]
+[ext_resource type="PackedScene" uid="uid://c014t28xfb40m" path="res://scenes/Objects/radiator.tscn" id="12_ra34h"]
+[ext_resource type="Texture2D" uid="uid://b5hki7kvg72vf" path="res://assets/misc/dust_particle.png" id="13_g3ies"]
+[ext_resource type="Texture2D" uid="uid://bs7cxyqisn674" path="res://scenes/Days/DayThree/d3.tres" id="14_jpgjg"]
+[ext_resource type="PackedScene" uid="uid://b08631to2twuy" path="res://scenes/Objects/tv_d2.tscn" id="15_uskxf"]
+[ext_resource type="Texture2D" uid="uid://dciukd8npw6x2" path="res://assets/misc/crack_3.png" id="16_tbd24"]
+[ext_resource type="Texture2D" uid="uid://c8pr53qdhnfn7" path="res://assets/misc/crack_4.png" id="17_l3fup"]
+[ext_resource type="Texture2D" uid="uid://d3t7e3b5dulg7" path="res://assets/misc/crack_1.png" id="18_rulrb"]
+[ext_resource type="Texture2D" uid="uid://0atsfe242lba" path="res://assets/misc/floor_crack.png" id="19_7nhkm"]
+[ext_resource type="Texture2D" uid="uid://dkcfj3mhkcom4" path="res://assets/Spritesheets/player_idle_right.png" id="20_viajy"]
+[ext_resource type="Texture2D" uid="uid://csago72bbir6w" path="res://assets/objects/remote_outline.png" id="22_p1a5c"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="23_500s7"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="24_78y63"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="25_8mfbh"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="26_1ggpp"]
+[ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="27_dadp3"]
+
+[sub_resource type="Gradient" id="Gradient_yw21r"]
+offsets = PackedFloat32Array(0, 0.7310606)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nqobf"]
+gradient = SubResource("Gradient_yw21r")
+width = 244
+height = 244
+fill = 1
+fill_from = Vector2(0.5, 0.4871795)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jp3i0"]
+polygon = PackedVector2Array(122, 14, 101, 6, 122, 16, 122, 26, 100, 35, 122, 28, 124, 28, 124, 14)
+
+[sub_resource type="Curve" id="Curve_m0wif"]
+_data = [Vector2(0, 0.56320006), 0.0, 0.0, 0, 0, Vector2(0.27480915, 1), 0.0, 0.0, 0, 0, Vector2(0.71374047, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56320006), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_j7lcb"]
+width = 2048
+curve = SubResource("Curve_m0wif")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k6q3b"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(64, 30, 1)
+direction = Vector3(-1, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.5
+gravity = Vector3(-1, 2, 0)
+scale_curve = SubResource("CurveTexture_j7lcb")
+alpha_curve = ExtResource("14_jpgjg")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvk1l"]
+size = Vector2(99, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5c1g"]
+size = Vector2(17, 20)
+
+[sub_resource type="Resource" id="Resource_68dhh"]
+script = ExtResource("27_dadp3")
+target_path = NodePath("..")
+function_name = "cameraShift"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68dhh"]
+size = Vector2(8, 5)
+
+[sub_resource type="Resource" id="Resource_500s7"]
+script = ExtResource("25_8mfbh")
+text = "*it's the remote."
+text_speed = 10.0
+text_sound = ExtResource("26_1ggpp")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_3c7by"]
+script = ExtResource("27_dadp3")
+target_path = NodePath("..")
+function_name = "pickUpRemote"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3c7by"]
+
+[node name="LivingroomRemote" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_r5c1g")
+
+[node name="Tiles" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAAAP//AAAGAAEAAAADAP//AAADAAEAAAAEAP//AAADAAEAAAAHAP//AAADAAEAAAAAAP7/AAAGAAAAAAACAP7/AAAGAAIAAAADAP7/AAADAAAAAAAEAP7/AAADAAAAAAAHAP7/AAADAAAAAAD//wIAAAACAAIAAAD//wEAAAACAAIAAAD//wAAAAACAAIAAAD/////AAACAAEAAAD///7/AAACAAAAAAAIAAIAAAAEAAIAAAAIAAEAAAAEAAIAAAAIAAAAAAAEAAIAAAAIAP//AAAEAAEAAAAIAP7/AAAEAAAAAAAFAP7/AAADAAAAAAAFAP//AAADAAEAAAAGAP7/AAADAAAAAAAGAP//AAADAAEAAAD//wMAAAACAAQAAAAAAAMAAAAAAAQAAAABAAMAAAAFAAMAAAACAAMAAAABAAQAAAADAAMAAAADAAQAAAAEAAMAAAAAAAQAAAAGAAMAAAAFAAMAAAAHAAMAAAABAAQAAAAIAAMAAAAEAAQAAAACAP//AAAGAAMAAAABAP//AAADAAMAAAABAP7/AAADAAIAAAAFAAMAAAAFAAMAAAA=")
+tile_set = ExtResource("1_wvk1l")
+collision_enabled = false
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_r5c1g")]
+position = Vector2(60, 22)
+speed = 42.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(66, 18)
+
+[node name="Couch" parent="." instance=ExtResource("3_c2vmu")]
+position = Vector2(94, 17)
+
+[node name="tvLight" type="PointLight2D" parent="."]
+position = Vector2(121, 21)
+color = Color(1, 1, 0.8156863, 1)
+energy = 0.2
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("4_68dhh")
+script = ExtResource("5_3c7by")
+metadata/_edit_lock_ = true
+
+[node name="ceilingLight" type="PointLight2D" parent="."]
+position = Vector2(64, 19)
+scale = Vector2(0.44262296, 0.3114754)
+energy = 0.2
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_nqobf")
+metadata/_edit_lock_ = true
+
+[node name="ceilingLight2" type="PointLight2D" parent="."]
+position = Vector2(105, 23.000002)
+scale = Vector2(0.2684426, 0.26071328)
+color = Color(0.8255811, 0.83836645, 0.9193533, 1)
+energy = 0.29
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_nqobf")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_jp3i0")
+
+[node name="TheBox" parent="." instance=ExtResource("6_500s7")]
+position = Vector2(7, 0)
+
+[node name="Lamp" parent="." instance=ExtResource("7_78y63")]
+position = Vector2(123, 6)
+
+[node name="Plant2" parent="." instance=ExtResource("8_8mfbh")]
+position = Vector2(48, 3)
+
+[node name="BrokenPicture" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(95, 1)
+texture = ExtResource("9_1ggpp")
+
+[node name="GlassShard2" type="Sprite2D" parent="BrokenPicture"]
+position = Vector2(11, 2)
+rotation = -0.5235584
+texture = ExtResource("10_dadp3")
+
+[node name="GlassShard3" type="Sprite2D" parent="BrokenPicture"]
+position = Vector2(-13, 7)
+rotation = -1.8325958
+texture = ExtResource("10_dadp3")
+
+[node name="GlassShard4" type="Sprite2D" parent="BrokenPicture"]
+position = Vector2(-12, 1)
+rotation = 0.5235988
+texture = ExtResource("11_xpdln")
+
+[node name="Radiator" parent="." instance=ExtResource("12_ra34h")]
+position = Vector2(2, 27)
+
+[node name="dust" type="GPUParticles2D" parent="."]
+position = Vector2(64, 17)
+amount = 50
+texture = ExtResource("13_g3ies")
+speed_scale = 0.2
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_k6q3b")
+metadata/_edit_lock_ = true
+
+[node name="TV" parent="." instance=ExtResource("15_uskxf")]
+position = Vector2(123, 19)
+
+[node name="Crack3" type="Sprite2D" parent="."]
+position = Vector2(65, -16)
+texture = ExtResource("16_tbd24")
+
+[node name="Crack4" type="Sprite2D" parent="."]
+position = Vector2(67, -4)
+texture = ExtResource("17_l3fup")
+
+[node name="Crack1" type="Sprite2D" parent="."]
+position = Vector2(52, 51)
+texture = ExtResource("18_rulrb")
+flip_h = true
+
+[node name="FloorCracks" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(67, 4)
+texture = ExtResource("19_7nhkm")
+
+[node name="FloorCrack2" type="Sprite2D" parent="FloorCracks"]
+position = Vector2(-12, 36)
+scale = Vector2(1, 2)
+texture = ExtResource("19_7nhkm")
+
+[node name="Crack2" type="Sprite2D" parent="FloorCracks"]
+position = Vector2(-14, 45)
+texture = ExtResource("18_rulrb")
+flip_h = true
+
+[node name="Crack5" type="Sprite2D" parent="FloorCracks"]
+position = Vector2(-1, -12)
+scale = Vector2(1, 1.9999999)
+texture = ExtResource("17_l3fup")
+
+[node name="nail" type="Sprite2D" parent="."]
+modulate = Color(0.32156864, 0.32156864, 0.36078432, 1)
+position = Vector2(94.5, -16.5)
+scale = Vector2(1.0000019, 1.0000005)
+texture = ExtResource("13_g3ies")
+
+[node name="Player_on_couch" type="Sprite2D" parent="."]
+position = Vector2(96, 18)
+texture = ExtResource("20_viajy")
+hframes = 2
+frame = 1
+
+[node name="FOR_DAY_5" type="Sprite2D" parent="."]
+position = Vector2(258, 21)
+texture = ExtResource("22_p1a5c")
+
+[node name="ceilingLight" type="PointLight2D" parent="FOR_DAY_5"]
+position = Vector2(0, 1.9073486e-06)
+scale = Vector2(0.2950819, 0.28688523)
+energy = 0.54
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_nqobf")
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.15921146, 0.12177811, 0.30488247, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 48, 0, 0, 128, 0, 128, 48, 112, 48, 112, 54, 135, 54, 135, 0, 135, -10, 128, -10, -7, -10, -7, 54, 16, 54, 16, 48)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(32, 48, 80, 48, 80, 54, 32, 54)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
+polygon = PackedVector2Array(-84, 97, -84, -50, 281, -50, 276, -44, -79, -44, -79, 93, 276, 93, 276, -44, 281, -50, 281, 97)
+
+[node name="barrier" type="StaticBody2D" parent="."]
+position = Vector2(55, 51)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="barrier"]
+position = Vector2(9, 4)
+shape = SubResource("RectangleShape2D_wvk1l")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(97, 27)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_r5c1g")
+
+[node name="tvNoRemote" parent="." instance=ExtResource("23_500s7")]
+position = Vector2(123, 25)
+dialogue = Array[ExtResource("24_78y63")]([SubResource("Resource_68dhh")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tvNoRemote"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_68dhh")
+
+[node name="pickUpRemote" parent="." instance=ExtResource("23_500s7")]
+position = Vector2(259, 21)
+dialogue = Array[ExtResource("24_78y63")]([SubResource("Resource_500s7"), SubResource("Resource_3c7by")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickUpRemote"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_3c7by")

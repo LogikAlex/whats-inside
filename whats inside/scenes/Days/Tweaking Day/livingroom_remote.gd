@@ -34,6 +34,10 @@ func turnOff():
 	turnoff.tween_property(ambience, "color", Color8(0, 0, 0), 0.1).set_delay(2.04)
 	turnoff.tween_property($tvLight, "energy", 0, 0.1).set_delay(2).set_ease(Tween.EASE_OUT)
 	turnoff.tween_property($tvLight, "enabled", false, 0).set_delay(2.1)
+	turnoff.tween_callback(
+	func finish():
+		get_tree().change_scene_to_file("res://scenes/Days/Tweaking Day/box_livingroom.tscn")
+	).set_delay(2.11)
 
 func pickUpRemote():
 	tvRemoteSprite.visible = false

@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=4 uid="uid://flvjs6aut0gk"]
+
+[ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_jrgqd"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_sh1y7"]
+[ext_resource type="PackedScene" uid="uid://dwlrdkw6lmigf" path="res://scenes/Days/Tweaking Day/box_spawn_trigger.tscn" id="3_co0bu"]
+[ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="4_bohkm"]
+
+[sub_resource type="Gradient" id="Gradient_yw21r"]
+offsets = PackedFloat32Array(0, 0.7310606)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_co0bu"]
+gradient = SubResource("Gradient_yw21r")
+width = 244
+height = 244
+fill = 1
+fill_from = Vector2(0.5, 0.4871795)
+
+[node name="Hallway" type="Node2D"]
+y_sort_enabled = true
+
+[node name="DoorGone" type="TileMapLayer" parent="."]
+visible = false
+tile_map_data = PackedByteArray("AAABAP7/AAADAAAAAAABAP//AAADAAEAAAAAAP//AAADAAEAAAACAP//AAADAAEAAAAAAP7/AAADAAAAAAACAP7/AAADAAAAAAA=")
+tile_set = ExtResource("1_jrgqd")
+metadata/_edit_lock_ = true
+
+[node name="Tiles" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAAAAP//AAAGAAEAAAAAAP7/AAAGAAAAAAACAP7/AAAGAAIAAAD//wIAAAACAAIAAAD//wEAAAACAAIAAAD//wAAAAACAAIAAAD/////AAACAAEAAAD///7/AAACAAAAAAACAP//AAAGAAMAAAABAP//AAADAAMAAAABAP7/AAADAAIAAAADAP7/AAAEAAAAAAADAP//AAAEAAEAAAADAAEAAAAEAAIAAAADAAAAAAAEAAIAAAD//wMAAAACAAIAAAD//wQAAAACAAIAAAD//wUAAAACAAIAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAADAAIAAAAEAAIAAAADAAMAAAAEAAIAAAADAAQAAAAEAAIAAAADAAUAAAAEAAIAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAAAAAAAAAABAAYAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAABAAoAAAAAAAAAAAACAAoAAAAAAAAAAAACAAkAAAAAAAAAAAACAAgAAAAAAAAAAAACAAcAAAAAAAAAAAABAAcAAAAAAAAAAAABAAgAAAAAAAAAAAABAAkAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAAAAAAAAAABAA8AAAAAAAAAAAACAA8AAAAAAAAAAAACAA4AAAAAAAAAAAACAA0AAAAAAAAAAAACAAwAAAAAAAAAAAACAAsAAAAAAAAAAAABAAsAAAAAAAAAAAABAAwAAAAAAAAAAAABAA0AAAAAAAAAAAABAA4AAAAAAAAAAAD//wYAAAACAAIAAAD//wcAAAACAAIAAAD//wgAAAACAAIAAAD//wkAAAACAAIAAAD//woAAAACAAIAAAD//wsAAAACAAIAAAD//wwAAAACAAIAAAD//w0AAAACAAIAAAD//w4AAAACAAIAAAD//w8AAAACAAIAAAADAAYAAAAEAAIAAAADAAcAAAAEAAIAAAADAAgAAAAEAAIAAAADAAkAAAAEAAIAAAADAAoAAAAEAAIAAAADAAsAAAAEAAIAAAADAAwAAAAEAAIAAAADAA0AAAAEAAIAAAADAA4AAAAEAAIAAAADAA8AAAAEAAIAAAADABAAAAAEAAQAAAACABAAAAADAAQAAAABABAAAAADAAQAAAAAABAAAAADAAQAAAD//xAAAAACAAQAAAA=")
+tile_set = ExtResource("1_jrgqd")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_sh1y7")]
+position = Vector2(24, 9)
+speed = 50.0
+
+[node name="playerLight" type="PointLight2D" parent="Player"]
+scale = Vector2(0.2684426, 0.26071328)
+color = Color(0.8255811, 0.83836645, 0.9193533, 1)
+energy = 0.29
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_co0bu")
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+position = Vector2(0, 18)
+process_callback = 0
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.49321002, 0.26993534, 0.6576165, 1)
+
+[node name="boxSpawnTrigger" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("3_co0bu")]
+position = Vector2(23, 25)
+boxObject = NodePath("../TheBox")
+
+[node name="boxSpawnTrigger2" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("3_co0bu")]
+position = Vector2(23, 32)
+boxObject = NodePath("../TheBox2")
+
+[node name="boxSpawnTrigger3" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("3_co0bu")]
+position = Vector2(23, 47)
+boxObject = NodePath("../TheBox3")
+
+[node name="boxSpawnTrigger4" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("3_co0bu")]
+position = Vector2(23, 64)
+boxObject = NodePath("../TheBox4")
+
+[node name="boxSpawnTrigger5" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("3_co0bu")]
+position = Vector2(23, 93)
+boxObject = NodePath("../TheBox5")
+
+[node name="TheBox" parent="." instance=ExtResource("4_bohkm")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(7, 47)
+
+[node name="TheBox2" parent="." instance=ExtResource("4_bohkm")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(42, 56)
+
+[node name="TheBox3" parent="." instance=ExtResource("4_bohkm")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(36, 73)
+
+[node name="TheBox4" parent="." instance=ExtResource("4_bohkm")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(14, 91)
+
+[node name="TheBox5" parent="." instance=ExtResource("4_bohkm")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(37, 121)
+
+[node name="TheBox6" parent="." instance=ExtResource("4_bohkm")]
+position = Vector2(17, 153)

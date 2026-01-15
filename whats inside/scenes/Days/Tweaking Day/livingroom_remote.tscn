@@ -29,12 +29,12 @@
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="26_1ggpp"]
 [ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="27_dadp3"]
 
-[sub_resource type="Gradient" id="Gradient_yw21r"]
+[sub_resource type="Gradient" id="Gradient_78y63"]
 offsets = PackedFloat32Array(0, 0.7310606)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_nqobf"]
-gradient = SubResource("Gradient_yw21r")
+gradient = SubResource("Gradient_78y63")
 width = 244
 height = 244
 fill = 1
@@ -47,7 +47,7 @@ polygon = PackedVector2Array(122, 14, 101, 6, 122, 16, 122, 26, 100, 35, 122, 28
 _data = [Vector2(0, 0.56320006), 0.0, 0.0, 0, 0, Vector2(0.27480915, 1), 0.0, 0.0, 0, 0, Vector2(0.71374047, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56320006), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_j7lcb"]
+[sub_resource type="CurveTexture" id="CurveTexture_8mfbh"]
 width = 2048
 curve = SubResource("Curve_m0wif")
 
@@ -60,7 +60,7 @@ spread = 180.0
 initial_velocity_min = 0.099999994
 initial_velocity_max = 0.5
 gravity = Vector3(-1, 2, 0)
-scale_curve = SubResource("CurveTexture_j7lcb")
+scale_curve = SubResource("CurveTexture_8mfbh")
 alpha_curve = ExtResource("14_jpgjg")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvk1l"]

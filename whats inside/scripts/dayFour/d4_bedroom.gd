@@ -14,7 +14,7 @@ var canTryAgain = true
 var tries = 1
 
 func _ready() -> void:
-	globals.wokeD4 = true
+	#globals.wokeD4 = true
 	if globals.bedroomBlame:
 		blameDialogue.disabled = false
 	if !globals.wokeD4:
@@ -28,6 +28,7 @@ func _process(_delta: float) -> void:
 			if tries < 3:
 				whiteFlash()
 			else:
+				canWake = false
 				globals.wokeD4 = true
 				player.current_dir = player.directions.DOWN
 				player.visible = true

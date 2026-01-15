@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://6ikiefbfo276"]
+[gd_scene load_steps=21 format=4 uid="uid://6ikiefbfo276"]
 
 [ext_resource type="Texture2D" uid="uid://mvgkrnayxjlf" path="res://assets/misc/square.png" id="1_x7cxd"]
 [ext_resource type="Script" uid="uid://bcge2c21c1gn2" path="res://scenes/Days/Tweaking Day/starter_bedroom.gd" id="1_ywlcp"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="8_r1uqw"]
 [ext_resource type="Texture2D" uid="uid://dkcfj3mhkcom4" path="res://assets/Spritesheets/player_idle_right.png" id="9_ywlcp"]
 [ext_resource type="PackedScene" uid="uid://dx8tl06100qlm" path="res://scenes/interact_indicator.tscn" id="11_8vob7"]
+[ext_resource type="Texture2D" uid="uid://qhcs6stv71ts" path="res://assets/objects/carpet.png" id="12_sycq6"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ud2e0"]
 polygon = PackedVector2Array(80, 16, 86, 16, 86, -21, -6, -21, -6, 54, 32, 54, 32, 48, 0, 48, 0, 0, 80, 0)
@@ -106,7 +107,7 @@ shadow_enabled = true
 texture = ExtResource("5_sycq6")
 
 [node name="ambience" type="CanvasModulate" parent="."]
-color = Color(0.39069548, 0.32728666, 0.6756916, 1)
+color = Color(0.26741427, 0.21287754, 0.48341787, 1)
 
 [node name="ceilingLight" type="PointLight2D" parent="."]
 position = Vector2(41, 19)
@@ -136,3 +137,8 @@ shape = SubResource("RectangleShape2D_tx8ye")
 [node name="InteractIndicator" parent="." instance=ExtResource("11_8vob7")]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(42, 3.0000029)
+
+[node name="Carpet" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(40, 25)
+texture = ExtResource("12_sycq6")

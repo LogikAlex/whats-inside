@@ -14,4 +14,5 @@ func _process(_delta: float) -> void:
 		$".".stop()
 	if isPlaying:
 		if !$".".playing:
+			$".".stop()
 			$".".play()

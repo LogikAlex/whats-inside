@@ -20,7 +20,8 @@ func fadeIn():
 	bScreen.tween_callback(
 	func finish():
 		player.can_move = true
-	)
+		TweakingSong.play()
+	).set_delay(2.05)
 
 func _process(_delta: float) -> void:
 	pass

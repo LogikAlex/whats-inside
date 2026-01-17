@@ -1,9 +1,15 @@
-[gd_scene load_steps=7 format=4 uid="uid://flvjs6aut0gk"]
+[gd_scene load_steps=17 format=4 uid="uid://flvjs6aut0gk"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_jrgqd"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_sh1y7"]
 [ext_resource type="PackedScene" uid="uid://dwlrdkw6lmigf" path="res://scenes/Days/Tweaking Day/box_spawn_trigger.tscn" id="3_co0bu"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="3_wt758"]
+[ext_resource type="Script" uid="uid://oy7o6mveliwr" path="res://scenes/Days/Tweaking Day/removeDoor.gd" id="4_33wpw"]
 [ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="4_bohkm"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="4_rtk4a"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="5_wt758"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="6_rtk4a"]
+[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="10_rcx2i"]
 
 [sub_resource type="Gradient" id="Gradient_yw21r"]
 offsets = PackedFloat32Array(0, 0.7310606)
@@ -16,6 +22,30 @@ height = 244
 fill = 1
 fill_from = Vector2(0.5, 0.4871795)
 
+[sub_resource type="Resource" id="Resource_rtk4a"]
+script = ExtResource("5_wt758")
+text = "*oh no."
+text_speed = 6.0
+text_sound = ExtResource("6_rtk4a")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.65
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wh80d"]
+size = Vector2(52, 3)
+
+[sub_resource type="Resource" id="Resource_rcx2i"]
+script = ExtResource("5_wt758")
+text = "*should i turn back?"
+text_speed = 8.0
+text_sound = ExtResource("6_rtk4a")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.65
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xakgp"]
+size = Vector2(20, 7)
+
 [node name="Hallway" type="Node2D"]
 y_sort_enabled = true
 
@@ -27,12 +57,12 @@ metadata/_edit_lock_ = true
 
 [node name="Tiles" type="TileMapLayer" parent="."]
 z_index = -1
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAAAAP//AAAGAAEAAAAAAP7/AAAGAAAAAAACAP7/AAAGAAIAAAD//wIAAAACAAIAAAD//wEAAAACAAIAAAD//wAAAAACAAIAAAD/////AAACAAEAAAD///7/AAACAAAAAAACAP//AAAGAAMAAAABAP//AAADAAMAAAABAP7/AAADAAIAAAADAP7/AAAEAAAAAAADAP//AAAEAAEAAAADAAEAAAAEAAIAAAADAAAAAAAEAAIAAAD//wMAAAACAAIAAAD//wQAAAACAAIAAAD//wUAAAACAAIAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAADAAIAAAAEAAIAAAADAAMAAAAEAAIAAAADAAQAAAAEAAIAAAADAAUAAAAEAAIAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAAAAAAAAAABAAYAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAABAAoAAAAAAAAAAAACAAoAAAAAAAAAAAACAAkAAAAAAAAAAAACAAgAAAAAAAAAAAACAAcAAAAAAAAAAAABAAcAAAAAAAAAAAABAAgAAAAAAAAAAAABAAkAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAAAAAAAAAABAA8AAAAAAAAAAAACAA8AAAAAAAAAAAACAA4AAAAAAAAAAAACAA0AAAAAAAAAAAACAAwAAAAAAAAAAAACAAsAAAAAAAAAAAABAAsAAAAAAAAAAAABAAwAAAAAAAAAAAABAA0AAAAAAAAAAAABAA4AAAAAAAAAAAD//wYAAAACAAIAAAD//wcAAAACAAIAAAD//wgAAAACAAIAAAD//wkAAAACAAIAAAD//woAAAACAAIAAAD//wsAAAACAAIAAAD//wwAAAACAAIAAAD//w0AAAACAAIAAAD//w4AAAACAAIAAAD//w8AAAACAAIAAAADAAYAAAAEAAIAAAADAAcAAAAEAAIAAAADAAgAAAAEAAIAAAADAAkAAAAEAAIAAAADAAoAAAAEAAIAAAADAAsAAAAEAAIAAAADAAwAAAAEAAIAAAADAA0AAAAEAAIAAAADAA4AAAAEAAIAAAADAA8AAAAEAAIAAAADABAAAAAEAAQAAAACABAAAAADAAQAAAABABAAAAADAAQAAAAAABAAAAADAAQAAAD//xAAAAACAAQAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAAAAP//AAAGAAEAAAAAAP7/AAAGAAAAAAACAP7/AAAGAAIAAAD//wIAAAACAAIAAAD//wEAAAACAAIAAAD//wAAAAACAAIAAAD/////AAACAAEAAAD///7/AAACAAAAAAACAP//AAAGAAMAAAABAP//AAADAAMAAAABAP7/AAADAAIAAAADAP7/AAAEAAAAAAADAP//AAAEAAEAAAADAAEAAAAEAAIAAAADAAAAAAAEAAIAAAD//wMAAAACAAIAAAD//wQAAAACAAIAAAD//wUAAAACAAIAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAADAAIAAAAEAAIAAAADAAMAAAAEAAIAAAADAAQAAAAEAAIAAAADAAUAAAAEAAIAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAAAAAAAAAABAAYAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAABAAoAAAAAAAAAAAACAAoAAAAAAAAAAAACAAkAAAAAAAAAAAACAAgAAAAAAAAAAAACAAcAAAAAAAAAAAABAAcAAAAAAAAAAAABAAgAAAAAAAAAAAABAAkAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAAAAAAAAAABAA8AAAAAAAAAAAACAA8AAAAAAAAAAAACAA4AAAAAAAAAAAACAA0AAAAAAAAAAAACAAwAAAAAAAAAAAACAAsAAAAAAAAAAAABAAsAAAAAAAAAAAABAAwAAAAAAAAAAAABAA0AAAAAAAAAAAABAA4AAAAAAAAAAAD//wYAAAACAAIAAAD//wcAAAACAAIAAAD//wgAAAACAAIAAAD//wkAAAACAAIAAAD//woAAAACAAIAAAD//wsAAAACAAIAAAD//wwAAAACAAIAAAD//w0AAAACAAIAAAD//w4AAAACAAIAAAD//w8AAAACAAIAAAADAAYAAAAEAAIAAAADAAcAAAAEAAIAAAADAAgAAAAEAAIAAAADAAkAAAAEAAIAAAADAAoAAAAEAAIAAAADAAsAAAAEAAIAAAADAAwAAAAEAAIAAAADAA0AAAAEAAIAAAADAA4AAAAEAAIAAAADAA8AAAAEAAIAAAADABAAAAAEAAQAAAACABAAAAABAAQAAAAAABAAAAAAAAQAAAD//xAAAAACAAQAAAABABAAAAAFAAMAAAA=")
 tile_set = ExtResource("1_jrgqd")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_sh1y7")]
-position = Vector2(24, 9)
+position = Vector2(24, 8)
 speed = 50.0
 
 [node name="playerLight" type="PointLight2D" parent="Player"]
@@ -45,19 +75,42 @@ texture = SubResource("GradientTexture2D_co0bu")
 [node name="Camera2D2" type="Camera2D" parent="Player"]
 position = Vector2(0, 18)
 process_callback = 0
+limit_smoothed = true
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="ambience" type="CanvasModulate" parent="."]
-color = Color(0.49321002, 0.26993534, 0.6576165, 1)
+color = Color(0.15921146, 0.12177811, 0.30488247, 1)
+
+[node name="dialogueTrigger" parent="." instance=ExtResource("3_wt758")]
+position = Vector2(24, 56)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("4_rtk4a")]([SubResource("Resource_rtk4a")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dialogueTrigger"]
+shape = SubResource("RectangleShape2D_wh80d")
+
+[node name="dialogueTrigger2" parent="." instance=ExtResource("3_wt758")]
+position = Vector2(24, 180)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("4_rtk4a")]([SubResource("Resource_rcx2i")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dialogueTrigger2"]
+shape = SubResource("RectangleShape2D_wh80d")
 
 [node name="boxSpawnTrigger" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("3_co0bu")]
-position = Vector2(23, 25)
+position = Vector2(23, 27)
 boxObject = NodePath("../TheBox")
 
+[node name="boxSpawnTrigger6" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("3_co0bu")]
+position = Vector2(23, 21)
+boxObject = NodePath("../TheBox11")
+
 [node name="boxSpawnTrigger2" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("3_co0bu")]
-position = Vector2(23, 32)
+position = Vector2(23, 34)
 boxObject = NodePath("../TheBox2")
 
 [node name="boxSpawnTrigger3" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("3_co0bu")]
@@ -71,6 +124,30 @@ boxObject = NodePath("../TheBox4")
 [node name="boxSpawnTrigger5" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("3_co0bu")]
 position = Vector2(23, 93)
 boxObject = NodePath("../TheBox5")
+
+[node name="boxSpawnTrigger7" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("3_co0bu")]
+position = Vector2(23, 116)
+boxObject = NodePath("../TheBox6")
+
+[node name="boxSpawnTrigger8" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("3_co0bu")]
+position = Vector2(23, 125)
+boxObject = NodePath("../TheBox7")
+
+[node name="boxSpawnTrigger9" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("3_co0bu")]
+position = Vector2(23, 172)
+boxObject = NodePath("../TheBox8")
+
+[node name="boxSpawnTrigger10" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("3_co0bu")]
+position = Vector2(23, 196)
+boxObject = NodePath("../TheBox9")
+
+[node name="boxSpawnTrigger11" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("3_co0bu")]
+position = Vector2(23, 218)
+boxObject = NodePath("../TheBox10")
+
+[node name="removeDoor" parent="." instance=ExtResource("3_co0bu")]
+position = Vector2(23, 140)
+script = ExtResource("4_33wpw")
 
 [node name="TheBox" parent="." instance=ExtResource("4_bohkm")]
 modulate = Color(1, 1, 1, 0)
@@ -93,4 +170,33 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(37, 121)
 
 [node name="TheBox6" parent="." instance=ExtResource("4_bohkm")]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(17, 153)
+
+[node name="TheBox7" parent="." instance=ExtResource("4_bohkm")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(27, 165)
+
+[node name="TheBox8" parent="." instance=ExtResource("4_bohkm")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(9, 195)
+
+[node name="TheBox9" parent="." instance=ExtResource("4_bohkm")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(40, 220)
+
+[node name="TheBox10" parent="." instance=ExtResource("4_bohkm")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(9, 238)
+
+[node name="TheBox11" parent="." instance=ExtResource("4_bohkm")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(42, 22)
+
+[node name="toNext" parent="." instance=ExtResource("10_rcx2i")]
+position = Vector2(24, 264)
+wanted_room_path = "res://scenes/Days/Tweaking Day/hallway.tscn"
+wanted_player_pos = Vector2(24, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toNext"]
+shape = SubResource("RectangleShape2D_xakgp")

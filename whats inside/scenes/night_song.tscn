@@ -5,7 +5,7 @@
 
 [node name="night_theme" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_descb")
-volume_db = 1.286
+volume_db = 2.5
 pitch_scale = 0.95
 parameters/looping = true
 script = ExtResource("2_1rnqh")

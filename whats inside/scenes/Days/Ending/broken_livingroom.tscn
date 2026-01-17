@@ -137,7 +137,7 @@ polygon = PackedVector2Array(46, 7, 79, 7, 86, 28, 66, 52, 73, 61, 68, 82, 46, 8
 
 [node name="youCantLeave" parent="." instance=ExtResource("14_oi5q6")]
 position = Vector2(38, 23)
-wanted_room_path = "res://scenes/Days/Ending/broken_living_room.tscn"
+wanted_room_path = "res://scenes/Days/Ending/broken_livingroom.tscn"
 wanted_player_pos = Vector2(38, 70)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="youCantLeave"]
@@ -145,7 +145,7 @@ shape = SubResource("RectangleShape2D_3hx7e")
 
 [node name="youCantLeave2" parent="." instance=ExtResource("14_oi5q6")]
 position = Vector2(38, 83)
-wanted_room_path = "res://scenes/Days/Ending/broken_living_room.tscn"
+wanted_room_path = "res://scenes/Days/Ending/broken_livingroom.tscn"
 wanted_player_pos = Vector2(38, 34)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="youCantLeave2"]

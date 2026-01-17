@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca43qfhipkxbt"]
+
+[ext_resource type="AudioStream" uid="uid://etnl0xj7ofr" path="res://assets/sfx/tweaking_song.mp3" id="1_2yyg8"]
+
+[node name="tweaking_theme" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_2yyg8")
+pitch_scale = 0.95
+parameters/looping = true

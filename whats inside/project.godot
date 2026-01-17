@@ -21,6 +21,7 @@ globals="*res://scripts/globals.gd"
 MainSong="*res://scenes/main_song.tscn"
 NightSong="*res://scenes/night_song.tscn"
 DoorSoundEffect="*res://scenes/door_sound_effect.tscn"
+TweakingSong="*res://scenes/tweaking_song.tscn"
 
 [dialogic]
 

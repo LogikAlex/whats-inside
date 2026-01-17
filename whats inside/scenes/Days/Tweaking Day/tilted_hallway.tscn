@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=4 uid="uid://be03jc3bn8v6e"]
 
-[ext_resource type="Script" uid="uid://p06jrw8c4chx" path="res://scenes/Days/Tweaking Day/tilted_hallway.gd" id="1_4xrtn"]
+[ext_resource type="Script" uid="uid://p06jrw8c4chx" path="res://scripts/tweakingDay/tilted_hallway.gd" id="1_4xrtn"]
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_s0bvj"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_5vyqu"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="3_5vyqu"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dyllunv5djv0r" path="res://assets/Spritesheets/crack_animation_1.png" id="7_0275f"]
 [ext_resource type="Texture2D" uid="uid://b6bwgwq3o22b0" path="res://assets/Spritesheets/crack_animation_2.png" id="8_r5gvs"]
 [ext_resource type="PackedScene" uid="uid://l0j5l1uomn55" path="res://scenes/Days/Tweaking Day/crack_trigger.tscn" id="9_r5gvs"]
-[ext_resource type="Script" uid="uid://oy7o6mveliwr" path="res://scenes/Days/Tweaking Day/removeDoor.gd" id="9_vx3yw"]
+[ext_resource type="Script" uid="uid://oy7o6mveliwr" path="res://scripts/tweakingDay/removeDoor.gd" id="9_vx3yw"]
 
 [sub_resource type="Gradient" id="Gradient_yw21r"]
 offsets = PackedFloat32Array(0, 0.7310606)

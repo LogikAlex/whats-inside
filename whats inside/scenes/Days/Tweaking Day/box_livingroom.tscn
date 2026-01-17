@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=4 uid="uid://co15i0rgsta53"]
 
 [ext_resource type="Texture2D" uid="uid://mvgkrnayxjlf" path="res://assets/misc/square.png" id="1_hyx8t"]
-[ext_resource type="Script" uid="uid://x2ql0m7uvf7t" path="res://scenes/Days/Tweaking Day/box_livingroom.gd" id="1_tfh4t"]
+[ext_resource type="Script" uid="uid://x2ql0m7uvf7t" path="res://scripts/tweakingDay/box_livingroom.gd" id="1_tfh4t"]
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="2_hbv2n"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="3_d1ist"]
 [ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="7_kxpp2"]
@@ -18,12 +18,12 @@
 [ext_resource type="Texture2D" uid="uid://d3t7e3b5dulg7" path="res://assets/misc/crack_1.png" id="19_hdjus"]
 [ext_resource type="Texture2D" uid="uid://0atsfe242lba" path="res://assets/misc/floor_crack.png" id="20_ij51j"]
 
-[sub_resource type="Gradient" id="Gradient_tkmbm"]
+[sub_resource type="Gradient" id="Gradient_3km5a"]
 offsets = PackedFloat32Array(0, 0.7310606)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8l0nh"]
-gradient = SubResource("Gradient_tkmbm")
+gradient = SubResource("Gradient_3km5a")
 width = 244
 height = 244
 fill = 1

@@ -1,6 +1,6 @@
 [gd_scene load_steps=47 format=4 uid="uid://bcfstkvmw7vr2"]
 
-[ext_resource type="Script" uid="uid://dm0xeci2nrdop" path="res://scenes/Days/Tweaking Day/livingroom_remote.gd" id="1_r5c1g"]
+[ext_resource type="Script" uid="uid://dm0xeci2nrdop" path="res://scripts/tweakingDay/livingroom_remote.gd" id="1_r5c1g"]
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_wvk1l"]
 [ext_resource type="Texture2D" uid="uid://mvgkrnayxjlf" path="res://assets/misc/square.png" id="2_78y63"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_r5c1g"]

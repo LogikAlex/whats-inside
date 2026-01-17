@@ -42,6 +42,9 @@ var lastPlayerDir
 @export var bathroomBlame = true
 @export var kitchenBlame = true
 
+#tweak sequence
+@export var current_dial = 1
+
 func _process(_delta: float) -> void:
 	if bedroomBlame == false and balconyBlame == false \
 	and livingroomBlame == false and entryBlame == false \

@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=4 uid="uid://6ikiefbfo276"]
 
 [ext_resource type="Texture2D" uid="uid://mvgkrnayxjlf" path="res://assets/misc/square.png" id="1_x7cxd"]
-[ext_resource type="Script" uid="uid://bcge2c21c1gn2" path="res://scenes/Days/Tweaking Day/starter_bedroom.gd" id="1_ywlcp"]
+[ext_resource type="Script" uid="uid://bcge2c21c1gn2" path="res://scripts/tweakingDay/starter_bedroom.gd" id="1_ywlcp"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_4e1sp"]
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="3_ywlcp"]
 [ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="5_sycq6"]

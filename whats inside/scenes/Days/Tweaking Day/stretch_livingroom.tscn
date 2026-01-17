@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=4 uid="uid://bofkur3sh5k7u"]
 
-[ext_resource type="Script" uid="uid://coo3wcr1d1gjk" path="res://scenes/Days/Tweaking Day/upside_down_livingroom.gd" id="1_td345"]
+[ext_resource type="Script" uid="uid://coo3wcr1d1gjk" path="res://scripts/tweakingDay/upside_down_livingroom.gd" id="1_td345"]
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="2_iwn7a"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="3_ewtni"]
 [ext_resource type="PackedScene" uid="uid://cth4hylf5dh1y" path="res://scenes/Objects/couch.tscn" id="4_lgixh"]
@@ -52,7 +52,7 @@ scale_curve = SubResource("CurveTexture_8mfbh")
 alpha_curve = ExtResource("13_mqiee")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewtni"]
-size = Vector2(20, 7)
+size = Vector2(40, 7)
 
 [node name="StretchLivingroom" type="Node2D"]
 y_sort_enabled = true
@@ -88,28 +88,22 @@ position = Vector2(72, 39)
 position = Vector2(78, 32)
 
 [node name="TheBox3" parent="." instance=ExtResource("5_1fhd2")]
-position = Vector2(73, 2)
+position = Vector2(69, 2)
 
 [node name="TheBox4" parent="." instance=ExtResource("5_1fhd2")]
-position = Vector2(63, 12)
+position = Vector2(60, 12)
 
 [node name="TheBox14" parent="." instance=ExtResource("5_1fhd2")]
-position = Vector2(57, 23)
-
-[node name="TheBox5" parent="." instance=ExtResource("5_1fhd2")]
-position = Vector2(111, 10)
+position = Vector2(54, 23)
 
 [node name="TheBox6" parent="." instance=ExtResource("5_1fhd2")]
 position = Vector2(119, 39)
 
-[node name="TheBox7" parent="." instance=ExtResource("5_1fhd2")]
-position = Vector2(102, 46)
-
 [node name="TheBox9" parent="." instance=ExtResource("5_1fhd2")]
-position = Vector2(57, 40)
+position = Vector2(35, 40)
 
 [node name="TheBox10" parent="." instance=ExtResource("5_1fhd2")]
-position = Vector2(44, 35)
+position = Vector2(20, 38)
 
 [node name="TheBox11" parent="." instance=ExtResource("5_1fhd2")]
 position = Vector2(10, 11)
@@ -204,9 +198,9 @@ texture = ExtResource("12_lbsoc")
 color = Color(0.15921146, 0.12177811, 0.30488247, 1)
 
 [node name="toNext" parent="." instance=ExtResource("19_iwn7a")]
-position = Vector2(24, 55)
-wanted_room_path = "res://scenes/Days/Tweaking Day/stretch_livingroom.tscn"
-wanted_player_pos = Vector2(24, 6)
+position = Vector2(96, 55)
+wanted_room_path = "res://scenes/Days/Tweaking Day/uspide_down_kitchen.tscn"
+wanted_player_pos = Vector2(80, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toNext"]
 shape = SubResource("RectangleShape2D_ewtni")

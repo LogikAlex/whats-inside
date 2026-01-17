@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwlrdkw6lmigf"]
 
-[ext_resource type="Script" uid="uid://crufucg8k6wyr" path="res://scenes/Days/Tweaking Day/box_spawn_trigger.gd" id="1_mbuxh"]
+[ext_resource type="Script" uid="uid://crufucg8k6wyr" path="res://scripts/tweakingDay/box_spawn_trigger.gd" id="1_mbuxh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh1y7"]
 size = Vector2(56, 4)

@@ -1,11 +1,11 @@
 [gd_scene load_steps=38 format=4 uid="uid://flvjs6aut0gk"]
 
-[ext_resource type="Script" uid="uid://cp0wwmeygvv0p" path="res://scenes/Days/Tweaking Day/hallway.gd" id="1_8hjva"]
+[ext_resource type="Script" uid="uid://cp0wwmeygvv0p" path="res://scripts/tweakingDay/hallway.gd" id="1_8hjva"]
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_jrgqd"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_sh1y7"]
 [ext_resource type="PackedScene" uid="uid://dwlrdkw6lmigf" path="res://scenes/Days/Tweaking Day/box_spawn_trigger.tscn" id="3_co0bu"]
 [ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="3_wt758"]
-[ext_resource type="Script" uid="uid://oy7o6mveliwr" path="res://scenes/Days/Tweaking Day/removeDoor.gd" id="4_33wpw"]
+[ext_resource type="Script" uid="uid://oy7o6mveliwr" path="res://scripts/tweakingDay/removeDoor.gd" id="4_33wpw"]
 [ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="4_bohkm"]
 [ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="4_rtk4a"]
 [ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="5_wt758"]

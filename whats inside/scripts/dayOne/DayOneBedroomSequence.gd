@@ -182,8 +182,8 @@ func fade_in_tween():
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(cutsceneCam, "zoom", Vector2(1, 1), 8)
 	var bs_tween := create_tween()
-	bs_tween.set_ease(Tween.EASE_IN_OUT)
-	bs_tween.tween_property(blackScreen, "modulate:a", 0, 5)
+	bs_tween.set_ease(Tween.EASE_OUT)
+	bs_tween.tween_property(blackScreen, "modulate:a", 0, 8)
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(interactIndicator, "modulate:a", 1, 1.5).set_delay(2)
 	tween.tween_callback(

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://bcfstkvmw7vr2"]
+[gd_scene load_steps=47 format=4 uid="uid://bcfstkvmw7vr2"]
 
 [ext_resource type="Script" uid="uid://dm0xeci2nrdop" path="res://scenes/Days/Tweaking Day/livingroom_remote.gd" id="1_r5c1g"]
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_wvk1l"]
@@ -28,6 +28,8 @@
 [ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="25_8mfbh"]
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="26_1ggpp"]
 [ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="27_dadp3"]
+[ext_resource type="AudioStream" uid="uid://b4stnxhjrusxs" path="res://assets/sfx/remote_pickup.mp3" id="29_8mfbh"]
+[ext_resource type="AudioStream" uid="uid://cu0o2emdybhpl" path="res://assets/sfx/tv_sound.mp3" id="30_1ggpp"]
 
 [sub_resource type="Gradient" id="Gradient_78y63"]
 offsets = PackedFloat32Array(0, 0.7310606)
@@ -349,3 +351,15 @@ dialogue = Array[ExtResource("24_78y63")]([SubResource("Resource_8mfbh")])
 position = Vector2(-1, -0.5)
 shape = SubResource("RectangleShape2D_78y63")
 disabled = true
+
+[node name="pickUpRemoteSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("29_8mfbh")
+volume_db = -1.724
+pitch_scale = 0.92
+
+[node name="tvSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("30_1ggpp")
+volume_db = 24.0
+pitch_scale = 0.93
+autoplay = true
+parameters/looping = true

@@ -1,0 +1,336 @@
+[gd_scene load_steps=29 format=4 uid="uid://be03jc3bn8v6e"]
+
+[ext_resource type="Script" uid="uid://p06jrw8c4chx" path="res://scenes/Days/Tweaking Day/tilted_hallway.gd" id="1_4xrtn"]
+[ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_s0bvj"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_5vyqu"]
+[ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="3_5vyqu"]
+[ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="5_x7nih"]
+[ext_resource type="PackedScene" uid="uid://dwlrdkw6lmigf" path="res://scenes/Days/Tweaking Day/box_spawn_trigger.tscn" id="6_cxoqt"]
+[ext_resource type="Texture2D" uid="uid://dyllunv5djv0r" path="res://assets/Spritesheets/crack_animation_1.png" id="7_0275f"]
+[ext_resource type="Texture2D" uid="uid://b6bwgwq3o22b0" path="res://assets/Spritesheets/crack_animation_2.png" id="8_r5gvs"]
+[ext_resource type="PackedScene" uid="uid://l0j5l1uomn55" path="res://scenes/Days/Tweaking Day/crack_trigger.tscn" id="9_r5gvs"]
+[ext_resource type="Script" uid="uid://oy7o6mveliwr" path="res://scenes/Days/Tweaking Day/removeDoor.gd" id="9_vx3yw"]
+
+[sub_resource type="Gradient" id="Gradient_yw21r"]
+offsets = PackedFloat32Array(0, 0.7310606)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_co0bu"]
+gradient = SubResource("Gradient_yw21r")
+width = 244
+height = 244
+fill = 1
+fill_from = Vector2(0.5, 0.4871795)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xrtn"]
+size = Vector2(20, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xakgp"]
+atlas = ExtResource("7_0275f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftgno"]
+atlas = ExtResource("7_0275f")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hjva"]
+atlas = ExtResource("7_0275f")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6yxs"]
+atlas = ExtResource("7_0275f")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq2ig"]
+atlas = ExtResource("7_0275f")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_waglt"]
+atlas = ExtResource("7_0275f")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6cbj"]
+atlas = ExtResource("7_0275f")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vx3yw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xakgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftgno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hjva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6yxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq2ig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_waglt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6cbj")
+}],
+"loop": false,
+"name": &"crack_anim",
+"speed": 12.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieh1j"]
+atlas = ExtResource("8_r5gvs")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwo3v"]
+atlas = ExtResource("8_r5gvs")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6wim"]
+atlas = ExtResource("8_r5gvs")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1ehb"]
+atlas = ExtResource("8_r5gvs")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acxeq"]
+atlas = ExtResource("8_r5gvs")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lced"]
+atlas = ExtResource("8_r5gvs")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kn1bd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ieh1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwo3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6wim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1ehb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acxeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lced")
+}],
+"loop": false,
+"name": &"crack_anim",
+"speed": 12.0
+}]
+
+[node name="Hallway" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_4xrtn")
+
+[node name="DoorGone" type="TileMapLayer" parent="."]
+visible = false
+tile_map_data = PackedByteArray("AAABAP7/AAADAAAAAAABAP//AAADAAEAAAAAAP//AAADAAEAAAACAP//AAADAAEAAAAAAP7/AAADAAAAAAACAP7/AAADAAAAAAA=")
+tile_set = ExtResource("1_s0bvj")
+metadata/_edit_lock_ = true
+
+[node name="Tiles" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAAAAP//AAAGAAEAAAAAAP7/AAAGAAAAAAACAP7/AAAGAAIAAAD//wIAAAACAAIAAAD//wEAAAACAAIAAAD//wAAAAACAAIAAAD/////AAACAAEAAAD///7/AAACAAAAAAACAP//AAAGAAMAAAABAP//AAADAAMAAAABAP7/AAADAAIAAAADAP7/AAAEAAAAAAADAP//AAAEAAEAAAADAAEAAAAEAAIAAAADAAAAAAAEAAIAAAD//wMAAAACAAIAAAD//wQAAAACAAIAAAD//wUAAAACAAIAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAADAAIAAAAEAAIAAAADAAMAAAAEAAIAAAADAAQAAAAEAAIAAAADAAUAAAAEAAIAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAAAAAAAAAABAAYAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAABAAoAAAAAAAAAAAACAAoAAAAAAAAAAAACAAkAAAAAAAAAAAACAAgAAAAAAAAAAAACAAcAAAAAAAAAAAABAAcAAAAAAAAAAAABAAgAAAAAAAAAAAABAAkAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAAAAAAAAAABAA8AAAAAAAAAAAACAA8AAAAAAAAAAAACAA4AAAAAAAAAAAACAA0AAAAAAAAAAAACAAwAAAAAAAAAAAACAAsAAAAAAAAAAAABAAsAAAAAAAAAAAABAAwAAAAAAAAAAAABAA0AAAAAAAAAAAABAA4AAAAAAAAAAAD//wYAAAACAAIAAAD//wcAAAACAAIAAAD//wgAAAACAAIAAAD//wkAAAACAAIAAAD//woAAAACAAIAAAD//wsAAAACAAIAAAD//wwAAAACAAIAAAD//w0AAAACAAIAAAD//w4AAAACAAIAAAD//w8AAAACAAIAAAADAAYAAAAEAAIAAAADAAcAAAAEAAIAAAADAAgAAAAEAAIAAAADAAkAAAAEAAIAAAADAAoAAAAEAAIAAAADAAsAAAAEAAIAAAADAAwAAAAEAAIAAAADAA0AAAAEAAIAAAADAA4AAAAEAAIAAAADAA8AAAAEAAIAAAADABAAAAAEAAQAAAACABAAAAABAAQAAAAAABAAAAAAAAQAAAD//xAAAAACAAQAAAABABAAAAAFAAMAAAA=")
+tile_set = ExtResource("1_s0bvj")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_5vyqu")]
+position = Vector2(24, 8)
+speed = 50.0
+
+[node name="playerLight" type="PointLight2D" parent="Player"]
+scale = Vector2(0.2684426, 0.26071328)
+color = Color(0.8255811, 0.83836645, 0.9193533, 1)
+energy = 0.29
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_co0bu")
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+position = Vector2(-171, 45)
+rotation = -0.6667158
+anchor_mode = 0
+ignore_rotation = false
+process_callback = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_vertical_enabled = true
+
+[node name="ambience" type="CanvasModulate" parent="."]
+color = Color(0.15921146, 0.12177811, 0.30488247, 1)
+
+[node name="toNext" parent="." instance=ExtResource("3_5vyqu")]
+position = Vector2(24, 264)
+wanted_room_path = "res://scenes/Days/Tweaking Day/stretch_livingroom.tscn"
+wanted_player_pos = Vector2(24, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toNext"]
+shape = SubResource("RectangleShape2D_4xrtn")
+
+[node name="TheBox" parent="." instance=ExtResource("5_x7nih")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(41, 53)
+
+[node name="TheBox2" parent="." instance=ExtResource("5_x7nih")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(28, 51)
+
+[node name="TheBox3" parent="." instance=ExtResource("5_x7nih")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(12, 85)
+
+[node name="TheBox4" parent="." instance=ExtResource("5_x7nih")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(36, 106)
+
+[node name="TheBox5" parent="." instance=ExtResource("5_x7nih")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(28, 121)
+
+[node name="TheBox6" parent="." instance=ExtResource("5_x7nih")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(19, 167)
+
+[node name="TheBox7" parent="." instance=ExtResource("5_x7nih")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(32, 168)
+
+[node name="TheBox8" parent="." instance=ExtResource("5_x7nih")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(13, 218)
+
+[node name="TheBox9" parent="." instance=ExtResource("5_x7nih")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(21, 229)
+
+[node name="boxSpawnTrigger" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("6_cxoqt")]
+position = Vector2(23, 34)
+boxObject = NodePath("../TheBox2")
+
+[node name="boxSpawnTrigger2" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("6_cxoqt")]
+position = Vector2(23, 39)
+boxObject = NodePath("../TheBox")
+
+[node name="boxSpawnTrigger3" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("6_cxoqt")]
+position = Vector2(23, 66)
+boxObject = NodePath("../TheBox3")
+
+[node name="boxSpawnTrigger4" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("6_cxoqt")]
+position = Vector2(23, 88)
+boxObject = NodePath("../TheBox4")
+
+[node name="boxSpawnTrigger5" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("6_cxoqt")]
+position = Vector2(23, 97)
+boxObject = NodePath("../TheBox5")
+
+[node name="boxSpawnTrigger6" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("6_cxoqt")]
+position = Vector2(23, 141)
+boxObject = NodePath("../TheBox6")
+
+[node name="boxSpawnTrigger7" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("6_cxoqt")]
+position = Vector2(23, 147)
+boxObject = NodePath("../TheBox7")
+
+[node name="boxSpawnTrigger8" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("6_cxoqt")]
+position = Vector2(23, 192)
+boxObject = NodePath("../TheBox8")
+
+[node name="boxSpawnTrigger9" parent="." node_paths=PackedStringArray("boxObject") instance=ExtResource("6_cxoqt")]
+position = Vector2(23, 199)
+boxObject = NodePath("../TheBox9")
+
+[node name="crack_1" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(8, 51)
+sprite_frames = SubResource("SpriteFrames_vx3yw")
+animation = &"crack_anim"
+
+[node name="crack_6" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(8, 245)
+sprite_frames = SubResource("SpriteFrames_vx3yw")
+animation = &"crack_anim"
+
+[node name="crack_7" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(40, 234)
+sprite_frames = SubResource("SpriteFrames_vx3yw")
+animation = &"crack_anim"
+flip_h = true
+
+[node name="crack_4" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(8, 119)
+sprite_frames = SubResource("SpriteFrames_vx3yw")
+animation = &"crack_anim"
+
+[node name="crack_5" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(40, 182)
+sprite_frames = SubResource("SpriteFrames_vx3yw")
+animation = &"crack_anim"
+flip_h = true
+
+[node name="crack_2" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(40, 10)
+sprite_frames = SubResource("SpriteFrames_kn1bd")
+animation = &"crack_anim"
+
+[node name="crack_3" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(40, 111)
+sprite_frames = SubResource("SpriteFrames_kn1bd")
+animation = &"crack_anim"
+
+[node name="removeDoor" parent="." instance=ExtResource("6_cxoqt")]
+position = Vector2(23, 135)
+script = ExtResource("9_vx3yw")
+
+[node name="crack_trigger" parent="." node_paths=PackedStringArray("crack_sprite") instance=ExtResource("9_r5gvs")]
+position = Vector2(24, 20)
+crack_sprite = NodePath("../crack_2")
+
+[node name="crack_trigger2" parent="." node_paths=PackedStringArray("crack_sprite") instance=ExtResource("9_r5gvs")]
+position = Vector2(24, 49)
+crack_sprite = NodePath("../crack_1")
+
+[node name="crack_trigger3" parent="." node_paths=PackedStringArray("crack_sprite") instance=ExtResource("9_r5gvs")]
+position = Vector2(24, 107)
+crack_sprite = NodePath("../crack_3")
+
+[node name="crack_trigger4" parent="." node_paths=PackedStringArray("crack_sprite") instance=ExtResource("9_r5gvs")]
+position = Vector2(24, 124)
+crack_sprite = NodePath("../crack_4")
+
+[node name="crack_trigger5" parent="." node_paths=PackedStringArray("crack_sprite") instance=ExtResource("9_r5gvs")]
+position = Vector2(24, 165)
+crack_sprite = NodePath("../crack_5")
+
+[node name="crack_trigger6" parent="." node_paths=PackedStringArray("crack_sprite") instance=ExtResource("9_r5gvs")]
+position = Vector2(24, 232)
+crack_sprite = NodePath("../crack_6")
+
+[node name="crack_trigger7" parent="." node_paths=PackedStringArray("crack_sprite") instance=ExtResource("9_r5gvs")]
+position = Vector2(24, 226)
+crack_sprite = NodePath("../crack_7")

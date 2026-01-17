@@ -92,7 +92,7 @@ text_volume_pitch_max = 0.7
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ok6l5"]
-size = Vector2(10, 84)
+size = Vector2(12.578636, 83.92952)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bgex"]
 size = Vector2(10, 82)
@@ -238,8 +238,8 @@ scale = Vector2(0.99999994, 0.99999994)
 dialogue = Array[ExtResource("12_2fh14")]([SubResource("Resource_wxx4l")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
-position = Vector2(1.5258789e-05, -1.5258789e-05)
-scale = Vector2(1.0000001, 1.0000001)
+position = Vector2(1.2893524, -0.03526306)
+scale = Vector2(1.0000004, 1.0000004)
 shape = SubResource("RectangleShape2D_ok6l5")
 disabled = true
 

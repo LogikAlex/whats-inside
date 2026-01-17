@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=4 uid="uid://flvjs6aut0gk"]
+[gd_scene load_steps=38 format=4 uid="uid://flvjs6aut0gk"]
 
+[ext_resource type="Script" uid="uid://cp0wwmeygvv0p" path="res://scenes/Days/Tweaking Day/hallway.gd" id="1_8hjva"]
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_jrgqd"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_sh1y7"]
 [ext_resource type="PackedScene" uid="uid://dwlrdkw6lmigf" path="res://scenes/Days/Tweaking Day/box_spawn_trigger.tscn" id="3_co0bu"]
@@ -9,7 +10,11 @@
 [ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="4_rtk4a"]
 [ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="5_wt758"]
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="6_rtk4a"]
+[ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="8_p6yxs"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="10_rcx2i"]
+[ext_resource type="Texture2D" uid="uid://dyllunv5djv0r" path="res://assets/Spritesheets/crack_animation_1.png" id="11_wh80d"]
+[ext_resource type="Texture2D" uid="uid://b6bwgwq3o22b0" path="res://assets/Spritesheets/crack_animation_2.png" id="12_ftgno"]
+[ext_resource type="PackedScene" uid="uid://l0j5l1uomn55" path="res://scenes/Days/Tweaking Day/crack_trigger.tscn" id="12_xakgp"]
 
 [sub_resource type="Gradient" id="Gradient_yw21r"]
 offsets = PackedFloat32Array(0, 0.7310606)
@@ -31,6 +36,13 @@ text_volume_pitch_min = 0.7
 text_volume_pitch_max = 0.65
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
+[sub_resource type="Resource" id="Resource_vq2ig"]
+script = ExtResource("8_p6yxs")
+target_path = NodePath("..")
+function_name = "play_music"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh80d"]
 size = Vector2(52, 3)
 
@@ -46,8 +58,116 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xakgp"]
 size = Vector2(20, 7)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xakgp"]
+atlas = ExtResource("11_wh80d")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftgno"]
+atlas = ExtResource("11_wh80d")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hjva"]
+atlas = ExtResource("11_wh80d")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6yxs"]
+atlas = ExtResource("11_wh80d")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq2ig"]
+atlas = ExtResource("11_wh80d")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_waglt"]
+atlas = ExtResource("11_wh80d")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6cbj"]
+atlas = ExtResource("11_wh80d")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ieh1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xakgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftgno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hjva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6yxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq2ig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_waglt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6cbj")
+}],
+"loop": false,
+"name": &"crack_anim",
+"speed": 12.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieh1j"]
+atlas = ExtResource("12_ftgno")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwo3v"]
+atlas = ExtResource("12_ftgno")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6wim"]
+atlas = ExtResource("12_ftgno")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1ehb"]
+atlas = ExtResource("12_ftgno")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acxeq"]
+atlas = ExtResource("12_ftgno")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lced"]
+atlas = ExtResource("12_ftgno")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fmwpr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ieh1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwo3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6wim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1ehb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acxeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lced")
+}],
+"loop": false,
+"name": &"crack_anim",
+"speed": 12.0
+}]
+
 [node name="Hallway" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_8hjva")
 
 [node name="DoorGone" type="TileMapLayer" parent="."]
 visible = false
@@ -87,7 +207,7 @@ color = Color(0.15921146, 0.12177811, 0.30488247, 1)
 position = Vector2(24, 56)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("4_rtk4a")]([SubResource("Resource_rtk4a")])
+dialogue = Array[ExtResource("4_rtk4a")]([SubResource("Resource_rtk4a"), SubResource("Resource_vq2ig")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dialogueTrigger"]
 shape = SubResource("RectangleShape2D_wh80d")
@@ -195,8 +315,66 @@ position = Vector2(42, 22)
 
 [node name="toNext" parent="." instance=ExtResource("10_rcx2i")]
 position = Vector2(24, 264)
-wanted_room_path = "res://scenes/Days/Tweaking Day/hallway.tscn"
+wanted_room_path = "res://scenes/Days/Tweaking Day/tilted_hallway.tscn"
 wanted_player_pos = Vector2(24, 9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toNext"]
 shape = SubResource("RectangleShape2D_xakgp")
+
+[node name="crack_1" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(8, 9)
+sprite_frames = SubResource("SpriteFrames_ieh1j")
+animation = &"crack_anim"
+
+[node name="crack_3" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(8, 183)
+sprite_frames = SubResource("SpriteFrames_ieh1j")
+animation = &"crack_anim"
+
+[node name="crack_4" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(40, 232)
+sprite_frames = SubResource("SpriteFrames_ieh1j")
+animation = &"crack_anim"
+flip_h = true
+
+[node name="crack_2" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(40, 87)
+sprite_frames = SubResource("SpriteFrames_fmwpr")
+animation = &"crack_anim"
+
+[node name="crack_5" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(8, 132)
+sprite_frames = SubResource("SpriteFrames_fmwpr")
+animation = &"crack_anim"
+flip_h = true
+flip_v = true
+
+[node name="crack_trigger" parent="." node_paths=PackedStringArray("crack_sprite") instance=ExtResource("12_xakgp")]
+position = Vector2(24, 40)
+crack_sprite = NodePath("../crack_1")
+
+[node name="crack_trigger2" parent="." node_paths=PackedStringArray("crack_sprite") instance=ExtResource("12_xakgp")]
+position = Vector2(24, 81)
+crack_sprite = NodePath("../crack_2")
+
+[node name="crack_trigger3" parent="." node_paths=PackedStringArray("crack_sprite") instance=ExtResource("12_xakgp")]
+position = Vector2(24, 185)
+crack_sprite = NodePath("../crack_3")
+
+[node name="crack_trigger4" parent="." node_paths=PackedStringArray("crack_sprite") instance=ExtResource("12_xakgp")]
+position = Vector2(24, 213)
+crack_sprite = NodePath("../crack_4")
+
+[node name="crack_trigger5" parent="." node_paths=PackedStringArray("crack_sprite") instance=ExtResource("12_xakgp")]
+position = Vector2(24, 120)
+crack_sprite = NodePath("../crack_5")

@@ -11,6 +11,9 @@ extends Node2D
 @onready var ambience: CanvasModulate = $ambience
 @onready var blackScreen: Sprite2D = $BlackScreen/Sprite2D
 
+@onready var pickUpSound: AudioStreamPlayer2D = $pickUpRemoteSound
+@onready var tvSound: AudioStreamPlayer2D = $tvSound
+
 var canTurnOffTV = false
 
 func _ready() -> void:
@@ -33,6 +36,7 @@ func turnOff():
 	turnoff.tween_property(blackScreen, "modulate:a", 1, 0.1).set_delay(2.14)
 	turnoff.tween_property(ambience, "color", Color8(0, 0, 0), 0.1).set_delay(2.04)
 	turnoff.tween_property($tvLight, "energy", 0, 0.1).set_delay(2).set_ease(Tween.EASE_OUT)
+	turnoff.tween_property(tvSound, "pitch_scale", 0.01, 0.1).set_delay(2).set_ease(Tween.EASE_OUT)
 	turnoff.tween_property($tvLight, "enabled", false, 0).set_delay(2.1)
 	turnoff.tween_callback(
 	func finish():
@@ -40,10 +44,18 @@ func turnOff():
 	).set_delay(2.11)
 
 func pickUpRemote():
-	tvRemoteSprite.visible = false
+	remoteDisappear()
 	canTurnOffTV = true
 	player.can_move = true
 	camTrigger.disabled = false
+	pickUpSound.play()
+	cam_shake()
+
+func remoteDisappear():
+	var tween = create_tween()
+	tween.set_parallel()
+	tween.tween_property(tvRemoteSprite, "position", Vector2(258.0, 18.0), 0.5)
+	tween.tween_property(tvRemoteSprite, "modulate:a", 0, 0.4)
 
 func cameraShift():
 	var camTween = create_tween()
@@ -55,3 +67,9 @@ func cameraShift():
 		barrier.disabled = true
 		tvNoRemote.disabled = true
 	).set_delay(1)
+
+func cam_shake():
+	var shake_tween = create_tween()
+	shake_tween.tween_property(camera, "offset", Vector2(2, 0), 0.09)
+	shake_tween.tween_property(camera, "offset", Vector2(-2, 0), 0.09)
+	shake_tween.tween_property(camera, "offset", Vector2(0, 0), 0.09)

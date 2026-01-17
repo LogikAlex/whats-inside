@@ -3,6 +3,7 @@ extends Node2D
 @onready var blackScreen: Sprite2D = $BlackScreen/Sprite2D
 @onready var ambience: CanvasModulate = $ambience
 @onready var player: CharacterBody2D = $Player
+@onready var dramaticSound: AudioStreamPlayer2D = $dramaticSound
 
 func _ready() -> void:
 	blackScreen.modulate.a = 1
@@ -20,7 +21,8 @@ func fadeIn():
 	bScreen.tween_callback(
 	func finish():
 		player.can_move = true
-		TweakingSong.play()
+		dramaticSound.play()
+		#TweakingSong.play()
 	).set_delay(2.05)
 
 func _process(_delta: float) -> void:

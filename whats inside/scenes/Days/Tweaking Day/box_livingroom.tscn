@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://co15i0rgsta53"]
+[gd_scene load_steps=24 format=4 uid="uid://co15i0rgsta53"]
 
 [ext_resource type="Texture2D" uid="uid://mvgkrnayxjlf" path="res://assets/misc/square.png" id="1_hyx8t"]
 [ext_resource type="Script" uid="uid://x2ql0m7uvf7t" path="res://scenes/Days/Tweaking Day/box_livingroom.gd" id="1_tfh4t"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b5hki7kvg72vf" path="res://assets/misc/dust_particle.png" id="14_6brss"]
 [ext_resource type="Texture2D" uid="uid://bs7cxyqisn674" path="res://scenes/Days/DayThree/d3.tres" id="15_qt1cb"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="15_tkmbm"]
+[ext_resource type="AudioStream" uid="uid://dxbcqje8devlu" path="res://assets/sfx/dramatic_sound.mp3" id="17_3km5a"]
 [ext_resource type="Texture2D" uid="uid://dciukd8npw6x2" path="res://assets/misc/crack_3.png" id="17_r88mi"]
 [ext_resource type="Texture2D" uid="uid://c8pr53qdhnfn7" path="res://assets/misc/crack_4.png" id="18_pnjmc"]
 [ext_resource type="Texture2D" uid="uid://d3t7e3b5dulg7" path="res://assets/misc/crack_1.png" id="19_hdjus"]
@@ -214,3 +215,6 @@ wanted_player_pos = Vector2(24, 9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toNext"]
 shape = SubResource("RectangleShape2D_tfh4t")
+
+[node name="dramaticSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_3km5a")

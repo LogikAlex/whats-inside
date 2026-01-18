@@ -359,7 +359,7 @@ pitch_scale = 0.92
 
 [node name="tvSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("30_1ggpp")
-volume_db = 24.0
-pitch_scale = 0.93
+volume_db = 2.74
+pitch_scale = 0.88
 autoplay = true
 parameters/looping = true

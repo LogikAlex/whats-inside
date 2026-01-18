@@ -534,7 +534,7 @@ metadata/_edit_lock_ = true
 
 [node name="InteractIndicatorType" parent="." instance=ExtResource("14_uy1yx")]
 modulate = Color(1, 1, 1, 0)
-z_index = 2
+z_index = 1
 position = Vector2(45, -15)
 
 [node name="keyboard_sounds" type="AudioStreamPlayer2D" parent="."]

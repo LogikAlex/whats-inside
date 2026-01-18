@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://c41dwdt8qlhpl"]
+[gd_scene load_steps=28 format=4 uid="uid://c41dwdt8qlhpl"]
 
 [ext_resource type="Texture2D" uid="uid://dsvpekb435jkq" path="res://assets/tilesets/kitchen_tiles.png" id="1_o6jpr"]
 [ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="2_uqvd1"]
@@ -120,6 +120,9 @@ fill_from = Vector2(0.5, 0.4871795)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jmvi2"]
 size = Vector2(40, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60vnw"]
+size = Vector2(40, 12)
+
 [node name="UspideDownKitchen" type="Node2D"]
 y_sort_enabled = true
 
@@ -129,7 +132,7 @@ zoom = Vector2(-1, -1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -1
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAACAAEAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAMAAAAAAAAAAAAAAP//AAADAAEAAAABAP//AAADAAEAAAACAP//AAADAAEAAAADAP//AAAFAAEAAAAGAP//AAAFAAMAAAAHAP//AAAEAAEAAAAHAAAAAAAEAAIAAAAHAAEAAAAEAAIAAAAHAAIAAAAEAAIAAAAHAAMAAAAEAAIAAAD/////AAACAAEAAAD//wAAAAACAAIAAAD//wEAAAACAAIAAAD//wIAAAACAAIAAAD//wMAAAACAAIAAAD//wQAAAACAAQAAAAAAAQAAAAAAAQAAAADAAQAAAABAAQAAAAEAAQAAAADAAQAAAAFAAQAAAADAAQAAAAGAAQAAAADAAQAAAAHAAQAAAAEAAQAAAAAAP7/AAADAAAAAAABAP7/AAADAAAAAAACAP7/AAADAAAAAAADAP7/AAAFAAAAAAAGAP7/AAAFAAIAAAAHAP7/AAAEAAAAAAD///7/AAACAAAAAAAEAP//AAAGAAIAAAAFAP//AAAGAAIAAAABAAQAAAAGAAMAAAACAAQAAAAGAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAACAAEAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAMAAAAAAAAAAAAAAP//AAADAAEAAAABAP//AAADAAEAAAACAP//AAADAAEAAAADAP//AAAFAAEAAAAGAP//AAAFAAMAAAAHAP//AAAEAAEAAAAHAAAAAAAEAAIAAAAHAAEAAAAEAAIAAAAHAAIAAAAEAAIAAAAHAAMAAAAEAAIAAAD/////AAACAAEAAAD//wAAAAACAAIAAAD//wEAAAACAAIAAAD//wIAAAACAAIAAAD//wMAAAACAAIAAAD//wQAAAACAAQAAAAAAAQAAAADAAQAAAADAAQAAAABAAQAAAAEAAQAAAADAAQAAAAFAAQAAAADAAQAAAAGAAQAAAADAAQAAAAHAAQAAAAEAAQAAAAAAP7/AAADAAAAAAABAP7/AAADAAAAAAACAP7/AAADAAAAAAADAP7/AAAFAAAAAAAGAP7/AAAFAAIAAAAHAP7/AAAEAAAAAAD///7/AAACAAAAAAAEAP//AAAGAAIAAAAFAP//AAAGAAIAAAACAAQAAAAGAAMAAAABAAQAAAAAAAQAAAA=")
 tile_set = SubResource("TileSet_wg0q6")
 
 [node name="thedark" type="PointLight2D" parent="."]
@@ -144,7 +147,7 @@ texture = ExtResource("2_uqvd1")
 
 [node name="thedark2" type="PointLight2D" parent="."]
 z_index = -2
-position = Vector2(29.000002, 83)
+position = Vector2(41, 84)
 scale = Vector2(3.6249998, 1.421875)
 color = Color(0, 0, 0, 1)
 energy = 0.0
@@ -160,7 +163,7 @@ position = Vector2(61, 0)
 occluder = SubResource("OccluderPolygon2D_yaepu")
 
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
-position = Vector2(-48, 55)
+position = Vector2(-32, 55)
 occluder = SubResource("OccluderPolygon2D_yaepu")
 
 [node name="LightOccluder2D4" type="LightOccluder2D" parent="."]
@@ -240,20 +243,19 @@ energy = 0.29
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_60vnw")
 
-[node name="toBack" parent="." instance=ExtResource("16_60vnw")]
-position = Vector2(82, -7)
-wanted_room_path = "res://scenes/Days/Tweaking Day/stretch_livingroom.tscn"
-wanted_player_pos = Vector2(95, 45)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="toBack"]
-shape = SubResource("RectangleShape2D_jmvi2")
-
 [node name="toNext" parent="." instance=ExtResource("16_60vnw")]
 position = Vector2(32, 71)
-wanted_room_path = "res://scenes/Days/Tweaking Day/broken_livingroom.tscn"
-wanted_player_pos = Vector2(38, 33)
+wanted_room_path = "res://scenes/Days/Tweaking Day/hanger_room.tscn"
+wanted_player_pos = Vector2(24, 5)
+isDoor = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toNext"]
 shape = SubResource("RectangleShape2D_jmvi2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(81, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_60vnw")
 
 [editable path="Chair2"]

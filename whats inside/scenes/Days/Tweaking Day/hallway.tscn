@@ -16,12 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://b6bwgwq3o22b0" path="res://assets/Spritesheets/crack_animation_2.png" id="12_ftgno"]
 [ext_resource type="PackedScene" uid="uid://l0j5l1uomn55" path="res://scenes/Days/Tweaking Day/crack_trigger.tscn" id="12_xakgp"]
 
-[sub_resource type="Gradient" id="Gradient_yw21r"]
+[sub_resource type="Gradient" id="Gradient_p6yxs"]
 offsets = PackedFloat32Array(0, 0.7310606)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_co0bu"]
-gradient = SubResource("Gradient_yw21r")
+gradient = SubResource("Gradient_p6yxs")
 width = 244
 height = 244
 fill = 1

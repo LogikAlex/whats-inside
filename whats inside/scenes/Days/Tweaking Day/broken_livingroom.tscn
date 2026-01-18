@@ -1,10 +1,11 @@
-[gd_scene load_steps=36 format=3 uid="uid://drntq0ipi3nnm"]
+[gd_scene load_steps=40 format=3 uid="uid://drntq0ipi3nnm"]
 
 [ext_resource type="Texture2D" uid="uid://7kdsis81pjem" path="res://assets/misc/broken_room.png" id="1_ddyvq"]
-[ext_resource type="Script" uid="uid://c5a8omi0j1ego" path="res://scenes/Days/Tweaking Day/broken_livingroom.gd" id="1_jpka6"]
+[ext_resource type="Script" uid="uid://c5a8omi0j1ego" path="res://scripts/tweakingDay/broken_livingroom.gd" id="1_jpka6"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_ah875"]
 [ext_resource type="Texture2D" uid="uid://b5hki7kvg72vf" path="res://assets/misc/dust_particle.png" id="3_mctgb"]
 [ext_resource type="Texture2D" uid="uid://bs7cxyqisn674" path="res://scenes/Days/DayThree/d3.tres" id="4_8h5wn"]
+[ext_resource type="Script" uid="uid://b0hq6nro0rj1d" path="res://scenes/Days/Tweaking Day/box_light.gd" id="4_cli7n"]
 [ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="5_cvyqd"]
 [ext_resource type="PackedScene" uid="uid://cgpoipqm1ls12" path="res://scenes/Objects/plant_d3.tscn" id="5_mctgb"]
 [ext_resource type="PackedScene" uid="uid://banhcwdrm7u2h" path="res://scenes/Objects/theBox.tscn" id="6_8h5wn"]
@@ -20,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dmebk3gpcrv4a" path="res://assets/misc/glass_shard_2.png" id="12_ai2xw"]
 [ext_resource type="PackedScene" uid="uid://b08631to2twuy" path="res://scenes/Objects/tv_d2.tscn" id="13_ee8ru"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="14_oi5q6"]
+[ext_resource type="Script" uid="uid://ceb7knqoyxilu" path="res://scenes/Days/Tweaking Day/counter.gd" id="21_ioewk"]
 
 [sub_resource type="Gradient" id="Gradient_7vca8"]
 offsets = PackedFloat32Array(0, 0.7310606)
@@ -61,7 +63,7 @@ metadata/_custom_type_script = "uid://bj218rqao0syu"
 
 [sub_resource type="Resource" id="Resource_afjrg"]
 script = ExtResource("7_ioewk")
-text = "*why am i running?"
+text = "*what am i running from?"
 text_speed = 10.0
 text_sound = ExtResource("8_cli7n")
 text_volume_pitch_min = 0.7
@@ -110,11 +112,21 @@ function_name = "next_dial"
 hide_dialogue_box = true
 metadata/_custom_type_script = "uid://bj218rqao0syu"
 
+[sub_resource type="Resource" id="Resource_27dte"]
+script = ExtResource("9_r5cw7")
+target_path = NodePath("../boxLight")
+function_name = "lightAppear"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hx7e"]
 size = Vector2(20, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ve5c"]
 size = Vector2(20, 110)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpka6"]
+size = Vector2(50, 56)
 
 [node name="BrokenLivingRoom" type="Node2D"]
 y_sort_enabled = true
@@ -135,9 +147,17 @@ speed = 50.0
 [node name="ceilingLight" type="PointLight2D" parent="."]
 position = Vector2(45, 44)
 scale = Vector2(0.44262296, 0.39754102)
-energy = 0.4
+energy = 0.25
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_bqo4w")
+
+[node name="boxLight" type="PointLight2D" parent="."]
+position = Vector2(21, 29)
+scale = Vector2(0.15573771, 0.15573771)
+energy = 0.0
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_bqo4w")
+script = ExtResource("4_cli7n")
 
 [node name="dust" type="GPUParticles2D" parent="."]
 position = Vector2(88, 43)
@@ -155,6 +175,7 @@ dialogue = Array[ExtResource("6_jpka6")]([SubResource("Resource_ioewk"), SubReso
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dialogueTrigger"]
 shape = SubResource("RectangleShape2D_yghs3")
+disabled = true
 
 [node name="dialogueTrigger2" parent="." instance=ExtResource("5_cvyqd")]
 position = Vector2(38, 56)
@@ -170,7 +191,7 @@ disabled = true
 position = Vector2(38, 56)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("6_jpka6")]([SubResource("Resource_cli7n"), SubResource("Resource_42n23")])
+dialogue = Array[ExtResource("6_jpka6")]([SubResource("Resource_cli7n"), SubResource("Resource_42n23"), SubResource("Resource_27dte")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dialogueTrigger3"]
 shape = SubResource("RectangleShape2D_yghs3")
@@ -253,3 +274,13 @@ position = Vector2(69, 44)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_4ve5c")
+
+[node name="counter" type="Area2D" parent="."]
+position = Vector2(37, 51)
+script = ExtResource("21_ioewk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="counter"]
+shape = SubResource("RectangleShape2D_jpka6")
+disabled = true
+
+[connection signal="area_entered" from="counter" to="counter" method="_on_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwtjlcebml8fn"]
+[gd_scene load_steps=21 format=3 uid="uid://cwtjlcebml8fn"]
 
 [ext_resource type="Script" uid="uid://8smpwhsl75iq" path="res://scenes/Days/Ending/final_scene.gd" id="1_ecbqi"]
 [ext_resource type="Texture2D" uid="uid://mvgkrnayxjlf" path="res://assets/misc/square.png" id="1_ycqdb"]
@@ -10,13 +10,14 @@
 [ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="8_1poox"]
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="9_1poox"]
 [ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="10_liuux"]
+[ext_resource type="AudioStream" uid="uid://cc5menqok8osf" path="res://assets/sfx/suspense.mp3" id="11_fevaf"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f1ibd"]
 light_mode = 1
 
 [sub_resource type="Resource" id="Resource_liuux"]
 script = ExtResource("8_1poox")
-text = "*this is all i have left."
+text = "*why do i still have this?"
 text_speed = 10.0
 text_sound = ExtResource("9_1poox")
 text_volume_pitch_min = 0.75
@@ -34,7 +35,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_1poox"]
 script = ExtResource("8_1poox")
-text = "*i need to let it go."
+text = "*punishing myself won't change a thing"
 text_speed = 10.0
 text_sound = ExtResource("9_1poox")
 text_volume_pitch_min = 0.75
@@ -45,11 +46,28 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 script = ExtResource("10_liuux")
 target_path = NodePath("..")
 function_name = "boxDisappear"
-hide_dialogue_box = true
 metadata/_custom_type_script = "uid://bj218rqao0syu"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_br8pc"]
 size = Vector2(36, 32)
+
+[sub_resource type="Resource" id="Resource_0qj7v"]
+script = ExtResource("8_1poox")
+text = "*maybe i want to live."
+text_speed = 10.0
+text_sound = ExtResource("9_1poox")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.8
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_n46yy"]
+script = ExtResource("10_liuux")
+target_path = NodePath("..")
+function_name = "change_scene"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n46yy"]
 
 [node name="FinalScene" type="Node2D"]
 script = ExtResource("1_ecbqi")
@@ -83,7 +101,10 @@ zoom = Vector2(1.5, 1.5)
 
 [node name="Player" parent="." instance=ExtResource("5_d03gm")]
 position = Vector2(-64, 27)
-speed = 50.0
+speed = 45.0
+
+[node name="suspense" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_fevaf")
 
 [node name="DialogueAreaWhite" parent="." instance=ExtResource("6_wuff2")]
 position = Vector2(-64, 28)
@@ -93,4 +114,14 @@ dialogue = Array[ExtResource("7_snqgw")]([SubResource("Resource_liuux"), SubReso
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueAreaWhite"]
 shape = SubResource("RectangleShape2D_br8pc")
+disabled = true
+
+[node name="DialogueAreaWhiter" parent="." instance=ExtResource("6_wuff2")]
+position = Vector2(-64, 28)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("7_snqgw")]([SubResource("Resource_0qj7v"), SubResource("Resource_n46yy")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueAreaWhiter"]
+shape = SubResource("RectangleShape2D_n46yy")
 disabled = true

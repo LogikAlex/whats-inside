@@ -45,6 +45,9 @@ var lastPlayerDir
 #tweak sequence
 @export var current_dial = 1
 
+#final day
+@export var finalBedroomFade = false
+
 func _process(_delta: float) -> void:
 	if bedroomBlame == false and balconyBlame == false \
 	and livingroomBlame == false and entryBlame == false \

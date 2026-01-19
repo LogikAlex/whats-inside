@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfgu8voffw32n"]
+
+[ext_resource type="Texture2D" uid="uid://xfijjdbynfm2" path="res://assets/objects/stand_final.png" id="1_vr84o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adpwn"]
+size = Vector2(10, 12)
+
+[node name="Stand" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 4)
+texture = ExtResource("1_vr84o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_adpwn")

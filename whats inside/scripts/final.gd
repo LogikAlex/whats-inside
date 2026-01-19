@@ -13,7 +13,7 @@ extends Node2D
 var distance
 var last_pos
 
-var zoom_step = 0.00028
+var zoom_step = 0.0003
 var min_zoom = 1.1
 var max_zoom = 2.0
 

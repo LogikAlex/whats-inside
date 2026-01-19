@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://c41dwdt8qlhpl"]
+[gd_scene load_steps=35 format=4 uid="uid://c41dwdt8qlhpl"]
 
 [ext_resource type="Texture2D" uid="uid://dsvpekb435jkq" path="res://assets/tilesets/kitchen_tiles.png" id="1_o6jpr"]
 [ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="2_uqvd1"]
@@ -16,6 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://32ls3khnu3a1" path="res://assets/objects/mug.png" id="14_5hmrf"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="15_uqvd1"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="16_60vnw"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="17_gil7u"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="18_hjuqw"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="19_mq2pn"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="20_lo78r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbewa"]
 texture = ExtResource("1_o6jpr")
@@ -122,6 +126,27 @@ size = Vector2(40, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60vnw"]
 size = Vector2(40, 12)
+
+[sub_resource type="Resource" id="Resource_fyo12"]
+script = ExtResource("19_mq2pn")
+text = "*i hate this..."
+text_speed = 12.0
+text_sound = ExtResource("20_lo78r")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wk3a3"]
+size = Vector2(49, 4)
+
+[sub_resource type="Resource" id="Resource_gil7u"]
+script = ExtResource("19_mq2pn")
+text = "*but i deserve all of it."
+text_speed = 10.0
+text_sound = ExtResource("20_lo78r")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.65
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [node name="UspideDownKitchen" type="Node2D"]
 y_sort_enabled = true
@@ -254,7 +279,6 @@ texture = SubResource("GradientTexture2D_60vnw")
 position = Vector2(32, 71)
 wanted_room_path = "res://scenes/Days/Tweaking Day/hanger_room.tscn"
 wanted_player_pos = Vector2(24, 5)
-isDoor = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toNext"]
 shape = SubResource("RectangleShape2D_jmvi2")
@@ -264,5 +288,25 @@ position = Vector2(81, -6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_60vnw")
+
+[node name="triggerDialogue" parent="." instance=ExtResource("17_gil7u")]
+position = Vector2(88, 8)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("18_hjuqw")]([SubResource("Resource_fyo12")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="triggerDialogue"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_wk3a3")
+
+[node name="triggerDialogue2" parent="." instance=ExtResource("17_gil7u")]
+position = Vector2(35, 40)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("18_hjuqw")]([SubResource("Resource_gil7u")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="triggerDialogue2"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_wk3a3")
 
 [editable path="Chair2"]

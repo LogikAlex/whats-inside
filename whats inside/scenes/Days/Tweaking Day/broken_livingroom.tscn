@@ -350,6 +350,7 @@ dialogue = Array[ExtResource("6_jpka6")]([SubResource("Resource_1or2p"), SubReso
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boxDialogue"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_cli7n")
+disabled = true
 
 [node name="boxDialogue2" parent="." instance=ExtResource("5_cvyqd")]
 position = Vector2(27, 36)

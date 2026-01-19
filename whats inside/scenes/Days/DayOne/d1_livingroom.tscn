@@ -30,12 +30,12 @@ size = Vector2(20, 7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqq4a"]
 size = Vector2(36, 8)
 
-[sub_resource type="Gradient" id="Gradient_njhrv"]
+[sub_resource type="Gradient" id="Gradient_ia1uf"]
 offsets = PackedFloat32Array(0, 0.7310606)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0vuf1"]
-gradient = SubResource("Gradient_njhrv")
+gradient = SubResource("Gradient_ia1uf")
 width = 244
 height = 244
 fill = 1
@@ -227,7 +227,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kv4q3"]
 size = Vector2(4, 17)
 
-[sub_resource type="CurveTexture" id="CurveTexture_ia1uf"]
+[sub_resource type="CurveTexture" id="CurveTexture_mmmxa"]
 width = 2048
 curve = ExtResource("22_dsoqk")
 
@@ -235,7 +235,7 @@ curve = ExtResource("22_dsoqk")
 _data = [Vector2(0, 0.56320006), 0.0, 0.0, 0, 0, Vector2(0.27480915, 1), 0.0, 0.0, 0, 0, Vector2(0.71374047, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.56320006), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_mmmxa"]
+[sub_resource type="CurveTexture" id="CurveTexture_n220y"]
 width = 2048
 curve = SubResource("Curve_ia1uf")
 
@@ -248,8 +248,8 @@ spread = 180.0
 initial_velocity_min = 0.099999994
 initial_velocity_max = 0.5
 gravity = Vector3(-1, 2, 0)
-scale_curve = SubResource("CurveTexture_mmmxa")
-alpha_curve = SubResource("CurveTexture_ia1uf")
+scale_curve = SubResource("CurveTexture_n220y")
+alpha_curve = SubResource("CurveTexture_mmmxa")
 
 [node name="LivingRoom" type="Node2D"]
 y_sort_enabled = true
@@ -257,7 +257,6 @@ script = ExtResource("1_625l6")
 
 [node name="tv_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_njhrv")
-volume_db = 24.0
 parameters/looping = true
 
 [node name="CouchTimer" type="Timer" parent="."]

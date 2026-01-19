@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://ym1j1w8kdwm0"]
+
+[ext_resource type="Script" uid="uid://buuxud8pcab3g" path="res://scenes/Days/Ending/credits.gd" id="1_6b237"]
+[ext_resource type="Texture2D" uid="uid://cjb6suj3sfqw0" path="res://assets/misc/the_box_title_screen.png" id="1_8xhwn"]
+[ext_resource type="Texture2D" uid="uid://coaxu6qvhi0kc" path="res://assets/misc/title_screen.png" id="2_6b237"]
+[ext_resource type="AudioStream" uid="uid://cs4wxlr7w2odq" path="res://assets/sfx/song for sum.mp3" id="4_bemkm"]
+[ext_resource type="FontFile" uid="uid://bwsast0682an6" path="res://assets/fonts/8_bit_1_6/8bit16.ttf" id="5_w36ao"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_6b237")
+
+[node name="TitleScreen" type="Sprite2D" parent="."]
+position = Vector2(159, 85)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_6b237")
+
+[node name="TheBoxTitleScreen" type="Sprite2D" parent="TitleScreen"]
+position = Vector2(157.35292, 7.3529434)
+scale = Vector2(0.9999999, 0.9999999)
+texture = ExtResource("1_8xhwn")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_bemkm")
+autoplay = true
+
+[node name="creditsLabels" type="Node2D" parent="."]
+position = Vector2(0, 113)
+
+[node name="madeBy" type="Label" parent="creditsLabels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 107.0
+offset_top = 125.0
+offset_right = 211.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("5_w36ao")
+theme_override_font_sizes/font_size = 8
+text = "made by: LogikAlex"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="thanksTo" type="Label" parent="creditsLabels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 81.0
+offset_top = 187.5
+offset_right = 237.0
+offset_bottom = 327.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("5_w36ao")
+theme_override_font_sizes/font_size = 8
+text = "huge thanks to:
+
+me
+
+godot engine
+
+my keyboard
+
+myself
+
+energy drinks
+
+youtube free sound effects
+
+willpower
+
+coffee :)"
+horizontal_alignment = 1
+vertical_alignment = 1

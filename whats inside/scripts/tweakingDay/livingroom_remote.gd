@@ -56,6 +56,7 @@ func remoteDisappear():
 	tween.set_parallel()
 	tween.tween_property(tvRemoteSprite, "position", Vector2(258.0, 18.0), 0.5)
 	tween.tween_property(tvRemoteSprite, "modulate:a", 0, 0.4)
+	tween.tween_property($FOR_DAY_5/ceilingLight, "energy", 0, 0.4)
 
 func cameraShift():
 	var camTween = create_tween()

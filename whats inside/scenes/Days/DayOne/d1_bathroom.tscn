@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bijso44bvdy8o" path="res://scenes/Days/DayOne/right_arrow.tscn" id="20_iruac"]
 [ext_resource type="AudioStream" uid="uid://cjfnjcilrbaca" path="res://assets/sfx/brush_teeth.mp3" id="20_l5vws"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7agtt"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iruac"]
 texture = ExtResource("1_q7576")
 0:0/0 = 0
 2:0/0 = 0
@@ -80,17 +80,17 @@ texture = ExtResource("1_q7576")
 
 [sub_resource type="TileSet" id="TileSet_luqbx"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_7agtt")
+sources/0 = SubResource("TileSetAtlasSource_iruac")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8ve7"]
 size = Vector2(20, 7)
 
-[sub_resource type="Gradient" id="Gradient_5sxgv"]
+[sub_resource type="Gradient" id="Gradient_l5vws"]
 offsets = PackedFloat32Array(0, 0.7310606)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_q7576"]
-gradient = SubResource("Gradient_5sxgv")
+gradient = SubResource("Gradient_l5vws")
 width = 244
 height = 244
 fill = 1

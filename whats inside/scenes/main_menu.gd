@@ -23,16 +23,59 @@ var changed_state = false
 var canClick = false
 
 func _ready() -> void:
+	resetGlobals()
 	fadeOutBs()
 	selectionArrowExit.visible = false
 	selectionArrowStart.visible = false
 	current_selection = selection.start
 
-
 func _process(_delta: float) -> void:
 	handleSelection()
 	mouseSelection()
 	keyboardSelection()
+
+func resetGlobals():
+	globals.lastRandLetterFrame = -1
+	globals.wokeUp = false
+	globals.brushedTeeth = false
+	globals.worked = false
+	globals.is_dark = false
+	globals.wantedPlayerPos = Vector2(24, 10)
+	globals.anotherDayDialogue = true
+	globals.tv_off = true
+	globals.coffeeDialog = false
+	globals.cleanedDialog = true
+	globals.cleanedCoffee = false
+
+	#dream
+	globals.wokeUpDream = false
+	globals.jumped = false
+
+	#day three
+	globals.canWork = false
+	globals.wokeFromDream = false
+	globals.inLR = false
+	globals.pictureFell = false
+	globals.checkedPicture = false
+	globals.checkedCoffee = false
+	globals.boxEvent = false
+	globals.watchedTV = false
+
+	#day four
+	globals.wokeD4 = false
+	globals.checkedAll = false
+	globals.bedroomBlame = true
+	globals.balconyBlame = true
+	globals.livingroomBlame = true
+	globals.entryBlame = true
+	globals.bathroomBlame = true
+	globals.kitchenBlame = true
+
+	#tweak sequence
+	globals.current_dial = 1
+
+	#final day
+	globals.finalBedroomFade = false
 
 func fadeOutBs():
 	var bsTween = create_tween()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://bofkur3sh5k7u"]
+[gd_scene load_steps=43 format=4 uid="uid://bofkur3sh5k7u"]
 
 [ext_resource type="Script" uid="uid://coo3wcr1d1gjk" path="res://scripts/tweakingDay/upside_down_livingroom.gd" id="1_td345"]
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="2_iwn7a"]
@@ -22,6 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://dyllunv5djv0r" path="res://assets/Spritesheets/crack_animation_1.png" id="20_ewtni"]
 [ext_resource type="PackedScene" uid="uid://l0j5l1uomn55" path="res://scenes/Days/Tweaking Day/crack_trigger.tscn" id="21_lgixh"]
 [ext_resource type="Script" uid="uid://tx72jndkblpr" path="res://scripts/tweakingDay/crack_trigger_stretch.gd" id="22_1fhd2"]
+[ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="23_114vs"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="24_exu1w"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="25_461jf"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="26_lbsoc"]
 
 [sub_resource type="Gradient" id="Gradient_78y63"]
 offsets = PackedFloat32Array(0, 0.7310606)
@@ -114,6 +118,18 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="Resource" id="Resource_mqiee"]
+script = ExtResource("25_461jf")
+text = "*i have to run."
+text_speed = 10.0
+text_sound = ExtResource("26_lbsoc")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.75
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpaxi"]
+size = Vector2(16, 20)
+
 [node name="StretchLivingroom" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_td345")
@@ -121,6 +137,13 @@ script = ExtResource("1_td345")
 [node name="Tiles" type="TileMapLayer" parent="."]
 z_index = -1
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAAAP//AAAGAAEAAAADAP//AAADAAEAAAAEAP//AAADAAEAAAAHAP//AAADAAEAAAAAAP7/AAAGAAAAAAACAP7/AAAGAAIAAAADAP7/AAADAAAAAAAEAP7/AAADAAAAAAAHAP7/AAADAAAAAAD//wIAAAACAAIAAAD//wEAAAACAAIAAAD//wAAAAACAAIAAAD/////AAACAAEAAAD///7/AAACAAAAAAAIAAIAAAAEAAIAAAAIAAEAAAAEAAIAAAAIAAAAAAAEAAIAAAAIAP//AAAEAAEAAAAIAP7/AAAEAAAAAAAFAP7/AAADAAAAAAAFAP//AAADAAEAAAAGAP7/AAADAAAAAAAGAP//AAADAAEAAAD//wMAAAACAAQAAAAAAAMAAAAAAAQAAAACAAMAAAABAAQAAAADAAMAAAADAAQAAAAEAAMAAAAAAAQAAAAHAAMAAAABAAQAAAAIAAMAAAAEAAQAAAACAP//AAAGAAMAAAABAP//AAADAAMAAAABAP7/AAADAAIAAAABAAMAAAAFAAMAAAAFAAMAAAAFAAMAAAAGAAMAAAAFAAMAAAA=")
+tile_set = ExtResource("2_iwn7a")
+metadata/_edit_lock_ = true
+
+[node name="Tiles2" type="TileMapLayer" parent="."]
+visible = false
+z_index = -3
+tile_map_data = PackedByteArray("AAABAP7/AAADAAAAAAABAP//AAADAAEAAAAAAP7/AAADAAAAAAAAAP//AAADAAEAAAACAP7/AAADAAAAAAACAP//AAADAAEAAAA=")
 tile_set = ExtResource("2_iwn7a")
 metadata/_edit_lock_ = true
 
@@ -290,19 +313,26 @@ sprite_frames = SubResource("SpriteFrames_lgixh")
 animation = &"crack_anim"
 
 [node name="crack_trigger" parent="." node_paths=PackedStringArray("crack_sprite") instance=ExtResource("21_lgixh")]
-position = Vector2(34, 22.999998)
+position = Vector2(34, 145)
 rotation = -0.24360415
 script = ExtResource("22_1fhd2")
 crack_sprite = NodePath("../crack_1")
 
 [node name="crack_trigger2" parent="." node_paths=PackedStringArray("crack_sprite") instance=ExtResource("21_lgixh")]
-position = Vector2(54, 51)
+position = Vector2(54, 173)
 rotation = -1.5707964
 script = ExtResource("22_1fhd2")
 crack_sprite = NodePath("../crack_2")
 
 [node name="crack_trigger3" parent="." node_paths=PackedStringArray("crack_sprite") instance=ExtResource("21_lgixh")]
-position = Vector2(97, 3)
+position = Vector2(97, 125)
 rotation = -1.5707964
 script = ExtResource("22_1fhd2")
 crack_sprite = NodePath("../crack_3")
+
+[node name="doorDialogue" parent="." instance=ExtResource("23_114vs")]
+position = Vector2(24, -12)
+dialogue = Array[ExtResource("24_exu1w")]([SubResource("Resource_mqiee")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="doorDialogue"]
+shape = SubResource("RectangleShape2D_kpaxi")

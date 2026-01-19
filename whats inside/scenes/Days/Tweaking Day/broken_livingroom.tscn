@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://drntq0ipi3nnm"]
+[gd_scene load_steps=51 format=3 uid="uid://drntq0ipi3nnm"]
 
 [ext_resource type="Texture2D" uid="uid://7kdsis81pjem" path="res://assets/misc/broken_room.png" id="1_ddyvq"]
 [ext_resource type="Script" uid="uid://c5a8omi0j1ego" path="res://scripts/tweakingDay/broken_livingroom.gd" id="1_jpka6"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://b08631to2twuy" path="res://scenes/Objects/tv_d2.tscn" id="13_ee8ru"]
 [ext_resource type="PackedScene" uid="uid://cpuj6ktdfqhdu" path="res://scenes/change_room.tscn" id="14_oi5q6"]
 [ext_resource type="Script" uid="uid://ceb7knqoyxilu" path="res://scenes/Days/Tweaking Day/counter.gd" id="21_ioewk"]
+[ext_resource type="Texture2D" uid="uid://mvgkrnayxjlf" path="res://assets/misc/square.png" id="23_r5cw7"]
+[ext_resource type="AudioStream" uid="uid://d2h2wbhspu83t" path="res://assets/sfx/wake_sfx.mp3" id="24_yghs3"]
 
 [sub_resource type="Gradient" id="Gradient_7vca8"]
 offsets = PackedFloat32Array(0, 0.7310606)
@@ -127,6 +129,63 @@ size = Vector2(20, 110)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jpka6"]
 size = Vector2(50, 56)
+
+[sub_resource type="Resource" id="Resource_1or2p"]
+script = ExtResource("7_ioewk")
+text = "*why am i still holding on?"
+text_speed = 10.0
+text_sound = ExtResource("8_cli7n")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_nhffs"]
+script = ExtResource("9_r5cw7")
+target_path = NodePath("..")
+function_name = "enable_second_dial"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cli7n"]
+size = Vector2(7, 6)
+
+[sub_resource type="Resource" id="Resource_58my2"]
+script = ExtResource("7_ioewk")
+text = "*it's long gone now."
+text_speed = 10.0
+text_sound = ExtResource("8_cli7n")
+text_volume_pitch_min = 0.65
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_xxti1"]
+script = ExtResource("9_r5cw7")
+target_path = NodePath("..")
+function_name = "enable_third_dial"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxti1"]
+size = Vector2(47, 50)
+
+[sub_resource type="Resource" id="Resource_0dmnj"]
+script = ExtResource("7_ioewk")
+text = "*they're long gone."
+text_speed = 8.0
+text_sound = ExtResource("8_cli7n")
+text_volume_pitch_min = 0.6
+text_volume_pitch_max = 0.65
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_due6j"]
+script = ExtResource("9_r5cw7")
+target_path = NodePath("..")
+function_name = "toWhite"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yghs3"]
+light_mode = 1
 
 [node name="BrokenLivingRoom" type="Node2D"]
 y_sort_enabled = true
@@ -282,5 +341,62 @@ script = ExtResource("21_ioewk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="counter"]
 shape = SubResource("RectangleShape2D_jpka6")
 disabled = true
+
+[node name="boxDialogue" parent="." instance=ExtResource("5_cvyqd")]
+position = Vector2(21, 30)
+only_activate_once = true
+dialogue = Array[ExtResource("6_jpka6")]([SubResource("Resource_1or2p"), SubResource("Resource_nhffs")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boxDialogue"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_cli7n")
+
+[node name="boxDialogue2" parent="." instance=ExtResource("5_cvyqd")]
+position = Vector2(27, 36)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("6_jpka6")]([SubResource("Resource_58my2"), SubResource("Resource_xxti1")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boxDialogue2"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_xxti1")
+disabled = true
+
+[node name="boxDialogue3" parent="." instance=ExtResource("5_cvyqd")]
+position = Vector2(27, 36)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("6_jpka6")]([SubResource("Resource_0dmnj"), SubResource("Resource_due6j")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boxDialogue3"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_xxti1")
+disabled = true
+
+[node name="whiteFlash" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = -3
+material = SubResource("CanvasItemMaterial_yghs3")
+position = Vector2(89.00001, 38)
+scale = Vector2(350, 208.49998)
+texture = ExtResource("23_r5cw7")
+metadata/_edit_lock_ = true
+
+[node name="WhiteScreen" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 4
+material = SubResource("CanvasItemMaterial_yghs3")
+position = Vector2(89.00001, 38)
+scale = Vector2(350, 208.49998)
+texture = ExtResource("23_r5cw7")
+metadata/_edit_lock_ = true
+
+[node name="boxSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_yghs3")
+pitch_scale = 0.76
+
+[node name="boxSound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_yghs3")
+pitch_scale = 0.66
 
 [connection signal="area_entered" from="counter" to="counter" method="_on_area_entered"]

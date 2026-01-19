@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://c2e8dkwi30x4n"]
+[gd_scene load_steps=32 format=4 uid="uid://c2e8dkwi30x4n"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_gh4ac"]
 [ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="2_uu3by"]
@@ -42,6 +42,24 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_67n0g"]
 size = Vector2(15, 9)
+
+[sub_resource type="Resource" id="Resource_nrqc5"]
+script = ExtResource("7_klifs")
+text = "*i hate this."
+text_speed = 12.0
+text_sound = ExtResource("8_xhbb7")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_dsrch"]
+script = ExtResource("7_klifs")
+text = "*but i deserve it."
+text_speed = 10.0
+text_sound = ExtResource("8_xhbb7")
+text_volume_pitch_min = 0.65
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xakgp"]
 atlas = ExtResource("9_dimb2")
@@ -153,6 +171,14 @@ only_activate_once = true
 dialogue = Array[ExtResource("6_dsrch")]([SubResource("Resource_p0vn8")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea2"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_67n0g")
+
+[node name="DialogueArea3" parent="." instance=ExtResource("5_nrqc5")]
+position = Vector2(24, 9)
+dialogue = Array[ExtResource("6_dsrch")]([SubResource("Resource_nrqc5"), SubResource("Resource_dsrch")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea3"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_67n0g")
 

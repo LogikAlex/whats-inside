@@ -134,6 +134,7 @@ zoom = Vector2(-1, -1)
 z_index = -1
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAACAAEAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAMAAAAAAAAAAAAAAP//AAADAAEAAAABAP//AAADAAEAAAACAP//AAADAAEAAAADAP//AAAFAAEAAAAGAP//AAAFAAMAAAAHAP//AAAEAAEAAAAHAAAAAAAEAAIAAAAHAAEAAAAEAAIAAAAHAAIAAAAEAAIAAAAHAAMAAAAEAAIAAAD/////AAACAAEAAAD//wAAAAACAAIAAAD//wEAAAACAAIAAAD//wIAAAACAAIAAAD//wMAAAACAAIAAAD//wQAAAACAAQAAAAAAAQAAAADAAQAAAADAAQAAAABAAQAAAAEAAQAAAADAAQAAAAFAAQAAAADAAQAAAAGAAQAAAADAAQAAAAHAAQAAAAEAAQAAAAAAP7/AAADAAAAAAABAP7/AAADAAAAAAACAP7/AAADAAAAAAADAP7/AAAFAAAAAAAGAP7/AAAFAAIAAAAHAP7/AAAEAAAAAAD///7/AAACAAAAAAAEAP//AAAGAAIAAAAFAP//AAAGAAIAAAACAAQAAAAGAAMAAAABAAQAAAAAAAQAAAA=")
 tile_set = SubResource("TileSet_wg0q6")
+metadata/_edit_lock_ = true
 
 [node name="thedark" type="PointLight2D" parent="."]
 z_index = -2
@@ -144,6 +145,7 @@ energy = 0.0
 blend_mode = 2
 shadow_enabled = true
 texture = ExtResource("2_uqvd1")
+metadata/_edit_lock_ = true
 
 [node name="thedark2" type="PointLight2D" parent="."]
 z_index = -2
@@ -154,21 +156,26 @@ energy = 0.0
 blend_mode = 2
 shadow_enabled = true
 texture = ExtResource("2_uqvd1")
+metadata/_edit_lock_ = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_yaepu")
+metadata/_edit_lock_ = true
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
 position = Vector2(61, 0)
 occluder = SubResource("OccluderPolygon2D_yaepu")
+metadata/_edit_lock_ = true
 
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
 position = Vector2(-32, 55)
 occluder = SubResource("OccluderPolygon2D_yaepu")
+metadata/_edit_lock_ = true
 
 [node name="LightOccluder2D4" type="LightOccluder2D" parent="."]
 position = Vector2(13, 55)
 occluder = SubResource("OccluderPolygon2D_yaepu")
+metadata/_edit_lock_ = true
 
 [node name="Stove" parent="." instance=ExtResource("3_60vnw")]
 position = Vector2(36, 8)

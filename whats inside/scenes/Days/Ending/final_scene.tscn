@@ -1,0 +1,96 @@
+[gd_scene load_steps=17 format=3 uid="uid://cwtjlcebml8fn"]
+
+[ext_resource type="Script" uid="uid://8smpwhsl75iq" path="res://scenes/Days/Ending/final_scene.gd" id="1_ecbqi"]
+[ext_resource type="Texture2D" uid="uid://mvgkrnayxjlf" path="res://assets/misc/square.png" id="1_ycqdb"]
+[ext_resource type="Texture2D" uid="uid://cew47gwpc6kji" path="res://assets/misc/box_final.png" id="2_0ck0d"]
+[ext_resource type="Texture2D" uid="uid://bw1jpewv8wcqh" path="res://assets/misc/player_final.png" id="3_ecbqi"]
+[ext_resource type="PackedScene" uid="uid://c8wffxipu48vg" path="res://scenes/player.tscn" id="5_d03gm"]
+[ext_resource type="PackedScene" uid="uid://cne7csaj4qa1k" path="res://scenes/WhiteDialogueArea.tscn" id="6_wuff2"]
+[ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="7_snqgw"]
+[ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="8_1poox"]
+[ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="9_1poox"]
+[ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="10_liuux"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f1ibd"]
+light_mode = 1
+
+[sub_resource type="Resource" id="Resource_liuux"]
+script = ExtResource("8_1poox")
+text = "*this is all i have left."
+text_speed = 10.0
+text_sound = ExtResource("9_1poox")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.8
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_ylg53"]
+script = ExtResource("8_1poox")
+text = "*even if it was my fault..."
+text_speed = 10.0
+text_sound = ExtResource("9_1poox")
+text_volume_pitch_min = 0.8
+text_volume_pitch_max = 0.75
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_1poox"]
+script = ExtResource("8_1poox")
+text = "*i need to let it go."
+text_speed = 10.0
+text_sound = ExtResource("9_1poox")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.8
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_fevaf"]
+script = ExtResource("10_liuux")
+target_path = NodePath("..")
+function_name = "boxDisappear"
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://bj218rqao0syu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_br8pc"]
+size = Vector2(36, 32)
+
+[node name="FinalScene" type="Node2D"]
+script = ExtResource("1_ecbqi")
+
+[node name="WhiteScreen2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="WhiteScreen2"]
+position = Vector2(160.5, 89.99999)
+scale = Vector2(327.00003, 188)
+texture = ExtResource("1_ycqdb")
+
+[node name="WhiteScreen" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_f1ibd")
+position = Vector2(159, 91)
+scale = Vector2(350, 208.49998)
+texture = ExtResource("1_ycqdb")
+metadata/_edit_lock_ = true
+
+[node name="BoxFinal" type="Sprite2D" parent="."]
+position = Vector2(151, 93)
+texture = ExtResource("2_0ck0d")
+
+[node name="PlayerFinal" type="Sprite2D" parent="."]
+position = Vector2(168, 93)
+texture = ExtResource("3_ecbqi")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(160, 90)
+zoom = Vector2(1.5, 1.5)
+
+[node name="Player" parent="." instance=ExtResource("5_d03gm")]
+position = Vector2(-64, 27)
+speed = 50.0
+
+[node name="DialogueAreaWhite" parent="." instance=ExtResource("6_wuff2")]
+position = Vector2(-64, 28)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("7_snqgw")]([SubResource("Resource_liuux"), SubResource("Resource_ylg53"), SubResource("Resource_1poox"), SubResource("Resource_fevaf")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueAreaWhite"]
+shape = SubResource("RectangleShape2D_br8pc")
+disabled = true

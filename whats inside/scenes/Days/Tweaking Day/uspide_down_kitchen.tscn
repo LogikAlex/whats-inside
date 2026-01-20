@@ -127,17 +127,14 @@ size = Vector2(40, 7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60vnw"]
 size = Vector2(40, 12)
 
-[sub_resource type="Resource" id="Resource_fyo12"]
+[sub_resource type="Resource" id="Resource_hjuqw"]
 script = ExtResource("19_mq2pn")
 text = "*i hate this..."
 text_speed = 12.0
 text_sound = ExtResource("20_lo78r")
-text_volume_pitch_min = 0.75
-text_volume_pitch_max = 0.7
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.75
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wk3a3"]
-size = Vector2(49, 4)
 
 [sub_resource type="Resource" id="Resource_gil7u"]
 script = ExtResource("19_mq2pn")
@@ -147,6 +144,9 @@ text_sound = ExtResource("20_lo78r")
 text_volume_pitch_min = 0.7
 text_volume_pitch_max = 0.65
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wk3a3"]
+size = Vector2(49, 4)
 
 [node name="UspideDownKitchen" type="Node2D"]
 y_sort_enabled = true
@@ -289,21 +289,11 @@ position = Vector2(81, -6)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_60vnw")
 
-[node name="triggerDialogue" parent="." instance=ExtResource("17_gil7u")]
-position = Vector2(88, 8)
-activate_instant = true
-only_activate_once = true
-dialogue = Array[ExtResource("18_hjuqw")]([SubResource("Resource_fyo12")])
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="triggerDialogue"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_wk3a3")
-
 [node name="triggerDialogue2" parent="." instance=ExtResource("17_gil7u")]
 position = Vector2(35, 40)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("18_hjuqw")]([SubResource("Resource_gil7u")])
+dialogue = Array[ExtResource("18_hjuqw")]([SubResource("Resource_hjuqw"), SubResource("Resource_gil7u")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="triggerDialogue2"]
 position = Vector2(-0.5, 0)

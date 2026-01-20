@@ -100,16 +100,18 @@ func mouseSelection():
 				get_tree().quit()
 
 func start():
+	current_selection = selection.started
 	cam_shake()
 	startSound.play()
-	current_selection = selection.started
 	selectionArrowStart.canPulse = false
+	selectionArrowExit.canPulse = false
 	startArea.disabled = true
 	exitArea.disabled = true
 	
 	var tween = create_tween()
 	tween.set_parallel()
 	tween.tween_property(selectionArrowStart, "modulate:a", 0, 0.2)
+	tween.tween_property(selectionArrowExit, "modulate:a", 0, 0.2)
 	tween.tween_property(selectionText, "modulate:a", 0, 1)
 	tween.tween_property(titleScreen, "position", Vector2(159.28, 84.8), 4).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_delay(1)
 	tween.tween_property(titleScreenBox, "position", Vector2(266.28, 89.8), 4).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_delay(1)
@@ -150,11 +152,13 @@ func handleSelection():
 				selectSound.play()
 				current_selection = selection.start
 
+
 func cam_shake():
 	var shake_tween = create_tween()
 	shake_tween.tween_property(camera, "offset", Vector2(2, 0), 0.09)
 	shake_tween.tween_property(camera, "offset", Vector2(-2, 0), 0.09)
 	shake_tween.tween_property(camera, "offset", Vector2(0, 0), 0.09)
+
 
 func _on_selection_area_start_mouse_entered() -> void:
 	if current_selection != selection.start:
@@ -162,17 +166,19 @@ func _on_selection_area_start_mouse_entered() -> void:
 	current_selection = selection.start
 	canClick = true
 
+
 func _on_selection_area_start_mouse_exited() -> void:
 	current_selection = selection.start
 	canClick = false
 
 
 func _on_selection_area_exit_mouse_entered() -> void:
-	if current_selection != selection.exit:
-		selectSound.play()
-	current_selection = selection.exit
-	canClick = true
-	
+	if current_selection != selection.started:
+		if current_selection != selection.exit:
+			selectSound.play()
+		current_selection = selection.exit
+		canClick = true
+
 
 func _on_selection_area_exit_mouse_exited() -> void:
 	current_selection = selection.exit

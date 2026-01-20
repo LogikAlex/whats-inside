@@ -32,8 +32,8 @@ light_mode = 1
 
 [sub_resource type="Resource" id="Resource_p0vn8"]
 script = ExtResource("7_klifs")
-text = "*it was me. it was me. it was me. it was me. it was me. it was me. it was me. it was me. it was me. it was me."
-text_speed = 20.0
+text = "*just another thing i ruined."
+text_speed = 12.0
 text_sound = ExtResource("8_xhbb7")
 text_volume_db = 4
 text_volume_pitch_min = 0.5
@@ -45,8 +45,8 @@ size = Vector2(15, 9)
 
 [sub_resource type="Resource" id="Resource_nrqc5"]
 script = ExtResource("7_klifs")
-text = "*just another thing i ruined."
-text_speed = 12.0
+text = "*it was me. it was me. it was me. it was me. it was me. it was me. it was me. it was me. it was me. it was me."
+text_speed = 18.0
 text_sound = ExtResource("8_xhbb7")
 text_volume_pitch_min = 0.75
 text_volume_pitch_max = 0.7

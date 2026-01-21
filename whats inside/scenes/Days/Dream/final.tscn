@@ -161,7 +161,7 @@ size = Vector2(7, 6)
 
 [sub_resource type="Resource" id="Resource_rj6lp"]
 script = ExtResource("18_73kat")
-text = "*i can't do it."
+text = "*maybe it was me."
 text_speed = 10.0
 text_sound = ExtResource("19_h6g4d")
 text_volume_pitch_min = 0.7

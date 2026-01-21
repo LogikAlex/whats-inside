@@ -48,7 +48,7 @@ polygon = PackedVector2Array(122, 14, 101, 6, 122, 16, 122, 26, 100, 35, 122, 28
 
 [sub_resource type="Resource" id="Resource_0vuf1"]
 script = ExtResource("13_85ve3")
-text = "*it'll only hurt more"
+text = "*why does it hurt so much?"
 text_speed = 11.0
 text_sound = ExtResource("14_bfbal")
 text_volume_pitch_min = 0.8

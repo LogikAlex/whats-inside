@@ -57,6 +57,7 @@ func _process(_delta: float) -> void:
 		player.visible = true
 		player.can_move = true
 		fadeOutInteract()
+		MainSong.stop()
 		MainSong.isPlaying = true
 		MainSong.volume_db = -3.0
 		MainSong.pitch_scale = 0.93

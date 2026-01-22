@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://c6ce621q80cx1"]
+[gd_scene load_steps=54 format=3 uid="uid://c6ce621q80cx1"]
 
 [ext_resource type="Texture2D" uid="uid://ch4t7k3k7qj8o" path="res://assets/misc/the_box_final_terrain.png" id="1_1rg6u"]
 [ext_resource type="Script" uid="uid://bsh8djds0uero" path="res://scripts/final.gd" id="1_ff6jt"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://c4pyw280okyai" path="res://scenes/Objects/tv.tscn" id="11_p32am"]
 [ext_resource type="PackedScene" uid="uid://dqpa3y3lkm1o8" path="res://scenes/Objects/closet.tscn" id="12_p32am"]
 [ext_resource type="PackedScene" uid="uid://ts45enmkbyvs" path="res://scenes/Objects/coatHanger.tscn" id="13_pcwi0"]
-[ext_resource type="PackedScene" uid="uid://cbsr1cdpporx" path="res://scenes/Objects/lamp.tscn" id="14_401yo"]
 [ext_resource type="PackedScene" uid="uid://djui70epgv66" path="res://scenes/Objects/plant.tscn" id="15_7ih5e"]
 [ext_resource type="PackedScene" uid="uid://d24rahutnton5" path="res://scenes/DialogueArea.tscn" id="16_m6cpu"]
 [ext_resource type="Script" uid="uid://divt8ny53jpna" path="res://scripts/DialogueExportResource.gd" id="17_h6g4d"]
@@ -22,7 +21,9 @@
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="19_h6g4d"]
 [ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="21_qtq6v"]
 [ext_resource type="PackedScene" uid="uid://cne7csaj4qa1k" path="res://scenes/WhiteDialogueArea.tscn" id="22_fvxd5"]
+[ext_resource type="Texture2D" uid="uid://32ls3khnu3a1" path="res://assets/objects/mug.png" id="23_1jjke"]
 [ext_resource type="AudioStream" uid="uid://cc5menqok8osf" path="res://assets/sfx/suspense.mp3" id="23_8t2ga"]
+[ext_resource type="Texture2D" uid="uid://cwr7458fpren5" path="res://assets/objects/spilled_coffee.png" id="24_5tm4e"]
 
 [sub_resource type="Gradient" id="Gradient_7vca8"]
 offsets = PackedFloat32Array(0, 0.7310606)
@@ -94,7 +95,7 @@ size = Vector2(17, 10)
 
 [sub_resource type="Resource" id="Resource_h6g4d"]
 script = ExtResource("18_73kat")
-text = "*it's the couch"
+text = "*heh, it's the couch"
 text_speed = 10.0
 text_sound = ExtResource("19_h6g4d")
 text_volume_pitch_min = 0.7
@@ -103,6 +104,18 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h6g4d"]
 size = Vector2(13, 19)
+
+[sub_resource type="Resource" id="Resource_ikria"]
+script = ExtResource("18_73kat")
+text = "*we had to save for months to afford this tv"
+text_speed = 10.0
+text_sound = ExtResource("19_h6g4d")
+text_volume_pitch_min = 0.7
+text_volume_pitch_max = 0.68
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a17dg"]
+size = Vector2(9, 20)
 
 [sub_resource type="Resource" id="Resource_73kat"]
 script = ExtResource("18_73kat")
@@ -115,7 +128,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_fvxd5"]
 script = ExtResource("18_73kat")
-text = "*\"open it\""
+text = "*\"was it you?\""
 text_speed = 10.0
 text_sound = ExtResource("19_h6g4d")
 text_volume_pitch_min = 0.7
@@ -127,7 +140,7 @@ size = Vector2(14, 8)
 
 [sub_resource type="Resource" id="Resource_8t2ga"]
 script = ExtResource("18_73kat")
-text = "*i don't want to throw it away"
+text = "*i couldn't bring myself to get rid of it"
 text_speed = 10.0
 text_sound = ExtResource("19_h6g4d")
 text_volume_pitch_min = 0.7
@@ -139,7 +152,7 @@ size = Vector2(9, 6)
 
 [sub_resource type="Resource" id="Resource_1jjke"]
 script = ExtResource("18_73kat")
-text = "*it's just the lamp"
+text = "*this was my fault."
 text_speed = 10.0
 text_sound = ExtResource("19_h6g4d")
 text_volume_pitch_min = 0.7
@@ -147,7 +160,7 @@ text_volume_pitch_max = 0.68
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jjke"]
-size = Vector2(7, 5)
+size = Vector2(13, 13)
 
 [sub_resource type="Resource" id="Resource_5tm4e"]
 script = ExtResource("21_qtq6v")
@@ -195,6 +208,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="FinalTerrain" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(217, 98)
 texture = ExtResource("1_1rg6u")
 
@@ -307,10 +321,6 @@ position = Vector2(33, 84)
 z_index = 1
 position = Vector2(246, 131)
 
-[node name="Lamp" parent="." instance=ExtResource("14_401yo")]
-z_index = 1
-position = Vector2(270, 88)
-
 [node name="Plant" parent="." instance=ExtResource("15_7ih5e")]
 z_index = 1
 position = Vector2(102, 90)
@@ -333,6 +343,15 @@ dialogue = Array[ExtResource("17_h6g4d")]([SubResource("Resource_h6g4d")])
 position = Vector2(-1.5, 1.5)
 shape = SubResource("RectangleShape2D_h6g4d")
 
+[node name="tvDialogue" parent="." instance=ExtResource("16_m6cpu")]
+z_index = 1
+position = Vector2(163, 108)
+dialogue = Array[ExtResource("17_h6g4d")]([SubResource("Resource_ikria")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tvDialogue"]
+position = Vector2(-1.5, 1.5)
+shape = SubResource("RectangleShape2D_a17dg")
+
 [node name="fridgeDialogue" parent="." instance=ExtResource("16_m6cpu")]
 z_index = 1
 position = Vector2(204, 85)
@@ -351,13 +370,13 @@ dialogue = Array[ExtResource("17_h6g4d")]([SubResource("Resource_8t2ga")])
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_qtq6v")
 
-[node name="lightDialogue" parent="." instance=ExtResource("16_m6cpu")]
+[node name="coffeeDialogue" parent="." instance=ExtResource("16_m6cpu")]
 z_index = 1
 position = Vector2(270, 88)
 dialogue = Array[ExtResource("17_h6g4d")]([SubResource("Resource_1jjke")])
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="lightDialogue"]
-position = Vector2(-0.5, -0.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coffeeDialogue"]
+position = Vector2(-2.5, 1.5)
 shape = SubResource("RectangleShape2D_1jjke")
 
 [node name="boxInteract" parent="." instance=ExtResource("16_m6cpu")]
@@ -382,6 +401,19 @@ disabled = true
 [node name="suspenseSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_8t2ga")
 volume_db = 5.0
+
+[node name="Mug" type="Sprite2D" parent="."]
+position = Vector2(272, 88)
+rotation = -1.5707964
+texture = ExtResource("23_1jjke")
+hframes = 2
+frame = 1
+
+[node name="SpilledCoffee" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.5686275)
+z_index = -1
+position = Vector2(266, 92)
+texture = ExtResource("24_5tm4e")
 
 [connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]
 [connection signal="timeout" from="BoxTimer" to="." method="_on_box_timer_timeout"]

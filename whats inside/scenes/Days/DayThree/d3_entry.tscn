@@ -50,7 +50,7 @@ alpha_curve = ExtResource("7_x86gy")
 
 [sub_resource type="Resource" id="Resource_1oe1r"]
 script = ExtResource("12_b6fph")
-text = "*i can't throw it away"
+text = "*i loved this jacket."
 text_speed = 12.0
 text_sound = ExtResource("13_iqg1v")
 text_volume_pitch_min = 0.75

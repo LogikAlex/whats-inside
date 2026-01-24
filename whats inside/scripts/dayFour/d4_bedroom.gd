@@ -74,4 +74,6 @@ func whiteFlash():
 
 func fadeOutInteract():
 	var fadeOut = create_tween()
+	interactIndicator.isUpdating = false
+	interactIndicator.frame = 0
 	fadeOut.tween_property(interactIndicator, "modulate:a", 0, 1)

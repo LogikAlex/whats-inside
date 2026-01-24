@@ -214,6 +214,7 @@ dialogue = Array[ExtResource("11_d1tvp")]([SubResource("Resource_yn2vh")])
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hanger_dialog"]
 position = Vector2(-0.5, -3)
 shape = SubResource("RectangleShape2D_d1tvp")
+disabled = true
 
 [node name="door_dialog" parent="." instance=ExtResource("10_yn2vh")]
 position = Vector2(24, -5)
@@ -221,3 +222,4 @@ dialogue = Array[ExtResource("11_d1tvp")]([SubResource("Resource_d1tvp")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door_dialog"]
 shape = SubResource("RectangleShape2D_1ugul")
+disabled = true

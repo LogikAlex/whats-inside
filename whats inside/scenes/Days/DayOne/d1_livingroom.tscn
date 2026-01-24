@@ -257,6 +257,7 @@ script = ExtResource("1_625l6")
 
 [node name="tv_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_njhrv")
+volume_db = 2.298
 parameters/looping = true
 
 [node name="CouchTimer" type="Timer" parent="."]

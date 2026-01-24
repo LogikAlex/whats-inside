@@ -14,7 +14,8 @@ extends Node2D
 @onready var ambience: CanvasModulate = $ambience
 @onready var tvLight: PointLight2D = $tvLight
 @onready var tvTrigger: CollisionShape2D = $tv_watch/trigger_watch_tv
-
+@onready var tvSound: AudioStreamPlayer2D = $tvSound
+@onready var dramaticSound: AudioStreamPlayer2D = $dramaticSound
 
 #Other objects
 @onready var pictureDialoguePreFall = $picture_dialog_prefall/CollisionShape2D
@@ -60,6 +61,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("interact"):
 		if canStand:
+			tvSound.stop()
 			canStand = false
 			player.visible = true
 			player.can_move = true
@@ -82,8 +84,12 @@ func _on_sit_on_couch_timer_timeout() -> void:
 	wait.tween_property(watchingTvDialogue, "disabled", false, 0).set_delay(2)
 
 func fadeToDark():
+	tvSound.volume_db = -80
 	var watch = create_tween()
 	watch.set_parallel()
+	watch.tween_property(tvSound, "playing", true, 0)
+	watch.tween_property(tvSound, "volume_db", 4.5, 0).set_delay(4)
+	watch.tween_property(dramaticSound, "playing", true, 0).set_delay(4)
 	watch.tween_property(tvLight, "enabled", true, 0).set_delay(4)
 	watch.tween_property(ambience, "color", Color8(45, 51, 76), 0).set_delay(4)
 	watch.tween_property(NightSong, "isPlaying", true, 0).set_delay(4)
@@ -97,6 +103,8 @@ func fadeToDark():
 
 func fadeOutInteract():
 	var fadeOut = create_tween()
+	interactIndicator.frame = 0
+	interactIndicator.isUpdating = false
 	fadeOut.tween_property(interactIndicator, "modulate:a", 0, 1)
 
 func checkPic():

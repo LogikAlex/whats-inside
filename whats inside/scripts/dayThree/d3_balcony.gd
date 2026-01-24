@@ -14,6 +14,7 @@ func _ready() -> void:
 		nightDialogue.disabled = false
 		ambience.color = Color8(45, 51, 76)
 		nightSound.play()
+		NightSong.isPlaying = false
 		sun.enabled = false
 		light.visible = false
 	else:

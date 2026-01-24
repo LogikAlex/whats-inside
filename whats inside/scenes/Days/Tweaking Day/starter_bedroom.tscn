@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://6ikiefbfo276"]
+[gd_scene load_steps=29 format=4 uid="uid://6ikiefbfo276"]
 
 [ext_resource type="Texture2D" uid="uid://mvgkrnayxjlf" path="res://assets/misc/square.png" id="1_x7cxd"]
 [ext_resource type="Script" uid="uid://bcge2c21c1gn2" path="res://scripts/tweakingDay/starter_bedroom.gd" id="1_ywlcp"]
@@ -12,6 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://dkcfj3mhkcom4" path="res://assets/Spritesheets/player_idle_right.png" id="9_ywlcp"]
 [ext_resource type="PackedScene" uid="uid://dx8tl06100qlm" path="res://scenes/interact_indicator.tscn" id="11_8vob7"]
 [ext_resource type="Texture2D" uid="uid://qhcs6stv71ts" path="res://assets/objects/carpet.png" id="12_sycq6"]
+[ext_resource type="PackedScene" uid="uid://lyewe0q5cjnt" path="res://scenes/Objects/bed.tscn" id="13_itru7"]
+[ext_resource type="PackedScene" uid="uid://c014t28xfb40m" path="res://scenes/Objects/radiator.tscn" id="14_4dpcw"]
+[ext_resource type="PackedScene" uid="uid://i08cixlwo7qb" path="res://scenes/Objects/bedsideCabinet.tscn" id="15_3stk4"]
+[ext_resource type="PackedScene" uid="uid://bc38krii08k1g" path="res://scenes/Objects/closet_d4.tscn" id="16_tx8ye"]
+[ext_resource type="Texture2D" uid="uid://b82wipn7s8aq5" path="res://assets/objects/bedroom_table.png" id="17_osvx4"]
+[ext_resource type="Texture2D" uid="uid://jdo75bmqq2qp" path="res://assets/objects/bedroom_chair.png" id="18_ruw7k"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ud2e0"]
 polygon = PackedVector2Array(80, 16, 86, 16, 86, -21, -6, -21, -6, 54, 32, 54, 32, 48, 0, 48, 0, 0, 80, 0)
@@ -53,6 +59,12 @@ alpha_curve = ExtResource("7_qrixc")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tx8ye"]
 size = Vector2(20, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oou0q"]
+size = Vector2(20, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kic07"]
+size = Vector2(8, 10)
+
 [node name="StarterBedroom" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ywlcp")
@@ -76,10 +88,10 @@ speed = 42.0
 position = Vector2(42, 19)
 
 [node name="Couch" parent="." instance=ExtResource("8_4e1sp")]
-position = Vector2(40, 15)
+position = Vector2(40, 18.549997)
 
 [node name="Player_on_couch" type="Sprite2D" parent="."]
-position = Vector2(42, 16)
+position = Vector2(42, 19.549997)
 texture = ExtResource("9_ywlcp")
 hframes = 2
 frame = 1
@@ -136,9 +148,44 @@ shape = SubResource("RectangleShape2D_tx8ye")
 
 [node name="InteractIndicator" parent="." instance=ExtResource("11_8vob7")]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(42, 3.0000029)
+z_index = 1
+position = Vector2(42, 6.549999)
 
 [node name="Carpet" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(40, 25)
+position = Vector2(40, 28.549997)
 texture = ExtResource("12_sycq6")
+
+[node name="bed" parent="." instance=ExtResource("13_itru7")]
+position = Vector2(8, -2)
+
+[node name="Radiator" parent="." instance=ExtResource("14_4dpcw")]
+position = Vector2(2, 27)
+
+[node name="bedsideCabinet" parent="." instance=ExtResource("15_3stk4")]
+position = Vector2(23, 1)
+
+[node name="closet" parent="." instance=ExtResource("16_tx8ye")]
+position = Vector2(71, -3)
+
+[node name="BedroomTable" type="Sprite2D" parent="."]
+position = Vector2(45, 1)
+texture = ExtResource("17_osvx4")
+
+[node name="BedroomChair" type="Sprite2D" parent="."]
+position = Vector2(45, 7)
+texture = ExtResource("18_ruw7k")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(45, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_oou0q")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(45, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_kic07")

@@ -48,8 +48,8 @@ size = Vector2(52, 3)
 
 [sub_resource type="Resource" id="Resource_rcx2i"]
 script = ExtResource("5_wt758")
-text = "*should i turn back?"
-text_speed = 8.0
+text = "*maybe i could go back?"
+text_speed = 12.0
 text_sound = ExtResource("6_rtk4a")
 text_volume_pitch_min = 0.7
 text_volume_pitch_max = 0.65
@@ -182,7 +182,7 @@ tile_set = ExtResource("1_jrgqd")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_sh1y7")]
-position = Vector2(24, 8)
+position = Vector2(24, 9)
 speed = 50.0
 
 [node name="playerLight" type="PointLight2D" parent="Player"]
@@ -213,7 +213,7 @@ dialogue = Array[ExtResource("4_rtk4a")]([SubResource("Resource_rtk4a"), SubReso
 shape = SubResource("RectangleShape2D_wh80d")
 
 [node name="dialogueTrigger2" parent="." instance=ExtResource("3_wt758")]
-position = Vector2(24, 180)
+position = Vector2(24, 191)
 activate_instant = true
 only_activate_once = true
 dialogue = Array[ExtResource("4_rtk4a")]([SubResource("Resource_rcx2i")])

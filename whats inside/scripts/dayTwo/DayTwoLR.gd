@@ -39,6 +39,7 @@ func _fade_to_dark():
 	tween.tween_property(NightSong, "isPlaying", true, 0).set_delay(10.5)
 	tween.tween_property(NightSong, "volume_db", 6.5, 14).set_delay(8)
 	tween.tween_property(tv_light, "enabled", true, 0).set_delay(4.5)
+	tween.tween_property($tv_sound, "playing", true, 0).set_delay(4.5)
 	tween.tween_property(ambience, "color", Color8(45, 51, 76), 15).set_delay(9)
 	tween.tween_callback(
 	func enable_the_big_d():
@@ -76,6 +77,7 @@ func _on_end_couch_timer_timeout() -> void:
 	tv_light.enabled = false
 	player.visible = true
 	player.can_move = true
+	$tv_sound.stop()
 
 func _on_couch_dialogue_timeout() -> void:
 	watch_tv_dialogue.disabled = false

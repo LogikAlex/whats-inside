@@ -36,6 +36,7 @@ func _ready() -> void:
 		sleepFunc.disabled = false
 		sleepDialog.disabled = false
 		bedDialog.disabled = true
+		NightSong.isPlaying = true
 	else:
 		ambience.color = Color8(184, 185, 209)
 		balconyLight.enabled = true
@@ -129,6 +130,8 @@ func fadeInWhite():
 
 func fadeOutInteract():
 	var fadeOut = create_tween()
+	spaceIndicator.frame = 0
+	spaceIndicator.isUpdating = false
 	fadeOut.tween_property(spaceIndicator, "modulate:a", 0, 1)
 
 func zoomOut():

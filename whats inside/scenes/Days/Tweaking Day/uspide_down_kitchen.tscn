@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://c41dwdt8qlhpl"]
+[gd_scene load_steps=34 format=4 uid="uid://c41dwdt8qlhpl"]
 
 [ext_resource type="Texture2D" uid="uid://dsvpekb435jkq" path="res://assets/tilesets/kitchen_tiles.png" id="1_o6jpr"]
 [ext_resource type="Texture2D" uid="uid://bm0b03u6il0ke" path="res://assets/misc/spotlight.png" id="2_uqvd1"]
@@ -129,20 +129,11 @@ size = Vector2(40, 12)
 
 [sub_resource type="Resource" id="Resource_hjuqw"]
 script = ExtResource("19_mq2pn")
-text = "*i hate this..."
+text = "*where am i going?"
 text_speed = 12.0
 text_sound = ExtResource("20_lo78r")
 text_volume_pitch_min = 0.7
 text_volume_pitch_max = 0.75
-metadata/_custom_type_script = "uid://c7hf8sppb4268"
-
-[sub_resource type="Resource" id="Resource_gil7u"]
-script = ExtResource("19_mq2pn")
-text = "*but i deserve all of it."
-text_speed = 10.0
-text_sound = ExtResource("20_lo78r")
-text_volume_pitch_min = 0.7
-text_volume_pitch_max = 0.65
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wk3a3"]
@@ -277,8 +268,8 @@ texture = SubResource("GradientTexture2D_60vnw")
 
 [node name="toNext" parent="." instance=ExtResource("16_60vnw")]
 position = Vector2(32, 71)
-wanted_room_path = "res://scenes/Days/Tweaking Day/hanger_room.tscn"
-wanted_player_pos = Vector2(24, 5)
+wanted_room_path = "res://scenes/Days/Tweaking Day/sideways_entry.tscn"
+wanted_player_pos = Vector2(72, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toNext"]
 shape = SubResource("RectangleShape2D_jmvi2")
@@ -293,7 +284,7 @@ shape = SubResource("RectangleShape2D_60vnw")
 position = Vector2(35, 40)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("18_hjuqw")]([SubResource("Resource_hjuqw"), SubResource("Resource_gil7u")])
+dialogue = Array[ExtResource("18_hjuqw")]([SubResource("Resource_hjuqw")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="triggerDialogue2"]
 position = Vector2(-0.5, 0)

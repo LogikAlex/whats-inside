@@ -161,6 +161,8 @@ func reset_tween():
 	tween = create_tween()
 
 func cam_shift():
+	interactIndicator.isUpdating = false
+	interactIndicator.frame = 0
 	reset_tween()
 	tween.set_parallel()
 	tween.set_ease(Tween.EASE_IN_OUT)

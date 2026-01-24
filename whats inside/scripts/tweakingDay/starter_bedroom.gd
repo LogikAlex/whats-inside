@@ -9,7 +9,7 @@ var canGetUp = false
 
 func _ready() -> void:
 	player.can_move = false
-	player.position = Vector2(57, 24)
+	player.position = Vector2(57, 28)
 	indicatorAppear()
 
 func _process(_delta: float) -> void:
@@ -29,6 +29,8 @@ func indicatorAppear():
 
 func indicatorDisappear():
 	var disappear = create_tween()
+	interactIndicator.isUpdating = false
+	interactIndicator.frame = 0
 	disappear.tween_property(interactIndicator, "modulate:a", 0, 1)
 
 func getUp():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://cfouj58y3frym"]
+[gd_scene load_steps=45 format=4 uid="uid://cfouj58y3frym"]
 
 [ext_resource type="TileSet" uid="uid://dyf0c38hkcw8q" path="res://apt_tiles.tres" id="1_f6swm"]
 [ext_resource type="Script" uid="uid://d4hffu667kf5p" path="res://scripts/dayFour/d4_livingroom.gd" id="1_qop75"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" uid="uid://c7hf8sppb4268" path="res://scripts/DialogueTextResource.gd" id="26_s86u8"]
 [ext_resource type="AudioStream" uid="uid://dy3b7ol61unl7" path="res://assets/sfx/ian_voice.wav" id="27_8glna"]
 [ext_resource type="Script" uid="uid://bj218rqao0syu" path="res://scripts/DialogueFunctionResource.gd" id="29_s86u8"]
+[ext_resource type="AudioStream" uid="uid://cu0o2emdybhpl" path="res://assets/sfx/tv_sound.mp3" id="31_808va"]
 
 [sub_resource type="Gradient" id="Gradient_yw21r"]
 offsets = PackedFloat32Array(0, 0.7310606)
@@ -71,9 +72,9 @@ size = Vector2(20, 7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7kmsl"]
 size = Vector2(36, 8)
 
-[sub_resource type="Resource" id="Resource_bev3e"]
+[sub_resource type="Resource" id="Resource_808va"]
 script = ExtResource("26_s86u8")
-text = "*was it a mistake?"
+text = "*i stopped counting the days."
 text_speed = 10.0
 text_sound = ExtResource("27_8glna")
 text_volume_pitch_min = 0.75
@@ -300,7 +301,7 @@ texture = SubResource("GradientTexture2D_q0npr")
 position = Vector2(24, -3)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("25_qop75")]([SubResource("Resource_bev3e"), SubResource("Resource_8glna")])
+dialogue = Array[ExtResource("25_qop75")]([SubResource("Resource_808va"), SubResource("Resource_8glna")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blameDialog"]
 position = Vector2(-1.5, 5.5)
@@ -316,3 +317,9 @@ dialogue = Array[ExtResource("25_qop75")]([SubResource("Resource_xgyw7")])
 position = Vector2(-1, -0.5)
 shape = SubResource("RectangleShape2D_s86u8")
 disabled = true
+
+[node name="tv_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("31_808va")
+volume_db = 1.592
+pitch_scale = 0.92
+parameters/looping = true

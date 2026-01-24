@@ -98,7 +98,7 @@ fill_from = Vector2(0.5, 0.4871795)
 
 [sub_resource type="Resource" id="Resource_8vf8s"]
 script = ExtResource("14_35lp7")
-text = "*i look tired"
+text = "*it's me!"
 text_speed = 12.0
 text_sound = ExtResource("15_nbs3h")
 text_volume_pitch_min = 0.7

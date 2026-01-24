@@ -4,5 +4,6 @@ extends Node2D
 
 func play_music():
 	NightSong.stop()
+	NightSong.isPlaying = false
 	TweakingSong.play()
 	player.can_move = true

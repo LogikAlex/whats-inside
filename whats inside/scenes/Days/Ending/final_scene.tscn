@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cwtjlcebml8fn"]
+[gd_scene load_steps=23 format=3 uid="uid://cwtjlcebml8fn"]
 
 [ext_resource type="Script" uid="uid://8smpwhsl75iq" path="res://scenes/Days/Ending/final_scene.gd" id="1_ecbqi"]
 [ext_resource type="Texture2D" uid="uid://mvgkrnayxjlf" path="res://assets/misc/square.png" id="1_ycqdb"]
@@ -17,7 +17,7 @@ light_mode = 1
 
 [sub_resource type="Resource" id="Resource_liuux"]
 script = ExtResource("8_1poox")
-text = "*why do i still have this?"
+text = "*i can't run from you, can i?"
 text_speed = 10.0
 text_sound = ExtResource("9_1poox")
 text_volume_pitch_min = 0.75
@@ -26,7 +26,7 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_ylg53"]
 script = ExtResource("8_1poox")
-text = "*even if it was my fault..."
+text = "*i know that now."
 text_speed = 10.0
 text_sound = ExtResource("9_1poox")
 text_volume_pitch_min = 0.8
@@ -35,11 +35,25 @@ metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_1poox"]
 script = ExtResource("8_1poox")
-text = "*punishing myself won't change a thing"
+text = "*it felt like everything stopped,"
 text_speed = 10.0
 text_sound = ExtResource("9_1poox")
 text_volume_pitch_min = 0.75
 text_volume_pitch_max = 0.8
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_bu153"]
+script = ExtResource("8_1poox")
+text = "*but time didn't."
+text_speed = 10.0
+text_sound = ExtResource("9_1poox")
+text_volume_pitch_min = 0.8
+text_volume_pitch_max = 0.75
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_kowp0"]
+script = ExtResource("8_1poox")
+text = "hhhh"
 metadata/_custom_type_script = "uid://c7hf8sppb4268"
 
 [sub_resource type="Resource" id="Resource_fevaf"]
@@ -53,7 +67,7 @@ size = Vector2(36, 32)
 
 [sub_resource type="Resource" id="Resource_0qj7v"]
 script = ExtResource("8_1poox")
-text = "*maybe i want to live."
+text = "*so maybe i want to live."
 text_speed = 10.0
 text_sound = ExtResource("9_1poox")
 text_volume_pitch_min = 0.75
@@ -110,7 +124,7 @@ stream = ExtResource("11_fevaf")
 position = Vector2(-64, 28)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("7_snqgw")]([SubResource("Resource_liuux"), SubResource("Resource_ylg53"), SubResource("Resource_1poox"), SubResource("Resource_fevaf")])
+dialogue = Array[ExtResource("7_snqgw")]([SubResource("Resource_liuux"), SubResource("Resource_ylg53"), SubResource("Resource_1poox"), SubResource("Resource_bu153"), SubResource("Resource_kowp0"), SubResource("Resource_fevaf")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueAreaWhite"]
 shape = SubResource("RectangleShape2D_br8pc")

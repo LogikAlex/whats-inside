@@ -159,6 +159,8 @@ func startMusic():
 
 func standUp():
 	wakeUpDial.disabled = false
+	interactIndicator.isUpdating = false
+	interactIndicator.frame = 0
 	var intTween = create_tween()
 	intTween.tween_property(interactIndicator, "modulate:a", 0, 0.5)
 	z_head_tween.kill()

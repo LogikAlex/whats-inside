@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://040iln4r6icu"]
+[gd_scene load_steps=39 format=4 uid="uid://040iln4r6icu"]
 
 [ext_resource type="Texture2D" uid="uid://mvgkrnayxjlf" path="res://assets/misc/square.png" id="1_injro"]
 [ext_resource type="Script" uid="uid://bg8wn553memmb" path="res://scripts/dayFour/d4_bedroom.gd" id="1_smwkx"]
@@ -26,7 +26,16 @@
 
 [sub_resource type="Resource" id="Resource_kfirv"]
 script = ExtResource("6_ivwm8")
-text = "*it was my fault."
+text = "*it was me."
+text_speed = 10.0
+text_sound = ExtResource("7_tu4vo")
+text_volume_pitch_min = 0.75
+text_volume_pitch_max = 0.7
+metadata/_custom_type_script = "uid://c7hf8sppb4268"
+
+[sub_resource type="Resource" id="Resource_ivwm8"]
+script = ExtResource("6_ivwm8")
+text = "*i was the problem, wasn't i.."
 text_speed = 10.0
 text_sound = ExtResource("7_tu4vo")
 text_volume_pitch_min = 0.75
@@ -111,7 +120,7 @@ metadata/_edit_lock_ = true
 position = Vector2(57, 40)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("5_iwwf2")]([SubResource("Resource_kfirv"), SubResource("Resource_tu4vo")])
+dialogue = Array[ExtResource("5_iwwf2")]([SubResource("Resource_kfirv"), SubResource("Resource_ivwm8"), SubResource("Resource_tu4vo")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blameDialog"]
 position = Vector2(0, 5.5)
